@@ -38,7 +38,7 @@
     <div
         style="text-align: center;  width: 75vw; margin: auto; margin-bottom: 0vw; overflow-x: auto;"
     >
-        <div>
+        <div style="height: fit-content; padding:10px;">
             <img
                 id="veliGif"
                 src={veligif}
@@ -48,12 +48,15 @@
                     picSize *
                     1.14}vw; margin-left:-2vw;"
             />
-            <div style="color:white; ">More Leaderboards coming soon!</div>
+            <div class = "Header" style="color:white; ">More Leaderboards coming soon!</div>
         </div>
     </div>
 </div>
 
 <style>
+    .Header{
+        font-size: 1.4vw;
+    }
     a {
         text-decoration: none;
         text-shadow: none;
@@ -79,5 +82,8 @@
         p{
             font-size: 18px;
         }
+        .Header{
+        font-size: 14px;
+    }
     }
 </style>

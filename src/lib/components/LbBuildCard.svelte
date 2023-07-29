@@ -13,7 +13,7 @@
     on:click={() => (showBuild = true)}
     style="display: {showBuild ? 'none' : 'block'}"
 >
-    Show Build
+    Show stats
 </button>
 
 <div class="tooglable" style="display: {showBuild ? 'block' : 'none'}">
@@ -30,10 +30,19 @@
     on:click={() => (showBuild = false)}
     style="display: {showBuild ? 'block' : 'none'}"
 >
-    Hide Build
+    Hide stats
 </button>
 
 <style>
+    .tooglable{
+        background-color: rgb(116, 0, 166);
+        width: fit-content;
+        margin: auto;
+        padding: 7px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+        margin-bottom: 5px;
+    }
     .centeringDiv {
         display: flex;
         align-items: center;

@@ -7,7 +7,7 @@
         <img id="bg" src={armadaBg} alt="Your GIF" />
     </div>
 
-    <div id="aboutDiv">
+    <div id="aboutDiv" class="Header">
         <p id="header" style=" margin:10px;">
             {"~ SeeleLand Armadas ~"}
         </p>
@@ -36,7 +36,7 @@
         z-index: 1;
         transform: translate(-50%, -50%);
         border-radius: 26px;
-        color: white;
+        color: #9600d6;
         background-color: rgb(255, 255, 255, 0.8);
 
         box-shadow: 0 0 10px white;
@@ -66,11 +66,10 @@
 
     p {
         font-size: 2.5vw;
-        -webkit-text-stroke: 1px black;
+        -webkit-text-stroke: 0.1px black;
         margin: 0;
         margin-top: 15px;
         margin-bottom: 15px;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     }
 
     @media (max-width: 850px) {

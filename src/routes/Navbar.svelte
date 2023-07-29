@@ -13,10 +13,10 @@
             title: "Armadas",
             href: "/armadas",
         },
-        // {
-        //     title: "Partners",
-        //     href: "/partners",
-        // },
+        {
+            title: "About",
+            href: "/about",
+        },
     ];
 </script>
 
@@ -49,10 +49,10 @@
                 <a
                     {href}
                     class:active={routeId.includes(href)}
-                    data-sveltekit-preload-data>
-                    <p class="Header">{title}</p>
-                    </a
+                    data-sveltekit-preload-data
                 >
+                    <p class="Header">{title}</p>
+                </a>
             {/each}
         </div>
         <div class="centeringDiv">

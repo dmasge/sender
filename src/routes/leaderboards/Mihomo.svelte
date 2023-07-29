@@ -20,14 +20,14 @@
     >
         <div>
             <div id="mihomoDiv">
-                <div class="stroke">{"Powered By "}</div>
+                <div class="Header">{"Powered By "}</div>
 
                 <img class="mihomoLogo"
                     src={mihomoBlack}
                     alt="Home"
                     style="background: transparent; "
                 />
-                <div class="stroke">{"MiHoMo"}</div>
+                <div class="Header">{"MiHoMo"}</div>
             </div>
             <div
                 style="overflow: hidden; margin-bottom: 1vw; height: 100px; width: 245px; 
@@ -54,7 +54,6 @@
 
     #mihomoA {
         color: black;
-        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     }
 
     #mihomoHr {
@@ -67,11 +66,15 @@
         display: flex;
         color: black;
         
-        font-size: 20px;
+        font-size: 19px;
         align-items: center;
         justify-content: center;
     }
 
+
+    .Header {
+        font-size:1vw;
+    }
     #elyImg {
         margin-top: 45px;
         margin-left: -50px;
@@ -82,7 +85,10 @@
         height: 4vw;
     }
     @media (max-width: 850px) {
-       
+        
+        .Header{
+            font-size: 11px;
+        }
         .mihomoLogo {
             width: 50px;
             height: 50px;
