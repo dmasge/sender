@@ -1,12 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-prefetch>
-		<div>%sveltekit.body%</div>
-	</body>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/favicon-32x32.png" />
+	<meta name="viewport" content="width=device-width" />
+	%sveltekit.head%
+
+	<style>
+		body {
+			background-image: url("/seele_bg.png");
+			background-position: top;
+			margin: 0;
+			height: 100%;
+			font-family: Impact, sans-serif;
+			letter-spacing: 0.1em;
+			color: #7cf7ff;
+
+			/* -webkit-text-stroke: 1px black; */
+
+
+		}
+
+
+		hr {
+			border-color: #7cf7ff;
+			box-shadow: 0 0 10px #7cf7ff, 0 0 5px #7cf7ff;
+		}
+
+		html {
+			height: 100%;
+		}
+
+
+
+		input {
+			border-radius: 25px;
+			font-size: 1.4vw;
+		}
+
+		div {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		button {
+			border-radius: 25px;
+			color: #7cf7ff;
+			border: 1px solid #a8f3fff2;
+		}
+
+		button:hover {
+			cursor: pointer;
+		}
+
+		body {
+			scrollbar-width: thin;
+			/* "auto" or "thin" */
+			scrollbar-color: blue orange;
+			/* scroll thumb and track */
+		}
+
+		* {
+			scrollbar-width: thin;
+			scrollbar-color: blue orange;
+		}
+
+		*::-webkit-scrollbar {
+			width: 12px;
+		}
+
+		*::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		*::-webkit-scrollbar-thumb {
+			background-color: #b300ff;
+			border-radius: 20px;
+			border: 1px solid #a8f3fff2;
+			box-shadow: 0 0 5px #a8f3fff2;
+		}
+
+
+		:root {
+			--stroke-width: 1px;
+		}
+
+		.Header {
+			font-family: Impact, sans-serif;
+			margin: 0;
+			font-size: 2.5vw;
+			padding: 0;
+			margin-bottom: 0px;
+			margin-top: 0px;
+			/* text-shadow: var(--stroke-width) var(--stroke-width) 0 #000,
+				calc(-1 * var(--stroke-width)) var(--stroke-width) 0 #000,
+				var(--stroke-width) calc(-1 * var(--stroke-width)) 0 #000,
+				calc(-1 * var(--stroke-width)) calc(-1 * var(--stroke-width)) 0 #000; */
+			-webkit-text-stroke: 0.6px black;
+		}
+
+		p {
+			font-family: Arial, sans-serif;
+			font-size: 1vw;
+		}
+
+		button, a {
+			font-size: 12px;
+			background-color: transparent;
+		}
+
+
+		.CenteringDiv {
+			display: flex;
+			align-items: center;
+			margin: 0;
+			height: 100%;
+			flex-wrap: wrap;
+		}
+
+		@media (max-width: 850px) {
+			.Header {
+				font-size: 25px;
+			}
+
+		}
+
+		@media (max-width: 850px) {
+
+
+			button, p {
+				font-size: 11px;
+			}
+		}
+	</style>
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">%sveltekit.body%</div>
+</body>
+
 </html>

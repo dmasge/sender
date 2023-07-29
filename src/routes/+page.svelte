@@ -1,59 +1,139 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+    import frensBg from "$lib/assets/seeles.png";
+    import discordPng from "$lib/assets/discord.png";
+    let picSize = 120;
+    let picSize2 = 50;
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<div style="position: relative; border-radius: 27px; overflow: hidden;">
+    <div id="bgDiv" style="overflow: hidden;">
+        <img
+            id="bg"
+            style="transform: rotate(-30deg);"
+            src={frensBg}
+            alt="Your GIF"
+        />
+    </div>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+    <div id="aboutDiv">
+        <p id="header" style=" margin:10px;">
+            {"~ About SeeleLand ~"}
+        </p>
+        <p>
+            SeeleLand is a Seele fan community established and named after Seele
+            in 2020.
+        </p>
+        <p>
+            Much like our favorite girl, the land is filled with
+            wholesomeness and positivity. It's the home of the sweetest
+            Seelemains who treat each other like family.
+        </p>
+        <p>
+            Whether you want to chat, share fanart, play games, or just have
+            fun, SeeleLand is the place for you. There is something for everyone
+            here.
+        </p>
+        <p>
+            It's a peaceful place where you will always feel welcomed and
+            accepted.
+        </p>
 
-		AAAAAAAAAAAA<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
+        <div>
+            <a
+                id="seelelandDiscord"
+                href={"https://discord.gg/WWEFykz"}
+                style="justify-content: center;"
+            >
+                <div>
+                    <div>
+                        <img
+                            src={discordPng}
+                            alt="Home"
+                            style="background: transparent; 
+                                min-width : {picSize2 * 1.32}px; 
+                                min-height : {picSize2}px; 
+                                width: {3*1.32}vw;
+                                height: 3vw;"
+                        />
+                    </div>
+                    <div class="stroke">
+                        {"Join"}
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
+    #bg {
+        width: 220%;
+        margin-top: -20%;
+        margin-left: -65%;
+    }
+    #bgDiv {
+        margin-left: 0px;
+        height: 65vw;
+    }
 
-	h1 {
-		width: 100%;
-	}
+    #aboutDiv {
+        z-index: 1;
+        transform: translate(-50%, -50%);
+        border-radius: 26px;
+        color: white;
+        background-color: rgb(255, 255, 255, 0.8);
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
+        box-shadow: 0 0 10px white;
+        justify-content: center;
+        text-align: center;
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 95%;
+    }
+    a {
+        text-decoration: none;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        text-shadow: none;
+        color: white;
+        -webkit-text-stroke: 1px black;
+    }
+    p {
+        font-family: Arial, sans-serif;
+        color: #9600d6;
+        margin: 5px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    a,
+    p {
+        font-size: 2vw;
+    }
+
+    @media (max-width: 850px) {
+        #bg {
+            width: 2000px;
+
+            margin-left: -60px;
+            scale: 1.2;
+        }
+        #bgDiv {
+            height: 1200px;
+
+            display: flex;
+            justify-content: center;
+        }
+        a,
+        p {
+            font-size: 20px;
+        }
+    }
 </style>

@@ -1,0 +1,1 @@
+<p>ur data is safe. proper Policy coming soon.</p>

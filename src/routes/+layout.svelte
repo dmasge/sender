@@ -1,53 +1,39 @@
 <script>
-	import Header from './Header.svelte';
-	import './styles.css';
+	import Navbar from "./Navbar.svelte";
 </script>
 
-<div class="app">
-	<Header />
+<Navbar />
 
-	<main>
-		<slot />
-	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+<div id="centerDiv">
+	<slot />
 </div>
 
+<div id="thirdDiv" />
+
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
+	@media (max-width: 850px) {
+		#centerDiv {
+			background-color: rgba(150, 0, 214, 0.9);
+			width: 99.5%;
+			margin: auto;
+			border-radius: 27px;
+			border: 1px solid #a8f3fff2;
+			box-shadow: 0 0 10px #a8f3fff2;
 		}
+	}
+	@media (min-width: 850px) {
+		#centerDiv {
+			background-color: rgba(150, 0, 214, 0.9);
+			width: 85%;
+			margin: auto;
+			border-radius: 27px;
+			border: 1px solid #a8f3fff2;
+			box-shadow: 0 0 10px #a8f3fff2;
+		}
+	}
+
+	#thirdDiv {
+		min-height: 6vw;
+		padding: 1px;
 	}
 </style>
