@@ -70,6 +70,7 @@
         margin: 0;
         margin-top: 15px;
         margin-bottom: 15px;
+        text-shadow: none;
     }
 
     @media (max-width: 850px) {
