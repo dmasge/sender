@@ -44,9 +44,9 @@
             />
         </a>
         <div style="padding: 1vw; ">
-            <p class="Header">Want to see your ranks?</p>
+            <p style="margin-bottom: 6px;" class="Header">Want to see your ranks?</p>
             <div style="display: flex;">
-                <p class="Header" style="width: 100%;">Enter UID:</p>
+                <p class="Header" style=" margin-right: 0px;">Enter UID:</p>
                 <input
                     style="width:80px; font-size: 16px;"
                     bind:value={id}
@@ -91,10 +91,18 @@
         background-color: transparent;
     }
 
+   
+
     #outermost {
         margin: auto;
         width: 100%;
         padding-top: 3px;
         justify-content: center;
+    }
+    @media (max-width: 850px) {
+        
+        .Header{
+            font-size: 14px;
+        }
     }
 </style>

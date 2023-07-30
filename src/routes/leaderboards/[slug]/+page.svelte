@@ -3,10 +3,9 @@
     import { page } from "$app/stores";
     import Profile from "./Profile.svelte";
     $: uid = $page.url.pathname.split("/").pop();
-    import RelicsBulk from "$lib/components/RelicsBulk.svelte";
+    import RelicsBulkWithToogle from "$lib/components/RelicsBulkWithToogle.svelte";
     import AvatarCharId from "./AvatarCharId.svelte";
     import Rankings from "./Rankings.svelte";
-    import RelicSetDisplay from "$lib/components/RelicSetDisplay.svelte";
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     let jsonData;
@@ -66,17 +65,20 @@
         {#each sortedBuilds as build}
             <div style="margin-bottom: 50px;">
                 <AvatarCharId charId={build["k"]} />
-                <RelicSetDisplay relicSets={build["rs"]} />
-                <RelicsBulk relics={build["r"]} />
-                {#if build["lb"]}
-                    <Rankings {build} />
-                {:else}
-                    <div style="margin:auto;">
-                        <p style="margin-top:0; text-align: center;">
-                            leaderboards for this character coming soon!
-                        </p>
-                    </div>
-                {/if}
+                <div class="tooglable" style="margin-bottom:10px;">
+                    <RelicsBulkWithToogle relics={build["r"]} relicSets ={build["rs"]}  />
+                </div>
+                <div class="lbstatsDiv">
+                    {#if build["lb"]}
+                        <Rankings {build} />
+                    {:else}
+                        <div style="margin:auto;">
+                            <p style="margin-top:0; text-align: center;">
+                                leaderboards for this character coming soon!
+                            </p>
+                        </div>
+                    {/if}
+                </div>
             </div>
         {/each}
     </div>
@@ -85,5 +87,15 @@
 <style>
     .buildsStuff {
         margin: 0;
+    }
+   
+    .lbstatsDiv {
+        background-color: rgb(116, 0, 166);
+        width: fit-content;
+        margin: auto;
+        padding: 7px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+        margin-bottom: 5px;
     }
 </style>

@@ -66,7 +66,6 @@
 
     p {
         font-size: 2.5vw;
-        -webkit-text-stroke: 0.1px black;
         margin: 0;
         margin-top: 15px;
         margin-bottom: 15px;

@@ -32,7 +32,7 @@
     @media (max-width: 850px) {
        
         .relicsDiv {
-            width: 330px;
+            width: 320px;
             height: 150 px;
             margin-bottom: 5px;
         }

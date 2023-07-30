@@ -74,6 +74,7 @@
 
     .Header {
         font-size:1vw;
+        text-shadow: none;
     }
     #elyImg {
         margin-top: 45px;
