@@ -50,14 +50,12 @@
     h2 {
         font-size: 2.5vw;
         margin: 0;
-        -webkit-text-stroke: 0.1px black;
     }
     p {
         font-family: Arial, sans-serif;
         font-size: 1vw;
-
-        text-shadow: none;
     }
+   
 
     .sutffInMiddle {
         display: flex;
@@ -79,8 +77,8 @@
     .avatar {
         width: 6vw;
         height: 6vw;
-        border-left: 3px solid #7cf7ff;
-        border-right: 3px solid #7cf7ff;
+        border-left: 3px solid #FFE7BB;
+        border-right: 3px solid #FFE7BB;
         border-radius: 50%;
     }
     @media (max-width: 850px) {

@@ -48,6 +48,6 @@
 
     .navA {
         text-decoration: none;
-        color: #7cf7ff;
+        font-weight: 900;
     }
 </style>

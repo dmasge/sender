@@ -81,10 +81,15 @@
     .navParentDiv {
         display: flex;
         align-items: center;
-        background-color: #b300ff;
+        background-color: #B4DCFF;
         letter-spacing: 0.06em;
         justify-content: space-between;
         flex-wrap: wrap;
+    }
+    .active,
+    nav a:hover {
+        background-color: #C0E2FE;
+        margin: 0;
     }
 
     @media (max-width: 650px) {
@@ -92,12 +97,6 @@
             font-size: 20px;
         }
     }
-
-    /* @media (min-width: 600px) and (max-width: 650px) {
-        a {
-            font-size: 3vw;
-        }
-    } */
 
     @media (min-width: 650px) {
         a {
@@ -110,18 +109,12 @@
         flex-direction: row;
         align-items: center;
         letter-spacing: 0.06em;
-        color: #7cf7ff;
         padding: 0.5vw;
         padding-left: 1vw;
         padding-right: 1vw;
         line-height: 100%;
     }
 
-    .active,
-    nav a:hover {
-        background-color: #9600d6;
-        margin: 0;
-    }
     nav,
     nav a {
         box-sizing: border-box;
@@ -129,8 +122,5 @@
 
     :root {
         --stroke-width: 0.1vw;
-    }
-    nav a {
-        -webkit-text-stroke: 0.1px black;
     }
 </style>

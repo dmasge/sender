@@ -5,7 +5,7 @@
 </script>
 
 <div class="centeringDiv" style="display: flex; justify-content: center;">
-    <p class="buildHeaderP" style="text-align: center; text-decoration: underline;"> Standardized stats for {header}</p>
+    <p class="buildHeaderP" style="text-align: center;"> Standardized stats for {header}</p>
 </div>
 <div class="centeringDiv" style="margin-top: 5px; margin-bottom: 5px;">
     <div>
@@ -32,7 +32,10 @@
     span {
         margin: 0;
     }
-
+    .buildHeaderP{
+        
+        text-shadow: none;
+    }
     .centeringDiv {
         display: flex;
         align-items: center;

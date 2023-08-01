@@ -48,19 +48,18 @@
                     picSize *
                     1.14}vw; margin-left:-2vw;"
             />
-            <div class = "Header" style="color:white; ">More Leaderboards coming soon!</div>
+            <div class="Header">More Leaderboards coming soon!</div>
         </div>
     </div>
 </div>
 
 <style>
-    .Header{
+    .Header {
         font-size: 1.4vw;
+        color: black;
     }
     a {
         text-decoration: none;
-        text-shadow: none;
-        color: #7cf7ff;
     }
     img {
         min-width: 45px;
@@ -79,11 +78,11 @@
         div {
             font-size: 14px;
         }
-        p{
+        p {
             font-size: 18px;
         }
-        .Header{
-        font-size: 14px;
-    }
+        .Header {
+            font-size: 14px;
+        }
     }
 </style>

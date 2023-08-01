@@ -11,24 +11,24 @@
 <div id="thirdDiv" />
 
 <style>
+	/* #centerDiv {
+		background-color: rgba(150, 0, 214, 0.9);
+	} */
+	#centerDiv {
+		background-color: rgba(192, 226, 254, 0.95);
+	}
 	@media (max-width: 850px) {
 		#centerDiv {
-			background-color: rgba(150, 0, 214, 0.9);
 			width: 99.5%;
 			margin: auto;
 			border-radius: 27px;
-			border: 1px solid #a8f3fff2;
-			box-shadow: 0 0 10px #a8f3fff2;
 		}
 	}
 	@media (min-width: 850px) {
 		#centerDiv {
-			background-color: rgba(150, 0, 214, 0.9);
 			width: 85%;
 			margin: auto;
 			border-radius: 27px;
-			border: 1px solid #a8f3fff2;
-			box-shadow: 0 0 10px #a8f3fff2;
 		}
 	}
 

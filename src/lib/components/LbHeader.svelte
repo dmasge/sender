@@ -13,10 +13,6 @@
             align-items: center;
             justify-content: center;
         }
-    h3{
-        
-        -webkit-text-stroke: 0.1px black;
-    }
     @media (max-width: 850px) {
         
         h3{

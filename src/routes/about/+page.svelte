@@ -98,6 +98,7 @@
         -webkit-text-stroke: 1px black;
     }
     p {
+        text-shadow: none;
         font-family: Arial, sans-serif;
         color: #9600d6;
         margin: 5px;

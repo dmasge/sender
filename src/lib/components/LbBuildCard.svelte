@@ -34,8 +34,9 @@
 </button>
 
 <style>
-    .tooglable{
-        background-color: rgb(116, 0, 166);
+    
+    .tooglable {
+        background-color: #FFE7BB; /* rgb(116, 0, 166); */
         width: fit-content;
         margin: auto;
         padding: 7px;
