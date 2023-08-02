@@ -22,9 +22,9 @@
     $: filteredSets = filterJSON(relicSets);
 </script>
 
-<div>
+<div id="parentDiv">
     {#each filteredSets as relicSet}
-        <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: center; margin: 1px;">
             <p class="statsP">{relicSet["cnt"]}</p>
             <img
                 src={starRailRes + relicSet["icn"]}
@@ -38,20 +38,24 @@
 
 
 <style>
+    #parentDiv{
+        height: fit-content;
+        margin-bottom: 5px;
+    }
     p {
-        margin: 0;
+        margin: 1px;
     }
     .statsP {
         font-family: Arial, sans-serif;
-        font-size: 1.1vw;
+        font-size: 1.2vw;
         text-shadow: none;
         justify-content: space-between;
         display: flex;
     }
     .RelicImg {
-        height: 2vw;
-        width: 2vw;
-        margin: -1px;
+        height: 1.7vw;
+        width: 1.7vw;
+        margin-bottom: 0px;
     }
     @media (max-width: 850px) {
         .RelicImg {
@@ -59,7 +63,7 @@
             height: 18px;
         }
         .statsP {
-            font-size: 10px;
+            font-size: 12px;
         }
     }
 </style>

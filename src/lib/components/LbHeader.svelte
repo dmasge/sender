@@ -4,7 +4,7 @@
 
 
 <div style="font-size: 3vw; margin: 1px; margin-bottom:20px; padding: 1px;" class="centeringDiv">
-    <h3  class = "Header">{header}</h3>
+    <h2>{header}</h2>
 </div>
 
 <style>
@@ -15,8 +15,5 @@
         }
     @media (max-width: 850px) {
         
-        h3{
-            font-size: 25px;
-        }
     }
 </style>

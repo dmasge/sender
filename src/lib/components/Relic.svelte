@@ -9,7 +9,7 @@
 </script>
 
 <div class="RelicParentDiv" style="margin: 0vw;">
-    <div style="display: flex">
+    <div style="display: flex; margin-bottom:5px; justify-content: space-between;">
         <img src={starRailRes + relic["icn"]} alt={"..."} class="RelicImg" />
         <p class="statsP">
             {abbreviateStat(relic["m"][0]) + " " + formatStat(relic["m"][1])}
@@ -27,9 +27,6 @@
 
 <style>
     .statsP {
-        font-family: Arial, sans-serif;
-        font-size: 1.1vw;
-        text-shadow: none;
         justify-content: space-between;
         display: flex;
     }
@@ -42,25 +39,25 @@
     p {
         margin: 0vw;
         padding: 0vw;
+        margin-top: 3px;
+        margin-bottom: 3px;
     }
     .RelicParentDiv {
         width: 9vw;
+        padding-bottom: 5px;
     }
 
     .RelicImg {
-        height: 2.1vw;
-        width: 2.1vw;
+        height: 2vw;
+        width: 2vw;
         margin: -1px;
     }
     @media (max-width: 850px) {
         .RelicParentDiv {
             width: 100px;
-            height: 80px;
+            height: 95px;
         }
 
-        .statsP {
-            font-size: 11px;
-        }
         .RelicImg {
             width: 25px;
             height: 25px;

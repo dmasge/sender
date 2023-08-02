@@ -2,7 +2,8 @@
     import armadaBg from "$lib/assets/armada_bg.png";
 </script>
 
-<div style="position: relative; border-radius: 27px; overflow: hidden;">
+<div style="position: relative;border-bottom-left-radius: 25px;
+border-bottom-right-radius: 25px; overflow: hidden;">
     <div id="bgDiv" style="overflow: hidden;">
         <img id="bg" src={armadaBg} alt="Your GIF" />
     </div>
@@ -35,10 +36,9 @@
     #aboutDiv {
         z-index: 1;
         transform: translate(-50%, -50%);
-        border-radius: 26px;
         color: #9600d6;
         background-color: rgb(255, 255, 255, 0.8);
-
+        border-radius: 25px;
         box-shadow: 0 0 10px white;
         justify-content: center;
         text-align: center;

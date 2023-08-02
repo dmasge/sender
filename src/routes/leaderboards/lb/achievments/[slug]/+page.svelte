@@ -10,6 +10,7 @@
     $: pageN = $page.url.pathname.split("/").pop();
     import LbPlayerCard from "$lib/components/LbPlayerCard.svelte";
     import { onMount } from "svelte";
+    import LbColumnsDesc from "$lib/components/profile/LbColumnsDesc.svelte";
     let jsonData;
     async function getLbData() {
         try {
@@ -27,6 +28,7 @@
 </script>
 
 <LbHeader header="Achievements" />
+<LbColumnsDesc></LbColumnsDesc>
 {#if jsonData}
     {#each jsonData as item}
         <LbPlayerCard

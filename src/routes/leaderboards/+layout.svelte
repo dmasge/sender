@@ -46,7 +46,7 @@
         <div style="padding: 1vw; ">
             <p style="margin-bottom: 6px;" class="Header">Want to see your ranks?</p>
             <div style="display: flex;">
-                <p class="Header" style=" margin-right: 0px;">Enter UID:</p>
+                <p class="Header" style=" margin-top: 2px;margin-right: 0px;">Enter UID:</p>
                 <input
                     style="width:80px; font-size: 16px;"
                     bind:value={id}
@@ -85,9 +85,9 @@
     }
     p {
         margin: 0;
-        font-size: 20px;
     }
     button {
+        margin-top: 2px;
         background-color: transparent;
     }
 
@@ -100,9 +100,17 @@
         justify-content: center;
     }
     @media (max-width: 850px) {
-        
+        input {
+				height: 17px;
+				width: 17px;
+				font-size: 10;
+			}
         .Header{
             font-size: 14px;
+        }
+        button {
+            
+        height: 20px;
         }
     }
 </style>

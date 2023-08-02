@@ -5,7 +5,8 @@
 	<meta charset="utf-8" />
 	<link rel="icon" href="%sveltekit.assets%/favicon-32x32.png" />
 	<meta name="viewport" content="width=device-width" />
-	<meta property="og:image" content="https://cdn.discordapp.com/attachments/1136046054329032785/1136055465915195392/thumbnail.png">
+	<meta property="og:image"
+		content="https://cdn.discordapp.com/attachments/1136046054329032785/1136055465915195392/thumbnail.png">
 	%sveltekit.head%
 
 	<style>
@@ -14,7 +15,6 @@
 			background-position: top;
 			margin: 0;
 			height: 100%;
-			letter-spacing: 0.1em;
 			font-family: Arial, sans-serif;
 			/* -webkit-text-stroke: 1px black; */
 
@@ -45,8 +45,10 @@
 
 		button {
 			border-radius: 25px;
-			color: #7cf7ff;
-			border: 1px solid #a8f3fff2;
+			border: 1px solid black;
+			margin: 5px;
+			cursor: pointer;
+			background-color: transparent;
 		}
 
 		button:hover {
@@ -115,13 +117,13 @@
 			color: #1252CE;
 
 
-			
-			color: #7cf7ff; 
+
+			color: #7cf7ff;
 		}
 
 		p {
 			font-family: Arial, sans-serif;
-			font-size: 1vw;
+			font-size: 1.1vw;
 
 			/* text-shadow:
 				-1px -1px 0 #000,
@@ -130,13 +132,9 @@
 				1px 1px 0 #000; 	 */
 		}
 
-		p,
-		h2,
-		h3 {
-			color: black;
+		p {
 			font-family: Arial, sans-serif;
 			color: black;
-			font-weight: lighter;
 		}
 
 		button,
@@ -162,7 +160,7 @@
 		}
 
 		@media (max-width: 850px) {
-
+			
 
 			button,
 			p {

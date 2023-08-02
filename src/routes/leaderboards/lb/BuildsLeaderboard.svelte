@@ -11,6 +11,7 @@
     import { onMount } from "svelte";
 
     import Bronbike from "$lib/components/Bronbike.svelte";
+    import LbColumnsDesc from "$lib/components/profile/LbColumnsDesc.svelte";
     
     let jsonData;
     async function getLbData() {
@@ -29,6 +30,8 @@
 </script>
 
 <LbHeader {header} />
+
+<LbColumnsDesc></LbColumnsDesc>
 
 {#if jsonData}
     {#each jsonData as build}

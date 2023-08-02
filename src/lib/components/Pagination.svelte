@@ -46,6 +46,10 @@
         margin: 0 10px;
     }
 
+    a {
+        color: black;
+    }
+
     .navA {
         text-decoration: none;
         font-weight: 900;

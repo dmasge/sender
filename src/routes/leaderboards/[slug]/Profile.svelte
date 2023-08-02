@@ -6,7 +6,7 @@
 
 <div class="card">
     <div class="sutffInMiddle">
-        <h2>{player["nm"]}</h2>
+        <p>{player["nm"]}</p>
 
         <img
             src={starRailRes + player["icn"]}
@@ -21,7 +21,7 @@
 </div>
 
 <style>
-    h2 {
+    p {
         font-size: 2.5vw;
         margin: 0;
         -webkit-text-stroke: 0.1px black;
@@ -43,15 +43,15 @@
     .avatar {
         width: 6vw;
         height: 6vw;
-        border-left: 3px solid #7cf7ff;
-        border-right: 3px solid #7cf7ff;
+        border-left: 3px solid #DEA055;
+        border-right: 3px solid #DEA055;
         border-radius: 50%;
     }
     @media (max-width: 850px) {
         .card {
             width: 300px;
         }
-        h2 {
+        p {
             font-size: 20px;
         }
         p {

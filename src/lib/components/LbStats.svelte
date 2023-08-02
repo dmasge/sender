@@ -1,12 +1,12 @@
 <script>
     export let lbStats = [];
-    export let header = "";
+    export const header = "";
 
 </script>
 
-<div class="centeringDiv" style="display: flex; justify-content: center;">
+<!-- <div class="centeringDiv" style="display: flex; justify-content: center;">
     <p class="buildHeaderP" style="text-align: center;"> Standardized stats for {header}</p>
-</div>
+</div> -->
 <div class="centeringDiv" style="margin-top: 5px; margin-bottom: 5px;">
     <div>
         {#each lbStats as stat}
@@ -44,10 +44,10 @@
     }
     @media (max-width: 850px) {
         .statsP {
-            font-size: 11px;
+            font-size: 12px;
         }
         .buildHeaderP {
-            font-size: 11px;
+            font-size: 12px;
         }
     }
 </style>

@@ -23,7 +23,8 @@
     ];
 </script>
 
-<div style="position: relative; border-radius: 27px; overflow: hidden;">
+<div style="position: relative; border-bottom-left-radius: 25px;
+border-bottom-right-radius: 25px; overflow: hidden;">
     <div id="bgDiv" style="overflow: hidden;">
         <img id="bg" src={frensBg} alt="Your GIF" />
     </div>
@@ -73,7 +74,8 @@
     #aboutDiv {
         z-index: 1;
         transform: translate(-50%, -50%);
-        border-radius: 26px;
+        border-bottom-left-radius: 25px;
+			border-bottom-right-radius: 25px;
         color: white;
         background-color: rgb(255, 255, 255, 0.8);
 

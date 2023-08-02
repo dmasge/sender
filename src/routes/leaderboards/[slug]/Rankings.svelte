@@ -27,6 +27,10 @@
                         />
                     </a>
                     <p>
+                        {"Score: " +
+                            value["sc"] }
+                    </p>
+                    <p>
                         {"Rank: " +
                             value["rank"] +
                             " (" +
@@ -54,7 +58,6 @@
     }
 
     .stuffOnTheRight {
-        border-bottom: 1px solid #7cf7ff;
         margin-left: 3vw;
         margin-right: 5vw;
         width: fit-content;

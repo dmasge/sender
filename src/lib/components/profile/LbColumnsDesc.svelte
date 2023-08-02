@@ -1,37 +1,22 @@
-<script>
-    export let player;
-    export let ctgrImg;
-    export let score;
-    export let rank;
-    export let isAch = false;
-    import { starRailRes } from "$lib/constants.js";
-</script>
-
 <div class="card">
     <div class="centeringDiv">
-        <p class="Header">#{rank}</p>
+        <p class="Header">Rank</p>
     </div>
     <div class="sutffInMiddle">
-        <p>{player["nm"]}</p>
-        <a href={isAch ? "../../" + player["id"] : "../../../" + player["id"]}>
-            <img
-                src={starRailRes + player["icn"]}
-                alt={player["nm"]}
-                class="avatar"
-            />
-        </a>
-        <p>{player["sig"]}</p>
+        <p>Player</p>
     </div>
     <div class="centeringDiv">
         <div>
-            <img class="ctgrImg" src={ctgrImg} alt={player["nm"]} />
-
+            
             <p>
-                {score}
+               Score
             </p>
         </div>
     </div>
 </div>
+<hr class="lbHr" />
+
+<div style="padding-bottom: 15px;"> </div>
 
 <style>
     .card {
@@ -69,18 +54,7 @@
         justify-content: center;
     }
 
-    .ctgrImg {
-        width: 5vw;
-        height: 5vw;
-    }
-
-    .avatar {
-        width: 6vw;
-        height: 6vw;
-        border-left: 3px solid #DEA055;
-        border-right: 3px solid #DEA055;
-        border-radius: 50%;
-    }
+   
     @media (max-width: 850px) {
         .card {
             width: 300px;
@@ -91,13 +65,20 @@
         p {
             font-size: 15px;
         }
-        .avatar {
-            width: 70px;
-            height: 70px;
+    }
+    .lbHr {
+        width: 50vw;
+        margin: auto;
+        margin-top: 1vw;
+    }
+
+    @media (max-width: 850px) {
+        hr {
+            height: 60px;
         }
-        .ctgrImg {
-            width: 40px;
-            height: 40px;
+
+        .lbHr {
+            height: 0;
         }
     }
 </style>

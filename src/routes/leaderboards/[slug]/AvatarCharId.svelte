@@ -16,8 +16,8 @@
     .avatar {
         width: 6vw;
         height: 6vw;
-        border-bottom: 3px solid #7cf7ff;
-        border-top: 3px solid #7cf7ff;
+        border-bottom: 3px solid #DEA055;
+        border-top: 3px solid #DEA055;
         border-radius: 50%;
         margin-bottom: 5px;
     }

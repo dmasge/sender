@@ -31,7 +31,7 @@
 
 <style>
      .tooglable {
-        background-color: rgb(116, 0, 166);
+        background-color:#FFE7BB;
         width: fit-content;
         margin: auto;
         padding: 7px;

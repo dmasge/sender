@@ -1,7 +1,6 @@
 <script>
     export let relics;
     import Relic from "$lib/components/Relic.svelte";
-
 </script>
 
 <div class="relicsDiv">
@@ -12,8 +11,6 @@
         {/if}
     {/each}
 </div>
-
-
 
 <style>
     /* .centeringDiv {
@@ -27,17 +24,23 @@
         flex-wrap: wrap;
         width: 32vw;
         margin: auto;
+        height: 18vw;
+        margin-left: 4px;
+        margin-right: 4px;
+        margin-bottom: -1vw;
+    }
+    hr {
+        height: 7vw;
     }
 
     @media (max-width: 850px) {
-       
         .relicsDiv {
             width: 320px;
-            height: 150 px;
-            margin-bottom: 5px;
+            height: 195px;
+            margin-bottom: 0px;
         }
         hr {
-            height: 60px;
+            height: 75px;
         }
     }
 </style>

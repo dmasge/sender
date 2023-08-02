@@ -21,14 +21,16 @@
 		#centerDiv {
 			width: 99.5%;
 			margin: auto;
-			border-radius: 27px;
+			border-bottom-left-radius: 25px;
+			border-bottom-right-radius: 25px;
 		}
 	}
 	@media (min-width: 850px) {
 		#centerDiv {
 			width: 85%;
 			margin: auto;
-			border-radius: 27px;
+			border-bottom-left-radius: 25px;
+			border-bottom-right-radius: 25px;
 		}
 	}
 

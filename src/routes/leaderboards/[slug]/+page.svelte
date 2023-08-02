@@ -73,7 +73,7 @@
                         <Rankings {build} />
                     {:else}
                         <div style="margin:auto;">
-                            <p style="margin-top:0; text-align: center;">
+                            <p style="margin-top:0; margin-bottom:0; text-align: center;">
                                 leaderboards for this character coming soon!
                             </p>
                         </div>
@@ -90,7 +90,7 @@
     }
    
     .lbstatsDiv {
-        background-color: rgb(116, 0, 166);
+        background-color: #FFE7BB;
         width: fit-content;
         margin: auto;
         padding: 7px;

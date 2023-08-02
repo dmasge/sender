@@ -39,10 +39,11 @@
         background-color: #FFE7BB; /* rgb(116, 0, 166); */
         width: fit-content;
         margin: auto;
-        padding: 7px;
         border-radius: 20px;
         box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
-        margin-bottom: 5px;
+        padding: 1vw;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     .centeringDiv {
         display: flex;
@@ -53,23 +54,18 @@
 
     .show-build-button,
     .hide-build-button {
-        background-color: transparent;
-        cursor: pointer;
         display: block;
-        margin: 0 auto;
         text-align: center;
         font-size: 1vw;
         outline: none;
+        margin: auto;
+        margin-top: 5px;
+        margin-bottom: 7px;
     }
 
     @media (max-width: 850px) {
         .show-build-button,
         .hide-build-button {
-            background-color: transparent;
-            cursor: pointer;
-            display: block;
-            margin: 0 auto;
-            text-align: center;
             font-size: 12px;
             outline: none;
             width: 100px;

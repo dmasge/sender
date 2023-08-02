@@ -73,7 +73,7 @@
 
 
     .Header {
-        font-size:1vw;
+        font-size:1.2vw;
         text-shadow: none;
     }
     #elyImg {
@@ -88,7 +88,7 @@
     @media (max-width: 850px) {
         
         .Header{
-            font-size: 11px;
+            font-size: 12px;
         }
         .mihomoLogo {
             width: 50px;
