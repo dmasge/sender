@@ -1,0 +1,42 @@
+<script>
+    export let onClick = "";
+    export let uid = "";
+    export let prevUnixTimestamp;
+    let curUnixTimestamp = Math.floor(new Date().valueOf() / 1000);
+    let timeDiff = curUnixTimestamp - prevUnixTimestamp;
+    let timeLeft = 600 - timeDiff;
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    let buttonText = `Profile data outdated? click here`;
+    let disabled = false;
+    
+    const updateButton = () => {
+        curUnixTimestamp = Math.floor(new Date().valueOf() / 1000);
+        timeDiff = curUnixTimestamp - prevUnixTimestamp;
+        timeLeft = 600 - timeDiff;
+        minutes = Math.floor(timeLeft / 60);
+        seconds = timeLeft % 60;
+        if (timeDiff < 600) {
+            buttonText = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+            disabled = true;
+            setTimeout(updateButton, 1000);
+        } else {
+            buttonText = `Profile data outdated? click here`;
+            disabled = false;
+        }
+    }
+    
+    if (timeDiff < 600) {
+        updateButton();
+    }
+</script>
+
+<div style="width: 100%; display:flex; justify-content: center;">
+    <button
+        style="text-shadow: none;"
+        name="uid"
+        value={uid}
+        on:click={onClick}
+        disabled={disabled}
+    >{buttonText}</button>
+</div>

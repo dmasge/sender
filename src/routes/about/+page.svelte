@@ -73,7 +73,7 @@ border-bottom-right-radius: 25px; overflow: hidden;">
         z-index: 1;
         transform: translate(-50%, -50%);
         color: white;
-        background-color: rgb(255, 255, 255, 0.9);
+        background-color: rgba(192, 226, 254, 0.85);
         border-radius: 25px;
         box-shadow: 0 0 10px white;
         justify-content: center;

@@ -10,7 +10,7 @@
     $: pageN = $page.url.pathname.split("/").pop();
     import LbPlayerCard from "$lib/components/LbPlayerCard.svelte";
     import { onMount } from "svelte";
-    import LbColumnsDesc from "$lib/components/profile/LbColumnsDesc.svelte";
+    import LbColumnsDesc from "$lib/components/LbColumnsDesc.svelte";
     let jsonData;
     async function getLbData() {
         try {

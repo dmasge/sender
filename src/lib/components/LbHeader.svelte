@@ -16,4 +16,7 @@
     @media (max-width: 850px) {
         
     }
+    h2 {
+        margin:5px;
+    }
 </style>

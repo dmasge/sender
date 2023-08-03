@@ -11,7 +11,7 @@
     import { onMount } from "svelte";
 
     import Bronbike from "$lib/components/Bronbike.svelte";
-    import LbColumnsDesc from "$lib/components/profile/LbColumnsDesc.svelte";
+    import LbColumnsDesc from "$lib/components/LbColumnsDesc.svelte";
     
     let jsonData;
     async function getLbData() {
