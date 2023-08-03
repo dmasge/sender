@@ -12,7 +12,7 @@
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     import LbColumnsDesc from "$lib/components/LbColumnsDesc.svelte";
-    
+
     let jsonData;
     async function getLbData() {
         try {
@@ -31,17 +31,21 @@
 
 <LbHeader {header} />
 
-<LbColumnsDesc></LbColumnsDesc>
+<LbColumnsDesc />
 
 {#if jsonData}
-    {#each jsonData as build}
-        <LbEntireCard {ctgrImg} {header} {build} {ctgr} />
-        <hr class="lbHr" />
-    {/each}
+    {#if (jsonData == "nothing to show here")}
+        <p style="text-align: center;">Leaderboard empty</p>
+    {:else}
+        {#each jsonData as build}
+            <LbEntireCard {ctgrImg} {header} {build} {ctgr} />
+            <hr class="lbHr" />
+        {/each}
+
+    {/if}
 {:else}
     <Bronbike />
 {/if}
-
 <Pagination />
 
 <style>
