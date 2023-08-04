@@ -8,28 +8,30 @@
     {#each leaderboards as leaderboard}
         <div style="display:flex;">
             <div
-                style="text-align: center;  width: 75vw; margin: auto; margin-bottom: 0vw; overflow-x: auto;"
+                style="text-align: center;  width: 75vw; margin: auto; margin-bottom: 0vw; "
             >
                 <p>
                     {leaderboard["title"]}
                 </p>
-                <div
-                    style="display:flex; margin:auto; display: flex;
-                justify-content: center;
-                align-items: center;"
-                >
-                    {#each leaderboard["info"] as info}
-                        <a href={"leaderboards/lb" + info["url"]}>
-                            <div>
-                                <img
-                                    src={info["pic"]}
-                                    alt="Home"
-                                    style="background: transparent; width : {picSize}vw; height : {picSize}vw;"
-                                />
-                                <p>{info["desc"]}</p>
+                <div>
+                    <div
+                        style="overflow-x: auto; white-space: nowrap; text-align: center;"
+                    >
+                        {#each leaderboard["info"] as info}
+                            <div  style="display: inline-block;">
+                                <a href={"leaderboards/lb" + info["url"]}>
+                                    <div>
+                                        <img
+                                            src={info["pic"]}
+                                            alt="Home"
+                                            style="background: transparent; width : {picSize}vw; height : {picSize}vw;"
+                                        />
+                                        <p>{info["desc"]}</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    {/each}
+                        {/each}
+                    </div>
                 </div>
                 <hr />
             </div>
