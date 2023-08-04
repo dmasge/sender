@@ -35,7 +35,10 @@ let statShorthands = {
     "Physical DMG Boost" : "Phys",
     "Outgoing Healing Boost" : "Heal",
     "Wind DMG Boost" : "Wind",
-    "Energy Regeneration Rate" : "ERR"
+    "Energy Regeneration Rate" : "ERR",
+    "Fire DMG Boost" : "Fire",
+    "Imaginary DMG Boost" : "Img",
+    "Ice DMG Boost" : "Ice"
  }
 export function abbreviateStat(str) {
     if (statShorthands.hasOwnProperty(str)) {

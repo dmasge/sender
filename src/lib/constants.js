@@ -2,5 +2,6 @@ export const starRailRes = "https://raw.githubusercontent.com/Mar-7th/StarRailRe
 
 export const charNamesMap = {
     1102: "Seele",
-    1204: "Jing"
+    1204: "Jing",
+    1006: "Silver Wolf",
 };
