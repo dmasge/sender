@@ -6,10 +6,19 @@
 
     $: charname = charNamesMap[build["k"]];
     let picSize = 5;
+
+    function capitalizeAndRemoveUnderscores(str) {
+    return str.split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
 </script>
 
 <div class="stuffOnTheRight" style="overflow: hidden;padding:5px;">
     <div class="container" style="text-align: center;">
+        {#if Object.keys(build["lb"]).length == 0}
+            <p> "{build['lc']['nm']}" is not supported at the moment. </p>
+        {/if}
         {#each Object.entries(build["lb"]) as [key, value]}
             <div>
                 {#if build["lbstats"] && build["lbstats"].hasOwnProperty(key)}
@@ -27,16 +36,17 @@
                         />
                     </a>
                     <p>
-                        {"Score: " +
-                            value["sc"] }
-                    </p>
-                    <p>
                         {"Rank: " +
                             value["rank"] +
                             " (" +
                             value["percrank"] +
                             ")"}
                     </p>
+                    <p>
+                        {"Score: " +
+                            value["sc"] + " (" + capitalizeAndRemoveUnderscores(key) + ")"}
+                    </p>
+                    
                     <LbStats lbStats={build["lbstats"][key]} header={key} />
                 {/if}
             </div>

@@ -1,10 +1,10 @@
 <script>
     import BuildsLeaderboard from "../../../BuildsLeaderboard.svelte";
     
-    let charId = 1006;
-    let ctgr = "gn";
-    let header = "Silver Wolf E0S5 GN 134SPD";
-    import ctgrImg from "$lib/assets/lb/lc/gn.png";
+    let charId = 1205;
+    let ctgr = "fall";
+    let header = "Blade E0S5 Fall";
+    import ctgrImg from "$lib/assets/lb/lc/fall.png";
 </script>
 
 

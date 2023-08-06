@@ -18,7 +18,7 @@
                         style="overflow-x: auto; white-space: nowrap; text-align: center;"
                     >
                         {#each leaderboard["info"] as info}
-                            <div  style="display: inline-block;">
+                            <div style="display: inline-block;">
                                 <a href={"leaderboards/lb" + info["url"]}>
                                     <div>
                                         <img
@@ -26,7 +26,7 @@
                                             alt="Home"
                                             style="background: transparent; width : {picSize}vw; height : {picSize}vw;"
                                         />
-                                        <p>{info["desc"]}</p>
+                                        <p class="desc">{info["desc"]}</p>
                                     </div>
                                 </a>
                             </div>
@@ -76,12 +76,19 @@
         margin: 0;
     }
 
+    .desc {
+        font-size: 1vw;
+    }
+
     @media (max-width: 850px) {
         div {
             font-size: 14px;
         }
         p {
             font-size: 18px;
+        }
+        .desc {
+            font-size: 10px;
         }
         .Header {
             font-size: 14px;
