@@ -32,10 +32,7 @@
     span {
         margin: 0;
     }
-    .buildHeaderP{
-        
-        text-shadow: none;
-    }
+   
     .centeringDiv {
         display: flex;
         align-items: center;
@@ -46,8 +43,6 @@
         .statsP {
             font-size: 12px;
         }
-        .buildHeaderP {
-            font-size: 12px;
-        }
+      
     }
 </style>

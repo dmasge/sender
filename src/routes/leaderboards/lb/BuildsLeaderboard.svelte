@@ -3,7 +3,7 @@
     export let charId;
     export let header;
     export let ctgrImg;
-    import Pagination from "$lib/components/Pagination.svelte";
+    import Pagination from "$lib/components/navigators/Pagination.svelte";
     import LbHeader from "$lib/components/LbHeader.svelte";
     import LbEntireCard from "$lib/components/LbEntireCard.svelte";
     import { page } from "$app/stores";
