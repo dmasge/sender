@@ -13,6 +13,11 @@ import mutual from "$lib/assets/lb/lc/mutual.png"
 import secret from "$lib/assets/lb/lc/secret.png"
 import unreachable from "$lib/assets/lb/lc/unreachable.png"
 import fall from "$lib/assets/lb/lc/fall.png"
+import breakfast from "$lib/assets/lb/lc/erudition/breakfast.png"
+import dawn from "$lib/assets/lb/lc/erudition/dawn.png"
+import geniuses from "$lib/assets/lb/lc/erudition/geniuses.png"
+import milky from "$lib/assets/lb/lc/erudition/milky.png"
+import today from "$lib/assets/lb/lc/erudition/today.png"
 
 export const leaderboards = [
     {
@@ -48,25 +53,44 @@ export const leaderboards = [
             { pic: irreplaceable, url: "/blade/irreplaceable/1", desc: " " },
         ],
     },
+    {
+        title: "Qingque",
+        info: [
+            { pic: today, url: "/qingque/E6S5_today/1", desc: " " },
+            { pic: dawn, url: "/qingque/E6S1_dawn/1", desc: " " },
+            { pic: breakfast, url: "/qingque/E6S5_breakfast/1", desc: " " },
+            { pic: geniuses, url: "/qingque/E6S5_geniuses/1", desc: " " },
+            { pic: milky, url: "/qingque/E6S1_milky/1", desc: " " },
+        ],
+    },
 ];
 
 export function getPicForCtgr(str) {
+    if (checkIfStartsWIthEdilonSuperimpose(str)){
+        str = extractAfterUnderscore(str);
+    }
     str = removeUnderscoreAndNumbers(str);
-    switch(str){
-        case 'night' : return night;
-        case 'cruising' : return cruising;
-        case 'darkness' : return darkness;
-        case 'swordplay' : return swordplay;
-        case 'sleep' : return sleep;
-        case 'tutorial' : return tutorial;
-        case 'rain' : return rain;
-        case 'resolution' : return resolution;
-        case 'gn' : return gn;
-        case 'unreachable' : return unreachable;
-        case 'secret' : return secret;
-        case 'fall' : return fall;
-        case 'mutual' : return mutual;
-        case 'irreplaceable' : return irreplaceable;
+    switch (str) {
+        case 'today': return today;
+        case 'dawn': return dawn;
+        case 'breakfast': return breakfast;
+        case 'geniuses': return geniuses;
+        case 'milky': return milky;
+        case 'night': return night;
+        case 'cruising': return cruising;
+        case 'darkness': return darkness;
+        case 'swordplay': return swordplay;
+        case 'sleep': return sleep;
+        case 'tutorial': return tutorial;
+        case 'rain': return rain;
+        case 'resolution': return resolution;
+        case 'gn': return gn;
+        case 'unreachable': return unreachable;
+        case 'secret': return secret;
+        case 'fall': return fall;
+        case 'mutual': return mutual;
+        case 'irreplaceable': return irreplaceable;
+
     }
 }
 
@@ -81,6 +105,17 @@ export function removeUnderscoreAndNumbers(str) {
     return str.replace(/_[0-9]+$/, '');
 }
 
+function extractAfterUnderscore(str) {
+    let index = str.indexOf('_');
+    if (index === -1) {
+        return '';
+    }
+    return str.slice(index + 1);
+}
 
+function checkIfStartsWIthEdilonSuperimpose(str) {
+    let pattern = /^[a-zA-Z]\d[a-zA-Z]\d/;
+    return pattern.test(str);
+}
 
 

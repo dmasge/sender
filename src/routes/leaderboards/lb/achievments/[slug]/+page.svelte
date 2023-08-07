@@ -1,7 +1,7 @@
 <script>
     export let data;
     import ach from "$lib/assets/lb/ach.png";
-    import Pagination from "$lib/components/Pagination.svelte";
+    import Pagination from "$lib/components/navigators/Pagination.svelte";
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     import LbHeader from "$lib/components/LbHeader.svelte";

@@ -5,4 +5,15 @@ export const charNamesMap = {
     1204: "Jing",
     1006: "sw",
     1205: "blade",
+    1201: "qingque"
 };
+
+export function getIdFromName(name) {
+    name = name.toLowerCase();
+    for (const [id, charName] of Object.entries(charNamesMap)) {
+        if (charName === name) {
+            return id;
+        }
+    }
+    return null;
+}
