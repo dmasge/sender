@@ -5,7 +5,8 @@ export const charNamesMap = {
     1204: "Jing",
     1006: "sw",
     1205: "blade",
-    1201: "qingque"
+    1201: "qingque",
+    1107: "clara"
 };
 
 export function getIdFromName(name) {

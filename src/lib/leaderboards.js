@@ -18,6 +18,10 @@ import dawn from "$lib/assets/lb/lc/erudition/dawn.png"
 import geniuses from "$lib/assets/lb/lc/erudition/geniuses.png"
 import milky from "$lib/assets/lb/lc/erudition/milky.png"
 import today from "$lib/assets/lb/lc/erudition/today.png"
+import moles from "$lib/assets/lb/lc/destruction/moles.png"
+import woof from "$lib/assets/lb/lc/destruction/woof.png"
+import under from "$lib/assets/lb/lc/destruction/under.png"
+import collapsing from "$lib/assets/lb/lc/destruction/collapsing.png"
 
 export const leaderboards = [
     {
@@ -63,6 +67,18 @@ export const leaderboards = [
             { pic: milky, url: "/qingque/E6S1_milky/1", desc: " " },
         ],
     },
+    {
+        title: "Clara",
+        info: [
+            { pic: fall, url: "/clara/E2S5_fall/1", desc: " " },
+            { pic: irreplaceable, url: "/clara/E2S1_irreplaceable/1", desc: " " },
+            { pic: moles, url: "/clara/E2S5_moles/1", desc: " " },
+            { pic: secret, url: "/clara/E2S5_secret/1", desc: " " },
+            { pic: woof, url: "/clara/E2S5_woof/1", desc: " " },
+            { pic: under, url: "/clara/E2S5_under/1", desc: " " },
+            { pic: collapsing, url: "/clara/E2S5_collapsing/1", desc: " " },
+        ],
+    },
 ];
 
 export function getPicForCtgr(str) {
@@ -71,6 +87,10 @@ export function getPicForCtgr(str) {
     }
     str = removeUnderscoreAndNumbers(str);
     switch (str) {
+        case 'moles' : return moles;
+        case 'woof' : return woof;
+        case 'under' : return under;
+        case 'collapsing' : return collapsing;
         case 'today': return today;
         case 'dawn': return dawn;
         case 'breakfast': return breakfast;
