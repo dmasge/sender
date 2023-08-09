@@ -18,6 +18,8 @@ import dawn from "$lib/assets/lb/lc/erudition/dawn.png"
 import geniuses from "$lib/assets/lb/lc/erudition/geniuses.png"
 import milky from "$lib/assets/lb/lc/erudition/milky.png"
 import today from "$lib/assets/lb/lc/erudition/today.png"
+import birth from "$lib/assets/lb/lc/erudition/birth.png"
+import clamor from "$lib/assets/lb/lc/erudition/clamor.png"
 import moles from "$lib/assets/lb/lc/destruction/moles.png"
 import woof from "$lib/assets/lb/lc/destruction/woof.png"
 import under from "$lib/assets/lb/lc/destruction/under.png"
@@ -70,13 +72,25 @@ export const leaderboards = [
     {
         title: "Clara",
         info: [
-            { pic: fall, url: "/clara/E2S5_fall/1", desc: " " },
             { pic: irreplaceable, url: "/clara/E2S1_irreplaceable/1", desc: " " },
+            { pic: fall, url: "/clara/E2S5_fall/1", desc: " " },
             { pic: moles, url: "/clara/E2S5_moles/1", desc: " " },
             { pic: secret, url: "/clara/E2S5_secret/1", desc: " " },
             { pic: woof, url: "/clara/E2S5_woof/1", desc: " " },
             { pic: under, url: "/clara/E2S5_under/1", desc: " " },
             { pic: collapsing, url: "/clara/E2S5_collapsing/1", desc: " " },
+        ],
+    },
+    {
+        title: "Jing Yuan",
+        info: [
+            { pic: dawn, url: "/jing_yuan/E0S1_dawn/1", desc: " " },
+            { pic: breakfast, url: "/jing_yuan/E0S5_breakfast/1", desc: " " },
+            { pic: birth, url: "/jing_yuan/E0S5_birth/1", desc: " " },
+            { pic: geniuses, url: "/jing_yuan/E0S5_geniuses/1", desc: " " },
+            { pic: today, url: "/jing_yuan/E0S5_today/1", desc: " " },
+            { pic: milky, url: "/jing_yuan/E0S1_milky/1", desc: " " },
+            { pic: clamor, url: "/jing_yuan/E0S5_clamor/1", desc: " " },
         ],
     },
 ];
@@ -87,6 +101,8 @@ export function getPicForCtgr(str) {
     }
     str = removeUnderscoreAndNumbers(str);
     switch (str) {
+        case 'birth' : return birth;
+        case 'clamor' : return clamor;
         case 'moles' : return moles;
         case 'woof' : return woof;
         case 'under' : return under;
