@@ -48,11 +48,11 @@ export const leaderboards = [
     {
         title: "Kafka",
         info: [
-            { pic: patience, url: "/kafka/E0S1_patience/1", desc: "" },
-            { pic: gn, url: "/kafka/E0S5_gn/1", desc: "" },
-            { pic: fermata, url: "/kafka/E0S5_fermata/1", desc: "" },
-            { pic: name, url: "/kafka/E0S1_name/1", desc: "" },
-            { pic: eyes, url: "/kafka/E0S5_eyes/1", desc: "" }
+            { pic: patience, url: "/kafka/E0S1_patience_134/1", desc: "" },
+            { pic: gn, url: "/kafka/E0S5_gn_134/1", desc: "" },
+            { pic: fermata, url: "/kafka/E0S5_fermata_134/1", desc: "" },
+            { pic: name, url: "/kafka/E0S1_name_134/1", desc: "" },
+            { pic: eyes, url: "/kafka/E0S5_eyes_134/1", desc: "" }
         ],
     },
     {
