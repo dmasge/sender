@@ -31,8 +31,8 @@
 
     let ctgr = extractCtgr($page.url.pathname);
     let charId = getIdFromName(charName);
-    let header = charName + " " + capitalizeAndRemoveUnderscores(ctgr);
+    let header = capitalizeAndRemoveUnderscores(charName) + " " + capitalizeAndRemoveUnderscores(ctgr);
     let ctgrImg = getPicForCtgr(ctgr)
 </script>
 
-<!-- <BuildsLeaderboard {ctgr} {charId} {header} {ctgrImg} /> -->
+<BuildsLeaderboard {ctgr} {charId} {header} {ctgrImg} />

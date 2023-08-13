@@ -5,7 +5,8 @@
         "Char, traces, cones are assummed max lvl. (only relics matter)<br><br>";
     text2 +=
         "Scores are calculated as:  2 * e_counter + 2 * counter + 2 * skill + basic # 2 targets";
-
+        text2 +=
+        "<br><br>Enemies have no Qua weakness";
 </script>
 
 

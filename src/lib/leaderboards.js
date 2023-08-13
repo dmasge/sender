@@ -24,6 +24,11 @@ import moles from "$lib/assets/lb/lc/destruction/moles.png"
 import woof from "$lib/assets/lb/lc/destruction/woof.png"
 import under from "$lib/assets/lb/lc/destruction/under.png"
 import collapsing from "$lib/assets/lb/lc/destruction/collapsing.png"
+import seeleDerp from "$lib/assets/SeeleDerp.png"
+import name from "$lib/assets/lb/lc/nihility/name.png"
+import eyes from "$lib/assets/lb/lc/nihility/eyes.png"
+import patience from "$lib/assets/lb/lc/nihility/patience.png"
+import fermata from "$lib/assets/lb/lc/nihility/fermata.png"
 
 export const leaderboards = [
     {
@@ -38,6 +43,16 @@ export const leaderboards = [
             { pic: darkness, url: "/seele/darkness/1", desc: "" },
             { pic: swordplay, url: "/seele/swordplay/1", desc: "" },
             { pic: sleep, url: "/seele/sleep/1", desc: "" }
+        ],
+    },
+    {
+        title: "Kafka",
+        info: [
+            { pic: patience, url: "/kafka/E0S1_patience/1", desc: "" },
+            { pic: gn, url: "/kafka/E0S5_gn/1", desc: "" },
+            { pic: fermata, url: "/kafka/E0S5_fermata/1", desc: "" },
+            { pic: name, url: "/kafka/E0S1_name/1", desc: "" },
+            { pic: eyes, url: "/kafka/E0S5_eyes/1", desc: "" }
         ],
     },
     {
@@ -126,6 +141,10 @@ export function getPicForCtgr(str) {
         case 'fall': return fall;
         case 'mutual': return mutual;
         case 'irreplaceable': return irreplaceable;
+        case 'patience': return patience;
+        case 'eyes': return eyes;
+        case 'fermata': return fermata;
+        case 'name': return name;
 
     }
 }
