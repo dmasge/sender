@@ -38,11 +38,12 @@ export const leaderboards = [
     {
         title: "Seele",
         info: [
-            { pic: night, url: "/seele/night/1", desc: "" },
-            { pic: cruising, url: "/seele/cruising/1", desc: "" },
-            { pic: darkness, url: "/seele/darkness/1", desc: "" },
-            { pic: swordplay, url: "/seele/swordplay/1", desc: "" },
-            { pic: sleep, url: "/seele/sleep/1", desc: "" }
+            { pic: night, url: "/seele/night/1", desc: " " },
+            { pic: night, url: "/seele/E2S5_night/1", desc: "S5" },
+            { pic: cruising, url: "/seele/cruising/1", desc: " " },
+            { pic: darkness, url: "/seele/darkness/1", desc: " " },
+            { pic: swordplay, url: "/seele/swordplay/1", desc: " " },
+            { pic: sleep, url: "/seele/sleep/1", desc: " " }
         ],
     },
     {

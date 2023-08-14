@@ -6,7 +6,7 @@
     <p>
         HSR nickname, signature, avatar, uid, and showcased character details.
     </p>
-    <p>The data is used for ranking on leaderboards.</p>
+    <p>The data is used for ranking on leaderboards. Visit to website Geographical info for Google Analytics.</p>
     <br />
 
     <p style="font-weight: bold;">What data does website NOT collect?</p>
