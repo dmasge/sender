@@ -35,4 +35,4 @@
     let ctgrImg = getPicForCtgr(ctgr)
 </script>
 
-<!-- <BuildsLeaderboard {ctgr} {charId} {header} {ctgrImg} /> -->
+<BuildsLeaderboard {ctgr} {charId} {header} {ctgrImg} />
