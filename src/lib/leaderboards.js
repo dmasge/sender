@@ -59,10 +59,11 @@ export const leaderboards = [
     {
         title: "Silver Wolf",
         info: [
-            { pic: tutorial, url: "/sw/tutorial/1", desc: " " },
-            { pic: rain, url: "/sw/rain/1", desc: " " },
-            { pic: resolution, url: "/sw/resolution/1", desc: " " },
-            { pic: gn, url: "/sw/gn/1", desc: " " },
+            { pic: tutorial, url: "/sw/tutorial_134/1", desc: " " },
+            { pic: rain, url: "/sw/rain_134/1", desc: " " },
+            { pic: rain, url: "/sw/E2S1_rain_134/1", desc: "E2" },
+            { pic: gn, url: "/sw/gn_134/1", desc: " " },
+            { pic: resolution, url: "/sw/resolution_134/1", desc: " " },
         ],
     },
     {
