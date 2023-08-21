@@ -19,10 +19,11 @@
 <div class="tooglable" style="display: {showBuild ? 'block' : 'none'}">
     <LbStats lbStats={build["lbstats"][ctgr]} {header} />
 
+    <RelicsBulk relics={build["r"]} />
+    
     <div class="centeringDiv">
         <RelicSetDisplay relicSets={build["rs"]} />
     </div>
-    <RelicsBulk relics={build["r"]} />
 </div>
 
 <button
