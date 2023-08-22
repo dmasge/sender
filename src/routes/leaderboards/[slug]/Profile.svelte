@@ -13,7 +13,7 @@
             alt={player["nm"]}
             class="avatar"
         />
-        <p>{player["sig"]}</p>
+        <p style="word-break: break-all;">{player["sig"]}</p>
         <p>
             {"Achievments: " + player["ach"] + " (" + player["achrank"] + ")"}
         </p>

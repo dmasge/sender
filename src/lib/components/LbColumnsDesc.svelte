@@ -67,18 +67,10 @@
         }
     }
     .lbHr {
-        width: 50vw;
+        width: 70%;
         margin: auto;
         margin-top: 1vw;
+        height: 0;
     }
 
-    @media (max-width: 850px) {
-        hr {
-            height: 60px;
-        }
-
-        .lbHr {
-            height: 0;
-        }
-    }
 </style>

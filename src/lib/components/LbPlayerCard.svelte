@@ -20,7 +20,7 @@
                 class="avatar"
             />
         </a>
-        <p>{player["sig"]}</p>
+        <p style="word-break: break-all;">{player["sig"]}</p>
     </div>
     <div class="centeringDiv">
         <div>
@@ -42,9 +42,8 @@
         margin: auto;
     }
 
-    .centeringDiv,
-    .sutffInMiddle {
-        width: 33.33%;
+    .centeringDiv {
+        width: 10%;
     }
 
     p {
@@ -55,9 +54,10 @@
         font-family: Arial, sans-serif;
         font-size: 1vw;
     }
-   
+
 
     .sutffInMiddle {
+        width: 65%;
         display: flex;
         flex-direction: column;
         align-items: center;
