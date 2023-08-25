@@ -9,12 +9,19 @@
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     import RefreshButton from "./RefreshButton.svelte";
+    import { charNamesMap } from "$lib/constants.js";
+    import {
+        capitalizeAndRemoveUnderscores,
+        getPicForCtgr,
+    } from "$lib/leaderboards.js";
+    import BuildsLeaderboard from "$lib/components/lb/BuildsLeaderboard.svelte";
+
     let jsonData;
     let builds = {};
     let sortedBuilds = {};
     let prevUnixTimestamp;
 
-    async function refreshPlayer(){
+    async function refreshPlayer() {
         console.log("refreshing");
         jsonData = false;
         await fetch(
@@ -31,7 +38,7 @@
             jsonData = await response.json();
             builds = jsonData.filter((i) => i["k"] != "p");
             let pl = jsonData.find((i) => i["k"] == "p");
-            prevUnixTimestamp = pl['_ts'];
+            prevUnixTimestamp = pl["_ts"];
             sortedBuilds = [...builds].sort((a, b) => {
                 if (a.lb && !b.lb) {
                     return -1;
@@ -45,19 +52,49 @@
             console.log(error);
         }
     }
+
+    export let data;
+    let charId;
+    let ctgr;
+    let charName;
+    let header;
+    let ctgrImg;
     onMount(() => {
-        getPlayer();
+        if (!$page.url.href.includes("leaderboards/lb?k=")) getPlayer();
     });
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    if ($page.url.href.includes("leaderboards/lb?k=")){
+        charId = data.k;
+            ctgr = data.ctgr;
+            charName = capitalizeFirstLetter(charNamesMap[charId]);
+            header =
+                capitalizeAndRemoveUnderscores(charName) +
+                " " +
+                capitalizeAndRemoveUnderscores(ctgr);
+            ctgrImg = getPicForCtgr(ctgr);
+    }
 </script>
 
-{#if !jsonData}
+{#if $page.url.href.includes("leaderboards/lb?k=")}
+    <BuildsLeaderboard
+        {ctgr}
+        {charId}
+        {header}
+        {ctgrImg}
+        jsonData={data.lbData}
+    />
+{:else if !jsonData}
     <Bronbike />
 {:else}
     <div style="display: flex; justify-content: center;">
         <Profile item={jsonData} />
     </div>
     <div>
-        <RefreshButton onClick = {refreshPlayer} {uid} {prevUnixTimestamp}></RefreshButton>
+        <RefreshButton onClick={refreshPlayer} {uid} {prevUnixTimestamp} />
     </div>
     <hr />
     <div class="buildsStuff">
@@ -65,9 +102,12 @@
             <div style="margin-bottom: 50px;">
                 <AvatarCharId charId={build["k"]} />
                 <div class="tooglable" style="margin-bottom:10px;">
-                    <RelicsBulkWithToogle {build} relics={build["r"]} relicSets ={build["rs"]}  />
+                    <RelicsBulkWithToogle
+                        {build}
+                        relics={build["r"]}
+                        relicSets={build["rs"]}
+                    />
                 </div>
-                
             </div>
         {/each}
     </div>
@@ -77,5 +117,4 @@
     .buildsStuff {
         margin: 0;
     }
-   
 </style>

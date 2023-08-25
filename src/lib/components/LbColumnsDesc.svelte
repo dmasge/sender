@@ -27,9 +27,8 @@
         margin: auto;
     }
 
-    .centeringDiv,
-    .sutffInMiddle {
-        width: 33.33%;
+    .centeringDiv {
+        width: 10%;
     }
 
     p {
@@ -43,6 +42,7 @@
    
 
     .sutffInMiddle {
+        width: 70%;
         display: flex;
         flex-direction: column;
         align-items: center;

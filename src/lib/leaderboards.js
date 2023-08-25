@@ -147,7 +147,7 @@ export function getPicForCtgr(str) {
         case 'eyes': return eyes;
         case 'fermata': return fermata;
         case 'name': return name;
-
+        default : return seeleDerp;
     }
 }
 

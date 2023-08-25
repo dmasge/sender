@@ -1,14 +1,8 @@
 <script>
-    import elyDark from "$lib/assets/mihomo/ElyDark.png";
-    import mihomo from "$lib/assets/mihomo/ElysiaRealm.png";
-
-    import mihomoPink from "$lib/assets/mihomo/ElysiaRealm_pink.png";
-
+    import elyDark from "$lib/assets/mihomo/ElyDark_cropped_99_Quality.png";
     import mihomoBlack from "$lib/assets/mihomo/ElysiaRealm_black.png";
 
-    let mihomoEly = 23;
     let mihomoFontSize = 1.5;
-    let mihomoLogoSize = 4;
 </script>
 
 <hr id="mihomoHr" />
@@ -22,23 +16,18 @@
             <div id="mihomoDiv">
                 <div class="Header">{"Powered By "}</div>
 
-                <img class="mihomoLogo"
+                <img
+                    class="mihomoLogo"
                     src={mihomoBlack}
                     alt="Home"
                     style="background: transparent; "
                 />
                 <div class="Header">{"MiHoMo"}</div>
             </div>
-            <div
-                style="overflow: hidden; margin-bottom: 1vw; height: 100px; width: 245px; 
-        box-shadow: 0 0 40px #000;"
-            >
-                <img
-                    id="elyImg"
-                    src={elyDark}
-                    alt="Home"
-                    style="background: transparent; height : 200px; scale:1.7;"
-                />
+            <div class="ElyDiv"
+                style="height: 99px; width: 244px; box-shadow: 0 0 20px #000000; margin-top: 0px;">
+                <img src={elyDark} alt="Elysia" 
+                    style="scale: 0.3125; margin-left:-270px; margin-top:-110px;" />
             </div>
         </div>
     </a>
@@ -65,29 +54,38 @@
     #mihomoDiv {
         display: flex;
         color: black;
-        
+
         font-size: 19px;
         align-items: center;
         justify-content: center;
     }
 
-
     .Header {
-        font-size:1.2vw;
+        font-size: 1.2vw;
         text-shadow: none;
-    }
-    #elyImg {
-        margin-top: 45px;
-        margin-left: -50px;
     }
 
     .mihomoLogo {
         width: 4vw;
         height: 4vw;
     }
+
+    .ElyDiv {
+        position: relative;
+    }
+
+    .ElyDiv:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        box-shadow: 0px 10px 10px -5px black;
+    }
+
     @media (max-width: 850px) {
-        
-        .Header{
+        .Header {
             font-size: 12px;
         }
         .mihomoLogo {
