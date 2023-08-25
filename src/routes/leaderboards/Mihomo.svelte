@@ -25,9 +25,9 @@
                 <div class="Header">{"MiHoMo"}</div>
             </div>
             <div class="ElyDiv"
-                style="height: 99px; width: 244px; box-shadow: 0 0 20px #000000; margin-top: 0px;">
+                style="height: 99px; width: 244px; box-shadow: 0 0 20px #000000;">
                 <img src={elyDark} alt="Elysia" 
-                    style="scale: 0.3125; margin-left:-270px; margin-top:-110px;" />
+                    style="scale: 0.3125; margin-left:-270px; margin-right:-270px; margin-top:-110px; " />
             </div>
         </div>
     </a>
