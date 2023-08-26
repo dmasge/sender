@@ -1,7 +1,7 @@
 <script>
     let picSize = 4.5; // Set the desired width here
     import { page } from "$app/stores";
-    import logo from "$lib/assets/logo.png";
+    import logo from "$lib/assets/logo_compressed_180x180.png";
     $: routeId = $page.route.id;
 
     const navs = [

@@ -1,6 +1,6 @@
 <script>
     import { goto, preloadData } from "$app/navigation";
-    import swallowtail from "$lib/assets/swallowtail.png";
+    import swallowtail from "$lib/assets/swallowtail_compressed_196x307.webp";
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     import Mihomo from "./Mihomo.svelte";
