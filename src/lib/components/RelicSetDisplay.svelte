@@ -1,7 +1,7 @@
 <script>
     export let relicSets;
-    import { starRailRes } from "$lib/constants.js";
-
+    import { getRelicUrl } from "$lib/iconUrls/avatarIconsUrl.js";
+    import { lazyLoad } from "$lib/lazyLoad.js";
     function filterJSON(input) {
         let output = [];
         let names = {};
@@ -27,7 +27,8 @@
         <div style="display: flex; justify-content: center; margin: 1px;">
             <p class="statsP">{relicSet["cnt"]}</p>
             <img
-                src={starRailRes + relicSet["icn"]}
+                loading="lazy"
+                use:lazyLoad={getRelicUrl(relicSet["icn"])}
                 alt={"..."}
                 class="RelicImg"
             />
@@ -36,9 +37,8 @@
     {/each}
 </div>
 
-
 <style>
-    #parentDiv{
+    #parentDiv {
         height: fit-content;
         margin-bottom: 5px;
     }

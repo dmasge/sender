@@ -4,7 +4,8 @@
     export let score;
     export let rank;
     export let isAch = false;
-    import { starRailRes } from "$lib/constants.js";
+    import { getAvatarUrl } from "$lib/iconUrls/avatarIconsUrl.js";
+    import { lazyLoad } from '$lib/lazyLoad.js'
 </script>
 
 <div class="card">
@@ -15,7 +16,8 @@
         <p>{player["nm"]}</p>
         <a href={isAch ? "../../" + player["id"] : "../../../" + player["id"]}>
             <img
-                src={starRailRes + player["icn"]}
+                use:lazyLoad={getAvatarUrl(player["icn"])}
+                loading="lazy"
                 alt={player["nm"]}
                 class="avatar"
             />
@@ -24,7 +26,7 @@
     </div>
     <div class="centeringDiv">
         <div>
-            <img class="ctgrImg" src={ctgrImg} alt={player["nm"]} />
+            <img loading="lazy" class="ctgrImg" use:lazyLoad={ctgrImg} alt={player["nm"]} />
 
             <p>
                 {score}

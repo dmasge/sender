@@ -8,27 +8,29 @@
         {
             pic: guoba,
             url: "https://discord.gg/guobafans",
-            nm : "https://discord.gg/guobafans",
+            nm: "https://discord.gg/guobafans",
         },
         {
             pic: bronya,
             url: "https://discord.gg/bronya",
-            nm : "https://discord.gg/bronya",
+            nm: "https://discord.gg/bronya",
         },
         {
             pic: seelemains,
             url: "https://discord.gg/seelemains",
-            nm : "https://discord.gg/seelemains",
+            nm: "https://discord.gg/seelemains",
         },
     ];
 </script>
 
-<div style="position: relative; border-bottom-left-radius: 25px;
-border-bottom-right-radius: 25px; overflow: hidden;">
+<div
+    style="position: relative; border-bottom-left-radius: 25px;
+border-bottom-right-radius: 25px; overflow: hidden;"
+>
     <div id="bgDiv" style="overflow: hidden;">
-        <img id="bg" src={frensBg} alt="Your GIF" />
+        <img id="bg" src={frensBg} alt="Your GIF" loading="lazy" />
     </div>
-  
+
     <div id="aboutDiv">
         <p class="Header" style=" margin:5px;">
             {"~ SeeleLand's friends ~"}
@@ -38,6 +40,7 @@ border-bottom-right-radius: 25px; overflow: hidden;">
                 <a href={partner.url} target="_blank"
                     ><div style="margin-top: 20px;">
                         <img
+                            loading="lazy"
                             src={partner.pic}
                             alt="Home"
                             style="width:250px; height: 125px; margin:0;"
@@ -75,7 +78,7 @@ border-bottom-right-radius: 25px; overflow: hidden;">
         z-index: 1;
         transform: translate(-50%, -50%);
         border-bottom-left-radius: 25px;
-			border-bottom-right-radius: 25px;
+        border-bottom-right-radius: 25px;
         color: white;
         background-color: rgb(255, 255, 255, 0.8);
 

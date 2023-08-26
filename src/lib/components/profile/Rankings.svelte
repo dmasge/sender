@@ -19,7 +19,7 @@
     <div class="container" style="text-align: center;">
         {#if build["lb"]}
             {#if Object.keys(build["lb"]).length == 0}
-                <p>"{build["lc"]["nm"]}" is not supported at the moment.</p>
+                <p>Equipped lightcone not supported.</p>
             {/if}
             {#each Object.entries(build["lb"]) as [key, value]}
                 <div>
@@ -32,6 +32,7 @@
                                 "/1"}
                         >
                             <img
+                                loading="lazy"
                                 src={getPicForCtgr(key)}
                                 alt={"..."}
                                 class="RelicImg"
@@ -63,7 +64,6 @@
                 </p>
             </div>
         {/if}
-        
     </div>
 </div>
 

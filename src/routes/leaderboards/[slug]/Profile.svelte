@@ -1,7 +1,8 @@
 <script>
+    import { getAvatarUrl } from "$lib/iconUrls/avatarIconsUrl.js";
     export let item;
     $: player = item.find((i) => i["k"] == "p");
-    import { starRailRes } from "$lib/constants.js";
+    //let avatarUrl = ;
 </script>
 
 <div class="card">
@@ -9,7 +10,8 @@
         <p>{player["nm"]}</p>
 
         <img
-            src={starRailRes + player["icn"]}
+            loading="lazy"
+            src={getAvatarUrl(player["icn"])}
             alt={player["nm"]}
             class="avatar"
         />
@@ -43,8 +45,8 @@
     .avatar {
         width: 6vw;
         height: 6vw;
-        border-left: 3px solid #DEA055;
-        border-right: 3px solid #DEA055;
+        border-left: 3px solid #dea055;
+        border-right: 3px solid #dea055;
         border-radius: 50%;
     }
     @media (max-width: 850px) {

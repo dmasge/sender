@@ -1,7 +1,7 @@
 <script>
     import elyDark from "$lib/assets/mihomo/ElyDark_cropped_99_Quality.png";
     import mihomoBlack from "$lib/assets/mihomo/ElysiaRealm_black.png";
-
+    import { lazyLoad } from "$lib/lazyLoad.js";
     let mihomoFontSize = 1.5;
 </script>
 
@@ -17,17 +17,24 @@
                 <div class="Header">{"Powered By "}</div>
 
                 <img
+                    loading="lazy"
                     class="mihomoLogo"
-                    src={mihomoBlack}
+                    use:lazyLoad={mihomoBlack}
                     alt="Home"
                     style="background: transparent; "
                 />
                 <div class="Header">{"MiHoMo"}</div>
             </div>
-            <div class="ElyDiv"
-                style="height: 99px; width: 244px; box-shadow: 0 0 20px #000000;">
-                <img src={elyDark} alt="Elysia" 
-                    style="scale: 0.3125; margin-left:-270px; margin-right:-270px; margin-top:-110px; " />
+            <div
+                class="ElyDiv"
+                style="height: 99px; width: 244px; box-shadow: 0 0 20px #000000;"
+            >
+                <img
+                    loading="lazy"
+                    src={elyDark}
+                    alt="Elysia"
+                    style="scale: 0.3125; margin-left:-270px; margin-right:-270px; margin-top:-110px; "
+                />
             </div>
         </div>
     </a>

@@ -37,6 +37,7 @@
     >
         <a href="/leaderboards">
             <img
+                loading="lazy"
                 src={swallowtail}
                 alt="swallowtail"
                 style="transform: scaleX(-1);
@@ -44,9 +45,13 @@
             />
         </a>
         <div style="padding: 1vw; ">
-            <p style="margin-bottom: 6px;" class="Header">Want to see your ranks?</p>
+            <p style="margin-bottom: 6px;" class="Header">
+                Want to see your ranks?
+            </p>
             <div style="display: flex;">
-                <p class="Header" style=" margin-top: 2px;margin-right: 0px;">Enter UID:</p>
+                <p class="Header" style=" margin-top: 2px;margin-right: 0px;">
+                    Enter UID:
+                </p>
                 <input
                     style="width:80px; font-size: 16px;"
                     bind:value={id}
@@ -91,8 +96,6 @@
         background-color: transparent;
     }
 
-   
-
     #outermost {
         margin: auto;
         width: 100%;
@@ -101,16 +104,15 @@
     }
     @media (max-width: 850px) {
         input {
-				height: 17px;
-				width: 17px;
-				font-size: 10;
-			}
-        .Header{
+            height: 17px;
+            width: 17px;
+            font-size: 10;
+        }
+        .Header {
             font-size: 14px;
         }
         button {
-            
-        height: 20px;
+            height: 20px;
         }
     }
 </style>
