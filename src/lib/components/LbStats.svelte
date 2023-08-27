@@ -26,18 +26,28 @@
         text-shadow: none;
         justify-content: space-between;
         display: flex;
-        width: 100px;
+        width: 105px;
     }
     p,
     span {
         margin: 0;
     }
-   
+    
+    
+    div {
+        margin: 0vw;
+        padding: 0vw;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
     .centeringDiv {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0;
+        margin: auto;
+        width: 110px;
     }
     @media (max-width: 850px) {
         .statsP {

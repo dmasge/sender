@@ -67,15 +67,15 @@
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    if ($page.url.href.includes("leaderboards/lb?k=")){
+    if ($page.url.href.includes("leaderboards/lb?k=")) {
         charId = data.k;
-            ctgr = data.ctgr;
-            charName = capitalizeFirstLetter(charNamesMap[charId]);
-            header =
-                capitalizeAndRemoveUnderscores(charName) +
-                " " +
-                capitalizeAndRemoveUnderscores(ctgr);
-            ctgrImg = getPicForCtgr(ctgr);
+        ctgr = data.ctgr;
+        charName = capitalizeFirstLetter(charNamesMap[charId]);
+        header =
+            capitalizeAndRemoveUnderscores(charName) +
+            " " +
+            capitalizeAndRemoveUnderscores(ctgr);
+        ctgrImg = getPicForCtgr(ctgr);
     }
 </script>
 
@@ -97,6 +97,9 @@
         <RefreshButton onClick={refreshPlayer} {uid} {prevUnixTimestamp} />
     </div>
     <hr />
+
+    <p style="text-align: center;">Displayed stats assume maxed LC, Trace, Char levels.</p>
+    <p style="text-align: center;">See "Scoring rules" on leaderboards for more details.</p>
     <div class="buildsStuff">
         {#each sortedBuilds as build}
             <div style="margin-bottom: 50px;">
