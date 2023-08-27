@@ -2,7 +2,7 @@
     import { leaderboards } from "$lib/leaderboards.js";
     import veligif from "$lib/assets/seele-honkai-impact.gif";
     let picSize = 6;
-    import { lazyLoad } from "$lib/lazyLoad.js";
+      
 </script>
 
 <div>
@@ -24,7 +24,7 @@
                                     <div>
                                         <img
                                             loading="lazy"
-                                            use:lazyLoad={info["pic"]}
+                                            src={info["pic"]}
                                             alt="Home"
                                             style="background: transparent; width : {picSize}vw; height : {picSize}vw;"
                                         />
@@ -46,7 +46,7 @@
             <img
                 loading="lazy"
                 id="veliGif"
-                use:lazyLoad={veligif}
+                src={veligif}
                 alt="Home"
                 style="background: transparent; width : {1.5 *
                     picSize}vw; height : {1.5 *

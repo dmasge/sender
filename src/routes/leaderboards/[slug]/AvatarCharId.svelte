@@ -1,5 +1,5 @@
 <script>
-    import { starRailRes } from "$lib/constants.js";
+    import { starRailRes, extension } from "$lib/constants.js";
     export let charId;
     let picSize = 5;
 </script>
@@ -7,7 +7,7 @@
 <div class="sutffInMiddle">
     <img
     loading="lazy"
-    src={starRailRes +  "icon/avatar/" + charId + ".png"}
+    src={starRailRes +  "icon/avatar/" + charId + extension}
     alt={"avatar"}
     class="avatar"
 />

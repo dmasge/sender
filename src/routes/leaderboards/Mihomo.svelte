@@ -1,7 +1,7 @@
 <script>
-    import elyDark from "$lib/assets/mihomo/ElyDark_cropped_99_Quality.png";
-    import mihomoBlack from "$lib/assets/mihomo/ElysiaRealm_black.png";
-    import { lazyLoad } from "$lib/lazyLoad.js";
+    let elyDark = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/mihomo/ElyDark_cropped_99_Quality.webp";
+    let mihomoBlack = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/mihomo/ElysiaRealm_black.webp";
+      
     let mihomoFontSize = 1.5;
 </script>
 
@@ -19,7 +19,7 @@
                 <img
                     loading="lazy"
                     class="mihomoLogo"
-                    use:lazyLoad={mihomoBlack}
+                    src={mihomoBlack}
                     alt="Home"
                     style="background: transparent; "
                 />

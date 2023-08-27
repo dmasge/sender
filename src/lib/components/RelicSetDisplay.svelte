@@ -1,7 +1,7 @@
 <script>
     export let relicSets;
     import { getRelicUrl } from "$lib/iconUrls/avatarIconsUrl.js";
-    import { lazyLoad } from "$lib/lazyLoad.js";
+      
     function filterJSON(input) {
         let output = [];
         let names = {};
@@ -28,7 +28,7 @@
             <p class="statsP">{relicSet["cnt"]}</p>
             <img
                 loading="lazy"
-                use:lazyLoad={getRelicUrl(relicSet["icn"])}
+                src={getRelicUrl(relicSet["icn"])}
                 alt={"..."}
                 class="RelicImg"
             />
