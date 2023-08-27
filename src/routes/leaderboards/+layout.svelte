@@ -49,10 +49,11 @@
                 Want to see your ranks?
             </p>
             <div style="display: flex;">
-                <p class="Header" style=" margin-top: 2px;margin-right: 0px;">
+                <label for="uidInput" class="Header" style=" margin-top: 2px;margin-right: 0px;">
                     Enter UID:
-                </p>
+                </label>
                 <input
+                    id = "uidInput"
                     style="width:80px; font-size: 16px;"
                     bind:value={id}
                     on:input={(e) =>

@@ -1,4 +1,4 @@
-import ach from "$lib/assets/lb/ach.png";
+let ach = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/assets/ach45x45.webp";
 let night = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/light_cone/23001.webp";
 let cruising = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/light_cone/24001.webp";
 let darkness = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/light_cone/21031.webp"
