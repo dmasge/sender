@@ -10,7 +10,7 @@
         <p>{player["nm"]}</p>
 
         <img
-            loading="lazy"
+            
             src={getAvatarUrl(player["icn"])}
             alt={player["nm"]}
             class="avatar"

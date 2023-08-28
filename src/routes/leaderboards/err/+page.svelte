@@ -17,7 +17,7 @@
 
     <div style="display: flex; justify-content: center;">
         <img
-            loading="lazy"
+            
             style="width : {thonkSize}vw; height : {thonkSize * 1.168}vw;"
             src={thonk}
             alt="Your GIF"

@@ -6,7 +6,7 @@
 
 <div class="sutffInMiddle">
     <img
-    loading="lazy"
+    
     src={starRailRes +  "icon/avatar/" + charId + extension}
     alt={"avatar"}
     class="avatar"

@@ -23,7 +23,7 @@
                                 <a href={"leaderboards/lb" + info["url"]}>
                                     <div>
                                         <img
-                                            loading="lazy"
+                                            
                                             src={info["pic"]}
                                             alt="Home"
                                             style="background: transparent; width : {picSize}vw; height : {picSize}vw;"
@@ -44,7 +44,7 @@
     >
         <div style="height: fit-content; padding:10px;">
             <img
-                loading="lazy"
+                
                 id="veliGif"
                 src={veligif}
                 alt="Home"

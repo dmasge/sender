@@ -10,7 +10,7 @@
         style="border-radius: 50%; height: {40}vw; width: {40 * 1.5}vw;"
         src={bronbike_loop_crop}
         alt="Your GIF"
-        loading="lazy"
+        
     />
 </div>
 

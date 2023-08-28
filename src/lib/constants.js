@@ -1,5 +1,5 @@
-export const starRailRes = "https://raw.githubusercontent.com/Sinkira/sinkiresource/master/";
-export const extension = ".webp"
+export const starRailRes = "https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/";
+export const extension = ".png"
 
 export const charNamesMap = {
     1102: "seele",

@@ -27,7 +27,7 @@
         <div style="display: flex; justify-content: center; margin: 1px;">
             <p class="statsP">{relicSet["cnt"]}</p>
             <img
-                loading="lazy"
+                
                 src={getRelicUrl(relicSet["icn"])}
                 alt={"..."}
                 class="RelicImg"

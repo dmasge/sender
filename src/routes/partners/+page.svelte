@@ -28,7 +28,7 @@
 border-bottom-right-radius: 25px; overflow: hidden;"
 >
     <div id="bgDiv" style="overflow: hidden;">
-        <img id="bg" src={frensBg} alt="Your GIF" loading="lazy" />
+        <img id="bg" src={frensBg} alt="Your GIF"  />
     </div>
 
     <div id="aboutDiv">
@@ -40,7 +40,7 @@ border-bottom-right-radius: 25px; overflow: hidden;"
                 <a href={partner.url} target="_blank"
                     ><div style="margin-top: 20px;">
                         <img
-                            loading="lazy"
+                            
                             src={partner.pic}
                             alt="Home"
                             style="width:250px; height: 125px; margin:0;"

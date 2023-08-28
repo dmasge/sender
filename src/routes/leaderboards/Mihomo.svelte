@@ -17,7 +17,7 @@
                 <div class="Header">{"Powered By "}</div>
 
                 <img
-                    loading="lazy"
+                    
                     class="mihomoLogo"
                     src={mihomoBlack}
                     alt="Home"
@@ -30,7 +30,7 @@
                 style="height: 99px; width: 244px; box-shadow: 0 0 20px #000000;"
             >
                 <img
-                    loading="lazy"
+                    
                     src={elyDark}
                     alt="Elysia"
                     style="scale: 0.3125; margin-left:-270px; margin-right:-270px; margin-top:-110px; "

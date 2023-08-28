@@ -17,7 +17,7 @@
         <a href={isAch ? "../../" + player["id"] : "../../../" + player["id"]}>
             <img
                 src={getAvatarUrl(player["icn"])}
-                loading="lazy"
+                
                 alt={player["nm"]}
                 class="avatar"
             />
@@ -26,7 +26,7 @@
     </div>
     <div class="centeringDiv">
         <div>
-            <img loading="lazy" class="ctgrImg" src={ctgrImg} alt={player["nm"]} />
+            <img  class="ctgrImg" src={ctgrImg} alt={player["nm"]} />
 
             <p>
                 {score}

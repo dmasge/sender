@@ -2,7 +2,7 @@ import { starRailRes, extension } from "$lib/constants.js";
 
 export function getAvatarUrl(str) {
     if (str.length > 6) {
-        return replacePNGwithWEBP(starRailRes + str);
+        return starRailRes + str;
     } else {
         return starRailRes + "icon/avatar/" + str + extension;
     }
@@ -11,7 +11,7 @@ export function getAvatarUrl(str) {
 
 export function getRelicUrl(str) {
     if (str.length > 6) {
-        return replacePNGwithWEBP(starRailRes + str);
+        return starRailRes + str;
     } else {
         return starRailRes + "icon/relic/" + str + extension;
     }

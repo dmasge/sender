@@ -8,7 +8,7 @@
 
 <div class="RelicParentDiv" style="margin: 0vw;">
     <div style="display: flex; margin-bottom:5px; justify-content: space-between;">
-        <img src={getRelicUrl(relic["icn"])} loading="lazy" alt={"..."} class="RelicImg" />
+        <img src={getRelicUrl(relic["icn"])}  alt={"..."} class="RelicImg" />
         <p class="statsP">
             {abbreviateStat(relic["m"][0]) + " " + formatStat(relic["m"][1])}
         </p>

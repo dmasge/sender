@@ -37,7 +37,7 @@
     >
         <a href="/leaderboards">
             <img
-                loading="lazy"
+                
                 src={swallowtail}
                 alt="swallowtail"
                 style="transform: scaleX(-1);

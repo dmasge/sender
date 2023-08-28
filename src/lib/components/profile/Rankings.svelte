@@ -32,7 +32,7 @@
                                 "/1"}
                         >
                             <img
-                                loading="lazy"
+                                
                                 src={getPicForCtgr(key)}
                                 alt={"..."}
                                 class="RelicImg"
