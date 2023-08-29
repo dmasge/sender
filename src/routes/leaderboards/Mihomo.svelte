@@ -33,7 +33,7 @@
                     
                     src={elyDark}
                     alt="Elysia"
-                    style="scale: 0.3125; margin-left:-270px; margin-right:-270px; margin-top:-110px; "
+                    style="scale: 0.3125; margin-left:-270px; margin-right:-270px; margin-top:-110px; width: 250; height: 100"
                 />
             </div>
         </div>

@@ -51,7 +51,9 @@
                     class:active={routeId.includes(href)}
                     data-sveltekit-preload-data
                 >
-                    <p class="Header">{title}</p>
+                    <div class="centeringDiv">
+                        <p class="Header">{title}</p>
+                    </div>
                 </a>
             {/each}
         </div>
@@ -59,8 +61,10 @@
             <a
                 href="https://discord.gg/WWEFykz"
                 data-sveltekit-preload-data
-                target="_blank"><p class="Header">Discord</p></a
+                target="_blank"
             >
+                <div class="centeringDiv"><p class="Header">Discord</p></div>
+            </a>
         </div>
     </div>
 </nav>
@@ -81,20 +85,21 @@
     .navParentDiv {
         display: flex;
         align-items: center;
-        background-color: #B4DCFF;
+        background-color: #b4dcff;
         letter-spacing: 0.06em;
         justify-content: space-between;
         flex-wrap: wrap;
     }
     .active,
     nav a:hover {
-        background-color: #C0E2FE;
+        background-color: #c0e2fe;
         margin: 0;
     }
 
     @media (max-width: 650px) {
         a {
             font-size: 20px;
+            height: 35px;
         }
     }
 

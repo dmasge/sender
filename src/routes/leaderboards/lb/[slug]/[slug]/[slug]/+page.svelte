@@ -8,9 +8,9 @@
     import { speedCategoriesCase } from "$lib/speedCategories.js";
     import GeneralizedDesc from "$lib/faq/Generalized_desc.svelte";
     import SpeedCategorizer from '$lib/components/navigators/SpeedCategorizer.svelte';
-
+    
     export let data;
-   
+    
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
