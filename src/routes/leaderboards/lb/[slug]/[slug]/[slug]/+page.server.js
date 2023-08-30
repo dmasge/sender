@@ -17,7 +17,7 @@ export async function load({ url }) {
         let ctgr = splitStr[4];
         let page = splitStr[5];
 
-        let fetch_url = `https://seeleland.azurewebsites.net/api/get_lb_data?k=${k}&ctgr=${ctgr}&page=${page}`;
+        let fetch_url = `https://slprivate.azurewebsites.net/api/get_lb_data?k=${k}&ctgr=${ctgr}&page=${page}`;
         let response = await fetch(fetch_url);
         let lbData = await response.json();
         
