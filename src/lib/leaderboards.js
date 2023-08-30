@@ -69,6 +69,7 @@ export const leaderboards = [
         title: "Blade",
         info: [
             { pic: unreachable, url: "/blade/unreachable/1", desc: " " },
+            { pic: unreachable, url: "/blade/E2S1_unreachable/1", desc: "E2" },
             { pic: secret, url: "/blade/secret/1", desc: " " },
             { pic: fall, url: "/blade/fall/1", desc: " " },
             { pic: mutual, url: "/blade/mutual/1", desc: " " },
