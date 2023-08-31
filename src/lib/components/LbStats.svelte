@@ -7,7 +7,7 @@
 <!-- <div class="centeringDiv" style="display: flex; justify-content: center;">
     <p class="buildHeaderP" style="text-align: center;"> Standardized stats for {header}</p>
 </div> -->
-<div class="centeringDiv" style="margin-top: 5px; margin-bottom: 5px;">
+<div class="RelicParentDiv" style="margin-top: 5px; margin-bottom: 5px;">
     <div>
         {#each lbStats as stat}
             <p class="statsP">
@@ -21,37 +21,30 @@
 
 <style>
     .statsP {
-        font-family: Arial, sans-serif;
-        font-size: 1.1vw;
-        text-shadow: none;
         justify-content: space-between;
         display: flex;
-        width: 105px;
     }
-    p,
-    span {
-        margin: 0;
-    }
-    
-    
-    div {
+
+    p {
         margin: 0vw;
+        padding: 0vw;
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+    
+    .RelicParentDiv {
+        width: 9vw;
+    }
+    div {
+        margin: auto;
         padding: 0vw;
         align-items: center;
         justify-content: center;
-        width: 100%;
     }
 
-    .centeringDiv {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: auto;
-        width: 110px;
-    }
     @media (max-width: 850px) {
-        .statsP {
-            font-size: 12px;
+        .RelicParentDiv {
+            width: 100px;
         }
       
     }

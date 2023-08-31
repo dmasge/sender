@@ -13,6 +13,16 @@ export const scoringRulesDict = {
 
     'qingque' : `All QQ are assummed to be max char lvl, trace lvl, cone lvl. (only relics affect score)<br><br>
         Scores are calculated as:  ult_dmg + e_basic_atk + 0.24 * autarky. 3 targets
-        `
+        `,
+
+    'blade' : `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
+        Scores are calculated as: ULT(90% HP loss) + 4x Ebasic + 1x Talent. 3 targets
+        <br><br>Enemies have no Qua weakness`,
+    
+    'seele' : `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
+        Scores are calculated as: 2 skill + ULT + 2 buffed skill`,
+    
+    'sw' : `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
+        Scores are calculated as: (2x (Ult + skill + 2x basic) + break + (skill + 2x basic) + 5entanglement) * (prob landing weakness)`,
 
 }
