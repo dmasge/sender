@@ -15,6 +15,7 @@
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    let page = data.page;
     let charId = data.k;
     let ctgr = data.ctgr;
     let charName = capitalizeFirstLetter(data.charName);
@@ -39,4 +40,5 @@
         {header}
         {ctgrImg}
         {jsonData}
+        {page}
     />

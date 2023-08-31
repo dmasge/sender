@@ -5,12 +5,13 @@
     export let ctgr;
     export let build;
     export let header;
+    export let rank;
     $: player = build["player"];
 </script>
 
 <LbPlayerCard
     {player}
-    rank={build["lb"][ctgr]["rank"]}
+    {rank}
     score={build["lb"][ctgr]["sc"]}
     {ctgrImg}
 />

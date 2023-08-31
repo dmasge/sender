@@ -73,6 +73,7 @@
                                     src={getPicForCtgr(key)}
                                     alt={"..."}
                                     class="RelicImg"
+                                    style="margin-top: 1px;"
                                 />
                             </div>
                         </a>
