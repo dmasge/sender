@@ -3,6 +3,9 @@
     import { getPicForCtgr } from "$lib/leaderboards.js";
     import LbStats from "$lib/components/LbStats.svelte";
     import { charNamesMap } from "$lib/constants.js";
+    import { starRailRes, extension } from "$lib/constants.js";
+    
+    import RelicSetDisplay from "$lib/components/RelicSetDisplay.svelte";
 
     $: charname = charNamesMap[build["k"]];
     let picSize = 5;
@@ -19,25 +22,20 @@
     <div class="container" style="text-align: center;">
         {#if build["lb"]}
             {#if Object.keys(build["lb"]).length == 0}
-                <p>Equipped lightcone not supported.</p>
+                <div style="margin:auto;">
+                    <img
+                        src={starRailRes + "icon/avatar/" + build["k"] + extension}
+                        alt={"..."}
+                        class="RelicImg avatar"
+                    />
+                    <p style="margin-top:0; margin-bottom:0; text-align: center;">
+                        Equipped lightcone not supported
+                    </p>
+                </div>
             {/if}
             {#each Object.entries(build["lb"]) as [key, value]}
                 <div>
                     {#if build["lbstats"] && build["lbstats"].hasOwnProperty(key)}
-                        <a
-                            href={"./lb/" +
-                                charname.toLowerCase() +
-                                "/" +
-                                key +
-                                "/1"}
-                        >
-                            <img
-                                
-                                src={getPicForCtgr(key)}
-                                alt={"..."}
-                                class="RelicImg"
-                            />
-                        </a>
                         <p>
                             {"Rank: " +
                                 value["rank"] +
@@ -53,12 +51,45 @@
                                 ")"}
                         </p>
 
+                        <a
+                            href={"./lb/" +
+                                charname.toLowerCase() +
+                                "/" +
+                                key +
+                                "/1"}
+                        >
+                            <div
+                                style="display: flex; justify-content: center;"
+                            >
+                                <img
+                                    src={starRailRes +
+                                        "icon/character/" +
+                                        build["k"] +
+                                        extension}
+                                    alt={"..."}
+                                    class="RelicImg avatar"
+                                />
+                                <img
+                                    src={getPicForCtgr(key)}
+                                    alt={"..."}
+                                    class="RelicImg"
+                                />
+                            </div>
+                        </a>
+                        
                         <LbStats lbStats={build["lbstats"][key]} header={key} />
+                        
+                        <RelicSetDisplay relicSets={build['rs']} />
                     {/if}
                 </div>
             {/each}
         {:else}
             <div style="margin:auto;">
+                <img
+                    src={starRailRes + "icon/avatar/" + build["k"] + extension}
+                    alt={"..."}
+                    class="RelicImg avatar"
+                />
                 <p style="margin-top:0; margin-bottom:0; text-align: center;">
                     leaderboards for this character coming soon!
                 </p>
@@ -78,6 +109,11 @@
         width: 5vw;
         height: 5vw;
         margin-bottom: -5px;
+    }
+
+    .avatar {
+        border-radius: 25%;
+        scale: 0.9;
     }
 
     .stuffOnTheRight {

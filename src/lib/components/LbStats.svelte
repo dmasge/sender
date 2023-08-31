@@ -28,8 +28,8 @@
     p {
         margin: 0vw;
         padding: 0vw;
-        margin-top: 3px;
-        margin-bottom: 3px;
+        margin-top: 2px;
+        margin-bottom: 2px;
     }
     
     .RelicParentDiv {

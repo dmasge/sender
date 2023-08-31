@@ -47,7 +47,6 @@
     }
     .statsP {
         font-family: Arial, sans-serif;
-        font-size: 1.2vw;
         text-shadow: none;
         justify-content: space-between;
         display: flex;
@@ -61,9 +60,6 @@
         .RelicImg {
             width: 18px;
             height: 18px;
-        }
-        .statsP {
-            font-size: 12px;
         }
     }
 </style>

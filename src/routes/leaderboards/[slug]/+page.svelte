@@ -103,8 +103,8 @@
     <div class="buildsStuff">
         {#each sortedBuilds as build}
             <div style="margin-bottom: 50px;">
-                <AvatarCharId charId={build["k"]} />
                 <div class="tooglable" style="margin-bottom:10px;">
+                    
                     <RelicsBulkWithToogle
                         {build}
                         relics={build["r"]}

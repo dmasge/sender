@@ -1,10 +1,8 @@
 <script>
     export let relics;
-    export let relicSets;
     export let build;
     import RelicsBulk from "$lib/components/RelicsBulk.svelte";
 
-    import RelicSetDisplay from "$lib/components/RelicSetDisplay.svelte";
     import Rankings from "$lib/components/profile/Rankings.svelte";
 
     let showBuild = false;
@@ -14,7 +12,6 @@
     <Rankings {build} />
     <div style="display: {showBuild ? 'block' : 'none'}">
         <RelicsBulk {relics} />
-        <RelicSetDisplay {relicSets} />
     </div>
 </div>
 <button
