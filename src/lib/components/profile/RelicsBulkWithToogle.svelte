@@ -1,25 +1,31 @@
 <script>
-    export let relics;
     export let build;
+    let relics = build['r'];
     import RelicsBulk from "$lib/components/RelicsBulk.svelte";
 
     import Rankings from "$lib/components/profile/Rankings.svelte";
 
     let showBuild = false;
+    export let expanded = false;
+    if (expanded){
+        showBuild = true;
+    }
 </script>
 
 <div class="tooglableParentDiv">
-    <Rankings {build} />
+    <Rankings {build} redirect={expanded}/>
     <div style="display: {showBuild ? 'block' : 'none'}">
         <RelicsBulk {relics} />
     </div>
 </div>
+{#if !expanded}
 <button
     class="toggle-build-button"
     on:click={() => (showBuild = !showBuild)}
 >
     {showBuild ? 'Hide' : 'Show'} relics
 </button>
+{/if}
 
 <style>
     .tooglableParentDiv {
@@ -27,6 +33,7 @@
         width: fit-content;
         margin: auto;
         padding: 7px;
+        margin-top: 7px;
         border-radius: 20px;
         box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
         margin-bottom: 5px;

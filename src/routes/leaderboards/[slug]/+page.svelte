@@ -107,8 +107,6 @@
                     
                     <RelicsBulkWithToogle
                         {build}
-                        relics={build["r"]}
-                        relicSets={build["rs"]}
                     />
                 </div>
             </div>

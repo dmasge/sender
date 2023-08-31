@@ -1,5 +1,6 @@
 <script>
     export let build;
+    export let redirect;
     import { getPicForCtgr } from "$lib/leaderboards.js";
     import LbStats from "$lib/components/LbStats.svelte";
     import { charNamesMap } from "$lib/constants.js";
@@ -52,11 +53,11 @@
                         </p>
 
                         <a
-                            href={"./lb/" +
-                                charname.toLowerCase() +
-                                "/" +
-                                key +
-                                "/1"}
+                            href={redirect ? '../../../' + build['id'] : "./lb/" +
+                            charname.toLowerCase() +
+                            "/" +
+                            key +
+                            "/1"}
                         >
                             <div
                                 style="display: flex; justify-content: center;"

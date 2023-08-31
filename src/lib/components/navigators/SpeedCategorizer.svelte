@@ -14,7 +14,7 @@
             if (spdCtgrs[i] === "Base") {
                 newList.push(currUrl + "/");
             } else {
-                newList.push(currUrl + "_" +  spdCtgrs[i] + "/");
+                newList.push(currUrl + "_" + spdCtgrs[i] + "/");
             }
         }
         return newList;
@@ -22,14 +22,16 @@
     let urls = GetUrlBases(spdCtgrs);
 </script>
 
-<div class="parentDiv">
-    {#each urls as url, i}
-        {@const href = url + "1"}
-        <a {href} class:active={$page.url.pathname.includes(href)}>
-            <p>{spdCtgrs[i] + " SPD"}</p>
-        </a>
-    {/each}
-</div>
+{#if spdCtgrs != []}
+    <div class="parentDiv">
+        {#each urls as url, i}
+            {@const href = url + "1"}
+            <a {href} class:active={$page.url.pathname.includes(href)}>
+                <p>{spdCtgrs[i] + " SPD"}</p>
+            </a>
+        {/each}
+    </div>
+{/if}
 
 <style>
     a {
@@ -53,6 +55,6 @@
     }
 
     .active {
-      font-weight: bold;
+        font-weight: bold;
     }
 </style>

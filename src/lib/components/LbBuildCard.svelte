@@ -1,10 +1,7 @@
 <script>
-    import RelicSetDisplay from "$lib/components/RelicSetDisplay.svelte";
-    import RelicsBulk from "$lib/components/RelicsBulk.svelte";
-    import LbStats from "$lib/components/LbStats.svelte";
+    
+    import RelicsBulkWithToogle from "$lib/components/profile/RelicsBulkWithToogle.svelte";
     export let build;
-    export let ctgr;
-    export let header;
     let showBuild = false;
 </script>
 
@@ -17,13 +14,7 @@
 </button>
 
 <div class="tooglable" style="display: {showBuild ? 'block' : 'none'}">
-    <LbStats lbStats={build["lbstats"][ctgr]} {header} />
-
-    <RelicsBulk relics={build["r"]} />
-    
-    <div class="centeringDiv">
-        <RelicSetDisplay relicSets={build["rs"]} />
-    </div>
+    <RelicsBulkWithToogle {build} expanded={true} ></RelicsBulkWithToogle>
 </div>
 
 <button
@@ -36,22 +27,7 @@
 
 <style>
     
-    .tooglable {
-        background-color: #FFE7BB; /* rgb(116, 0, 166); */
-        width: fit-content;
-        margin: auto;
-        border-radius: 20px;
-        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
-        padding: 1vw;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .centeringDiv {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-    }
+   
 
     .show-build-button,
     .hide-build-button {

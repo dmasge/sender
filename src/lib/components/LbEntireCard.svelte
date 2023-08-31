@@ -14,6 +14,8 @@
     {rank}
     score={build["lb"][ctgr]["sc"]}
     {ctgrImg}
+    {build}
 />
+
 <LbBuildCard {build} {header} {ctgr} />
 
