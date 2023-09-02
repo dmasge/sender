@@ -6,14 +6,21 @@
 
 <!-- <div class="centeringDiv" style="display: flex; justify-content: center;">
     <p class="buildHeaderP" style="text-align: center;"> Standardized stats for {header}</p>
+
+    style="margin-top: 5px; margin-bottom: 5px; background-color: #ffe2ae; border-radius: 10%; padding:10px;"
 </div> -->
-<div class="RelicParentDiv" style="margin-top: 5px; margin-bottom: 5px;">
+<div class="RelicParentDiv" >
     <div>
-        {#each lbStats as stat}
+        {#each lbStats as stat, i}
+        <div
+                style="margin:-3px;
+                    padding:3px;"
+            >
             <p class="statsP">
                 <span>{stat[0]}</span>
                 <span>{stat[1]}</span>
             </p>
+        </div>
         {/each} 
     </div>
 </div>
@@ -33,7 +40,7 @@
     }
     
     .RelicParentDiv {
-        width: 9vw;
+        width: 100px;
     }
     div {
         margin: auto;

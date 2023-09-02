@@ -25,14 +25,14 @@
 <div id="parentDiv">
     {#each filteredSets as relicSet}
         <div style="display: flex; justify-content: center; margin: 1px;">
-            <p class="statsP">{relicSet["cnt"]}</p>
+            
             <img
                 
                 src={getRelicUrl(relicSet["icn"])}
                 alt={"..."}
                 class="RelicImg"
             />
-            <p class="statsP">{relicSet["nm"]}</p>
+            <p class="statsP">{relicSet["cnt"]}</p>
         </div>
     {/each}
 </div>
@@ -41,6 +41,8 @@
     #parentDiv {
         height: fit-content;
         margin-bottom: 5px;
+        display: flex;
+        justify-content: center;
     }
     p {
         margin: 1px;
@@ -49,17 +51,17 @@
         font-family: Arial, sans-serif;
         text-shadow: none;
         justify-content: space-between;
+        padding-top: 20px;
+        margin-left: -4px;
+        margin-top: -2px;
         display: flex;
     }
     .RelicImg {
-        height: 1.7vw;
-        width: 1.7vw;
+        height: 30px;
+        width: 30px;
         margin-bottom: 0px;
     }
     @media (max-width: 850px) {
-        .RelicImg {
-            width: 18px;
-            height: 18px;
-        }
+       
     }
 </style>

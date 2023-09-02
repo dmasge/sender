@@ -107,7 +107,7 @@ export const leaderboards = [
             { pic: geniuses, url: "/jing_yuan/E0S5_geniuses/1", desc: " " },
             { pic: today, url: "/jing_yuan/E0S5_today/1", desc: " " },
             { pic: milky, url: "/jing_yuan/E0S1_milky/1", desc: " " },
-            { pic: clamor, url: "/jing_yuan/E0S5_clamor/1", desc: " " },
+            // { pic: clamor, url: "/jing_yuan/E0S5_clamor/1", desc: " " },
         ],
     },
 ];

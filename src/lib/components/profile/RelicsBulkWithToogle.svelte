@@ -15,7 +15,7 @@
 <div class="tooglableParentDiv">
     <Rankings {build} redirect={expanded}/>
     <div style="display: {showBuild ? 'block' : 'none'}">
-        <RelicsBulk {relics} />
+        <RelicsBulk {relics} charId={build['k']} />
     </div>
 </div>
 {#if !expanded}
@@ -31,6 +31,7 @@
     .tooglableParentDiv {
         background-color: #ffe7bb;
         width: fit-content;
+        min-width: 220px;
         margin: auto;
         padding: 7px;
         margin-top: 7px;

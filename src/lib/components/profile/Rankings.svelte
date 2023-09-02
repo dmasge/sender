@@ -5,7 +5,8 @@
     import LbStats from "$lib/components/LbStats.svelte";
     import { charNamesMap } from "$lib/constants.js";
     import { starRailRes, extension } from "$lib/constants.js";
-    
+    import { scoringRulesShort } from "$lib/scoringRules.js"
+
     import RelicSetDisplay from "$lib/components/RelicSetDisplay.svelte";
 
     $: charname = charNamesMap[build["k"]];
@@ -19,7 +20,7 @@
     }
 </script>
 
-<div class="stuffOnTheRight" style="overflow: hidden; margin-top:-5px;">
+<div class="stuffOnTheRight" style="overflow: hidden;">
     <div class="container" style="text-align: center;">
         {#if build["lb"]}
             {#if Object.keys(build["lb"]).length == 0}
@@ -50,6 +51,9 @@
                                 " (" +
                                 capitalizeAndRemoveUnderscores(key) +
                                 ")"}
+                        </p>
+                        <p>
+                            {"Score = " + scoringRulesShort[build['k']]}
                         </p>
 
                         <a
@@ -108,8 +112,8 @@
         justify-content: center;
     }
     img {
-        width: 5vw;
-        height: 5vw;
+        width: 60px;
+        height: 60px;
         margin-bottom: -5px;
     }
 
@@ -133,9 +137,6 @@
         p {
             font-size: 11px;
         }
-        img {
-            width: 50px;
-            height: 50px;
-        }
+        
     }
 </style>

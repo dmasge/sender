@@ -26,3 +26,14 @@ export const scoringRulesDict = {
         Scores are calculated as: (2x (Ult + skill + 2x basic) + break + (skill + 2x basic) + 5entanglement) * (prob landing weakness)`,
 
 }
+
+export const scoringRulesShort = {
+    '1102' : "4SKILL+ULT", // Seele
+    '1005' : "15DOT+3SKILL+3FLWUP+ULT", // Kafka
+    '1006' : "ENTANG+2ULT+3SKILL", // SW
+    '1205' : "4BASIC+ULT+FLWUP",  // Blade
+    '1201' : "ULT+BASIC+0.24AUTARKY",
+    '1107' : "4COUNTER+2SKILL", // CLARA
+    '1204' : "17LL+4SKILL+ULT", // JING
+
+}

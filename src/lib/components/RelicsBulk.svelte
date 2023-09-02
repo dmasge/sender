@@ -1,13 +1,14 @@
 <script>
     export let relics;
+    export let charId;
     import Relic from "$lib/components/Relic.svelte";
 </script>
 
 <div class="relicsDiv">
     {#each relics as relic, i}
-        <Relic {relic} />
+        <Relic {relic} {charId} />
         {#if (i + 1) % 3 !== 0}
-            <hr />
+            <hr style="border:none;"/>
         {/if}
     {/each}
 </div>
@@ -22,25 +23,20 @@
     .relicsDiv {
         display: flex;
         flex-wrap: wrap;
-        width: 32vw;
         margin: auto;
-        height: 18vw;
-        margin-left: 4px;
-        margin-right: 4px;
-        margin-bottom: -1vw;
+        padding:15px;
+        width: 345px;
+        height: 270px;
+        margin-bottom: -15px;
     }
     hr {
-        height: 7vw;
+        height: 1px;
     }
 
     @media (max-width: 850px) {
         .relicsDiv {
-            width: 320px;
-            height: 195px;
-            margin-bottom: 0px;
-        }
-        hr {
-            height: 75px;
-        }
+        width: 310px;
+        padding:5px;
+    }
     }
 </style>
