@@ -7,10 +7,10 @@
         let names = {};
         for (let i = 0; i < input.length; i++) {
             let item = input[i];
-            if (names[item.nm] === undefined) {
-                names[item.nm] = item;
-            } else if (item.cnt > names[item.nm].cnt) {
-                names[item.nm] = item;
+            if (names[item.id] === undefined) {
+                names[item.id] = item;
+            } else if (item.cnt > names[item.id].cnt) {
+                names[item.id] = item;
             }
         }
         for (let key in names) {
