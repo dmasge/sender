@@ -1,6 +1,7 @@
 <script>
     import { goto, preloadData } from "$app/navigation";
-    let swallowtail = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/assets/swallowtail_compressed_196x307.webp";
+    let swallowtail =
+        "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/assets/swallowtail_compressed_196x307.webp";
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     import Mihomo from "./Mihomo.svelte";
@@ -26,9 +27,21 @@
             isNavigating = false;
         }
     });
+
+    import { onMount } from "svelte";
+    let message = "BETA";
+    onMount(async () => {
+        try {
+            message = await fetch(
+                "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/message.txt"
+            ).then((res) => res.text());
+        } catch (error) {
+            message = "BETA";
+        }
+    });
 </script>
 
-<div style="text-align: center; color:red;">BETA</div>
+<div style="text-align: center; color:red;">{message}</div>
 
 <div id="outermost">
     <div
@@ -37,7 +50,6 @@
     >
         <a href="/leaderboards">
             <img
-                
                 src={swallowtail}
                 alt="swallowtail"
                 style="transform: scaleX(-1);
@@ -49,11 +61,15 @@
                 Want to see your ranks?
             </p>
             <div style="display: flex;">
-                <label for="uidInput" class="Header" style=" margin-top: 2px;margin-right: 0px;">
+                <label
+                    for="uidInput"
+                    class="Header"
+                    style=" margin-top: 2px;margin-right: 0px;"
+                >
                     Enter UID:
                 </label>
                 <input
-                    id = "uidInput"
+                    id="uidInput"
                     style="width:80px; font-size: 16px;"
                     bind:value={id}
                     on:input={(e) =>

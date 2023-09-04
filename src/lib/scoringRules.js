@@ -30,7 +30,7 @@ export const scoringRulesDict = {
 export const scoringRulesShort = {
     '1102' : "4SKILL+ULT", // Seele
     '1005' : "15DOT+3SKILL+3FLWUP+ULT", // Kafka
-    '1006' : "ENTANG+2ULT+3SKILL", // SW
+    '1006' : "WEAKEN+ENTANG+2ULT+3SKILL", // SW
     '1205' : "4BASIC+ULT+FLWUP",  // Blade
     '1201' : "ULT+BASIC+0.24AUTARKY",
     '1107' : "4COUNTER+2SKILL", // CLARA

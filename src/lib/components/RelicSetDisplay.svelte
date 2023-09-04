@@ -28,7 +28,7 @@
             
             <img
                 
-                src={getRelicUrl(relicSet["icn"])}
+                src={getRelicUrl(relicSet["id"])}
                 alt={"..."}
                 class="RelicImg"
             />
