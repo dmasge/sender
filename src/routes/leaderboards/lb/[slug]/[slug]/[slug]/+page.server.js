@@ -10,7 +10,12 @@ export async function load({ url }) {
         let splitStr = str.split("/");
         let charName = splitStr[3];
 
-        let k = getIdFromName(charName);
+        let k;
+        if (/^\d+$/.test(charName)) {
+            k = charName;
+        } else {
+            k = getIdFromName(charName);
+        }
         if (k == null) {
             throw error(404);
         }

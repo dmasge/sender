@@ -5,7 +5,6 @@
     $: uid = $page.url.pathname.split("/").pop();
 
     import RelicsBulkWithToogle from "$lib/components/profile/RelicsBulkWithToogle.svelte";
-    import AvatarCharId from "./AvatarCharId.svelte";
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     import RefreshButton from "./RefreshButton.svelte";
@@ -79,15 +78,7 @@
     }
 </script>
 
-{#if $page.url.href.includes("leaderboards/lb?k=")}
-    <BuildsLeaderboard
-        {ctgr}
-        {charId}
-        {header}
-        {ctgrImg}
-        jsonData={data.lbData}
-    />
-{:else if !jsonData}
+{#if !jsonData}
     <Bronbike />
 {:else}
     <div style="display: flex; justify-content: center;">

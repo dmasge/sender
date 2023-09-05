@@ -29,87 +29,81 @@ let eyes = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/li
 let patience = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/light_cone/23006.webp"
 let fermata = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/light_cone/21022.webp"
 
+function generateLeaderboard(charId, title, info) {
+    return {
+        title,
+        charId,
+        info: info.map(({ pic, url, desc }) => ({
+            pic,
+            url: url.replace('{charId}', charId),
+            desc,
+        }))
+    };
+}
+
+
 export const leaderboards = [
     {
         title: "Achievements",
         info: [{ pic: ach, url: "/achievments/1", desc: "" }],
+        charId: "",
     },
-    {
-        title: "Seele",
-        info: [
-            { pic: night, url: "/seele/night/1", desc: " " },
-            { pic: night, url: "/seele/E2S5_night/1", desc: "S5" },
-            { pic: cruising, url: "/seele/cruising/1", desc: " " },
-            { pic: darkness, url: "/seele/darkness/1", desc: " " },
-            { pic: swordplay, url: "/seele/swordplay/1", desc: " " },
-            { pic: sleep, url: "/seele/sleep/1", desc: " " }
-        ],
-    },
-    {
-        title: "Kafka",
-        info: [
-            { pic: patience, url: "/kafka/E0S1_patience_134/1", desc: "" },
-            { pic: gn, url: "/kafka/E0S5_gn_134/1", desc: "" },
-            { pic: fermata, url: "/kafka/E0S5_fermata_134/1", desc: "" },
-            { pic: name, url: "/kafka/E0S1_name_134/1", desc: "" },
-            { pic: eyes, url: "/kafka/E0S5_eyes_134/1", desc: "" }
-        ],
-    },
-    {
-        title: "Silver Wolf",
-        info: [
-            { pic: tutorial, url: "/sw/tutorial_134/1", desc: " " },
-            { pic: rain, url: "/sw/rain_134/1", desc: " " },
-            { pic: rain, url: "/sw/E2S1_rain_134/1", desc: "E2" },
-            { pic: gn, url: "/sw/gn_134/1", desc: " " },
-            { pic: resolution, url: "/sw/resolution_134/1", desc: " " },
-        ],
-    },
-    {
-        title: "Blade",
-        info: [
-            { pic: unreachable, url: "/blade/unreachable/1", desc: " " },
-            { pic: unreachable, url: "/blade/E2S1_unreachable/1", desc: "E2" },
-            { pic: secret, url: "/blade/secret/1", desc: " " },
-            { pic: fall, url: "/blade/fall/1", desc: " " },
-            { pic: mutual, url: "/blade/mutual/1", desc: " " },
-            { pic: irreplaceable, url: "/blade/irreplaceable/1", desc: " " },
-        ],
-    },
-    {
-        title: "Qingque",
-        info: [
-            { pic: today, url: "/qingque/E6S5_today/1", desc: " " },
-            { pic: dawn, url: "/qingque/E6S1_dawn/1", desc: " " },
-            { pic: breakfast, url: "/qingque/E6S5_breakfast/1", desc: " " },
-            { pic: geniuses, url: "/qingque/E6S5_geniuses/1", desc: " " },
-            { pic: milky, url: "/qingque/E6S1_milky/1", desc: " " },
-        ],
-    },
-    {
-        title: "Clara",
-        info: [
-            { pic: irreplaceable, url: "/clara/E2S1_irreplaceable/1", desc: " " },
-            { pic: fall, url: "/clara/E2S5_fall/1", desc: " " },
-            { pic: moles, url: "/clara/E2S5_moles/1", desc: " " },
-            { pic: secret, url: "/clara/E2S5_secret/1", desc: " " },
-            { pic: woof, url: "/clara/E2S5_woof/1", desc: " " },
-            { pic: under, url: "/clara/E2S5_under/1", desc: " " },
-            { pic: collapsing, url: "/clara/E2S5_collapsing/1", desc: " " },
-        ],
-    },
-    {
-        title: "Jing Yuan",
-        info: [
-            { pic: dawn, url: "/jing_yuan/E0S1_dawn/1", desc: " " },
-            { pic: breakfast, url: "/jing_yuan/E0S5_breakfast/1", desc: " " },
-            { pic: birth, url: "/jing_yuan/E0S5_birth/1", desc: " " },
-            { pic: geniuses, url: "/jing_yuan/E0S5_geniuses/1", desc: " " },
-            { pic: today, url: "/jing_yuan/E0S5_today/1", desc: " " },
-            { pic: milky, url: "/jing_yuan/E0S1_milky/1", desc: " " },
-            // { pic: clamor, url: "/jing_yuan/E0S5_clamor/1", desc: " " },
-        ],
-    },
+    generateLeaderboard('1102', 'Seele', [
+        { pic: night, url: "/{charId}/night/1", desc: " " },
+        { pic: night, url: "/{charId}/E2S5_night/1", desc: "S5" },
+        { pic: cruising, url: "/{charId}/cruising/1", desc: " " },
+        { pic: darkness, url: "/{charId}/darkness/1", desc: " " },
+        { pic: swordplay, url: "/{charId}/swordplay/1", desc: " " },
+        { pic: sleep, url: "/{charId}/sleep/1", desc: " " }
+    ]),
+    generateLeaderboard('1005', 'Kafka', [
+        { pic: patience, url: "/{charId}/E0S1_patience_134/1", desc: "" },
+        { pic: gn, url: "/{charId}/E0S5_gn_134/1", desc: "" },
+        { pic: fermata, url: "/{charId}/E0S5_fermata_134/1", desc: "" },
+        { pic: name, url: "/{charId}/E0S1_name_134/1", desc: "" },
+        { pic: eyes, url: "/{charId}/E0S5_eyes_134/1", desc: "" }
+    ]),
+    generateLeaderboard('1006', 'Silver Wolf', [
+        { pic: tutorial, url: "/{charId}/tutorial_134/1", desc: " " },
+        { pic: rain, url: "/{charId}/rain_134/1", desc: " " },
+        { pic: rain, url: "/{charId}/E2S1_rain_134/1", desc: "E2" },
+        { pic: gn, url: "/{charId}/gn_134/1", desc: " " },
+        { pic: resolution, url: "/{charId}/resolution_134/1", desc: " " }
+    ]),
+    generateLeaderboard('1205', 'Blade', [
+        { pic: unreachable, url: "/{charId}/unreachable/1", desc: " " },
+        { pic: unreachable, url: "/{charId}/E2S1_unreachable/1", desc: "E2" },
+        { pic: secret, url: "/{charId}/secret/1", desc: " " },
+        { pic: fall, url: "/{charId}/fall/1", desc: " " },
+        { pic: mutual, url: "/{charId}/mutual/1", desc: " " },
+        { pic: irreplaceable, url: "/{charId}/irreplaceable/1", desc: " "},
+    ]),
+   
+    generateLeaderboard('1201', 'Qingque', [
+        { pic: today, url: "/{charId}/E6S5_today/1", desc: " " },
+        { pic: dawn, url: "/{charId}/E6S1_dawn/1", desc: " " },
+        { pic: breakfast, url: "/{charId}/E6S5_breakfast/1", desc: " " },
+        { pic: geniuses, url: "/{charId}/E6S5_geniuses/1", desc: " " },
+        { pic: milky, url: "/{charId}/E6S1_milky/1", desc: " " }
+    ]),
+    generateLeaderboard('1107', 'Clara', [
+        { pic: irreplaceable, url: "/{charId}/E2S1_irreplaceable/1", desc: " " },
+        { pic: fall, url: "/{charId}/E2S5_fall/1", desc: " " },
+        { pic: moles, url: "/{charId}/E2S5_moles/1", desc: " " },
+        { pic: secret, url: "/{charId}/E2S5_secret/1", desc: " " },
+        { pic: woof, url: "/{charId}/E2S5_woof/1", desc: " " },
+        { pic: under, url: "/{charId}/E2S5_under/1", desc: " " },
+        { pic: collapsing, url: "/{charId}/E2S5_collapsing/1", desc: " " },
+    ]),
+   
+    generateLeaderboard('1204', 'Jing Yuan', [
+        { pic: dawn, url: "/{charId}/E0S1_dawn/1", desc: " " },
+        { pic: breakfast, url: "/{charId}/E0S5_breakfast/1", desc: " " },
+        { pic: birth, url: "/{charId}/E0S5_birth/1", desc: " " },
+        { pic: geniuses, url: "/{charId}/E0S5_geniuses/1", desc: " " },
+        { pic: today, url: "/{charId}/E0S5_today/1", desc: " " },
+        { pic: milky, url: "/{charId}/E0S1_milky/1", desc: " " }
+    ])
 ];
 
 export function getPicForCtgr(str) {
@@ -147,7 +141,7 @@ export function getPicForCtgr(str) {
         case 'eyes': return eyes;
         case 'fermata': return fermata;
         case 'name': return name;
-        default : return seeleDerp;
+        // default : return 1102Derp;
     }
 }
 

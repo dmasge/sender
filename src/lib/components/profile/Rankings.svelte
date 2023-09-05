@@ -58,7 +58,7 @@
 
                         <a
                             href={redirect ? '../../../' + build['id'] : "./lb/" +
-                            charname.toLowerCase() +
+                            build["k"] +
                             "/" +
                             key +
                             "/1"}

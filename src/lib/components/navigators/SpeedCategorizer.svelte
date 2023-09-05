@@ -3,9 +3,6 @@
     function removeTrailingNumbers(url) {
         return url.replace(/(_\d+)?\/\d+$/, "");
     }
-    $: urlBase = removeTrailingNumbers($page.url.pathname);
-
-    export let spdCtgrs = ["Base", "134"];
 
     function GetUrlBases(spdCtgrs) {
         let newList = [];
@@ -19,15 +16,33 @@
         }
         return newList;
     }
-    let urls = GetUrlBases(spdCtgrs);
+
+
+    function speedCategoriesCase(str) {
+        switch (str) {
+            case "1005":
+                return ["Base", "134", "151", "161"];
+            case "1102":
+                return [];
+
+            default:
+                return ["Base", "134"];
+        }
+    }
+    
+    let str = $page.url.pathname;
+    let splitStr = str.split("/");
+    let charId = splitStr[3];
+    let speedCategories = speedCategoriesCase(charId);
+    let urls = GetUrlBases(speedCategories);
 </script>
 
-{#if spdCtgrs != []}
+{#if speedCategories != []}
     <div class="parentDiv">
         {#each urls as url, i}
             {@const href = url + "1"}
             <a {href} class:active={$page.url.pathname.includes(href)}>
-                <p>{spdCtgrs[i] + " SPD"}</p>
+                <p>{speedCategories[i] + " SPD"}</p>
             </a>
         {/each}
     </div>

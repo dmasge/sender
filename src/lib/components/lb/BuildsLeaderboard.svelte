@@ -2,19 +2,36 @@
     export let ctgr;
     export let header;
     export let ctgrImg;
-    export let page;
     export let jsonData;
 
     import Pagination from "$lib/components/navigators/Pagination.svelte";
-    import LbHeader from "$lib/components/LbHeader.svelte";
     import LbEntireCard from "$lib/components/LbEntireCard.svelte";
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     import LbColumnsDesc from "$lib/components/LbColumnsDesc.svelte";
+
+    import { page } from "$app/stores";
+    let str = $page.url.pathname;
+    let splitStr = str.split("/");
+    let charId = splitStr[3];
+    let pageN = splitStr[5];
+
+    import LeaderboardsList from "./LeaderboardsList.svelte";
+
+    import SpeedCategorizer from "$lib/components/navigators/SpeedCategorizer.svelte";
+
+    
+    import GeneralizedDesc from "$lib/faq/Generalized_desc.svelte";
+    
+    import { scoringRulesDict } from "$lib/scoringRules.js";
+    let scoringRules = scoringRulesDict[charId];
 </script>
 
-<LbHeader {header} />
 
+<GeneralizedDesc text2={scoringRules}/>
+
+<LeaderboardsList searchTerm={charId} isOnLeaderboard={true}/>
+<SpeedCategorizer />
 <LbColumnsDesc />
 
 {#if jsonData}
@@ -27,7 +44,7 @@
                 {header}
                 {build}
                 {ctgr}
-                rank={page + i - 9}
+                rank={pageN + i - 9}
             />
             <hr class="lbHr" />
         {/each}
