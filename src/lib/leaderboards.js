@@ -73,6 +73,7 @@ export const leaderboards = [
     generateLeaderboard('1205', 'Blade', [
         { pic: unreachable, url: "/{charId}/unreachable/1", desc: " " },
         { pic: unreachable, url: "/{charId}/E2S1_unreachable/1", desc: "E2" },
+        { pic: unreachable, url: "/{charId}/E2S5_unreachable/1", desc: "E2S5" },
         { pic: secret, url: "/{charId}/secret/1", desc: " " },
         { pic: fall, url: "/{charId}/fall/1", desc: " " },
         { pic: mutual, url: "/{charId}/mutual/1", desc: " " },
