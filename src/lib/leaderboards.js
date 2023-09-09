@@ -28,6 +28,7 @@ let name = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/li
 let eyes = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/light_cone/21008.webp"
 let patience = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/light_cone/23006.webp"
 let fermata = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/icon/light_cone/21022.webp"
+let brighter = 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23015.png'
 
 function generateLeaderboard(charId, title, info) {
     return {
@@ -55,6 +56,13 @@ export const leaderboards = [
         { pic: darkness, url: "/{charId}/darkness/1", desc: " " },
         { pic: swordplay, url: "/{charId}/swordplay/1", desc: " " },
         { pic: sleep, url: "/{charId}/sleep/1", desc: " " }
+    ]),
+    generateLeaderboard('1213', 'Dan Heng Imbibitor Lunae', [
+        { pic: brighter, url: "/{charId}/E0S1_brighter/1", desc: " " },
+        { pic: brighter, url: "/{charId}/E0S5_brighter/1", desc: "S5" },
+        { pic: fall, url: "/{charId}/E0S5_fall/1", desc: " " },
+        { pic: under, url: "/{charId}/E0S5_under/1", desc: " " },
+        { pic: irreplaceable, url: "/{charId}/E0S1_irreplaceable/1", desc: " " }
     ]),
     generateLeaderboard('1005', 'Kafka', [
         { pic: patience, url: "/{charId}/E0S1_patience_134/1", desc: "" },
@@ -142,6 +150,7 @@ export function getPicForCtgr(str) {
         case 'eyes': return eyes;
         case 'fermata': return fermata;
         case 'name': return name;
+        case 'brighter' : return brighter;
         // default : return 1102Derp;
     }
 }

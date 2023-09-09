@@ -75,7 +75,10 @@
                                     class="RelicImg avatar"
                                 />
                                 <img
-                                    src={getPicForCtgr(key)}
+                                    src={starRailRes +
+                                        "icon/light_cone/" +
+                                        build["lc"]['id'] +
+                                        extension}
                                     alt={"..."}
                                     class="RelicImg"
                                     style="margin-top: 1px;"

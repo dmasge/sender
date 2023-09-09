@@ -18,6 +18,7 @@ let charSubs = {
     '1201' : ['CR', 'CD', 'ATK'],
     '1107' : ['CR', 'CD', 'ATK'], // CLARA
     '1204' : ['CR', 'CD', 'ATK'], // JING
+    '1213' : ['CR', 'CD', 'ATK'], // JING
 
 }
 let secondarySubs = {

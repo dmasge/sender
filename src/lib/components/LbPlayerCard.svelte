@@ -22,7 +22,7 @@
                 class="avatar"
             />
         </a>
-        <p style="word-break: break-all;">{player["sig"]}</p>
+        <p style="word-break: break-all; font-size:11px">{player["sig"]}</p>
     </div>
     <div class="centeringDiv">
         <div>

@@ -15,7 +15,7 @@
             alt={player["nm"]}
             class="avatar"
         />
-        <p style="word-break: break-all;">{player["sig"]}</p>
+        <p style="word-break: break-all; ">{player["sig"]}</p>
         <p>
             {"Achievments: " + player["ach"] + " (" + player["achrank"] + ")"}
         </p>
@@ -24,14 +24,11 @@
 
 <style>
     p {
-        font-size: 2.5vw;
         margin: 0;
         -webkit-text-stroke: 0.1px black;
     }
     p {
         font-family: Arial, sans-serif;
-        font-size: 1vw;
-
         text-shadow: none;
         margin: 0;
     }
@@ -54,10 +51,7 @@
             width: 300px;
         }
         p {
-            font-size: 20px;
-        }
-        p {
-            font-size: 15px;
+            font-size: 11px;
         }
         .avatar {
             width: 70px;

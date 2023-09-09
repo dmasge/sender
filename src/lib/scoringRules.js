@@ -25,6 +25,10 @@ export const scoringRulesDict = {
     '1006' : `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
         Scores are calculated as: (2x (Ult + skill + 2x basic) + break + (skill + 2x basic) + 5entanglement) * (prob landing weakness)`,
 
+    '1213' : `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
+        Scores are calculated as: Fulgurant Leap, 1 target <br><br>
+        Enemy has a debuff, no quanum weakness.`,
+
 }
 
 export const scoringRulesShort = {
@@ -35,5 +39,6 @@ export const scoringRulesShort = {
     '1201' : "ULT+BASIC+0.24AUTARKY", // qq
     '1107' : "4COUNTER+2SKILL", // CLARA
     '1204' : "17LL+4SKILL+ULT", // JING
+    '1213' : "Fulgurant Leap", // DHIL
 
 }
