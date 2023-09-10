@@ -1,23 +1,13 @@
 <script>
     export let build;
     export let redirect;
-    import { getPicForCtgr } from "$lib/leaderboards.js";
     import LbStats from "$lib/components/LbStats.svelte";
-    import { charNamesMap } from "$lib/constants.js";
     import { starRailRes, extension } from "$lib/constants.js";
-    import { scoringRulesShort } from "$lib/scoringRules.js"
 
     import RelicSetDisplay from "$lib/components/RelicSetDisplay.svelte";
+    import ScoringDetails from "./ScoringDetails.svelte";
 
-    $: charname = charNamesMap[build["k"]];
-    let picSize = 5;
-
-    function capitalizeAndRemoveUnderscores(str) {
-        return str
-            .split("_")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" ");
-    }
+    
 </script>
 
 <div class="stuffOnTheRight" style="overflow: hidden;">
@@ -38,23 +28,7 @@
             {#each Object.entries(build["lb"]) as [key, value]}
                 <div>
                     {#if build["lbstats"] && build["lbstats"].hasOwnProperty(key)}
-                        <p>
-                            {"Rank: " +
-                                value["rank"] +
-                                " (" +
-                                value["percrank"] +
-                                ")"}
-                        </p>
-                        <p>
-                            {"Score: " +
-                                value["sc"] +
-                                " (" +
-                                capitalizeAndRemoveUnderscores(key) +
-                                ")"}
-                        </p>
-                        <p>
-                            {"Score = " + scoringRulesShort[build['k']]}
-                        </p>
+                        <ScoringDetails {build} {key}></ScoringDetails>
 
                         <a
                             href={redirect ? '../../../' + build['id'] : "./lb/" +

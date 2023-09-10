@@ -29,6 +29,7 @@
     });
 
     import { onMount } from "svelte";
+    import OnStatsFaq from "../../lib/faq/OnStatsFAQ.svelte";
     let message = "BETA";
     onMount(async () => {
         try {
@@ -39,6 +40,7 @@
             message = "BETA";
         }
     });
+    
 </script>
 
 <div style="text-align: center; color:red;">{message}</div>
@@ -89,6 +91,7 @@
 
     <!-- <CritFaq /> -->
 </div>
+<OnStatsFaq></OnStatsFaq>
 <hr />
 {#if isNavigating}
     <Bronbike />

@@ -13,7 +13,7 @@
         capitalizeAndRemoveUnderscores,
         getPicForCtgr,
     } from "$lib/leaderboards.js";
-    import BuildsLeaderboard from "$lib/components/lb/BuildsLeaderboard.svelte";
+    import OnStatsFaq from "$lib/faq/OnStatsFAQ.svelte";
 
     let jsonData;
     let builds = {};
@@ -76,6 +76,12 @@
             capitalizeAndRemoveUnderscores(ctgr);
         ctgrImg = getPicForCtgr(ctgr);
     }
+
+
+    
+
+
+
 </script>
 
 {#if !jsonData}
@@ -88,9 +94,7 @@
         <RefreshButton onClick={refreshPlayer} {uid} {prevUnixTimestamp} />
     </div>
     <hr />
-
-    <p style="text-align: center;">Displayed stats assume maxed LC, Trace, Char levels.</p>
-    <p style="text-align: center;">See "Scoring rules" on leaderboards for more details.</p>
+    
     <div class="buildsStuff">
         {#each sortedBuilds as build}
             <div style="margin-bottom: 50px;">

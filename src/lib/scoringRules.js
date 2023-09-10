@@ -32,13 +32,13 @@ export const scoringRulesDict = {
 }
 
 export const scoringRulesShort = {
-    '1102' : "4SKILL+ULT", // Seele
-    '1005' : "15DOT+3SKILL+3FLWUP+ULT", // Kafka
-    '1006' : "WEAKEN+ENTANG+2ULT+3SKILL", // SW
-    '1205' : "4BASIC+ULT+FLWUP",  // Blade
-    '1201' : "ULT+BASIC+0.24AUTARKY", // qq
-    '1107' : "4COUNTER+2SKILL", // CLARA
-    '1204' : "17LL+4SKILL+ULT", // JING
+    '1102' : "4SKILL+ULT".toLowerCase(), // Seele
+    '1005' : "15dot+3(skill+flwup)+ult".toLowerCase(), // Kafka
+    '1006' : "weaken*(entang+2ult+3skill)".toLowerCase(), // SW
+    '1205' : "4BASIC+ULT+FLWUP".toLowerCase(),  // Blade
+    '1201' : "ULT+BASIC+0.24AUTARKY".toLowerCase(), // qq
+    '1107' : "4COUNTER+2SKILL".toLowerCase(), // CLARA
+    '1204' : "17LL+4SKILL+ULT".toLowerCase(), // JING
     '1213' : "Fulgurant Leap", // DHIL
 
 }
