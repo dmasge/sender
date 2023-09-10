@@ -100,7 +100,7 @@
     </p>
     
     <p>
-        {"Caclculated at: " + capitalizeAndRemoveUnderscores(
+        {"Calculated at: " + capitalizeAndRemoveUnderscores(
             getTextUntilUnderscore(keyRemap(key))) + " (Actual: E" + build["e"] + "S" + build["lc"]["s"] + ")"}
     </p>
 </div>
