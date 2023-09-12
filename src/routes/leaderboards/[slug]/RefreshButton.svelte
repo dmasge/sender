@@ -2,6 +2,7 @@
     export let onClick = "";
     export let uid = "";
     export let prevUnixTimestamp;
+
     let curUnixTimestamp = Math.floor(new Date().valueOf() / 1000);
     let timeDiff = curUnixTimestamp - prevUnixTimestamp;
     let timeLeft = 600 - timeDiff;
@@ -31,12 +32,16 @@
     }
 </script>
 
-<div style="width: 100%; display:flex; justify-content: center;">
-    <button
-        style="text-shadow: none;"
-        name="uid"
-        value={uid}
-        on:click={onClick}
-        disabled={disabled}
-    >{buttonText}</button>
-</div>
+<form method="POST" on:submit={onClick} id="myForm" >
+    <div style="width: 100%; display:flex; justify-content: center;">
+        <button
+            type="submit"
+            style="text-shadow: none;"
+            name="uid"
+            value={uid}
+            disabled={disabled}
+        >{buttonText}</button>
+    </div>
+</form>
+
+

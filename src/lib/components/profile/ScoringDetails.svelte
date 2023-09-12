@@ -14,6 +14,8 @@
     function keyRemap(key) {
         if (key == "unreachable") {
             return "E0S1_unreachable";
+        } else if (key == "unreachable_134") {
+            return "E0S1_unreachable_134";
         } else if (key == "night") {
             return "E2S1_night";
         } else if (key == "cruising") {

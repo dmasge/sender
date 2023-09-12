@@ -1,33 +1,44 @@
 import { redirect } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 
-export async function load({ url }) {
+
+async function getPlayer(uid){
+    let url = `https://slprivate.azurewebsites.net/api/get_player_data?uid=${uid}`;
+    let response = await fetch(url);
+    let jsonData = await response.json();
+    return jsonData
+}
+
+async function refreshPlayer(uid) {
+    await fetch(
+        `https://slprivate.azurewebsites.net/api/upsert_player_data?uid=${uid}`
+    );
+}
+
+
+export async function load({ params }) {
 
     try {
-        if (url.href.includes("leaderboards/lb?k=")) {
-            let k = url.searchParams.get('k');
-            let ctgr = url.searchParams.get('ctgr');
-            let page = url.searchParams.get('page');
-            let lbData = []
-
-            let fetch_url = `https://seeleland.azurewebsites.net/api/get_lb_data?k=${k}&ctgr=${ctgr}&page=${page}`;
-
-            let response = await fetch(fetch_url);
-            lbData = await response.json();
-            
-
-            let data = {
-                'k': k,
-                'ctgr': ctgr,
-                'page': page,
-                'lbData': lbData
-            }
-            return data
+        const uid = params.slug;
+        let jsonData = getPlayer(uid);
+        let data = {
+            'jsonData': jsonData,
         }
-    } catch (error) {
+        return data
+    }
+    catch (error) {
         console.log(error);
        // throw redirect(307, '/err');
     }
 }
+
+export const actions = {
+	default: async ({ params }) => {
+        const uid = params.slug;
+        await refreshPlayer(uid);
+        return await getPlayer(uid);
+	}
+};
 
 
 

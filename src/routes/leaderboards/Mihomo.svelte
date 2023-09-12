@@ -68,13 +68,13 @@
     }
 
     .Header {
-        font-size: 1.2vw;
+        font-size: 15px;
         text-shadow: none;
     }
 
     .mihomoLogo {
-        width: 4vw;
-        height: 4vw;
+        width: 50px;
+        height: 50px;
     }
 
     .ElyDiv {
@@ -92,12 +92,5 @@
     }
 
     @media (max-width: 850px) {
-        .Header {
-            font-size: 12px;
-        }
-        .mihomoLogo {
-            width: 50px;
-            height: 50px;
-        }
     }
 </style>
