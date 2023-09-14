@@ -23,7 +23,7 @@
             case "1005":
                 return ["Base", "134", "151", "161"];
             case "1102":
-                return [];
+                return ["Base", "201"];
 
             default:
                 return ["Base", "134"];

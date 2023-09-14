@@ -18,6 +18,8 @@
             return "E0S1_unreachable_134";
         } else if (key == "night") {
             return "E2S1_night";
+        }  else if (key == "night_201") {
+            return "E2S1_night_201";
         } else if (key == "cruising") {
             return "E1S5_cruising";
         } else if (key == "tutorial") {
