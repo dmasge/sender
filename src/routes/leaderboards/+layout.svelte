@@ -5,6 +5,7 @@
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     import Mihomo from "./Mihomo.svelte";
+    import Enka from "./Enka.svelte";
 
     let id = "";
     let newURL = "";
@@ -100,6 +101,7 @@
 {/if}
 
 <div style="margin:3vw" />
+<Enka/>
 <Mihomo />
 
 <style>

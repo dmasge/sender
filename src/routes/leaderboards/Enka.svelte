@@ -5,25 +5,25 @@
     let mihomoFontSize = 1.5;
 </script>
 
-<!-- <hr id="mihomoHr" /> -->
+<hr id="mihomoHr" />
 <div style="width: 205px; margin:auto; scale:0.7;">
     <a
         id="mihomoA"
-        href={"https://discord.gg/uDKkDUCdbX"}
+        href={"https://enka.network/"}
         style="font-size: {mihomoFontSize}vw; display: flex; justify-content: center;"
     >
         <div>
             <div id="mihomoDiv">
-                <div class="Header">{"Also By "}</div>
+                <div class="Header">{"Powered By Enka.Network"}</div>
 
-                <img
+                <!-- <img
                     
                     class="mihomoLogo"
                     src={mihomoBlack}
                     alt="Home"
                     style="background: transparent; "
-                />
-                <div class="Header">{"MiHoMo"}</div>
+                /> -->
+                <!-- <div class="Header">{"MiHoMo"}</div> -->
             </div>
             <!-- <div
                 class="ElyDiv"
@@ -62,7 +62,7 @@
         display: flex;
         color: black;
 
-        font-size: 19px;
+        font-size: 25px;
         align-items: center;
         justify-content: center;
     }
@@ -72,10 +72,10 @@
         text-shadow: none;
     }
 
-    .mihomoLogo {
+    /* .mihomoLogo {
         width: 50px;
         height: 50px;
-    }
+    } */
 
     .ElyDiv {
         position: relative;
