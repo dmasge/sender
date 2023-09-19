@@ -12,7 +12,7 @@
     let jsonData = data.jsonData;
     let builds = jsonData.filter((i) => i["k"] != "p");
     let pl = jsonData.find((i) => i["k"] == "p");
-    let sortedBuilds = [...builds].sort((a, b) => {
+    $: sortedBuilds = [...builds].sort((a, b) => {
         if (a.lb && !b.lb) {
             return -1;
         } else if (!a.lb && b.lb) {
@@ -21,21 +21,7 @@
             return 0;
         }
     });
-    let prevUnixTimestamp = pl["_ts"];
-    function refreshVars() {
-        builds = jsonData.filter((i) => i["k"] != "p");
-        pl = jsonData.find((i) => i["k"] == "p");
-        sortedBuilds = [...builds].sort((a, b) => {
-            if (a.lb && !b.lb) {
-                return -1;
-            } else if (!a.lb && b.lb) {
-                return 1;
-            } else {
-                return 0;
-            }
-        });
-        prevUnixTimestamp = pl["_ts"];
-    }
+    $: prevUnixTimestamp = pl["_ts"];
 
     import { deserialize } from "$app/forms";
     async function refreshPlayer(event) {
@@ -57,8 +43,8 @@
             .then((data) => {
                 console.log(deserialize(data)["data"]); // using `deserialize()`
                 jsonData = deserialize(data)["data"];
-                // handle response data
-                refreshVars();
+                builds = jsonData.filter((i) => i["k"] != "p");
+                pl = jsonData.find((i) => i["k"] == "p");
             })
             .catch((error) => {
                 console.error("Error:", error);

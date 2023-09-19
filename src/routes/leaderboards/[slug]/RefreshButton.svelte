@@ -11,13 +11,14 @@
     let buttonText = `Profile data outdated? click here`;
     let disabled = false;
     
+    let cooldown = 60;
     const updateButton = () => {
         curUnixTimestamp = Math.floor(new Date().valueOf() / 1000);
         timeDiff = curUnixTimestamp - prevUnixTimestamp;
-        timeLeft = 600 - timeDiff;
+        timeLeft = cooldown - timeDiff;
         minutes = Math.floor(timeLeft / 60);
         seconds = timeLeft % 60;
-        if (timeDiff < 600) {
+        if (timeDiff < cooldown) {
             buttonText = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
             disabled = true;
             setTimeout(updateButton, 1000);
@@ -27,7 +28,7 @@
         }
     }
     
-    if (timeDiff < 600) {
+    if (timeDiff < cooldown) {
         updateButton();
     }
 </script>

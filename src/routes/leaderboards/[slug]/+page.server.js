@@ -36,9 +36,11 @@ export const actions = {
 	default: async ({ params }) => {
         const uid = params.slug;
         await refreshPlayer(uid);
-        return await getPlayer(uid);
+        const player = await getPlayer(uid);
+        return player;
 	}
 };
+
 
 
 
