@@ -18,8 +18,29 @@
         }
         return output;
     }
+    function isListOfLists(obj) {
+        if (!Array.isArray(obj)) {
+            return false;
+        }
+        for (let i = 0; i < obj.length; i++) {
+            if (!Array.isArray(obj[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+    function convertToAncientFormat(relicSets){
+        let output = relicSets;
+        if (isListOfLists(relicSets)) {
+            output = [];
+            for (let i = 0; i < relicSets.length; i++) {
+                output.push({'id' : relicSets[i][0], 'cnt' : relicSets[i][1]});
+            }
+        }
+        return output;
+    }
 
-    $: filteredSets = filterJSON(relicSets);
+    $: filteredSets = filterJSON(convertToAncientFormat(relicSets));
 </script>
 
 <div id="parentDiv">
