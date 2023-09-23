@@ -27,7 +27,7 @@
             {/if}
             {#each Object.entries(build["lb"]) as [key, value]}
                 <div>
-                    {#if build["lbstats"] && build["lbstats"].hasOwnProperty(key)}
+                    {#if build["lb"] && build["lb"].hasOwnProperty(key)}
                         <ScoringDetails {build} {key}></ScoringDetails>
 
                         <a
@@ -59,9 +59,11 @@
                                 />
                             </div>
                         </a>
-                        
-                        <LbStats lbStats={build["lbstats"][key]} header={key} />
-                        
+                        {#if build["lbstats"].hasOwnProperty(key)}
+                            <LbStats lbStats={build["lbstats"][key]} header={key} />
+                        {:else}
+                            <LbStats lbStats={build["lbstats"]} header={key} />
+                        {/if}
                         <RelicSetDisplay relicSets={build['rs']} />
                     {/if}
                 </div>
