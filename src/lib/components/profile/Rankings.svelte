@@ -23,15 +23,6 @@
 
 <div class="container" style="text-align: center; overflow: hidden;">
     {#if isRanked}
-        {#if Object.keys(build["lb"]).length == 0}
-            <div style="margin:auto;">
-                <HrefAvatarLc {redirect} {build} />
-                <p style="margin-top:0; margin-bottom:0; text-align: center;">
-                    Equipped lightcone not supported
-                </p>
-            </div>
-        {/if}
-
         <div>
             {#if entries && entries.length > 0}
                 <div style="display: flex;">
@@ -58,14 +49,23 @@
                 <HrefAvatarLc {redirect} {build} key={entries[index][0]} />
             {/if}
         </div>
-    {:else}
+    {:else if !build.hasOwnProperty('lb')}
         <div style="margin:auto;">
             <HrefAvatarLc {redirect} {build} />
             <p style="margin-top:0; margin-bottom:0; text-align: center;">
                 leaderboards for this character coming soon!
             </p>
         </div>
+    {:else}
+        <div style="margin:auto;">
+            <HrefAvatarLc {redirect} {build} />
+            <p style="margin-top:0; margin-bottom:0; text-align: center;">
+                Equipped lightcone not supported
+            </p>
+        </div>
     {/if}
+
+
 </div>
 
 <style>
