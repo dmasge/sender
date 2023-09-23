@@ -1,7 +1,5 @@
 <script>
     export let lbStats = [];
-    export const header = "";
-
 </script>
 
 <!-- <div class="centeringDiv" style="display: flex; justify-content: center;">

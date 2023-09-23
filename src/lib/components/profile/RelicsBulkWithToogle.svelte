@@ -2,7 +2,8 @@
     export let build;
     let relics = build['r'];
     import RelicsBulk from "$lib/components/RelicsBulk.svelte";
-
+    import LbStats from "$lib/components/LbStats.svelte";
+    import RelicSetDisplay from "$lib/components/RelicSetDisplay.svelte";
     import Rankings from "$lib/components/profile/Rankings.svelte";
 
     let showBuild = false;
@@ -10,10 +11,23 @@
     if (expanded){
         showBuild = true;
     }
+    
+   
+    let relicSets = build["rs"];
+    let lbStats = [];
+    let keys = build["lb"] ? Object.keys(build["lb"]) : [];
+    let firstKey = keys.length > 0 ? keys[0] : false;
+    if ( firstKey ){
+        let isFirstKeyInStats = build["lbstats"][firstKey] ? true : false;
+        lbStats = isFirstKeyInStats ? build["lbstats"][firstKey] : build["lbstats"];
+    }
+   
 </script>
 
 <div class="tooglableParentDiv">
     <Rankings {build} redirect={expanded}/>
+    <LbStats {lbStats} />
+    <RelicSetDisplay {relicSets} />
     <div style="display: {showBuild ? 'block' : 'none'}">
         <RelicsBulk {relics} charId={build['k']} />
     </div>
