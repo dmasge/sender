@@ -6,7 +6,7 @@
     export let build;
     import { getAvatarUrl } from "$lib/iconUrls/avatarIconsUrl.js";
     import { starRailRes, extension } from "$lib/constants.js";
-
+    import ach from "$lib/assets/lb/ach.png"
 </script>
 
 <div class="card">
@@ -18,7 +18,6 @@
         <a href={isAch ? "../../" + player["id"] : "../../../" + player["id"]}>
             <img
                 src={getAvatarUrl(player["icn"])}
-                
                 alt={player["nm"]}
                 class="avatar"
             />
@@ -26,16 +25,34 @@
         <p style="word-break: break-all; font-size:11px">{player["sig"]}</p>
     </div>
     <div class="centeringDiv">
-        <div>
-            <img  class="ctgrImg" src={starRailRes +
-                "icon/light_cone/" +
-                build["lc"]["id"] +
-                extension} alt={player["nm"]} />
+        {#if isAch}
+            <div>
+                <img
+                    class="ctgrImg"
+                    src={ach}
+                    alt={player["nm"]}
+                />
 
-            <p>
-                {score}
-            </p>
-        </div>
+                <p>
+                    {score}
+                </p>
+            </div>
+        {:else}
+            <div>
+                <img
+                    class="ctgrImg"
+                    src={starRailRes +
+                        "icon/light_cone/" +
+                        build["lc"]["id"] +
+                        extension}
+                    alt={player["nm"]}
+                />
+
+                <p>
+                    {score}
+                </p>
+            </div>
+        {/if}
     </div>
 </div>
 
@@ -61,7 +78,6 @@
         font-size: 1vw;
     }
 
-
     .sutffInMiddle {
         width: 65%;
         display: flex;
@@ -83,8 +99,8 @@
     .avatar {
         width: 6vw;
         height: 6vw;
-        border-left: 3px solid #DEA055;
-        border-right: 3px solid #DEA055;
+        border-left: 3px solid #dea055;
+        border-right: 3px solid #dea055;
         border-radius: 50%;
     }
     @media (max-width: 850px) {
