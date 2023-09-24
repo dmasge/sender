@@ -19,7 +19,7 @@
     import LeaderboardsList from "./LeaderboardsList.svelte";
 
     import SpeedCategorizer from "$lib/components/navigators/SpeedCategorizer.svelte";
-
+    import TeamFilter from "$lib/components/navigators/TeamFilter.svelte";
     
     import GeneralizedDesc from "$lib/faq/Generalized_desc.svelte";
     
@@ -32,6 +32,7 @@
 
 <LeaderboardsList searchTerm={charId} isOnLeaderboard={true}/>
 <SpeedCategorizer />
+<TeamFilter></TeamFilter>
 <LbColumnsDesc />
 
 {#if jsonData}

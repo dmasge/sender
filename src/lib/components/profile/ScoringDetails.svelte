@@ -18,7 +18,7 @@
             return "E0S1_unreachable_134";
         } else if (key == "night") {
             return "E2S1_night";
-        }  else if (key == "night_201") {
+        } else if (key == "night_201") {
             return "E2S1_night_201";
         } else if (key == "cruising") {
             return "E1S5_cruising";
@@ -26,19 +26,19 @@
             return "E0S5_tutorial";
         } else if (key == "tutorial_134") {
             return "E0S5_tutorial_134";
-        }  else if (key == "darkness") {
+        } else if (key == "darkness") {
             return "E1S5_darkness";
-        }  else if (key == "swordplay") {
+        } else if (key == "swordplay") {
             return "E1S5_swordplay";
-        }  else if (key == "sleep") {
+        } else if (key == "sleep") {
             return "E1S1_sleep";
-        }   else if (key == "rain") {
+        } else if (key == "rain") {
             return "E0S1_rain";
-        }    else if (key == "rain_134") {
+        } else if (key == "rain_134") {
             return "E0S1_rain_134";
-        }  else if (key == "gn_134") {
+        } else if (key == "gn_134") {
             return "E0S5_gn_134";
-        }  else if (key == "gn") {
+        } else if (key == "gn") {
             return "E0S5_gn";
         } else if (key == "resolution_134") {
             return "E0S5_resolution_134";
@@ -60,7 +60,7 @@
             return "E0S1_irreplaceable_134";
         } else if (key == "irreplaceable") {
             return "E0S1_irreplaceable";
-        }     else {
+        } else {
             return key;
         }
     }
@@ -85,6 +85,25 @@
             return inputString;
         }
     }
+
+    let teams = {
+        "1213": {
+            YK: "Yukong",
+        },
+    };
+
+    function findTeam(teams, key, str) {
+        if (teams.hasOwnProperty(key)) {
+            for (let subKey in teams[key]) {
+                if (str.includes(subKey)) {
+                    return teams[key][subKey];
+                }
+            }
+        }
+        return null;
+    }
+    $: team = findTeam(teams, build['k'], key );
+    // $: team = key.includes(teams[build["k"]].keys()[0]);
 </script>
 
 <div style="margin-top:0px;">
@@ -96,22 +115,33 @@
             ")"}
     </p>
     <p>
-        {scoringRulesShort[build["k"]] +
-            " = " + build["lb"][key]["sc"]}
+        {scoringRulesShort[build["k"]] + " = " + build["lb"][key]["sc"]}
     </p>
-    <p >
+    <p>
         {"Category: " + getTextAfterSecondUnderscore(key) + " SPD"}
     </p>
-    
+
     <p>
-        {"Calculated at: " + capitalizeAndRemoveUnderscores(
-            getTextUntilUnderscore(keyRemap(key))) + " (Actual: E" + build["e"] + "S" + build["lc"]["s"] + ")"}
+        {"Calculated at: " +
+            capitalizeAndRemoveUnderscores(
+                getTextUntilUnderscore(keyRemap(key))
+            ) +
+            " (Actual: E" +
+            build["e"] +
+            "S" +
+            build["lc"]["s"] +
+            ")"}
     </p>
+
+    {#if team}
+        <p>
+            {"Teammates: " + team}
+        </p>
+    {/if}
 </div>
 
 <style>
     p {
-
         margin: 1px;
     }
 </style>

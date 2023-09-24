@@ -1,11 +1,12 @@
 <script>
     export let player;
-    export let ctgrImg;
     export let score;
     export let rank;
     export let isAch = false;
+    export let build;
     import { getAvatarUrl } from "$lib/iconUrls/avatarIconsUrl.js";
-     
+    import { starRailRes, extension } from "$lib/constants.js";
+
 </script>
 
 <div class="card">
@@ -26,7 +27,10 @@
     </div>
     <div class="centeringDiv">
         <div>
-            <img  class="ctgrImg" src={ctgrImg} alt={player["nm"]} />
+            <img  class="ctgrImg" src={starRailRes +
+                "icon/light_cone/" +
+                build["lc"]["id"] +
+                extension} alt={player["nm"]} />
 
             <p>
                 {score}

@@ -6,54 +6,47 @@
     let charId = splitStr[3];
     let ctgr = splitStr[4];
 
-    let speedCategories = speedCategoriesCase(charId);
     function removeSpdPattern(str) {
         return str.replace(/(_+\d{3})+$/, '').replace(/_+$/, "");;
     }
 
-    let fullctgrRaw = speedCategories.reduce((ctgr, str) => {
-        return ctgr.replace(new RegExp(str, "g"), "");
-    }, ctgr);
+    function teamCategoriesCase(str) {
+        switch (str) {
+            case "1213":
+                return ["Solo", "YK"];
+            default:
+                return [];
+        }
+    }
+    let teamCategories = teamCategoriesCase(charId);
+    let fullctgrRaw = teamCategories.reduce((ctgr, str) => {
+            return ctgr.replace(new RegExp(str, "g"), "");
+        }, ctgr);
     let ctgrRaw = removeSpdPattern(fullctgrRaw);
 
-    function GetUrlBases(spdCtgrs) {
+    function GetUrlBases(teamCategories) {
+        if (teamCategories == []) return [];
         let newList = [];
-        let currUrl = removeSpdPattern($page.url.pathname);
-        for (let i = 0; i < spdCtgrs.length; i++) {
-            if (spdCtgrs[i] === "Base") {
+        for (let i = 0; i < teamCategories.length; i++) {
+            if (teamCategories[i] === "Solo") {
                 newList.push("../" + ctgrRaw + "/");
             } else {
-                newList.push("../" + ctgrRaw + "_" + spdCtgrs[i] + "/");
+                newList.push("../" + ctgrRaw + teamCategories[i] + "/");
             }
         }
         return newList;
     }
 
-    function speedCategoriesCase(str) {
-        switch (str) {
-            case "1005":
-                return ["Base", "134", "151", "161"];
-            case "1102":
-                return ["Base", "201"];
-            case "1107":
-                return ["Base", "121", "134"];
-            case "1213":
-                return ["Base", "121", "134"];
-            default:
-                return ["Base", "134"];
-        }
-    }
-
-    let urls = GetUrlBases(speedCategories);
+    let urls = GetUrlBases(teamCategories);
 </script>
 
-{#if speedCategories != []}
+{#if teamCategories != []}
     <div class="parentDiv">
         {#each urls as url, i}
-            {@const href = url + "1"}
-            <a {href} class:active={ctgr.includes(speedCategoriesCase(charId)[i]) 
+            {@const href = url }
+            <a href={href + "1"} class:active={$page.url.pathname.includes(teamCategoriesCase(charId)[i]) 
                 || ($page.url.pathname.includes(fullctgrRaw + "/") && i == 0)}>
-                <p>{speedCategories[i] + " SPD"}</p>
+                <p>{teamCategories[i]}</p>
             </a>
         {/each}
     </div>
@@ -77,6 +70,7 @@
         margin-bottom: 10px;
         overflow: hidden;
     }
+
     .active {
         font-weight: bold;
     }
