@@ -61,8 +61,8 @@ export const leaderboards = [
         { pic: brighter, url: "/{charId}/E0S1_23015/1", desc: " " },
         { pic: brighter, url: "/{charId}/E0S5_23015/1", desc: "S5" },
         { pic: fall, url: "/{charId}/E0S5_24000/1", desc: " " },
-        { pic: under, url: "/{charId}/E0S5_23002/1", desc: " " },
-        { pic: irreplaceable, url: "/{charId}/E0S1_21019/1", desc: " " }
+        { pic: under, url: "/{charId}/E0S5_21019/1", desc: " " },
+        { pic: irreplaceable, url: "/{charId}/E0S1_23002/1", desc: " " }
     ]),
     generateLeaderboard('1005', 'Kafka', [
         { pic: patience, url: "/{charId}/E0S1_patience_134/1", desc: "" },
