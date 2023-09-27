@@ -2,7 +2,7 @@
     export let relic;
     export let charId;
     import { getRelicUrl } from "$lib/iconUrls/avatarIconsUrl.js";
-    import { formatStat, abbreviateStat } from "$lib/stores.js";
+    import { formatStat, abbreviateStat, formatSpd } from "$lib/stores.js";
     import { getSubstatColor, dimSubs } from "$lib/substatColorizer.js";
     let relicSize = 2;
 </script>
@@ -35,7 +35,11 @@
                         {abbreviateStat(sub[0]) + " "}
                     </span>
                     <span style="color: {colorFlat};">
-                        {formatStat(sub[1])}
+                        {#if abbreviateStat(sub[0]) != "SPD"}
+                            {formatStat(sub[1])}
+                        {:else}
+                            {formatSpd(sub[1])}
+                        {/if}
                     </span>
                 </p>
             </div>

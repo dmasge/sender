@@ -21,6 +21,15 @@ export function formatStat(str) {
     }
 }
 
+export function formatSpd(str) {
+        let index = str.indexOf('.');
+        if (index !== -1) {
+            return str.slice(0, index + 2);
+        } else {
+            return str;
+        }
+}
+
 
 
 // Shorthand for stats
