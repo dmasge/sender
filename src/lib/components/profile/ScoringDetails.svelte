@@ -117,9 +117,11 @@
     <p>
         {scoringRulesShort[build["k"]] + " = " + build["lb"][key]["sc"]}
     </p>
+    {#if getTextAfterSecondUnderscore(key) != "Base"}
     <p>
-        {"Category: " + getTextAfterSecondUnderscore(key) + " SPD"}
+        {"SPD Breakpoint: " + getTextAfterSecondUnderscore(key)}
     </p>
+    {/if}
 
     <p>
         {"Calculated at: " +

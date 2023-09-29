@@ -57,6 +57,18 @@ export const leaderboards = [
         { pic: swordplay, url: "/{charId}/swordplay/1", desc: " " },
         { pic: sleep, url: "/{charId}/sleep/1", desc: " " }
     ]),
+    generateLeaderboard('1209', 'Yanqing', [
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
+             url: "/{charId}/E0S1_23012/1", desc: " " },
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
+             url: "/{charId}/E0S5_23012/1", desc: "S5" },
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21024.png',
+             url: "/{charId}/E0S5_21024_134/1", desc: " " },
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24001.png',
+             url: "/{charId}/E0S5_24001/1", desc: " " },
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21010.png',
+             url: "/{charId}/E0S5_21010/1", desc: " " }
+    ]),
     generateLeaderboard('1213', 'Dan Heng Imbibitor Lunae', [
         { pic: brighter, url: "/{charId}/E0S1_23015/1", desc: " " },
         { pic: brighter, url: "/{charId}/E0S5_23015/1", desc: "S5" },

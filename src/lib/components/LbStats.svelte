@@ -8,7 +8,7 @@
     style="margin-top: 5px; margin-bottom: 5px; background-color: #ffe2ae; border-radius: 10%; padding:10px;"
 </div> -->
 <div class="RelicParentDiv" >
-    <p class="statsP" style="font-size: 11px; text-decoration: underline;">
+    <p class="statsP" style="font-size: 10.8px; text-decoration: underline;">
         <span>Out of combat Stats</span>
     </p>
     <div>
