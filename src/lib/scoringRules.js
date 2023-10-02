@@ -28,9 +28,9 @@ export const scoringRulesDict = {
     '1213' : `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
         Scores are calculated as: Fulgurant Leap, 1 target <br><br>
         Enemy has a debuff, no quanum weakness.`,
-    '1203' : `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
-        Scores are calculated as: 2Skill + Ult + 2 kill + 3(flwup * freeze) + 8xA2 <br><br>
-        no quanum weakness.`
+    '1209' : `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
+        Scores are calculated as: 4Skill + Ult + 3(flwup * freeze) + 8xA2 (5xA2 2flwup and 2 skill comes after ult)<br><br>
+        Enemy has no qua weakness.`
 
 }
 
