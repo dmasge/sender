@@ -40,8 +40,25 @@
         } catch (error) {
             message = "BETA";
         }
+
+        if (typeof window !== "undefined") {
+            let visits = localStorage.getItem("visits");
+            let parsedVisits = visits ? JSON.parse(visits) : {};
+            visitedProfiles =
+                typeof parsedVisits === "object" && parsedVisits !== null
+                    ? parsedVisits
+                    : {};
+            recentlyVisitedUID.update((n) => visitedProfiles);
+        }
     });
     
+    import { recentlyVisitedUID } from "$lib/cache.js";
+
+    let visitedProfiles = {};
+
+    onMount(() => {
+        
+    });
 </script>
 
 <div style="text-align: center; color:red;">{message}</div>
