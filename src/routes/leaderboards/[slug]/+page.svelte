@@ -23,6 +23,25 @@
     });
     $: prevUnixTimestamp = pl["_ts"];
 
+    import { onMount } from "svelte";
+    import { recentlyVisitedUID } from "$lib/cache.js";
+
+    let visitedProfiles = {};
+
+    onMount(() => {
+        if (typeof window !== "undefined") {
+            let visits = localStorage.getItem("visits");
+            let parsedVisits = visits ? JSON.parse(visits) : {};
+            visitedProfiles =
+                typeof parsedVisits === "object" && parsedVisits !== null
+                    ? parsedVisits
+                    : {};
+            visitedProfiles[pl["id"]] = pl["nm"];
+            localStorage.setItem("visits", JSON.stringify(visitedProfiles));
+            recentlyVisitedUID.update((n) => visitedProfiles);
+        }
+    });
+
     import { deserialize } from "$app/forms";
     async function refreshPlayer(event) {
         event.preventDefault();
@@ -41,7 +60,6 @@
                 return response.text(); // need to use `.text()`
             })
             .then((data) => {
-                console.log(deserialize(data)["data"]); // using `deserialize()`
                 jsonData = deserialize(data)["data"];
                 builds = jsonData.filter((i) => i["k"] != "p");
                 pl = jsonData.find((i) => i["k"] == "p");
@@ -50,6 +68,8 @@
                 console.error("Error:", error);
             });
     }
+    
+    import OnStatsFaq from "$lib/faq/OnStatsFAQ.svelte";
 </script>
 
 {#if !jsonData}
@@ -62,7 +82,8 @@
         <RefreshButton onClick={refreshPlayer} {uid} {prevUnixTimestamp} />
     </div>
     <hr />
-
+    
+<OnStatsFaq></OnStatsFaq>
     <div class="buildsStuff">
         {#each sortedBuilds as build}
             <div style="margin-bottom: 50px;">

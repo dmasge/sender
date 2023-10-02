@@ -30,7 +30,7 @@
     });
 
     import { onMount } from "svelte";
-    import OnStatsFaq from "../../lib/faq/OnStatsFAQ.svelte";
+    import ProfilesCache from "./ProfilesCache.svelte";
     let message = "BETA";
     onMount(async () => {
         try {
@@ -45,6 +45,7 @@
 </script>
 
 <div style="text-align: center; color:red;">{message}</div>
+
 
 <div id="outermost">
     <div
@@ -92,7 +93,8 @@
 
     <!-- <CritFaq /> -->
 </div>
-<OnStatsFaq></OnStatsFaq>
+
+<ProfilesCache></ProfilesCache>
 <hr />
 {#if isNavigating}
     <Bronbike />
