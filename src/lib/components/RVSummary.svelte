@@ -15,6 +15,7 @@
         "CD%": 6.48,
         "EHR%": 4.32,
         "RES%": 4.32,
+        "BR%": 6.48,
         "Break%": 6.48,
     };
     function sumSubstats(relics) {

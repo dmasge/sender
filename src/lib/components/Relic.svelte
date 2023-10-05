@@ -3,7 +3,6 @@
     export let charId;
     import { getRelicUrl } from "$lib/iconUrls/avatarIconsUrl.js";
     import { formatStat, abbreviateStat, formatSpd } from "$lib/stores.js";
-    import { getSubstatColor, dimSubs } from "$lib/substatColorizer.js";
     let relicSize = 2;
 
     import {
