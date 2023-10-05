@@ -44,11 +44,16 @@
             substatsSum[key]["value"] = Number(
                 substatsSum[key]["value"].toFixed(1)
             );
-            if (key.includes("%")) {
+            if (key.includes("%") ){
                 substatsSum[key]["displayValue"] =
                     substatsSum[key]["value"] + "%";
                 substatsSum[key]["name"] = key.slice(0, -1);
-            } else {
+            } else if (key.includes("SPD")){
+                substatsSum[key]["displayValue"] =
+                    substatsSum[key]["value"];
+                substatsSum[key]["name"] = key;
+            }
+            else {
                 substatsSum[key]["displayValue"] = String(
                     parseInt(substatsSum[key]["value"])
                 );
