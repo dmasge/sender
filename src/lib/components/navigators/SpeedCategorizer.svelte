@@ -69,6 +69,7 @@
         margin-bottom: 3px;
     }
     .parentDiv {
+        background-color: rgba(134, 134, 255, 0.147);
         display: flex;
         margin: auto;
         border: 1px solid black;

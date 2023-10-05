@@ -5,47 +5,66 @@
     import { formatStat, abbreviateStat, formatSpd } from "$lib/stores.js";
     import { getSubstatColor, dimSubs } from "$lib/substatColorizer.js";
     let relicSize = 2;
+
+    import {
+        subHighlightsWriteable,
+        getSubAffixBackgroundColor,
+        getSubAffixTextColor,
+    } from "$lib/cache/subHighlights.js";
+
+    let subHighlights;
+    subHighlightsWriteable.subscribe((value) => {
+        subHighlights = value;
+    });
+
+    function getSubType(substat){
+        let p = substat[1].includes("%");
+        let subType = p ? substat[0] + "%" : substat[0];
+        return subType;
+    }
 </script>
 
-<div class="RelicParentDiv" style="margin: 0vw;">
-    <div
-        style="display: flex; justify-content: space-between; 
+{#key subHighlights}
+    <div class="RelicParentDiv" style="margin: 0vw;">
+        <div
+            style="display: flex; justify-content: space-between; 
             background-color: #ffe2ae;
             margin:-4px;
             padding:2px;"
-    >
-        <img src={getRelicUrl(relic["icn"])} alt={"..."} class="RelicImg" />
-        <p class="statsP">
-            {abbreviateStat(relic["m"][0]) + " " + formatStat(relic["m"][1])}
-        </p>
-    </div>
-    <div>
-        {#each relic["sb"] as sub, i}
-            <!-- {@const [index, color] = getSubstatColor(abbreviateStat(sub[0]), sub[1])} -->
-            {@const colorFlat = dimSubs(abbreviateStat(sub[0]), charId)}
-            <div
-                style="background-color: {colorFlat != 'rgba(0, 0, 0, 1)'
-                    ? 'transparent'
-                    : '#ffe2ae'};
+        >
+            <img src={getRelicUrl(relic["icn"])} alt={"..."} class="RelicImg" />
+            <p class="statsP">
+                {abbreviateStat(relic["m"][0]) +
+                    " " +
+                    formatStat(relic["m"][1])}
+            </p>
+        </div>
+        <div>
+            {#each relic["sb"] as sub, i}
+                <!-- {@const [index, color] = getSubstatColor(abbreviateStat(sub[0]), sub[1])} -->
+                {@const subType = getSubType(sub)}
+                <div
+                    style="background-color: {getSubAffixBackgroundColor(charId, subType)};
                     margin:-3px;
                     padding:3px;"
-            >
-                <p class="statsP">
-                    <span style="color: {colorFlat};">
-                        {abbreviateStat(sub[0]) + " "}
-                    </span>
-                    <span style="color: {colorFlat};">
-                        {#if abbreviateStat(sub[0]) != "SPD"}
-                            {formatStat(sub[1])}
-                        {:else}
-                            {formatSpd(sub[1])}
-                        {/if}
-                    </span>
-                </p>
-            </div>
-        {/each}
+                >
+                    <p class="statsP">
+                        <span style="color: {getSubAffixTextColor(charId, subType)};">
+                            {abbreviateStat(sub[0]) + " "}
+                        </span>
+                        <span style="color: {getSubAffixTextColor(charId, subType)};">
+                            {#if abbreviateStat(sub[0]) != "SPD"}
+                                {formatStat(sub[1])}
+                            {:else}
+                                {formatSpd(sub[1])}
+                            {/if}
+                        </span>
+                    </p>
+                </div>
+            {/each}
+        </div>
     </div>
-</div>
+{/key}
 
 <style>
     .statsP {

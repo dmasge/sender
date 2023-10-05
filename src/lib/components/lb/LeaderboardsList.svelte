@@ -25,7 +25,7 @@
                             style="overflow-x: auto; white-space: nowrap; text-align: center;"
                         >
                             {#each leaderboard["info"] as info}
-                                <div style="display: inline-block;">
+                                <div style="display: inline-block;" >
                                     <a href={!isOnLeaderboard ? ("leaderboards/lb" + info["url"]) : ("../../../../leaderboards/lb" + info["url"])}>
                                         <div>
                                             <img

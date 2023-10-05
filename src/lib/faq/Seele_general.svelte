@@ -25,7 +25,6 @@
 
 <style>
     button {
-        background-color: transparent;
         box-shadow: 0 0 10px #0000006f;
     }
     p {

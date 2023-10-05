@@ -36,7 +36,6 @@
 
 <style>
     #critsButton {
-        background-color: transparent;
         display: flex;
         font-family: Arial, sans-serif;
         text-shadow: none;

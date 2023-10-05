@@ -24,14 +24,12 @@
 
 <style>
     #critsButton {
-        background-color: transparent;
         display: flex;
         font-family: Arial, sans-serif;
         text-shadow: none;
         padding: 10px;
         font-size: 1.2vw;
         text-align: left;
-        border: 1px solid #a8f3fff2;
         box-shadow: 0 0 10px #0000006f;
     }
 </style>

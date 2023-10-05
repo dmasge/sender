@@ -32,6 +32,9 @@
     import { onMount } from "svelte";
     import ProfilesCache from "./ProfilesCache.svelte";
     let message = "BETA";
+
+    
+    import { loadSubHighlights } from "$lib/cache/subHighlights.js";
     onMount(async () => {
         try {
             message = await fetch(
@@ -50,15 +53,13 @@
                     : {};
             recentlyVisitedUID.update((n) => visitedProfiles);
         }
+        loadSubHighlights();
     });
     
     import { recentlyVisitedUID } from "$lib/cache.js";
 
     let visitedProfiles = {};
 
-    onMount(() => {
-        
-    });
 </script>
 
 <div style="text-align: center; color:red;">{message}</div>
@@ -100,7 +101,7 @@
                     on:click={handleClick}
                     disabled={id.toString().length !== 9}
                 >
-                    <p>Go!</p>
+                    Go!
                 </button>
             </div>
 
@@ -132,10 +133,6 @@
     p {
         margin: 0;
     }
-    button {
-        margin-top: 2px;
-        background-color: transparent;
-    }
 
     #outermost {
         margin: auto;
@@ -143,17 +140,5 @@
         padding-top: 3px;
         justify-content: center;
     }
-    @media (max-width: 850px) {
-        input {
-            height: 17px;
-            width: 17px;
-            font-size: 10;
-        }
-        .Header {
-            font-size: 14px;
-        }
-        button {
-            height: 20px;
-        }
-    }
+
 </style>

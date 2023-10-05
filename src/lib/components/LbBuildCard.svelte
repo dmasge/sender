@@ -33,20 +33,10 @@
     .hide-build-button {
         display: block;
         text-align: center;
-        font-size: 1vw;
+        font-size: 12px;
         outline: none;
         margin: auto;
-        margin-top: 5px;
-        margin-bottom: 7px;
     }
 
-    @media (max-width: 850px) {
-        .show-build-button,
-        .hide-build-button {
-            font-size: 12px;
-            outline: none;
-            width: 100px;
-            height: 20px;
-        }
-    }
+    
 </style>

@@ -42,12 +42,13 @@
     .ProfileCacheDiv {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
     .IndividualProfileDiv {
         padding: 7px;
         margin: 3px;
         display: flex;
-        border: 1px solid #00758af2;
+        border: 1px solid rgb(133, 86, 0);
         border-radius: 10px;
         align-items: center;
         background-color: rgba(134, 134, 255, 0.147);
@@ -55,12 +56,14 @@
         padding-right: 12px;
     }
     .DeleteButton {
+        background-color: transparent;
         border: none;
         font-size: 13px;
         margin: 3px;
         padding: 0;
     }
-    .ProfileButton {
+    .ProfileButton {    
+        background-color: transparent;
         border: none;
         font-size: 13px;
         margin: 3px;

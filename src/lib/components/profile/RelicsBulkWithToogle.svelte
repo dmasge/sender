@@ -55,18 +55,15 @@
     }
 
     .toggle-build-button {
-        background-color: transparent;
         cursor: pointer;
         display: block;
         margin: 0 auto;
         text-align: center;
-        font-size: 1vw;
         outline: none;
     }
 
     @media (max-width: 850px) {
         .toggle-build-button {
-            background-color: transparent;
             cursor: pointer;
             display: block;
             margin: 0 auto;
@@ -74,7 +71,6 @@
             font-size: 12px;
             outline: none;
             width: 100px;
-            height: 20px;
         }
     }
 </style>
