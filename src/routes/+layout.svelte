@@ -35,10 +35,10 @@
 		background-color: rgba(150, 0, 214, 0.9);
 	} */
 	.blur-background {
-		backdrop-filter: blur(100px);
+		backdrop-filter: blur(60px);
 	}
 	.slot-wrapper {
-		background-color: rgba(0, 0, 0, 0.3);
+		background-color: rgba(0, 0, 0, 0.5);
 	}
 	
 </style>
