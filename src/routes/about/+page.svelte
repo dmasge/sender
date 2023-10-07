@@ -106,6 +106,7 @@ border-bottom-right-radius: 25px; overflow: hidden;">
     a,
     p {
         font-size: 1.7vw;
+        color: black;
     }
 
     @media (max-width: 850px) {

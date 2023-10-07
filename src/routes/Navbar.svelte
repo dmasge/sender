@@ -85,19 +85,20 @@
     .navParentDiv {
         display: flex;
         align-items: center;
-        background-color: #b4dcff;
+		backdrop-filter: blur(100px);
         letter-spacing: 0.06em;
         justify-content: space-between;
         flex-wrap: wrap;
+        background-color: rgba(0, 0, 0, 0.3);
     }
     .active,
     nav a:hover {
-        background-color: #c0e2fe;
+        background-color: #2b204157;
         margin: 0;
     }
 
     @media (max-width: 650px) {
-        a {
+        a { 
             font-size: 20px;
             height: 35px;
         }

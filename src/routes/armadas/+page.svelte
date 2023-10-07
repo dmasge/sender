@@ -70,6 +70,7 @@ border-bottom-right-radius: 25px; overflow: hidden;">
         margin-top: 15px;
         margin-bottom: 15px;
         text-shadow: none;
+        color: black;
     }
 
     @media (max-width: 850px) {

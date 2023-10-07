@@ -35,18 +35,18 @@ export function toogleSubHighlights(charId, subType) {
 }
 
 export function getSubAffixBackgroundColor(charId, key) {
-
+    return "transparent";
     if (browser) {
         let subHighlights = localStorage.getItem(itemName);
         let parsedsubHighlights = subHighlights ? JSON.parse(subHighlights) : {};
         if (!parsedsubHighlights.hasOwnProperty(charId)) {
-            return "#ffe2ae";
+            return "rgba(0, 0, 0, 0.2)";
         }
         else {
             if (!parsedsubHighlights[charId].hasOwnProperty(key)) {
                 return 'transparent';
             } else {
-                return parsedsubHighlights[charId][key] ? "#ffe2ae" : "transparent";
+                return parsedsubHighlights[charId][key] ? "rgba(0, 0, 0, 0.2)" : "transparent";
             }
         }
     }
@@ -58,13 +58,13 @@ export function getSubAffixTextColor(charId, key) {
         let subHighlights = localStorage.getItem(itemName);
         let parsedsubHighlights = subHighlights ? JSON.parse(subHighlights) : {};
         if (!parsedsubHighlights.hasOwnProperty(charId)) {
-            return 'rgba(0, 0, 0, 1)';
+            return 'rgba(220, 220, 220, 1)';
         }
         else {
             if (!parsedsubHighlights[charId].hasOwnProperty(key)) {
-                return 'rgba(0, 0, 0, 0.3)';
+                return 'rgba(220, 220, 220, 0.2)';
             } else {
-                return parsedsubHighlights[charId][key] ? 'rgba(0, 0, 0, 1)' : "rgba(0, 0, 0, 0.3)";
+                return parsedsubHighlights[charId][key] ? 'rgba(220, 220, 220, 1)' : "rgba(220, 220, 220, 0.2)";
             }
         }
     }

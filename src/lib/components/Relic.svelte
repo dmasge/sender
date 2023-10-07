@@ -27,7 +27,6 @@
     <div class="RelicParentDiv" style="margin: 0vw;">
         <div
             style="display: flex; justify-content: space-between; 
-            background-color: #ffe2ae;
             margin:-4px;
             padding:2px;"
         >
@@ -44,8 +43,7 @@
                 {@const subType = getSubType(sub)}
                 <div
                     style="background-color: {getSubAffixBackgroundColor(charId, subType)};
-                    margin:-3px;
-                    padding:3px;"
+                    margin:0;"
                 >
                     <p class="statsP">
                         <span style="color: {getSubAffixTextColor(charId, subType)};">
@@ -70,6 +68,7 @@
         justify-content: space-between;
         display: flex;
         font-size: 12px;
+        margin: 0;
     }
     div {
         margin: 0vw;
@@ -77,16 +76,8 @@
         align-items: center;
         justify-content: center;
     }
-    p {
-        margin: 0vw;
-        padding: 0vw;
-        margin-top: 3px;
-        margin-bottom: 3px;
-    }
     .RelicParentDiv {
-        width: 95px;
-        height: 95px;
-        padding-bottom: 5px;
+        width: 90px;
     }
 
     .RelicImg {

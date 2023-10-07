@@ -33,7 +33,6 @@
     import ProfilesCache from "./ProfilesCache.svelte";
     let message = "BETA";
 
-    
     import { loadSubHighlights } from "$lib/cache/subHighlights.js";
     onMount(async () => {
         try {
@@ -55,90 +54,106 @@
         }
         loadSubHighlights();
     });
-    
+
     import { recentlyVisitedUID } from "$lib/cache.js";
 
     let visitedProfiles = {};
-
 </script>
 
 <div style="text-align: center; color:red;">{message}</div>
 
-
 <div id="outermost">
-    <div
-        class="CenteringDiv"
-        style="display: flex; margin: 0 auto; justify-content: center;"
-    >
-        <a href="/leaderboards">
-            <img
-                src={swallowtail}
-                alt="swallowtail"
-                style="transform: scaleX(-1);
+    <a href="/leaderboards">
+        <img
+            src={swallowtail}
+            alt="swallowtail"
+            style="transform: scaleX(-1);
                      width :60px; height : 94.2px;"
-            />
-        </a>
-        <div style="padding: 1vw; ">
-            <p style="margin-bottom: 6px;" class="Header">
-                Want to see your ranks?
-            </p>
-            <div style="display: flex;">
-                <label
-                    for="uidInput"
-                    class="Header"
-                    style=" margin-top: 2px;margin-right: 0px;"
-                >
-                    Enter UID:
-                </label>
-                <input
-                    id="uidInput"
-                    style="width:80px; font-size: 16px;"
-                    bind:value={id}
-                    on:input={(e) =>
-                        (id = e.target.value.replace(/\D/g, "").slice(0, 9))}
-                />
-                <button
-                    on:click={handleClick}
-                    disabled={id.toString().length !== 9}
-                >
-                    Go!
-                </button>
-            </div>
-
-            <a href="/privacy">Privacy Policy</a>
-        </div>
+        />
+    </a>
+    <div class="uid-div" style="display: flex;">
+        <input
+            class="uid-input"
+            style="width:100px; font-size: 16px;"
+            bind:value={id}
+            on:input={(e) =>
+                (id = e.target.value.replace(/\D/g, "").slice(0, 9))}
+            placeholder="Enter UID..."
+        />
+        <button
+            class="uid-button"
+            on:click={handleClick}
+            disabled={id.toString().length !== 9}
+        >
+            {"🡆"}
+        </button>
     </div>
-
-    <!-- <CritFaq /> -->
 </div>
 
-<ProfilesCache></ProfilesCache>
-<hr />
+<ProfilesCache />
 {#if isNavigating}
     <Bronbike />
 {:else}
     <slot />
 {/if}
 
-<div style="margin:3vw" />
-<Enka/>
-<Mihomo />
+<div style="background-color: rgba(255, 255, 255, 0.05); width: 100%;">
+    <Enka />
+
+    <Mihomo />
+
+    <div style="text-align: center; padding-bottom:20px; ">
+        <a href="/privacy">Privacy Policy</a>
+    </div>
+</div>
 
 <style>
+    .uid-div {
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.814);
+        padding-bottom: 8px;
+        padding-top: 8px;
+        padding-left: 25px;
+        padding-right: 12.5px;
+        width: 150px;
+        height: 30px;
+        margin: 15px;
+        box-shadow: 0 0 5px rgba(122, 125, 255, 0.822);
+    }
+    .uid-input {
+        background-color: transparent;
+        border: none;
+        color: white;
+        text-align: center;
+        padding-right: 20px;
+    }
+    .uid-button {
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+        padding: 0;
+        padding-bottom: 2px;
+        margin: 0;
+    }
+    .uid-input:focus {
+        outline: none; /* Remove default outline */
+        caret-color: white;
+    }
+
     a {
         margin: 0;
         font-family: Arial, sans-serif;
         text-shadow: none;
-    }
-    p {
-        margin: 0;
+        color: black;
+        margin: auto;
     }
 
     #outermost {
         margin: auto;
-        width: 100%;
+        width: min-content;
         padding-top: 3px;
         justify-content: center;
+        display: flex;
+        align-items: center;
     }
-
 </style>

@@ -23,9 +23,6 @@
     let jsonData = data.lbData;
 </script>
 
-<div style="margin-bottom:-10px;">
-</div>
-
 <BuildsLeaderboard
         {ctgr}
         {charId}

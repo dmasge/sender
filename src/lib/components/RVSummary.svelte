@@ -84,7 +84,6 @@
 
 <div
     class="statsSummaryDiv"
-    style="overflow-x: auto; margin:auto; height:fit-content;"
 >
     <div style="display: flex; width:max-content;">
         {#key subHighlights}
@@ -131,7 +130,7 @@
     .statsSummaryDiv {
         /* -ms-overflow-style: none; 
         scrollbar-width: none;  */
-        height: 10px;
+        overflow-x: auto; margin:auto; height:fit-content;
     }
     .fraction {
         text-align: center;

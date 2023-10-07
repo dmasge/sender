@@ -2,7 +2,6 @@
     export let relics;
     export let charId;
     import Relic from "$lib/components/Relic.svelte";
-    import RvSummary from "./RVSummary.svelte";
     
 </script>
 
@@ -14,8 +13,6 @@
         {/if}
     {/each}
 </div>
-
-<RvSummary {relics} {charId}></RvSummary>
 
 <style>
     /* .centeringDiv {
@@ -29,20 +26,11 @@
         display: flex;
         flex-wrap: wrap;
         margin: auto;
-        padding: 15px;
-        width: 345px;
-        height: 270px;
-        margin-bottom: -15px;
+        width: 330px;
+        height: 180px;
     }
     hr {
         height: 1px;
     }
 
-    
-    @media (max-width: 850px) {
-        .relicsDiv {
-            width: 310px;
-            padding: 5px;
-        }
-    }
 </style>

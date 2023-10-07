@@ -20,19 +20,19 @@
 
     import SpeedCategorizer from "$lib/components/navigators/SpeedCategorizer.svelte";
     import TeamFilter from "$lib/components/navigators/TeamFilter.svelte";
-    
+
     import GeneralizedDesc from "$lib/faq/Generalized_desc.svelte";
-    
+
     import { scoringRulesDict } from "$lib/scoringRules.js";
     let scoringRules = scoringRulesDict[charId];
 </script>
 
 
-<GeneralizedDesc text2={scoringRules}/>
 
-<LeaderboardsList searchTerm={charId} isOnLeaderboard={true}/>
+<LeaderboardsList searchTerm={charId} isOnLeaderboard={true} />
 <SpeedCategorizer />
-<TeamFilter></TeamFilter>
+<TeamFilter />
+<GeneralizedDesc text2={scoringRules} />
 <LbColumnsDesc />
 
 {#if jsonData}
@@ -40,14 +40,15 @@
         <p style="text-align: center;">Leaderboard empty or doesn't exist</p>
     {:else}
         {#each jsonData as build, i}
-            <LbEntireCard
-                {ctgrImg}
-                {header}
-                {build}
-                {ctgr}
-                rank={pageN + i - 9}
-            />
-            <hr class="lbHr" />
+            <div style="padding-top:20px; padding-bottom:20px;">
+                <LbEntireCard
+                    {ctgrImg}
+                    {header}
+                    {build}
+                    {ctgr}
+                    rank={pageN + i - 9}
+                />
+            </div>
         {/each}
     {/if}
 {:else}
@@ -56,10 +57,10 @@
 <Pagination />
 
 <style>
-    .lbHr {
+    /* .lbHr {
         width: 70%;
         margin: auto;
         margin-top: 1vw;
         height: 0px;
-    }
+    } */
 </style>

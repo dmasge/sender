@@ -51,7 +51,7 @@
         border: 1px solid rgb(133, 86, 0);
         border-radius: 10px;
         align-items: center;
-        background-color: rgba(134, 134, 255, 0.147);
+        background-color: rgba(32, 22, 45, 0.503);
         font-size: 12px;
         padding-right: 12px;
     }

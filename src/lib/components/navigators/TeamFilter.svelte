@@ -7,7 +7,7 @@
     let ctgr = splitStr[4];
 
     function removeSpdPattern(str) {
-        return str.replace(/(_+\d{3})+$/, '').replace(/_+$/, "");;
+        return str.replace(/(_+\d{3})+$/, "").replace(/_+$/, "");
     }
 
     function teamCategoriesCase(str) {
@@ -20,8 +20,8 @@
     }
     let teamCategories = teamCategoriesCase(charId);
     let fullctgrRaw = teamCategories.reduce((ctgr, str) => {
-            return ctgr.replace(new RegExp(str, "g"), "");
-        }, ctgr);
+        return ctgr.replace(new RegExp(str, "g"), "");
+    }, ctgr);
     let ctgrRaw = removeSpdPattern(fullctgrRaw);
 
     function GetUrlBases(teamCategories) {
@@ -43,11 +43,21 @@
 {#if teamCategories != []}
     <div class="parentDiv">
         {#each urls as url, i}
-            {@const href = url }
-            <a href={href + "1"} class:active={$page.url.pathname.includes(teamCategoriesCase(charId)[i]) 
-                || ($page.url.pathname.includes(fullctgrRaw + "/") && i == 0)}>
-                <p>{teamCategories[i]}</p>
-            </a>
+            {@const href = url}
+
+            <div
+                style="padding-left:10px; padding-right:10px; padding-bottom: 0;"
+            >
+                <a href={href + "1"}>
+                    <p>{teamCategories[i]}</p>
+                </a>
+
+                {#if $page.url.pathname.includes(teamCategoriesCase(charId)[i]) || ($page.url.pathname.includes(fullctgrRaw + "/") && i == 0)}
+                    <div
+                        style="margin:auto; background-color: blueviolet; width: 25px; height: 5px; margin-top:-7px;"
+                    />
+                {/if}
+            </div>
         {/each}
     </div>
 {/if}
@@ -55,24 +65,16 @@
 <style>
     a {
         text-decoration: none;
-        margin: 10px;
-        margin-top: 3px;
-        margin-bottom: 3px;
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
     .parentDiv {
-        background-color: rgba(134, 134, 255, 0.147);
+        background-color: #000000a0;
         display: flex;
         margin: auto;
-        border: 1px solid black;
-        border-radius: 25px;
-        width: fit-content;
-        padding-left: 1.3vw;
-        padding-right: 1.3vw;
-        margin-bottom: 10px;
+        justify-content: center;
         overflow: hidden;
-    }
-
-    .active {
-        font-weight: bold;
+        padding: 7x;
+        padding-bottom: 10px;
     }
 </style>

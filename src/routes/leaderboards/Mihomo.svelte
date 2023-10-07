@@ -14,7 +14,7 @@
     >
         <div>
             <div id="mihomoDiv">
-                <div class="Header">{"Also By "}</div>
+                <div class="Header">{"and "}</div>
 
                 <img
                     
@@ -52,11 +52,11 @@
         color: black;
     }
 
-    #mihomoHr {
+    /* #mihomoHr {
         border-color: #000000;
         box-shadow: none;
         margin: 0;
-    }
+    } */
 
     #mihomoDiv {
         display: flex;
@@ -68,7 +68,7 @@
     }
 
     .Header {
-        font-size: 15px;
+        font-size: 17px;
         text-shadow: none;
     }
 
@@ -77,7 +77,7 @@
         height: 50px;
     }
 
-    .ElyDiv {
+    /* .ElyDiv {
         position: relative;
     }
 
@@ -89,7 +89,7 @@
         width: 100%;
         height: 10px;
         box-shadow: 0px 10px 10px -5px black;
-    }
+    } */
 
     @media (max-width: 850px) {
     }

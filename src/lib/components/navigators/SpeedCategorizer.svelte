@@ -8,7 +8,7 @@
 
     let speedCategories = speedCategoriesCase(charId);
     function removeSpdPattern(str) {
-        return str.replace(/(_+\d{3})+$/, '').replace(/_+$/, "");;
+        return str.replace(/(_+\d{3})+$/, "").replace(/_+$/, "");
     }
 
     let fullctgrRaw = speedCategories.reduce((ctgr, str) => {
@@ -53,10 +53,17 @@
     <div class="parentDiv">
         {#each urls as url, i}
             {@const href = url + "1"}
-            <a {href} class:active={ctgr.includes(speedCategoriesCase(charId)[i]) 
-                || ($page.url.pathname.includes(fullctgrRaw + "/") && i == 0)}>
-                <p>{speedCategories[i] + " SPD"}</p>
-            </a>
+            <div style="padding-left:10px; padding-right:10px; padding-bottom: 0;">
+                <a
+                    {href}
+                >
+                    <p>{speedCategories[i] + " SPD"}</p>
+                </a>
+                {#if ctgr.includes(speedCategoriesCase(charId)[i]) || ($page.url.pathname.includes(fullctgrRaw + "/") && i == 0)}
+                <div style="margin:auto; background-color: blueviolet; width: 25px; height: 5px; margin-top:-7px;">
+                </div>
+                {/if}
+            </div>
         {/each}
     </div>
 {/if}
@@ -64,23 +71,15 @@
 <style>
     a {
         text-decoration: none;
-        margin: 10px;
-        margin-top: 3px;
-        margin-bottom: 3px;
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
     .parentDiv {
-        background-color: rgba(134, 134, 255, 0.147);
+        background-color: #000000a0;
         display: flex;
         margin: auto;
-        border: 1px solid black;
-        border-radius: 25px;
-        width: fit-content;
-        padding-left: 1.3vw;
-        padding-right: 1.3vw;
-        margin-bottom: 10px;
+        justify-content: center;
         overflow: hidden;
-    }
-    .active {
-        font-weight: bold;
+        padding: 7px;
     }
 </style>
