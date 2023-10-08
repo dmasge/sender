@@ -36,6 +36,7 @@
 		background-repeat: no-repeat; /* Prevents the background image from repeating */
 		background-size: cover; /* Makes the background image cover the entire container */
 		background-position: center; /* Centers the background image */
+		height: 100%;
 	}
 	.mainchild-layout {
 		background-color: rgba(0, 0, 0, 0.4);
