@@ -38,7 +38,7 @@
 		background-position: center; /* Centers the background image */
 	}
 	.mainchild-layout {
-		background-color: rgba(0, 0, 0, 0.35);
+		background-color: rgba(0, 0, 0, 0.4);
 	}
 	/* #centerDiv {
 		background-color: rgba(150, 0, 214, 0.9);

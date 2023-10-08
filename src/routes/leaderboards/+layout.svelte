@@ -80,15 +80,13 @@
                 (id = e.target.value.replace(/\D/g, "").slice(0, 9))}
             placeholder="Enter UID..."
         />
-        <div style="align-items: center; width:fit-content;">
-            <button
-                class="uid-button"
-                on:click={handleClick}
-                disabled={id.toString().length !== 9}
-            >
-                {"⇨"}
-            </button>
-        </div>
+        <button
+            class="uid-button"
+            on:click={handleClick}
+            disabled={id.toString().length !== 9}
+        >
+            <p style="font-size: 25px; margin:0;">{"⇨"}</p>
+        </button>
     </div>
 </div>
 
@@ -132,12 +130,10 @@
     .uid-button {
         background-color: transparent;
         border: none;
-        font-size: 20px;
         padding: 0;
         margin: 0;
-        padding-left: 5px;
         padding-right: 10px;
-        padding-top: 2px;
+        padding-left: 5px;
     }
     .uid-input:focus {
         outline: none; /* Remove default outline */
