@@ -25,12 +25,6 @@
 <style>
     p {
         margin: 0;
-        -webkit-text-stroke: 0.1px black;
-    }
-    p {
-        font-family: Arial, sans-serif;
-        text-shadow: none;
-        margin: 0;
     }
 
     .sutffInMiddle {

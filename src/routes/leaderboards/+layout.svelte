@@ -80,14 +80,16 @@
                 (id = e.target.value.replace(/\D/g, "").slice(0, 9))}
             placeholder="Enter UID..."
         />
-        <button
-            style="width: 60px; padding-left:10px; padding-right:10px;"
-            class="uid-button"
-            on:click={handleClick}
-            disabled={id.toString().length !== 9}
-        >
-            {"⇨"}
-        </button>
+        <div style="align-items: center; padding-bottom:20px;">
+            <button
+                style="padding-left:5px; padding-right:10px; font-size:30px; margin-top:-4px;"
+                class="uid-button"
+                on:click={handleClick}
+                disabled={id.toString().length !== 9}
+            >
+                {"⇨"}
+            </button>
+        </div>
     </div>
 </div>
 
