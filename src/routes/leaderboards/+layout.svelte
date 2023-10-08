@@ -81,11 +81,12 @@
             placeholder="Enter UID..."
         />
         <button
+            style="width: 60px; padding-left:10px; padding-right:10px;"
             class="uid-button"
             on:click={handleClick}
             disabled={id.toString().length !== 9}
         >
-            {"🡆"}
+            {"⇨"}
         </button>
     </div>
 </div>

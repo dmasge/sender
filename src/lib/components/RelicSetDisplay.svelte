@@ -82,7 +82,4 @@
         width: 30px;
         margin-bottom: 0px;
     }
-    @media (max-width: 850px) {
-       
-    }
 </style>

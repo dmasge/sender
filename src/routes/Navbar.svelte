@@ -85,7 +85,6 @@
     .navParentDiv {
         display: flex;
         align-items: center;
-		backdrop-filter: blur(100px);
         letter-spacing: 0.06em;
         justify-content: space-between;
         flex-wrap: wrap;

@@ -24,21 +24,16 @@
 
 <Navbar />
 
-<div class="blur-background">
-	<div class="slot-wrapper">
-		<slot />
-	</div>
+<div class="slot-wrapper">
+	<slot />
 </div>
 
 <style>
 	/* #centerDiv {
 		background-color: rgba(150, 0, 214, 0.9);
 	} */
-	.blur-background {
-		backdrop-filter: blur(60px);
-	}
+
 	.slot-wrapper {
 		background-color: rgba(0, 0, 0, 0.5);
 	}
-	
 </style>

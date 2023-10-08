@@ -21,16 +21,19 @@
         justify-content: center;
     } */
     
-
+    
     .relicsDiv {
         display: flex;
         flex-wrap: wrap;
         margin: auto;
         width: 330px;
         height: 180px;
+        justify-content:center; align-items:center; margin:auto;
     }
     hr {
         height: 1px;
+        margin-left: 1px;
+        margin-right: 17px;
     }
 
 </style>

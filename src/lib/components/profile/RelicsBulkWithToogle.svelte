@@ -30,7 +30,7 @@
     <Rankings {build} redirect={expanded} />
     <LbStats {lbStats} />
     <RelicSetDisplay {relicSets} />
-    <div style="display: {showBuild ? 'block' : 'none'}">
+    <div style="display: {showBuild ? 'block' : 'none'};">
         <RelicsBulk {relics} charId={build["k"]} />
         <div style="margin: -10px;"></div>
         <RvSummary {relics} charId={build["k"]} />

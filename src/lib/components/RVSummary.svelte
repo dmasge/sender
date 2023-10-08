@@ -142,11 +142,7 @@
     }
 
     .statsSummaryDiv {
-        width: 370px;
+        width: 335px;
     }
-    @media (max-width: 850px) {
-        .statsSummaryDiv {
-            width: 330px;
-        }
-    }
+    
 </style>

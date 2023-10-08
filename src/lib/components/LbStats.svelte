@@ -50,10 +50,4 @@
         justify-content: center;
     }
 
-    @media (max-width: 850px) {
-        .RelicParentDiv {
-            width: 100px;
-        }
-      
-    }
 </style>
