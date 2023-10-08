@@ -22,11 +22,24 @@
 	></script>
 </svelte:head>
 
-<Navbar />
+<div class="main-layout">
+	<div class="mainchild-layout">
+		<Navbar />
 
-<slot />
+		<slot />
+	</div>
+</div>
 
 <style>
+	.main-layout {
+		background-image: url("https://raw.githubusercontent.com/Sinkira/sinkiresource/main/oyes/veli_blur_darken_hq.webp");
+		background-repeat: no-repeat; /* Prevents the background image from repeating */
+		background-size: cover; /* Makes the background image cover the entire container */
+		background-position: center; /* Centers the background image */
+	}
+	.mainchild-layout {
+		background-color: rgba(0, 0, 0, 0.35);
+	}
 	/* #centerDiv {
 		background-color: rgba(150, 0, 214, 0.9);
 	} */
