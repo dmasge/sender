@@ -85,7 +85,7 @@
 <div
     class="statsSummaryDiv"
 >
-    <div style="display: flex; width:max-content;">
+    <div style="display: flex; width:max-content; height: 35px;">
         {#key subHighlights}
             {#each substatsSum as [key, value]}
                 <button
@@ -122,7 +122,7 @@
 <style>
     /* Hide scrollbar for Chrome, Safari and Opera */
     .statsSummaryDiv::-webkit-scrollbar {
-        height: 10px;
+        height: 11px;
         /* display: none; */
     }
 

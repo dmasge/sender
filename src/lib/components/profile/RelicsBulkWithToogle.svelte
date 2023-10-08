@@ -32,7 +32,6 @@
     <RelicSetDisplay {relicSets} />
     <div style="display: {showBuild ? 'block' : 'none'};">
         <RelicsBulk {relics} charId={build["k"]} />
-        <div style="margin: -10px;"></div>
         <RvSummary {relics} charId={build["k"]} />
     </div>
 </div>
@@ -53,9 +52,10 @@
         margin: auto;
         padding: 7px;
         margin-top: 7px;
-        border-radius: 20px;
+        border-radius: 10px;
         box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
         margin-bottom: 5px;
+        padding-bottom: 12px;
     }
 
     .toggle-build-button {
