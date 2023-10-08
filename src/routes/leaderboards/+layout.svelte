@@ -85,7 +85,7 @@
             on:click={handleClick}
             disabled={id.toString().length !== 9}
         >
-            <p style="font-size: 25px; margin:0;">{"⇨"}</p>
+            <p style="font-size: 25px; margin:0;">{">"}</p>
         </button>
     </div>
 </div>
