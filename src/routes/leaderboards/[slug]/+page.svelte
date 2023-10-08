@@ -28,6 +28,9 @@
 
     let visitedProfiles = {};
 
+    import {
+        addRelicsToDbFromBuilds,
+    } from "$lib/cache/relicsDb.js";
     onMount(() => {
         if (typeof window !== "undefined") {
             let visits = localStorage.getItem("visits");
@@ -39,6 +42,7 @@
             visitedProfiles[pl["id"]] = pl["nm"];
             localStorage.setItem("visits", JSON.stringify(visitedProfiles));
             recentlyVisitedUID.update((n) => visitedProfiles);
+            addRelicsToDbFromBuilds(pl["id"], builds);
         }
     });
 
@@ -62,14 +66,16 @@
             .then((data) => {
                 jsonData = deserialize(data)["data"];
                 builds = jsonData.filter((i) => i["k"] != "p");
+                addRelicsToDbFromBuilds(pl["id"], builds);
                 pl = jsonData.find((i) => i["k"] == "p");
             })
             .catch((error) => {
                 console.error("Error:", error);
             });
     }
-    
+
     import OnStatsFaq from "$lib/faq/OnStatsFAQ.svelte";
+    import RelicsParent from "$lib/components/relics/RelicsParent.svelte";
 </script>
 
 {#if !jsonData}
@@ -82,8 +88,8 @@
         <RefreshButton onClick={refreshPlayer} {uid} {prevUnixTimestamp} />
     </div>
     <hr />
-    
-<OnStatsFaq></OnStatsFaq>
+
+    <OnStatsFaq />
     <div class="buildsStuff">
         {#each sortedBuilds as build}
             <div style="margin-bottom: 50px;">
@@ -93,6 +99,7 @@
             </div>
         {/each}
     </div>
+        <RelicsParent uid={pl["id"]} />
 {/if}
 
 <style>

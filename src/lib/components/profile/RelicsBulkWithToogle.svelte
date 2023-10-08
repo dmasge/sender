@@ -46,7 +46,7 @@
 
 <style>
     .tooglableParentDiv {
-        background-color: rgba(30, 0, 69, 0.7);
+        background-color: rgba(30, 0, 70, 0.7);
         width: fit-content;
         min-width: 220px;
         margin: auto;

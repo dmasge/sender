@@ -1,6 +1,6 @@
 <script>
     export let relic;
-    export let charId;
+    export let charId = "";
     import { getRelicUrl } from "$lib/iconUrls/avatarIconsUrl.js";
     import { formatStat, abbreviateStat, formatSpd } from "$lib/stores.js";
     let relicSize = 2;
@@ -16,10 +16,23 @@
         subHighlights = value;
     });
 
-    function getSubType(substat){
+    function getSubType(substat) {
         let p = substat[1].includes("%");
         let subType = p ? substat[0] + "%" : substat[0];
         return subType;
+    }
+    let enka_relic_icn_map = {
+        1: "0",
+        2: "1",
+        3: "2",
+        4: "3",
+        5: "0",
+        6: "1",
+    };
+    function getIconFromType(relic) {
+        let piece_slot_number = relic["t"];
+        let setId = relic["set"];
+        return setId + "_" + enka_relic_icn_map[piece_slot_number];
     }
 </script>
 
@@ -30,26 +43,53 @@
             margin:-4px;
             padding:2px;"
         >
-            <img src={getRelicUrl(relic["icn"])} alt={"..."} class="RelicImg" />
+            {#if relic.hasOwnProperty("icn")}
+                <img
+                    src={getRelicUrl(relic["icn"])}
+                    alt={"..."}
+                    class="RelicImg"
+                />
+            {:else}
+                <img
+                    src={getRelicUrl(getIconFromType(relic))}
+                    alt={"..."}
+                    class="RelicImg"
+                />
+            {/if}
+
             <p class="statsP">
                 {abbreviateStat(relic["m"][0]) +
                     " " +
                     formatStat(relic["m"][1])}
             </p>
         </div>
+        <div style="padding-top: 2px"></div>
         <div>
             {#each relic["sb"] as sub, i}
                 <!-- {@const [index, color] = getSubstatColor(abbreviateStat(sub[0]), sub[1])} -->
                 {@const subType = getSubType(sub)}
                 <div
-                    style="background-color: {getSubAffixBackgroundColor(charId, subType)};
+                    style="background-color: {getSubAffixBackgroundColor(
+                        charId,
+                        subType
+                    )};
                     margin:0;"
                 >
                     <p class="statsP">
-                        <span style="color: {getSubAffixTextColor(charId, subType)};">
+                        <span
+                            style="color: {getSubAffixTextColor(
+                                charId,
+                                subType
+                            )};"
+                        >
                             {abbreviateStat(sub[0]) + " "}
                         </span>
-                        <span style="color: {getSubAffixTextColor(charId, subType)};">
+                        <span
+                            style="color: {getSubAffixTextColor(
+                                charId,
+                                subType
+                            )};"
+                        >
                             {#if abbreviateStat(sub[0]) != "SPD"}
                                 {formatStat(sub[1])}
                             {:else}
