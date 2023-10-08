@@ -15,7 +15,7 @@
 </script>
 
 
-<div>
+<div style="padding-bottom: 10px;">
 
     <nav>
         {#if currentPage > 1}
@@ -44,10 +44,11 @@
     nav a,
     nav span {
         margin: 0 10px;
+        color: rgb(231, 231, 231);
     }
 
     a {
-        color: black;
+        color: rgb(231, 231, 231);
     }
 
     .navA {
