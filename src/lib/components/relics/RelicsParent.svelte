@@ -3,11 +3,14 @@
     import { loadRelicsDb, relicsDbWriteable } from "$lib/cache/relicsDb.js";
     import RelicWrapper from "$lib/components/relics/RelicWrapper.svelte";
     export let uid;
-    let relics = loadRelicsDb(uid);
-    relicsDbWriteable.subscribe((value) => {
+    let relics = {};
+
+    if (browser) {
         relics = loadRelicsDb(uid);
-    });
-    console.log(relics);
+        relicsDbWriteable.subscribe((value) => {
+            relics = loadRelicsDb(uid);
+        });
+    }
 </script>
 
 <div style="background-color: #000000A0; padding: 10px; text-align: center;">
