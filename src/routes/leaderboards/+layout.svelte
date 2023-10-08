@@ -97,7 +97,7 @@
     <slot />
 {/if}
 
-<div style="background-color: rgba(255, 255, 255, 0.15); width: 100%;">
+<div style="background-color: rgba(255, 255, 255, 0.07); width: 100%;">
     <Enka />
 
     <Mihomo />

@@ -67,7 +67,7 @@
     .statsP {
         justify-content: space-between;
         display: flex;
-        font-size: 12px;
+        font-size: 11.8px;
         margin: 0;
     }
     div {
