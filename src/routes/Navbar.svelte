@@ -88,7 +88,6 @@
         letter-spacing: 0.06em;
         justify-content: space-between;
         flex-wrap: wrap;
-        background-color: rgba(0, 0, 0, 0.5);
     }
     .active,
     nav a:hover {

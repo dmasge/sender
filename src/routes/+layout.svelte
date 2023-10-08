@@ -24,16 +24,10 @@
 
 <Navbar />
 
-<div class="slot-wrapper">
-	<slot />
-</div>
+<slot />
 
 <style>
 	/* #centerDiv {
 		background-color: rgba(150, 0, 214, 0.9);
 	} */
-
-	.slot-wrapper {
-		background-color: rgba(0, 0, 0, 0.5);
-	}
 </style>

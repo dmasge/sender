@@ -58,13 +58,13 @@ export function getSubAffixTextColor(charId, key) {
         let subHighlights = localStorage.getItem(itemName);
         let parsedsubHighlights = subHighlights ? JSON.parse(subHighlights) : {};
         if (!parsedsubHighlights.hasOwnProperty(charId)) {
-            return 'rgba(220, 220, 220, 1)';
+            return 'rgba(240, 240, 240, 1)';
         }
         else {
             if (!parsedsubHighlights[charId].hasOwnProperty(key)) {
-                return 'rgba(220, 220, 220, 0.2)';
+                return 'rgba(240, 240, 240, 0.2)';
             } else {
-                return parsedsubHighlights[charId][key] ? 'rgba(220, 220, 220, 1)' : "rgba(220, 220, 220, 0.2)";
+                return parsedsubHighlights[charId][key] ? 'rgba(240, 240, 240, 1)' : "rgba(240, 240, 240, 0.2)";
             }
         }
     }
