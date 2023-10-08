@@ -49,7 +49,7 @@
     }
 
     #mihomoA {
-        color: black;
+        color: rgb(255, 255, 255);
     }
 
     #mihomoHr {
@@ -60,7 +60,7 @@
 
     #mihomoDiv {
         display: flex;
-        color: black;
+        color: rgb(135, 135, 135);
 
         font-size: 25px;
         align-items: center;

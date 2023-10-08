@@ -60,7 +60,7 @@
 
     #mihomoDiv {
         display: flex;
-        color: black;
+        color: rgb(119, 119, 119);
 
         font-size: 19px;
         align-items: center;

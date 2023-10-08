@@ -97,13 +97,13 @@
     <slot />
 {/if}
 
-<div style="background-color: rgba(255, 255, 255, 0.05); width: 100%;">
+<div style="background-color: rgba(255, 255, 255, 0.15); width: 100%;">
     <Enka />
 
     <Mihomo />
 
     <div style="text-align: center; padding-bottom:20px; ">
-        <a href="/privacy">Privacy Policy</a>
+        <a style="color: gray;" href="/privacy">Privacy Policy</a>
     </div>
 </div>
 
