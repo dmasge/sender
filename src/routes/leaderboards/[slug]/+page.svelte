@@ -65,6 +65,7 @@
                 builds = jsonData.filter((i) => i["k"] != "p");
                 addRelicsToDbFromBuilds(pl["id"], builds);
                 pl = jsonData.find((i) => i["k"] == "p");
+                prevUnixTimestamp = pl["_ts"];
             })
             .catch((error) => {
                 console.error("Error:", error);
