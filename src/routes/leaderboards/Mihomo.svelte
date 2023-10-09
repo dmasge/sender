@@ -14,16 +14,16 @@
     >
         <div>
             <div id="mihomoDiv">
-                <div class="Header">{"and "}</div>
+                <div class="Header">{"and MiHoMo"}</div>
 
-                <img
+                <!-- <img
                     
                     class="mihomoLogo"
                     src={mihomoBlack}
                     alt="Home"
                     style="background: transparent; "
-                />
-                <div class="Header">{"MiHoMo"}</div>
+                /> -->
+                <div class="Header">{" "}</div>
             </div>
             <!-- <div
                 class="ElyDiv"
@@ -59,8 +59,9 @@
     } */
 
     #mihomoDiv {
+        padding: 10px;
         display: flex;
-        color: rgb(119, 119, 119);
+        color: rgb(200, 200, 200);
 
         font-size: 19px;
         align-items: center;
@@ -72,10 +73,10 @@
         text-shadow: none;
     }
 
-    .mihomoLogo {
+    /* .mihomoLogo {
         width: 50px;
         height: 50px;
-    }
+    } */
 
     /* .ElyDiv {
         position: relative;
