@@ -6,7 +6,7 @@
 </script>
 
 <hr id="mihomoHr" />
-<div style="width: 205px; margin:auto; scale:0.7;">
+<div style="width: 205px; margin:auto; scale:0.7; padding-top:11px;">
     <a
         id="mihomoA"
         href={"https://enka.network/"}
