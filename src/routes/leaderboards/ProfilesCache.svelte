@@ -68,5 +68,7 @@
         font-size: 13px;
         margin: 3px;
         padding: 0;
+        padding-right: 6px;
+        padding-left: 4px;
     }
 </style>

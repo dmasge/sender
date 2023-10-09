@@ -118,7 +118,7 @@
         width: 140px;
         height: 30px;
         margin: 15px;
-        box-shadow: 0 0 5px rgba(122, 125, 255, 0.822);
+        box-shadow: 0 0 2px rgba(255, 255, 255, 0.822);
     }
     .uid-input {
         background-color: transparent;

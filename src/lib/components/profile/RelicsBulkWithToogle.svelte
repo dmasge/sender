@@ -30,19 +30,20 @@
     <Rankings {build} redirect={expanded} />
     <LbStats {lbStats} />
     <RelicSetDisplay {relicSets} />
-    <div style="display: {showBuild ? 'block' : 'none'};">
-        <RelicsBulk {relics} charId={build["k"]} />
-        <RvSummary {relics} charId={build["k"]} />
-    </div>
+    <!-- <div style="display: {showBuild ? 'block' : 'none'};"> -->
+    <RelicsBulk {relics} charId={build["k"]} />
+    <RvSummary {relics} charId={build["k"]} />
+    <!-- </div> -->
 </div>
-{#if !expanded}
+
+<!-- {#if !expanded}
     <button
         class="toggle-build-button"
         on:click={() => (showBuild = !showBuild)}
     >
         {showBuild ? "Hide" : "Show"} relics
     </button>
-{/if}
+{/if} -->
 
 <style>
     .tooglableParentDiv {
@@ -58,11 +59,11 @@
         padding-bottom: 12px;
     }
 
-    .toggle-build-button {
+    /* .toggle-build-button {
         cursor: pointer;
         display: block;
         margin: 0 auto;
         text-align: center;
         outline: none;
-    }
+    } */
 </style>

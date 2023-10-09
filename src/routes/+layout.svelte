@@ -32,14 +32,15 @@
 
 <style>
 	.main-layout {
-		background-image: url("https://raw.githubusercontent.com/Sinkira/sinkiresource/main/oyes/veli_blur_darken_hq.webp");
+		/* background-image: url("https://raw.githubusercontent.com/Sinkira/sinkiresource/main/oyes/veli_blur_darken_hq.webp"); */
 		background-repeat: no-repeat; /* Prevents the background image from repeating */
 		background-size: cover; /* Makes the background image cover the entire container */
 		background-position: center; /* Centers the background image */
 		height: 100%;
+		background-color: #171021;
 	}
 	.mainchild-layout {
-		background-color: rgba(0, 0, 0, 0.4);
+		background-color: rgba(255, 255, 255, 0.00);
 	}
 	/* #centerDiv {
 		background-color: rgba(150, 0, 214, 0.9);

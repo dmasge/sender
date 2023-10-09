@@ -9,6 +9,8 @@
     import RefreshButton from "./RefreshButton.svelte";
 
     export let data;
+
+    let selectedBuildK = "";
     let jsonData = data.jsonData;
     let builds = jsonData.filter((i) => i["k"] != "p");
     let pl = jsonData.find((i) => i["k"] == "p");
@@ -28,9 +30,7 @@
 
     let visitedProfiles = {};
 
-    import {
-        addRelicsToDbFromBuilds,
-    } from "$lib/cache/relicsDb.js";
+    import { addRelicsToDbFromBuilds } from "$lib/cache/relicsDb.js";
     onMount(() => {
         if (typeof window !== "undefined") {
             let visits = localStorage.getItem("visits");
@@ -76,6 +76,7 @@
 
     import OnStatsFaq from "$lib/faq/OnStatsFAQ.svelte";
     import RelicsParent from "$lib/components/relics/RelicsParent.svelte";
+    import Roster from "$lib/components/profile/Roster.svelte";
 </script>
 
 {#if !jsonData}
@@ -87,19 +88,16 @@
     <div>
         <RefreshButton onClick={refreshPlayer} {uid} {prevUnixTimestamp} />
     </div>
-    <hr />
-
+    <Roster {builds} bind:selectedBuildK />
     <OnStatsFaq />
     <div class="buildsStuff">
         {#each sortedBuilds as build}
-            <div style="margin-bottom: 50px;">
-                <div class="tooglable" style="margin-bottom:10px;">
-                    <RelicsBulkWithToogle {build} />
-                </div>
-            </div>
+            {#if selectedBuildK == build["k"]}
+                <RelicsBulkWithToogle {build} />
+            {/if}
         {/each}
     </div>
-        <RelicsParent uid={pl["id"]} />
+    <RelicsParent uid={pl["id"]} />
 {/if}
 
 <style>
