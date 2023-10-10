@@ -30,7 +30,7 @@
         var num2 = parseFloat(nums[1]);
         num1 = num1 < 1000 ? num1.toString() : (num1 / 1000).toFixed(1) + "k";
         num2 = num2 < 1000 ? num2.toString() : (num2 / 1000).toFixed(1) + "k";
-        return num1 + "/" + num2;
+        return num1 + " / " + num2;
     }
 
     function getSPD(str) {
@@ -76,42 +76,23 @@
                         {@const lbItem = build["lb"][key]}
                         {@const breakpoint = getSPD(key)}
 
-                        {#if breakpoint != ""}
-                            <div
-                                style="display: flex; position:absolute; margin-top:86px; margin-left: 55px;  z-index: 100;"
-                            >
-                                <div
-                                    style="display: flex; background-color: rgba(0,0,0,0);"
-                                >
-                                    <img
-                                        style="width: 14px; height:14px; margin-right:-2px; "
-                                        src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
-                                        alt="spd"
-                                    />
-
-                                    <p style="">{breakpoint}</p>
-                                </div>
-                            </div>
-                        {/if}
-                        <p >
+                        <p style="padding: 1px;">
                             {lbItem["percrank"].charAt(0).toUpperCase() +
                                 lbItem["percrank"].slice(1)}
                         </p>
+
+                        <p style="padding: 1px;">
+                            {toKNotationFraction(lbItem["rank"])}
+                        </p>
                     {:else}
+                        <p>
+                            {@html " "}
+                        </p>
                         <p>
                             {@html "-"}
                         </p>
                     {/if}
-                    <div
-                        style="display: flex; position:absolute; margin-top:71px;  margin-left: -8px;  z-index: 100;"
-                    >
-                        <div
-                            style="display: flex; background-color: rgba(0,0,0,0.0); padding:1px;"
-                        >
-                            <p style="">{"E" + build["e"] + "S" + build["lc"]["s"]}</p>
-                        </div>
-                    </div>
-                    
+
                     <div
                         style="display: flex; justify-content: center; padding-top:5px;padding-bottom:5px;"
                     >
@@ -133,28 +114,41 @@
                             style=""
                         />
                     </div>
-                    {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
-                        {@const lbItem =
-                            build["lb"][Object.keys(build["lb"])[0]]}
-                        <p>
-                            {toKNotationFraction(lbItem["rank"])}
-                        </p>
-                    {:else}
-                        <p>
-                            {@html "-"}
-                        </p>
-                    {/if}
 
-                    {#if build["k"] == selectedBuildK}
-                        <div
-                            style="display: flex;
-                            justify-content: center; align-items: center;"
-                        >
+                    <div style="display: flex; justify-content: space-between;">
+                        <p style="">
+                            {"E" + build["e"] + "S" + build["lc"]["s"]}
+                        </p>
+                        {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
+                            {@const key = Object.keys(build["lb"])[0]}
+                            {@const breakpoint = getSPD(key)}
+                            {#if breakpoint != ""}
+                                <div style="display: flex;">
+                                    <div
+                                        style="display: flex; background-color: rgba(0,0,0,0);"
+                                    >
+                                        <img
+                                            style="width: 14px; height:14px; margin-right:-2px; "
+                                            src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                                            alt="spd"
+                                        />
+
+                                        <p style="">{breakpoint}</p>
+                                    </div>
+                                </div>
+                            {/if}
+                        {/if}
+                    </div>
+                    <div
+                        style="display: flex;
+                    justify-content: center; align-items: center;"
+                    >
+                        {#if build["k"] == selectedBuildK}
                             <div
                                 style="background-color: blueviolet; width: 25px; height: 5px; margin: 5px;"
                             />
-                        </div>
-                    {/if}
+                        {/if}
+                    </div>
                 </div>
             </button>
         {/each}
@@ -175,14 +169,16 @@
         display: flex;
         justify-content: center; /* align horizontal */
         align-items: center; /* align vertical */
-        box-shadow: 0 16px 8px -8px rgba(52, 12, 51, 0.279);
     }
     .loopDiv {
         display: flex;
         overflow-y: hidden;
     }
     .loopItemDiv {
-        padding: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     img {
