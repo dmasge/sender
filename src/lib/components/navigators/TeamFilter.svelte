@@ -10,6 +10,13 @@
         return str.replace(/(_+\d{3})+$/, "").replace(/_+$/, "");
     }
 
+    function getRemovedSpdPattern(str) {
+    let removed = str.match(/(_+\d{3})+$/);
+    if (!removed) {
+        removed = str.match(/_+$/);
+    }
+    return removed ? removed[0] : '';
+}
     function teamCategoriesCase(str) {
         switch (str) {
             case "1213":
@@ -29,9 +36,9 @@
         let newList = [];
         for (let i = 0; i < teamCategories.length; i++) {
             if (teamCategories[i] === "Solo") {
-                newList.push("../" + ctgrRaw + "/");
+                newList.push("../" + ctgrRaw + getRemovedSpdPattern(fullctgrRaw) + "/");
             } else {
-                newList.push("../" + ctgrRaw + teamCategories[i] + "/");
+                newList.push("../" + ctgrRaw + teamCategories[i] + getRemovedSpdPattern(fullctgrRaw) + "/");
             }
         }
         return newList;

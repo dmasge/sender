@@ -33,6 +33,11 @@
         return num1 + "/" + num2;
     }
 
+    function getSPD(str) {
+        const match = str.match(/_(\d{3})$/);
+        return match ? match[1] : "   -";
+    }
+
     onMount(() => {
         // basically first making sure if build
         // ranked on two categories that we're
@@ -53,11 +58,9 @@
             selectedBuildK = sortedBuilds[0]["k"];
         }
     });
-
 </script>
 
-
-<hr style="margin: 0;"/>
+<hr style="margin: 0;" />
 <div class="parentDiv">
     <div class="loopDiv">
         {#each sortedBuilds as build}
@@ -69,9 +72,28 @@
                         : 'transparent'};"
                 >
                     {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
-                        {@const lbItem =
-                            build["lb"][Object.keys(build["lb"])[0]]}
-                        <p>
+                        {@const key = Object.keys(build["lb"])[0]}
+                        {@const lbItem = build["lb"][key]}
+                        {@const breakpoint = getSPD(key)}
+
+                        {#if breakpoint != ""}
+                            <div
+                                style="display: flex; position:absolute; margin-top:86px; margin-left: 55px;  z-index: 100;"
+                            >
+                                <div
+                                    style="display: flex; background-color: rgba(0,0,0,0);"
+                                >
+                                    <img
+                                        style="width: 14px; height:14px; margin-right:-2px; "
+                                        src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                                        alt="spd"
+                                    />
+
+                                    <p style="">{breakpoint}</p>
+                                </div>
+                            </div>
+                        {/if}
+                        <p >
                             {lbItem["percrank"].charAt(0).toUpperCase() +
                                 lbItem["percrank"].slice(1)}
                         </p>
@@ -80,7 +102,19 @@
                             {@html "-"}
                         </p>
                     {/if}
-                    <div style="display: flex; justify-content: center; padding-top:5px;padding-bottom:5px;">
+                    <div
+                        style="display: flex; position:absolute; margin-top:71px;  margin-left: -8px;  z-index: 100;"
+                    >
+                        <div
+                            style="display: flex; background-color: rgba(0,0,0,0.0); padding:1px;"
+                        >
+                            <p style="">{"E" + build["e"] + "S" + build["lc"]["s"]}</p>
+                        </div>
+                    </div>
+                    
+                    <div
+                        style="display: flex; justify-content: center; padding-top:5px;padding-bottom:5px;"
+                    >
                         <img
                             src={starRailRes +
                                 "icon/character/" +
@@ -96,7 +130,7 @@
                                 extension}
                             alt={"..."}
                             class="RelicImg"
-                            style="margin-top: 1px;"
+                            style=""
                         />
                     </div>
                     {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
@@ -126,7 +160,7 @@
         {/each}
     </div>
 </div>
-<hr style="margin: 0;"/>
+<hr style="margin: 0;" />
 
 <style>
     button {
