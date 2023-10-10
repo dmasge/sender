@@ -54,7 +54,7 @@
         {#each urls as url, i}
             {@const href = url + "1"}
             <div style="padding-left:10px; padding-right:10px; padding-bottom: 0;">
-                <a
+                <a style="text-align: center;"
                     {href}
                 >
                     <p>{speedCategories[i] + " SPD"}</p>

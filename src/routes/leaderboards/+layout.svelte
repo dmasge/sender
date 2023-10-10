@@ -40,7 +40,7 @@
                 "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/message.txt"
             ).then((res) => res.text());
         } catch (error) {
-            message = "BETA";
+            message = "OPEN BETA";
         }
 
         if (typeof window !== "undefined") {
@@ -60,7 +60,7 @@
     let visitedProfiles = {};
 </script>
 
-<div style="text-align: center; color:red;">{message}</div>
+<div style="text-align: center; color:red; font-size: 10px;">{message}</div>
 
 <div id="outermost">
     <a href="/leaderboards">

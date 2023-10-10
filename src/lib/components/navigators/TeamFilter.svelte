@@ -55,7 +55,7 @@
             <div
                 style="padding-left:10px; padding-right:10px; padding-bottom: 0;"
             >
-                <a href={href + "1"}>
+                <a href={href + "1"} style="text-align: center;">
                     <p>{teamCategories[i]}</p>
                 </a>
 
