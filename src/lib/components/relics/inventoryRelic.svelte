@@ -2,18 +2,9 @@
     export let relic;
     import { getRelicUrl } from "$lib/iconUrls/avatarIconsUrl.js";
     import { formatStat, abbreviateStat, formatSpd } from "$lib/stores.js";
-    import {
-        subWeightsInventoryWriteable,
-        loadSubWeightsInventory,
-    } from "$lib/cache/subWeightsInventory.js";
 
     import { getSubWeightDict } from "$lib/components/relics/relicConstants.js";
 
-    import {
-        subHighlightsWriteable,
-        getSubAffixBackgroundColor,
-        getSubAffixTextColor,
-    } from "$lib/cache/subHighlights.js";
 
     let weights = getSubWeightDict();
     function getSubType(substat) {

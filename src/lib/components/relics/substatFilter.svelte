@@ -6,12 +6,6 @@
     let subNames = ["HP", "ATK", "DEF", "SPD", "CR", "CD", "EHR", "RES", "BR"];
 
     let arr = loadSubWeightsInventory();
-    function handleSliderChange(e) {
-        if (e.target === e.currentTarget) {
-            e.preventDefault();
-        }
-        // rest of your function...
-    }
 </script>
 
 <div>
@@ -24,10 +18,7 @@
                 <p style="text-align: center; margin-top:2px;">{arr[i]}</p>
                 <div style="padding: 12px;" />
                 <div style="display: flex; margin-left:-27px;">
-                    <div
-                        style="transform: rotate(-90deg);"
-                        on:touchmove={(e) => handleSliderChange(e)}
-                    >
+                    <div style="transform: rotate(-90deg);">
                         <input
                             on:change={saveSubWeightsInventory(arr)}
                             type="range"
@@ -57,6 +48,7 @@
         width: 80px;
         accent-color: var(--slider-color);
         border: none;
+        pointer-events: none;
     }
 
     input[type="range"] {
@@ -64,8 +56,8 @@
         -webkit-appearance: none;
         height: 1px; /* Adjust this to make the line thinner or thicker */
         accent-color: var(--slider-color);
-
         background-color: var(--slider-color);
+        pointer-events: none;
     }
 
     input[type="range"]::-webkit-slider-thumb {
@@ -78,6 +70,7 @@
         width: 15px;
         border-radius: 20px;
         background: var(--slider-color);
+        pointer-events: auto;
     }
 
     input[type="range"]::-moz-range-thumb {
@@ -86,16 +79,20 @@
         accent-color: var(--slider-color);
         background-color: var(--slider-color);
         color: var(--slider-color);
+        pointer-events: auto;
     }
+
 
     input[type="range"]::-moz-range-track {
         /* Track */
+        pointer-events: none;
         -moz-appearance: none;
         background: var(--slider-color);
         height: 1px;
     }
 
     input[type="range"]::-ms-thumb {
+        pointer-events: auto;
         background: var(--slider-color); /* Change this to your desired color */
     }
 </style>

@@ -4,10 +4,9 @@
     });
     import InventoryRelic from "$lib/components/relics/inventoryRelic.svelte";
     export let relic;
-    import { fade, fly } from 'svelte/transition';
 </script>
 
-<div in:fly={{ y: -200, duration: 300 }} class="parentDiv">
+<div class="parentDiv">
     <p class="rvP" style="padding: 0 ; margin:1px;">{relic['rv']}</p>
     <InventoryRelic {relic}></InventoryRelic>
 </div>
