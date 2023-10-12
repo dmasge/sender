@@ -1,11 +1,15 @@
 <script>
-    import Relic from "$lib/components/Relic.svelte";
+    import { onMount } from "svelte";
+    onMount(() => {
+    });
+    import InventoryRelic from "$lib/components/relics/inventoryRelic.svelte";
     export let relic;
+    import { fade, fly } from 'svelte/transition';
 </script>
 
-<div class="parentDiv">
-<Relic {relic}></Relic>
-
+<div in:fly={{ y: -200, duration: 300 }} class="parentDiv">
+    <p class="rvP" style="padding: 0 ; margin:1px;">{relic['rv']}</p>
+    <InventoryRelic {relic}></InventoryRelic>
 </div>
 
 <style>
@@ -16,5 +20,8 @@
         border: 5px solid rgb(23, 0, 52);
         height: min-content;
         width: min-content;
+    }
+    .rvP {
+        color: rgb(130, 130, 255);
     }
 </style>

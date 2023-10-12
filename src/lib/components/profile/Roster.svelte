@@ -169,6 +169,7 @@
         display: flex;
         justify-content: center; /* align horizontal */
         align-items: center; /* align vertical */
+        height: 145px;
     }
     .loopDiv {
         display: flex;

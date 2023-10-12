@@ -43,7 +43,7 @@
                 substatsSum[key]["count"];
             substatsSum[key]["RV"] = Number(RV.toFixed(1));
             substatsSum[key]["value"] = Number(
-                substatsSum[key]["value"].toFixed(1)
+                Math.floor(substatsSum[key]["value"] * 10) / 10
             );
             if (key.includes("%") ){
                 substatsSum[key]["displayValue"] =
