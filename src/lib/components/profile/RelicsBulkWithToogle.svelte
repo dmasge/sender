@@ -5,7 +5,6 @@
     import LbStats from "$lib/components/LbStats.svelte";
     import RelicSetDisplay from "$lib/components/RelicSetDisplay.svelte";
     import Rankings from "$lib/components/profile/Rankings.svelte";
-    import { fade, fly } from 'svelte/transition';
     let showBuild = false;
     export let expanded = false;
     if (expanded) {
@@ -26,7 +25,7 @@
     import RvSummary from "$lib/components/RVSummary.svelte";
 </script>
 
-<div in:fly={{ x: -10, duration: 300 }} class="tooglableParentDiv">
+<div  class="tooglableParentDiv">
     <Rankings {build} redirect={expanded} />
     <LbStats {lbStats} />
     <RelicSetDisplay {relicSets} />

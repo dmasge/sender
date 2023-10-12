@@ -6,6 +6,12 @@
     let subNames = ["HP", "ATK", "DEF", "SPD", "CR", "CD", "EHR", "RES", "BR"];
 
     let arr = loadSubWeightsInventory();
+    function handleSliderChange(e) {
+        if (e.target === e.currentTarget) {
+            e.preventDefault();
+        }
+        // rest of your function...
+    }
 </script>
 
 <div>
@@ -18,7 +24,10 @@
                 <p style="text-align: center; margin-top:2px;">{arr[i]}</p>
                 <div style="padding: 12px;" />
                 <div style="display: flex; margin-left:-27px;">
-                    <div style="transform: rotate(-90deg);" on:touchmove|preventDefault={{}}>
+                    <div
+                        style="transform: rotate(-90deg);"
+                        on:touchmove={(e) => handleSliderChange(e)}
+                    >
                         <input
                             on:change={saveSubWeightsInventory(arr)}
                             type="range"
