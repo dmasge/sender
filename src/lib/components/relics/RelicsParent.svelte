@@ -6,19 +6,25 @@
     import {
         getRelicswRV,
         sortRelicsByRV,
+        filterRelicsBySlot,
     } from "$lib/components/relics/relicConstants.js";
     import SubstatFilter from "./substatFilter.svelte";
 
     import { subWeightsInventoryWriteable } from "$lib/cache/subWeightsInventory.js";
 
+    import { relicSlotTypeFilterWriteable } from "$lib/cache/relicSlotTypeFilter.js";
+    import SlotFilter from "./slotFilter.svelte";
+
     export let uid;
     let relics = {};
     let relicsScored = {};
     let sortedRelicsByRV = {};
+    let relicsFiltered = {};
 
     function reloadRelics() {
         relics = loadRelicsDb(uid);
-        relicsScored = getRelicswRV(relics);
+        relicsFiltered = filterRelicsBySlot(relics);
+        relicsScored = getRelicswRV(relicsFiltered);
         sortedRelicsByRV = sortRelicsByRV(relicsScored);
     }
     if (browser) {
@@ -27,6 +33,9 @@
             reloadRelics();
         });
         subWeightsInventoryWriteable.subscribe(() => {
+            reloadRelics();
+        });
+        relicSlotTypeFilterWriteable.subscribe(() => {
             reloadRelics();
         });
     }
@@ -38,6 +47,7 @@
 
 {#if browser}
     <SubstatFilter />
+    <SlotFilter />
     {#key relics}
         <div class="relicsLoopDiv">
             {#each sortedRelicsByRV as [key, relic]}
@@ -51,7 +61,7 @@
     .relicsLoopDiv {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
         /* overflow-x: auto; */
     }
 </style>

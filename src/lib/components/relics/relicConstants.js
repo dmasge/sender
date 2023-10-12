@@ -32,16 +32,34 @@ export function getRelicRv(relic) {
     return Number(rv.toFixed(1));
 }
 
+
+
+import {
+    loadrelicSlotTypeFilter,
+} from "$lib/cache/relicSlotTypeFilter.js";
+
+export function filterRelicsBySlot(relics) {
+    let filterRules = loadrelicSlotTypeFilter();
+    let relicsFiltered = {};
+    for (let key in relics) {
+        let relic = relics[key];
+        if (filterRules[relic['t']]){
+            relicsFiltered[key] = { ...relic};
+        }
+    }
+    return relicsFiltered;
+}
+
 import {
     loadSubWeightsInventory,
 } from "$lib/cache/subWeightsInventory.js";
 
-export function getSubWeightDict(){
+export function getSubWeightDict() {
     let weights = loadSubWeightsInventory();
     let weightsDict = {
-        HP: weights[0]/3,
-        ATK: weights[1]/3,
-        DEF: weights[2]/3,
+        HP: weights[0] / 3,
+        ATK: weights[1] / 3,
+        DEF: weights[2] / 3,
         "HP%": weights[0],
         "ATK%": weights[1],
         "DEF%": weights[2],
