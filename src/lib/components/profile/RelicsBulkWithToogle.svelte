@@ -26,7 +26,7 @@
     import RvSummary from "$lib/components/RVSummary.svelte";
 </script>
 
-<div in:fly={{ x: -200, duration: 300 }} class="tooglableParentDiv">
+<div in:fly={{ x: -10, duration: 300 }} class="tooglableParentDiv">
     <Rankings {build} redirect={expanded} />
     <LbStats {lbStats} />
     <RelicSetDisplay {relicSets} />

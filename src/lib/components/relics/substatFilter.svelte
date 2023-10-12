@@ -18,7 +18,7 @@
                 <p style="text-align: center; margin-top:2px;">{arr[i]}</p>
                 <div style="padding: 12px;" />
                 <div style="display: flex; margin-left:-27px;">
-                    <div style="transform: rotate(-90deg);">
+                    <div style="transform: rotate(-90deg);" on:touchmove|preventDefault={{}}>
                         <input
                             on:change={saveSubWeightsInventory(arr)}
                             type="range"
