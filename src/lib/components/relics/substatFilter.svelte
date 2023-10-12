@@ -10,15 +10,15 @@
 
 <div>
     <p style="text-align: center; margin:2px;">Weight and sort by Roll Value</p>
-    <div
-        style="display: flex; text-align: center; justify-content: center; margin:auto; width:100%;"
-    >
-        {#each subNames as subName, i}
-            <div style=" width:38px;">
-                <p style="text-align: center; margin-top:2px;">{arr[i]}</p>
-                <div style="padding: 12px;" />
-                <div style="display: flex; margin-left:-27px;">
-                    <div style="transform: rotate(-90deg);">
+    <div style="display: flex; text-align: center; justify-content: center;  margin:auto; ">
+        <div
+            class="container"
+            
+        >
+            {#each subNames as subName, i}
+                <div style="width:150px;  height:40px; display:flex;">
+                    <p style="min-width:50px; padding:0;">{subName}</p>
+                    <div style="padding-top: 5px;">
                         <input
                             on:change={saveSubWeightsInventory(arr)}
                             type="range"
@@ -28,11 +28,12 @@
                             step="0.1"
                         />
                     </div>
+                    <p style="text-align: center;  min-width:30px; height:50px;">
+                        {arr[i]}
+                    </p>
                 </div>
-                <div style="height:25px;" />
-                <p style="">{subName}</p>
-            </div>
-        {/each}
+            {/each}
+        </div>
     </div>
 </div>
 
@@ -40,7 +41,13 @@
     :root {
         --slider-color: rgb(130, 130, 255);
     }
-
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 360px;
+        justify-content: center;
+        margin-left: -20px;
+    }
     p {
         color: var(--slider-color);
     }
@@ -48,7 +55,6 @@
         width: 80px;
         accent-color: var(--slider-color);
         border: none;
-        pointer-events: none;
     }
 
     input[type="range"] {
@@ -56,8 +62,8 @@
         -webkit-appearance: none;
         height: 1px; /* Adjust this to make the line thinner or thicker */
         accent-color: var(--slider-color);
+
         background-color: var(--slider-color);
-        pointer-events: none;
     }
 
     input[type="range"]::-webkit-slider-thumb {
@@ -70,7 +76,6 @@
         width: 15px;
         border-radius: 20px;
         background: var(--slider-color);
-        pointer-events: auto;
     }
 
     input[type="range"]::-moz-range-thumb {
@@ -79,20 +84,16 @@
         accent-color: var(--slider-color);
         background-color: var(--slider-color);
         color: var(--slider-color);
-        pointer-events: auto;
     }
-
 
     input[type="range"]::-moz-range-track {
         /* Track */
-        pointer-events: none;
         -moz-appearance: none;
         background: var(--slider-color);
         height: 1px;
     }
 
     input[type="range"]::-ms-thumb {
-        pointer-events: auto;
         background: var(--slider-color); /* Change this to your desired color */
     }
 </style>
