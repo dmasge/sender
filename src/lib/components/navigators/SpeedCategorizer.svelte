@@ -41,6 +41,8 @@
                 return ["Base", "121", "134"];
             case "1209":
                 return ["Base", "134", "143"];
+            case "1208":
+                return ["Base", "121", "134", "143", "161", "172", "201"];
             default:
                 return ["Base", "134"];
         }

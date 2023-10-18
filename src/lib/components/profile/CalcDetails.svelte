@@ -108,44 +108,22 @@
 
 {#if key}
     <div style="margin-top:0px;">
-        <p style="font-size: 12px;">
-            {"Rank: " +
-                build["lb"][key]["rank"] +
-                " (" +
-                build["lb"][key]["percrank"] +
-                ")"}
-        </p>
-        <p>
-            {scoringRulesShort[build["k"]] + " = " + build["lb"][key]["sc"]}
-        </p>
-        {#if getTextAfterSecondUnderscore(key) != "Base"}
-            <p>
-                {"SPD Breakpoint: " + getTextAfterSecondUnderscore(key)}
-            </p>
-        {/if}
-
-        <p>
-            {"Calculated at: " +
-                capitalizeAndRemoveUnderscores(
-                    getTextUntilUnderscore(keyRemap(key))
-                ) +
-                " (Actual: E" +
-                build["e"] +
-                "S" +
-                build["lc"]["s"] +
-                ")"}
-        </p>
 
         {#if team}
             <p>
-                {"Teammates: " + team}
+                {"Assummed team: " + team}
             </p>
         {/if}
+
+        <p style="text-align: center;">
+            {scoringRulesShort[build["k"]] + " = " + build["lb"][key]["sc"]}
+        </p>
     </div>
 {/if}
 
 <style>
     p {
+        font-size: 11px;
         margin: 1px;
     }
 </style>

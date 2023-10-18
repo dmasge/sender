@@ -30,7 +30,7 @@ export const scoringRulesDict = {
         Enemy has a debuff, no quanum weakness.`,
     '1209' : `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
         Scores are calculated as: 4Skill + Ult + 3(flwup * freeze) + 8xA2 (5xA2 2flwup and 2 skill comes after ult)<br><br>
-        Enemy has no qua weakness.`
+        Enemy has no qua weakness.`,
 
 }
 
@@ -44,5 +44,6 @@ export const scoringRulesShort = {
     '1204' : "17LL+4SKILL+ULT".toLowerCase(), // JING
     '1213' : "Fulgurant Leap", // DHIL
     '1209' : "4skill+ult+3talent*freeze+8A2", // Yanqing
+    '1208' : "0.8EHP + 0.2EHP×(chance to resist dot) + Allies Healed"
 
 }

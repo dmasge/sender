@@ -24,37 +24,43 @@
     import GeneralizedDesc from "$lib/faq/Generalized_desc.svelte";
 
     import { scoringRulesDict } from "$lib/scoringRules.js";
+    import ErrFilter from "$lib/components/navigators/ERRFilter.svelte";
+
+    import { browser } from "$app/environment";
     let scoringRules = scoringRulesDict[charId];
 </script>
 
+{#if browser}
+    <LeaderboardsList searchTerm={charId} isOnLeaderboard={true} />
+    <SpeedCategorizer />
+    <TeamFilter />
+    <ErrFilter />
+    <GeneralizedDesc text2={scoringRules} />
+    <LbColumnsDesc />
 
-
-<LeaderboardsList searchTerm={charId} isOnLeaderboard={true} />
-<SpeedCategorizer />
-<TeamFilter />
-<GeneralizedDesc text2={scoringRules} />
-<LbColumnsDesc />
-
-{#if jsonData}
-    {#if jsonData == "nothing to show here"}
-        <p style="text-align: center;">Leaderboard empty or doesn't exist</p>
+    {#if jsonData}
+        {#if jsonData == "nothing to show here"}
+            <p style="text-align: center;">
+                Leaderboard empty or doesn't exist
+            </p>
+        {:else}
+            {#each jsonData as build, i}
+                <div style="padding-top:20px; padding-bottom:20px;">
+                    <LbEntireCard
+                        {ctgrImg}
+                        {header}
+                        {build}
+                        {ctgr}
+                        rank={pageN + i - 9}
+                    />
+                </div>
+            {/each}
+        {/if}
     {:else}
-        {#each jsonData as build, i}
-            <div style="padding-top:20px; padding-bottom:20px;">
-                <LbEntireCard
-                    {ctgrImg}
-                    {header}
-                    {build}
-                    {ctgr}
-                    rank={pageN + i - 9}
-                />
-            </div>
-        {/each}
+        <Bronbike />
     {/if}
-{:else}
-    <Bronbike />
+    <Pagination />
 {/if}
-<Pagination />
 
 <style>
     /* .lbHr {

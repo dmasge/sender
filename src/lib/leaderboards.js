@@ -57,6 +57,18 @@ export const leaderboards = [
         { pic: swordplay, url: "/{charId}/swordplay/1", desc: " " },
         { pic: sleep, url: "/{charId}/sleep/1", desc: " " }
     ]),
+    generateLeaderboard('1208', 'Fu Xuan', [
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23011.png',
+             url: "/{charId}/E0S1_23011_134/1", desc: " " },
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24002.png',
+             url: "/{charId}/E0S5_24002_134/1", desc: " " },
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21009.png',
+             url: "/{charId}/E0S5_21009_134/1", desc: " " },
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23005.png',
+             url: "/{charId}/E0S1_23005_134/1", desc: " " },
+        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21002.png',
+             url: "/{charId}/E0S5_21002_134/1", desc: " " }
+    ]),
     generateLeaderboard('1209', 'Yanqing', [
         { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
              url: "/{charId}/E0S1_23012/1", desc: " " },

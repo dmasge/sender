@@ -1,17 +1,17 @@
 <script>
     export let build;
-    export let redirect;
-    import HrefAvatarLc from "./HrefAvatarLc.svelte";
 
-    import ScoringDetails from "./ScoringDetails.svelte";
+    import ScoringDetails from "$lib/components/profile/ScoringDetails.svelte";
+    
 
     let isRanked = build["lb"] ? Object.keys(build["lb"]).length > 0 : false;
 
+    export let selectedCategory;
     let index; // start from the first item
     let entries;
     if (isRanked) {
         index = 0; // start from the first item
-        build['lb'] = Object.entries(build["lb"])
+        build["lb"] = Object.entries(build["lb"])
             .sort((a, b) => a[1].percraw - b[1].percraw)
             .reduce((obj, [key, val]) => {
                 obj[key] = val;
@@ -19,6 +19,11 @@
             }, {});
         entries = Object.entries(build["lb"]);
     }
+
+    $: selectedCategory =
+        entries && entries[index] ? entries[index][0] : undefined;
+
+    import LbRankDisplay from "$lib/components/profile/LbRankDisplay.svelte";
 </script>
 
 <div class="container" style="text-align: center; overflow: hidden;">
@@ -35,7 +40,11 @@
                         >
                     {/if}
 
-                    <ScoringDetails {build} key={entries[index][0]} />
+                    {#if build["k"] == "1208"}
+                        <LbRankDisplay {build} key={selectedCategory} />
+                    {:else}
+                        <ScoringDetails {build} key={entries[index][0]} />
+                    {/if}
 
                     {#if entries.length > 1}
                         <button
@@ -45,26 +54,25 @@
                         >
                     {/if}
                 </div>
-
-                <HrefAvatarLc {redirect} {build} key={entries[index][0]} />
             {/if}
         </div>
-    {:else if !build.hasOwnProperty('lb')}
+    {:else if !build.hasOwnProperty("lb")}
         <div style="margin:auto;">
-            <HrefAvatarLc {redirect} {build} />
             <p style="margin-top:0; margin-bottom:0; text-align: center;">
                 leaderboards for this character coming soon!
             </p>
         </div>
     {:else}
         <div style="margin:auto;">
-            <HrefAvatarLc {redirect} {build} />
+            {#if build["k"] == "1208"}
+                
+                <LbRankDisplay {build} key={selectedCategory} />
+            {/if}
             <p style="margin-top:0; margin-bottom:0; text-align: center;">
                 Equipped lightcone not supported
             </p>
         </div>
     {/if}
-
 </div>
 
 <style>

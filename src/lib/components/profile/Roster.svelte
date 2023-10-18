@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { starRailRes, extension } from "$lib/constants.js";
+    import { is_using_err_rope } from "$lib/components/calculators/damage_formulas.js";
     export let selectedBuildK;
     export let builds = [];
     let sortedBuilds = [];
@@ -116,24 +117,31 @@
                     </div>
 
                     <div style="display: flex; justify-content: space-between;">
-                        <p style="">
+                        <p>
                             {"E" + build["e"] + "S" + build["lc"]["s"]}
                         </p>
                         {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
                             {@const key = Object.keys(build["lb"])[0]}
                             {@const breakpoint = getSPD(key)}
+                            {#if is_using_err_rope(build)}
+                                <img
+                                    style="width: 14px; height:14px; margin-right:-18px; "
+                                    src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconEnergyLimit.png"
+                                    alt="spd"
+                                />
+                            {/if}
                             {#if breakpoint != ""}
                                 <div style="display: flex;">
                                     <div
                                         style="display: flex; background-color: rgba(0,0,0,0);"
                                     >
                                         <img
-                                            style="width: 14px; height:14px; margin-right:-2px; "
+                                            style="width: 14px; height:14px; margin-right:-4px; "
                                             src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
                                             alt="spd"
                                         />
 
-                                        <p style="">{breakpoint}</p>
+                                        <p style=" margin-right:-4px;">{breakpoint}</p>
                                     </div>
                                 </div>
                             {/if}
