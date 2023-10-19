@@ -55,7 +55,7 @@ export function get_ehp(final_hp, final_def, dmg_red_mult) {
 
 export function chance_to_resist(res, enemy_ehr_decimal = 0.32, enemy_base_chance_decimal = 1) {
      // lvl 90 kafka shock is default
-     return Math.max(1 - (enemy_base_chance_decimal * (1 + enemy_ehr_decimal) * (1 - res/100)), 0);
+     return Math.min(1,Math.max(1 - (enemy_base_chance_decimal * (1 + enemy_ehr_decimal) * (1 - res/100)), 0));
 }
 
 export function is_using_err_rope(build){

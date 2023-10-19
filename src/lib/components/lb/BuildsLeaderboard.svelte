@@ -31,7 +31,9 @@
 </script>
 
 {#if browser}
-    <LeaderboardsList searchTerm={charId} isOnLeaderboard={true} />
+    <div>
+        <LeaderboardsList searchTerm={charId} isOnLeaderboard={true} />
+    </div>
     <SpeedCategorizer />
     <TeamFilter />
     <ErrFilter />

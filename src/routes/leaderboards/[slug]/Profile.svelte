@@ -34,8 +34,8 @@
     }
 
     .avatar {
-        width: 6vw;
-        height: 6vw;
+        width: 80px;
+        height: 80px;
         border-left: 3px solid #dea055;
         border-right: 3px solid #dea055;
         border-radius: 50%;
@@ -46,10 +46,6 @@
         }
         p {
             font-size: 11px;
-        }
-        .avatar {
-            width: 70px;
-            height: 70px;
         }
     }
 </style>
