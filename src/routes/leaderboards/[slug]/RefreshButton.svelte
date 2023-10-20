@@ -8,7 +8,7 @@
     let timeLeft = 600 - timeDiff;
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
-    let buttonText = `Profile data outdated? click here`;
+    let buttonText = `Refresh`;
     let disabled = false;
     
     let cooldown = 60;
@@ -23,7 +23,7 @@
             disabled = true;
             setTimeout(updateButton, 1000);
         } else {
-            buttonText = `Profile data outdated? click here`;
+            buttonText = `Refresh`;
             disabled = false;
         }
     }
@@ -41,8 +41,14 @@
             name="uid"
             value={uid}
             disabled={disabled}
-        >{buttonText}</button>
+        ><p>{buttonText}</p></button>
     </div>
 </form>
+
+<style>
+    p {
+        margin: 0;
+    }
+</style>
 
 

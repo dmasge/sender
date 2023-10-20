@@ -55,15 +55,21 @@
     <div class="parentDiv">
         {#each urls as url, i}
             {@const href = url + "1"}
-            <div style="padding-left:10px; padding-right:10px; padding-bottom: 0;">
-                <a style="text-align: center;"
-                    {href}
-                >
-                    <p>{speedCategories[i] + " SPD"}</p>
+            <div
+                style="padding-left:10px; padding-right:4px; padding-bottom: 0;"
+            >
+                <a style="text-align: center; display:flex;" {href} >
+                    <img
+                        style="width: 14px; height:14px; margin-top:12px;"
+                        src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                        alt="spd"
+                    />
+                    <p>{speedCategories[i]}</p>
                 </a>
                 {#if ctgr.includes(speedCategoriesCase(charId)[i]) || ($page.url.pathname.includes(fullctgrRaw + "/") && i == 0)}
-                <div style="margin:auto; background-color: blueviolet; width: 25px; height: 5px; margin-top:-7px;">
-                </div>
+                    <div
+                        style="display:flex; margin:auto; background-color: blueviolet; width: 25px; height: 4.5px; margin-right:-1px; margin-top:-7px;"
+                    />
                 {/if}
             </div>
         {/each}

@@ -4,6 +4,7 @@
     import { is_using_err_rope } from "$lib/components/calculators/damage_formulas.js";
     export let selectedBuildK;
     export let builds = [];
+    import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
     let sortedBuilds = [];
 
     function sortBuilds(builds) {
@@ -43,6 +44,14 @@
         // basically first making sure if build
         // ranked on two categories that we're
         // considering the category where rating is better
+        console.log(builds);
+        Object.keys(builds).forEach(function (key) {
+            let build = builds[key];
+            let score = score_build(build);
+
+            // Save the score back to the build
+            build.score = score;
+        });
         builds = builds.map((build) => {
             if (build.hasOwnProperty("lb")) {
                 build["lb"] = Object.entries(build["lb"])
@@ -130,7 +139,7 @@
                                     alt="spd"
                                 />
                             {/if}
-                            {#if breakpoint != ""}
+                            {#if "effSpd" in build}
                                 <div style="display: flex;">
                                     <div
                                         style="display: flex; background-color: rgba(0,0,0,0);"
@@ -141,7 +150,25 @@
                                             alt="spd"
                                         />
 
-                                        <p style=" margin-right:-4px;">{breakpoint}</p>
+                                        <p style=" margin-right:-4px;">
+                                            {build["effSpd"][key]}
+                                        </p>
+                                    </div>
+                                </div>
+                            {:else if breakpoint != ""}
+                                <div style="display: flex;">
+                                    <div
+                                        style="display: flex; background-color: rgba(0,0,0,0);"
+                                    >
+                                        <img
+                                            style="width: 14px; height:14px; margin-right:-4px; "
+                                            src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                                            alt="spd"
+                                        />
+
+                                        <p style=" margin-right:-4px;">
+                                            {breakpoint}
+                                        </p>
                                     </div>
                                 </div>
                             {/if}

@@ -56,6 +56,7 @@
     });
 
     import { recentlyVisitedUID } from "$lib/cache.js";
+    import Breakpoints from "./Breakpoints.svelte";
 
     let visitedProfiles = {};
 </script>
@@ -105,6 +106,7 @@
     <div style="text-align: center; padding-bottom:20px; ">
         <a style="color: rgb(200, 200, 200);" href="/privacy">Privacy Policy</a>
     </div>
+    <Breakpoints/>
 </div>
 
 <style>

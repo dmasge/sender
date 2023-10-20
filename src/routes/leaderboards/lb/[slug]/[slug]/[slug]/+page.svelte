@@ -15,7 +15,7 @@
     let charId = data.k;
     let ctgr = data.ctgr;
     let charName = capitalizeFirstLetter(data.charName);
-    let  header =
+    let header =
         capitalizeAndRemoveUnderscores(charName) +
         " " +
         capitalizeAndRemoveUnderscores(ctgr);
@@ -29,4 +29,4 @@
         {header}
         {ctgrImg}
         {jsonData}
-    />
+/>

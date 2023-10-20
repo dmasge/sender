@@ -3,14 +3,18 @@
     export let build;
 
     import { starRailRes, extension } from "$lib/constants.js";
+    import { lbUrlStore } from "$lib/store.js"
     export let key;
+    export let lbUrl;
+    $: lbUrl = redirect
+            ? "../../../" + build["id"]
+            : "./lb/" + build["k"] + "/" + key + "/1";
+    $: lbUrlStore.set(lbUrl);
 </script>
 
 <div style="position: relative; width: fit-content; margin:auto;">
     <a
-        href={redirect
-            ? "../../../" + build["id"]
-            : "./lb/" + build["k"] + "/" + key + "/1"}
+        href={lbUrl}
         style="pointer-events: {key ? 'all' : 'none'}"
     >
         <p style="position: absolute; font-size: 10px; z-index: 10005; border-radius: 2px; background-color: rgba(30, 0, 70, 1); padding:2px; margin-left:2px;  margin-top:39px;">{"E" + build['e']}</p>

@@ -15,6 +15,7 @@ export function score_fuxuan(build) {
     if (!('lb' in build)) build['lb'] = {};
     if (!('lbstats' in build)) build['lbstats'] = [];
     if (!('calcDetails' in build)) build['calcDetails'] = [];
+    if (!('effSpd' in build)) build['effSpd'] = {};
 
     let score = 0;
     let spd = 0;

@@ -17,7 +17,6 @@
             console.log(error);
         }
         shouldRenderNewFormat = true;
-        // console.log(build);
     }
 
     let showBuild = false;
@@ -39,7 +38,7 @@
     import RvSummary from "$lib/components/RVSummary.svelte";
     import LbCalcDesc from "./LbCalcDesc.svelte";
     import CalcDetails from "./CalcDetails.svelte";
-    let selectedCategory;
+    export let selectedCategory;
 
     function getTextUntilUnderscore(inputString) {
         let index = inputString.indexOf("_");
@@ -49,7 +48,6 @@
             return inputString;
         }
     }
-    console.log(build);
 </script>
 
 <div in:fly={{ x: -200, duration: 300 }} class="tooglableParentDiv">

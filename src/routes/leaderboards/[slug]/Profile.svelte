@@ -3,6 +3,7 @@
     export let item;
     $: player = item.find((i) => i["k"] == "p");
     //let avatarUrl = ;
+    
 </script>
 
 <div class="card">

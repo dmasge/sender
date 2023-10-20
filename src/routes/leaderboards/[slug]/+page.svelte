@@ -13,6 +13,7 @@
 
     import Bronbike from "$lib/components/Bronbike.svelte";
     import RefreshButton from "./RefreshButton.svelte";
+    import ProfileToLbButton from "../../../lib/components/profile/ProfileToLbButton.svelte";
 
     $: uid = $page.url.pathname.split("/").pop();
     export let data;
@@ -84,11 +85,11 @@
             <RefreshButton onClick={refreshPlayer} {uid} {prevUnixTimestamp} />
         </div>
         <Roster {builds} bind:selectedBuildK />
-        <OnStatsFaq />
         <div class="buildsStuff">
+            <ProfileToLbButton />
             {#each builds as build}
                 {#if selectedBuildK == build["k"]}
-                    <RelicsBulkWithToogle {build} />
+                    <RelicsBulkWithToogle {build} isOnProfilePage={true} />
                 {/if}
             {/each}
         </div>

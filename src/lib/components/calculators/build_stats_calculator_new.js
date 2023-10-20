@@ -405,6 +405,7 @@ if (set_id === "301" && cnt === 2) { // space sealing station
         ctgrname += spd_ctgr;
         build['calcDetails'][ctgrname] = calcDetails;
         build['lbstats'][ctgrname] = display_stats;
+        build['effSpd'][ctgrname] = spd;
         return build;
     }
     
