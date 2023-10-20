@@ -44,7 +44,6 @@
         // basically first making sure if build
         // ranked on two categories that we're
         // considering the category where rating is better
-        console.log(builds);
         Object.keys(builds).forEach(function (key) {
             let build = builds[key];
             let score = score_build(build);

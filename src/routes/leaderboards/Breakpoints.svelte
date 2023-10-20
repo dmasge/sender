@@ -16,7 +16,7 @@
 </script>
 
 <button
-    style="position: fixed; bottom: 0px; left: 0px; width: 45px; height: 45px;"
+    style="position: fixed; bottom: 0px; left: 0px; width: 45px; height: 45px; background-color: rgba(0, 0, 0, 0.7);"
     bind:this={button}
     on:click={() => (showModal = true)}
 >
@@ -47,7 +47,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.7);
         display: flex;
         justify-content: center;
         align-items: center;

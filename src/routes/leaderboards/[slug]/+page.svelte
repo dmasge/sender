@@ -5,7 +5,6 @@
     import { deserialize } from "$app/forms";
     import { addRelicsToDbFromBuilds } from "$lib/cache/relicsDb.js";
     import { recentlyVisitedUID } from "$lib/cache.js";
-    import OnStatsFaq from "$lib/faq/OnStatsFAQ.svelte";
     import RelicsParent from "$lib/components/relics/RelicsParent.svelte";
     import Roster from "$lib/components/profile/Roster.svelte";
     import Profile from "./Profile.svelte";
@@ -84,16 +83,18 @@
         <div>
             <RefreshButton onClick={refreshPlayer} {uid} {prevUnixTimestamp} />
         </div>
-        <Roster {builds} bind:selectedBuildK />
-        <div class="buildsStuff">
-            <ProfileToLbButton />
-            {#each builds as build}
-                {#if selectedBuildK == build["k"]}
-                    <RelicsBulkWithToogle {build} isOnProfilePage={true} />
-                {/if}
-            {/each}
-        </div>
-        <RelicsParent uid={pl["id"]} />
+        {#if builds.length > 0}
+            <Roster {builds} bind:selectedBuildK />
+            <div class="buildsStuff">
+                <ProfileToLbButton />
+                {#each builds as build}
+                    {#if selectedBuildK == build["k"]}
+                        <RelicsBulkWithToogle {build} isOnProfilePage={true} />
+                    {/if}
+                {/each}
+            </div>
+            <RelicsParent uid={pl["id"]} />
+        {/if}
     {/if}
 {/if}
 
