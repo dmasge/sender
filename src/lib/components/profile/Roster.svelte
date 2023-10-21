@@ -124,54 +124,56 @@
                         />
                     </div>
 
-                    <div style="display: flex; justify-content: space-between;">
+                    <div style="display: flex; justify-content: space-between; margin-left:-5px; width:90px;">
                         <p>
                             {"E" + build["e"] + "S" + build["lc"]["s"]}
                         </p>
-                        {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
-                            {@const key = Object.keys(build["lb"])[0]}
-                            {@const breakpoint = getSPD(key)}
-                            {#if is_using_err_rope(build)}
-                                <img
-                                    style="width: 14px; height:14px; margin-right:-18px; "
-                                    src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconEnergyLimit.png"
-                                    alt="spd"
-                                />
-                            {/if}
-                            {#if "effSpd" in build}
-                                <div style="display: flex;">
-                                    <div
-                                        style="display: flex; background-color: rgba(0,0,0,0);"
-                                    >
-                                        <img
-                                            style="width: 14px; height:14px; margin-right:-4px; "
-                                            src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
-                                            alt="spd"
-                                        />
+                        <div style="display: flex;">
+                            {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
+                                {@const key = Object.keys(build["lb"])[0]}
+                                {@const breakpoint = getSPD(key)}
+                                {#if is_using_err_rope(build)}
+                                    <img
+                                        style="width: 14px; height:14px; margin-right:-4.5px; "
+                                        src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconEnergyLimit.png"
+                                        alt="spd"
+                                    />
+                                {/if}
+                                {#if "effSpd" in build}
+                                    <div style="display: flex;">
+                                        <div
+                                            style="display: flex; background-color: rgba(0,0,0,0);"
+                                        >
+                                            <img
+                                                style="width: 14px; height:14px; margin-right:-3.5px; "
+                                                src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                                                alt="spd"
+                                            />
 
-                                        <p style=" margin-right:-4px;">
-                                            {build["effSpd"][key]}
-                                        </p>
+                                            <p style=" margin-right:-4px;">
+                                                {build["effSpd"][key]}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            {:else if breakpoint != ""}
-                                <div style="display: flex;">
-                                    <div
-                                        style="display: flex; background-color: rgba(0,0,0,0);"
-                                    >
-                                        <img
-                                            style="width: 14px; height:14px; margin-right:-4px; "
-                                            src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
-                                            alt="spd"
-                                        />
+                                {:else if breakpoint != ""}
+                                    <div style="display: flex;">
+                                        <div
+                                            style="display: flex; background-color: rgba(0,0,0,0);"
+                                        >
+                                            <img
+                                                style="width: 14px; height:14px; margin-right:-3.5px; "
+                                                src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                                                alt="spd"
+                                            />
 
-                                        <p style=" margin-right:-4px;">
-                                            {breakpoint}
-                                        </p>
+                                            <p style=" margin-right:-4px;">
+                                                {breakpoint}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                {/if}
                             {/if}
-                        {/if}
+                        </div>
                     </div>
                     <div
                         style="display: flex;
@@ -217,8 +219,8 @@
     }
 
     img {
-        width: 40px;
-        height: 40px;
+        width: 47px;
+        height: 47px;
     }
 
     .loopDiv::-webkit-scrollbar {
