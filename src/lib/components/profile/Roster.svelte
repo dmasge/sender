@@ -210,9 +210,10 @@
     .loopDiv {
         display: flex;
         overflow-y: hidden;
+        padding-top: 4px;
     }
     .loopItemDiv {
-        padding-top: 5px;
+        padding-top: 3px;
         padding-bottom: 5px;
         padding-left: 10px;
         padding-right: 10px;
