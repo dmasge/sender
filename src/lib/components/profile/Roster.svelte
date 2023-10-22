@@ -85,7 +85,7 @@
                         {@const lbItem = build["lb"][key]}
                         {@const breakpoint = getSPD(key)}
 
-                        <p style="padding: 1px;">
+                        <p style="padding-top: 4px;">
                             {lbItem["percrank"].charAt(0).toUpperCase() +
                                 lbItem["percrank"].slice(1)}
                         </p>
@@ -210,10 +210,10 @@
     .loopDiv {
         display: flex;
         overflow-y: hidden;
-        padding-top: 4px;
+        padding-top: 7px;
     }
     .loopItemDiv {
-        padding-top: 3px;
+        padding-top: 1px;
         padding-bottom: 5px;
         padding-left: 10px;
         padding-right: 10px;
