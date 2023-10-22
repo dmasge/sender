@@ -391,24 +391,32 @@ if (set_id === "301" && cnt === 2) { // space sealing station
 
 
 
-    function get_breakpoint(spd, breakpoints) {
-        for (let i = breakpoints.length - 1; i >= 0; i--) {
-            if (breakpoints[i] && spd >= parseFloat(breakpoints[i])) {
-                return "_" + Math.ceil(parseFloat(breakpoints[i])).toString();
-            }
+function get_breakpoint(spd, breakpoints) {
+    for (let i = breakpoints.length - 1; i >= 0; i--) {
+        if (breakpoints[i] && spd >= parseFloat(breakpoints[i])) {
+            return "_" + Math.ceil(parseFloat(breakpoints[i])).toString();
         }
-        return "";
     }
+    return "";
+}
+
+export function assign_lb_to_build(build, ctgrname, score, display_stats, spd, breakpoints, calcDetails) {
+    let spd_ctgr = get_breakpoint(spd, breakpoints);
+    ctgrname += spd_ctgr;
+    build['calcDetails'][ctgrname] = calcDetails;
+    build['lbstats'][ctgrname] = display_stats;
+    build['effSpd'][ctgrname] = trim_after_decimal(spd);
+    return build;
+}
+
+function trim_after_decimal(x) {
+    let x_split = x.toString().split(".");
+    if (x_split.length == 1) return x_split[0];
     
-    export function assign_lb_to_build(build, ctgrname, score, display_stats, spd, breakpoints, calcDetails) {
-        let spd_ctgr = get_breakpoint(spd, breakpoints);
-        ctgrname += spd_ctgr;
-        build['calcDetails'][ctgrname] = calcDetails;
-        build['lbstats'][ctgrname] = display_stats;
-        build['effSpd'][ctgrname] = spd;
-        return build;
-    }
+    let formatted_x = x_split[0] + "." + x_split[1][0];
     
+    return formatted_x;
+}
 
 
 // def abbreviateStatMihomo(stat_name):
