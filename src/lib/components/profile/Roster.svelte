@@ -205,16 +205,15 @@
         display: flex;
         justify-content: center; /* align horizontal */
         align-items: center; /* align vertical */
-        height: 145px;
+        height: 160px;
     }
     .loopDiv {
         display: flex;
         overflow-y: hidden;
-        padding-top: 7px;
     }
     .loopItemDiv {
         padding-top: 1px;
-        padding-bottom: 5px;
+        padding-bottom: 0px;
         padding-left: 10px;
         padding-right: 10px;
     }
