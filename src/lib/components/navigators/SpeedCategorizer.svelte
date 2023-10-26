@@ -34,7 +34,11 @@
             case "1005":
                 return ["Base", "134", "151", "161"];
             case "1102":
-                return ["Base", "201"];
+                if (ctgr.includes("E0") || ctgr.includes("E1") ){
+                    return ["Base", "161", "172", "201"]
+                } else {
+                    return ["Base", "201"];
+                }
             case "1107":
                 return ["Base", "121", "134"];
             case "1213":
@@ -88,6 +92,6 @@
         margin: auto;
         justify-content: center;
         overflow: hidden;
-        padding: 7px;
+        padding: 0;
     }
 </style>

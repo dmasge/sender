@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from "svelte";
     export let build;
     let relics = build["r"];
     import RelicsBulk from "$lib/components/RelicsBulk.svelte";
@@ -7,23 +8,26 @@
     import Rankings from "$lib/components/profile/Rankings.svelte";
     import { fly } from "svelte/transition";
     import HrefAvatarLc from "$lib/components/profile/HrefAvatarLc.svelte";
-
+    import { isBuildNewFormat } from "$lib/components/profile/temp.js";
     import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
-    let shouldRenderNewFormat = false;
-    if (build["k"] == "1208") {
-        try {
-            build = score_build(build);
-        } catch (error) {
-            console.log(error);
+    
+    let isCalcsDone = false;
+    async function performCalculations() {
+        if (isBuildNewFormat(build)) {
+            try {
+                build = score_build(build);
+                isCalcsDone = true;
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            isCalcsDone = true;
         }
-        shouldRenderNewFormat = true;
     }
-
-    let showBuild = false;
+    onMount(async () => {
+        await performCalculations();
+    });
     export let expanded = false;
-    if (expanded) {
-        showBuild = true;
-    }
 
     let relicSets = build["rs"];
     let lbStats = [];
@@ -48,68 +52,62 @@
             return inputString;
         }
     }
+    $: isNewFormat = "effSpd" in build;
 </script>
 
-<div in:fly={{ x: -200, duration: 300 }} class="tooglableParentDiv">
-    <Rankings {build} redirect={expanded} bind:selectedCategory />
-    {#if build["k"] == "1208" && "lbstats" in build}
-        {#if shouldRenderNewFormat && selectedCategory}
-            <div style="width: 300px; margin:auto;">
-                <CalcDetails {build} key={selectedCategory} />
-                <p
-                    class="statsP"
-                    style="font-size: 11px; padding-top:1px;padding-bottom:1px; padding-right:0; padding-left:0; margin:0; text-align: center; "
-                >
-                    {"All calcs and stats assume " +
-                        getTextUntilUnderscore(selectedCategory) +
-                        " with max lvl & trace"}
-                </p>
-            </div>
-
-            <div
-                style="display: flex; justify-content: space-between; padding-right: 10px; margin-left: 20px; width:280px;"
-            >
-                <div style="margin-left: -16px; margin-right:5.5px;">
-                    <HrefAvatarLc
-                        redirect={expanded}
-                        {build}
-                        key={selectedCategory}
-                    />
-                    <LbStats {lbStats} />
-                    <RelicSetDisplay {relicSets} />
+{#if isCalcsDone}
+    <div in:fly={{ x: -200, duration: 300 }} class="tooglableParentDiv">
+        <Rankings {build} redirect={expanded} bind:selectedCategory />
+        {#if isNewFormat}
+            {#if selectedCategory}
+                <div style="width: 300px; margin:auto;">
+                    <CalcDetails {build} key={selectedCategory} />
+                    <p
+                        class="statsP"
+                        style="font-size: 11px; padding-top:1px;padding-bottom:1px; padding-right:0; padding-left:0; margin:0; text-align: center; "
+                    >
+                        {"Standardized to " +
+                            getTextUntilUnderscore(selectedCategory) +
+                            " max lvl & trace"}
+                    </p>
                 </div>
+
                 <div
-                    style="display:flex; flex-direction: column; justify-content: space-evenly;"
+                    style="display: flex; justify-content: space-between; padding-right: 10px; margin-left: 20px; width:280px;"
                 >
-                    <div style="display: flex; justify-content: end;">
-                        <LbCalcDesc
-                            lbStats={build["calcDetails"][selectedCategory]}
+                    <div style="margin-left: -16px; margin-right:5.5px;">
+                        <HrefAvatarLc
+                            redirect={expanded}
+                            {build}
+                            key={selectedCategory}
                         />
+                        <LbStats lbStats={build["lbstats"][selectedCategory]} />
+                        <RelicSetDisplay {relicSets} />
+                    </div>
+                    <div
+                        style="display:flex; flex-direction: column; justify-content: space-evenly;"
+                    >
+                        <div style="display: flex; justify-content: end;">
+                            <LbCalcDesc
+                                calcDesc={build["calcDetails"][
+                                    selectedCategory
+                                ]}
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
+            {/if}
+        {:else}
+            <HrefAvatarLc redirect={expanded} {build} key={selectedCategory} />
+            {#if "lbstats" in build}
+                <LbStats {lbStats} />
+            {/if}
+            <RelicSetDisplay {relicSets} />
         {/if}
-    {:else}
-        <HrefAvatarLc redirect={expanded} {build} key={selectedCategory} />
-        {#if "lbstats" in build}
-            <LbStats {lbStats} />
-        {/if}
-        <RelicSetDisplay {relicSets} />
-    {/if}
-    <!-- <div style="display: {showBuild ? 'block' : 'none'};"> -->
-    <RelicsBulk {relics} charId={build["k"]} />
-    <RvSummary {relics} charId={build["k"]} />
-    <!-- </div> -->
-</div>
-
-<!-- {#if !expanded}
-    <button
-        class="toggle-build-button"
-        on:click={() => (showBuild = !showBuild)}
-    >
-        {showBuild ? "Hide" : "Show"} relics
-    </button>
-{/if} -->
+        <RelicsBulk {relics} charId={build["k"]} />
+        <RvSummary {relics} charId={build["k"]} />
+    </div>
+{/if}
 
 <style>
     .tooglableParentDiv {
@@ -124,12 +122,4 @@
         margin-bottom: 5px;
         padding-bottom: 12px;
     }
-
-    /* .toggle-build-button {
-        cursor: pointer;
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        outline: none;
-    } */
 </style>

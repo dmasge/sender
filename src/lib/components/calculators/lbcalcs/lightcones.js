@@ -23,5 +23,29 @@ export const lc_dict_by_id = {
         'hp' : 952.56,
         'atk' : 370.44,
         'def' : 463.05,
-    }
+    }, 
+    '23012' : { 
+        // Sleep like the dead
+        'hp'  : 1058.4,
+        'atk' : 582.12,
+        'def' : 463.05
+    },
+    '24001' : { 
+        // Cruising in the Stellar Sea
+        'hp'  : 952.56,
+        'atk' : 529.2,
+        'def' : 463.05
+    },
+    '21010' : {
+        // Swordplay
+        'hp'  : 952.56,
+        'atk' : 476.28,
+        'def' : 330.75
+    },
+    '23001' : {
+        // In the Night
+        'hp'  : 1058.4,
+        'atk' : 582.12,
+        'def' : 463.05
+    },
 }

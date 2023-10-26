@@ -19,7 +19,7 @@ export function score_fuxuan(build) {
 
     let score = 0;
     let spd = 0;
-    let lbstats = {};
+    let lbstats = [];
     let calcDetails = [];
     if ("23011" === build['lc']['id']) {
         [score, spd, lbstats, calcDetails] = E0S1_23011_sheAlreadyShutHerEyes(build);

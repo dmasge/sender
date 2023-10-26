@@ -6,42 +6,49 @@
     let charId = splitStr[3];
     let ctgr = splitStr[4];
 
-    function removeSpdPattern(str) {
-        return str.replace(/(_+\d{3})+$/, "").replace(/_+$/, "");
-    }
-
-    function getRemovedSpdPattern(str) {
-    let removed = str.match(/(_+\d{3})+$/);
-    if (!removed) {
-        removed = str.match(/_+$/);
-    }
-    return removed ? removed[0] : '';
-}
-    function teamCategoriesCase(str) {
+    function GetEidSuperCategoriesCase(str) {
         switch (str) {
-            case "1213":
-                return ["Solo", "YK"];
             case "1102":
-                return ["Solo", "FX"];
+                if (ctgr.includes("23001")) {
+                    return ["E0S1", "E1S1", "E2S1", "E2S5"];
+                } else {
+                    return [];
+                }
             default:
                 return [];
         }
     }
-    let teamCategories = teamCategoriesCase(charId);
-    let fullctgrRaw = teamCategories.reduce((ctgr, str) => {
-        return ctgr.replace(new RegExp(str, "g"), "");
-    }, ctgr);
-    let ctgrRaw = removeSpdPattern(fullctgrRaw);
+    let teamCategories = GetEidSuperCategoriesCase(charId);
+
+    function getStringUntilSecondUnderline(str) {
+        let count = 0;
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === "_") {
+                count++;
+            }
+            if (count === 2) {
+                return str.substring(0, i);
+            }
+        }
+        return str;
+    }
+
+    function replacePattern(str, replacement) {
+        const pattern = /E\dS\d/g;
+        return str.replace(pattern, replacement);
+    }
 
     function GetUrlBases(teamCategories) {
         if (teamCategories == []) return [];
         let newList = [];
         for (let i = 0; i < teamCategories.length; i++) {
-            if (teamCategories[i] === "Solo") {
-                newList.push("../" + ctgrRaw + getRemovedSpdPattern(fullctgrRaw) + "/");
-            } else {
-                newList.push("../" + ctgrRaw + teamCategories[i] + getRemovedSpdPattern(fullctgrRaw) + "/");
-            }
+            newList.push(
+                "../" +
+                    getStringUntilSecondUnderline(
+                        replacePattern(ctgr, teamCategories[i])
+                    ) +
+                    "/"
+            );
         }
         return newList;
     }
@@ -53,7 +60,6 @@
     <div class="parentDiv">
         {#each urls as url, i}
             {@const href = url}
-
             <div
                 style="padding-left:10px; padding-right:10px; padding-bottom: 0;"
             >
@@ -61,7 +67,7 @@
                     <p>{teamCategories[i]}</p>
                 </a>
 
-                {#if $page.url.pathname.includes(teamCategoriesCase(charId)[i]) || ($page.url.pathname.includes(fullctgrRaw + "/") && i == 0)}
+                {#if $page.url.pathname.includes(GetEidSuperCategoriesCase(charId)[i])}
                     <div
                         style="margin:auto; background-color: blueviolet; width: 25px; height: 5px; margin-top:-7px;"
                     />
@@ -83,7 +89,6 @@
         margin: auto;
         justify-content: center;
         overflow: hidden;
-        padding: 0;
-        padding-bottom: 10px;
+        padding: 0px;
     }
 </style>

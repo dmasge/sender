@@ -7,25 +7,29 @@
 
     style="margin-top: 5px; margin-bottom: 5px; background-color: #ffe2ae; border-radius: 10%; padding:10px;"
 </div> -->
-<div class="RelicParentDiv" >
-    <p class="statsP" style="font-size: 10.8px; text-decoration: underline; text-align: center;">
+<div class="RelicParentDiv">
+    <p
+        class="statsP"
+        style="font-size: 10.8px; text-decoration: underline; text-align: center;"
+    >
         Out of combat stats
     </p>
     <div>
-        {#each lbStats as stat, i}
-        <div
-                style="margin:-3px;
+        {#if lbStats}
+            {#each lbStats as stat, i}
+                <div
+                    style="margin:-3px;
                     padding:3px;"
-            >
-            <p class="statsP">
-                <span>{stat[0]}</span>
-                <span>{stat[1]}</span>
-            </p>
-        </div>
-        {/each} 
+                >
+                    <p class="statsP">
+                        <span>{stat[0]}</span>
+                        <span>{stat[1]}</span>
+                    </p>
+                </div>
+            {/each}
+        {/if}
     </div>
 </div>
-
 
 <style>
     .statsP {
@@ -39,7 +43,7 @@
         margin-top: 2px;
         margin-bottom: 2px;
     }
-    
+
     .RelicParentDiv {
         width: 96px;
     }
@@ -49,5 +53,4 @@
         align-items: center;
         justify-content: center;
     }
-
 </style>

@@ -24,6 +24,8 @@
         entries && entries[index] ? entries[index][0] : undefined;
 
     import LbRankDisplay from "$lib/components/profile/LbRankDisplay.svelte";
+    
+    import { isBuildNewFormat } from "$lib/components/profile/temp.js";
 </script>
 
 <div class="container" style="text-align: center; overflow: hidden;">
@@ -40,7 +42,7 @@
                         >
                     {/if}
 
-                    {#if build["k"] == "1208"}
+                    {#if isBuildNewFormat(build)}
                         <LbRankDisplay {build} key={selectedCategory} />
                     {:else}
                         <ScoringDetails {build} key={entries[index][0]} />
@@ -64,7 +66,7 @@
         </div>
     {:else}
         <div style="margin:auto;">
-            {#if build["k"] == "1208"}
+            {#if isBuildNewFormat(build)}
                 
                 <LbRankDisplay {build} key={selectedCategory} />
             {/if}
@@ -88,6 +90,7 @@
     button {
         border-color: transparent;
         font-size: 20px;
+        padding: 1px;
     }
 
     @media (max-width: 850px) {

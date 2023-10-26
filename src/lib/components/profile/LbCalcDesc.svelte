@@ -1,5 +1,5 @@
 <script>
-    export let lbStats = [];
+    export let calcDesc = [];
 </script>
 
 <!-- <div class="centeringDiv" style="display: flex; justify-content: center;">
@@ -10,14 +10,14 @@
     <div class="parentDiv">
         <p style="text-decoration: underline; text-align: center;">Addendum</p>
     <div>
-        {#each lbStats as stat, i}
+        {#each calcDesc as stat, i}
             <div
                 style="margin:-3px;
                     padding:3px;"
             >
                 <div class="statsP">
-                    <p style="width: 65%;">{stat[0]}</p>
-                    <p style="width: 35%; text-align: right;">{stat[1]}</p>
+                    <p style="">{stat[0]}</p>
+                    <p style=" text-align: right;">{stat[1]}</p>
                 </div>
             </div>
         {/each}

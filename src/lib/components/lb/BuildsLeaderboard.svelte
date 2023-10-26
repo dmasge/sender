@@ -27,6 +27,7 @@
     import ErrFilter from "$lib/components/navigators/ERRFilter.svelte";
 
     import { browser } from "$app/environment";
+    import EidSuperNav from "$lib/components/navigators/EidSuperNav.svelte";
     let scoringRules = scoringRulesDict[charId];
 </script>
 
@@ -35,11 +36,12 @@
         <LeaderboardsList searchTerm={charId} isOnLeaderboard={true} />
     </div>
     <SpeedCategorizer />
-    <TeamFilter />
     <ErrFilter />
+    <EidSuperNav />
+    <TeamFilter />
+    <div class = "sepDiv"></div>
     <GeneralizedDesc text2={scoringRules} />
     <LbColumnsDesc />
-
     {#if jsonData}
         {#if jsonData == "nothing to show here"}
             <p style="text-align: center;">
@@ -65,6 +67,14 @@
 {/if}
 
 <style>
+    .sepDiv {
+        background-color: #000000a0;
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        overflow: hidden;
+        padding: 7px;
+    }
     /* .lbHr {
         width: 70%;
         margin: auto;

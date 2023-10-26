@@ -115,7 +115,6 @@
         margin: auto;
         justify-content: center;
         overflow: hidden;
-        padding: 7x;
-        padding-bottom: 10px;
+        padding: 0;
     }
 </style>

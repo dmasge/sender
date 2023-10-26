@@ -18,13 +18,12 @@ export function BuildStatsCalculatorNew(params){
             trace_imag: 0,
             trace_ice: 0,
             trace_err: 0,
-            count_conditionals: true
+            count_conditionals: true,
         };
         var params = {...defaultValues, ...params};
         var build = params.build;
         try{
-        var count_conditionals = count_conditionals;
-        
+        var count_conditionals = params.count_conditionals;
 
         var self_build = build;
         // base stats
@@ -63,6 +62,7 @@ export function BuildStatsCalculatorNew(params){
         var self_skilldmg_p = 0;
         var self_basicdmg_p = 0;
         var self_shield_absorb_p = 0;
+        var self_final_damage_bonus = 0;
         var self_dmg_red_1 = 0; // wuther
         var self_final_atk = 0;
         var self_final_hp = 0;
@@ -89,11 +89,19 @@ export function BuildStatsCalculatorNew(params){
         return {
             final_hp : self_final_hp,
             final_def : self_final_def,
+            final_atk : self_final_atk,
             ohb_p : self_ohb_p,
             dmg_red_1: self_dmg_red_1,
             final_res : self_final_res,
             final_spd : self_final_spd,
             final_err : self_final_err,
+            defignore_p : self_defignore_p,
+            final_qua : self_final_qua,
+            skilldmg_p : self_skilldmg_p,
+            final_cr : self_final_cr,
+            final_cd : self_final_cd,
+            ultdmg_p : self_ultdmg_p,
+            final_damage_bonus : self_final_damage_bonus,
         }
     }
 
@@ -263,70 +271,72 @@ export function BuildStatsCalculatorNew(params){
                     self_atk_p += 25;
                 }
             }
-// ornaments
-if (set_id === "301" && cnt === 2) { // space sealing station
-    // if seele always give 24, otherwise do calc
-    self_atk_p += 12;
-    if (count_conditionals) {
-        calc_final_stats();
-        if (self_final_spd > 120) {
-            self_atk_p += 12;
-        }
-    }
-} else if (set_id === "306" && cnt === 2) { // inert salsotto in set_name 
-    self_cr_p += 8;
-    self_ultdmg_p += 15;
-    self_flwupdmg_p += 15;
-} else if (set_id === "309" && cnt === 2) { // rutilant
-    self_cr_p += 8;
-    calc_final_stats();
-    if (self_final_cr > 70) {
-        self_skilldmg_p += 20;
-        self_basicdmg_p += 20;
-        }
-    } else if (set_id === "305" && cnt === 2) { // celestial differentiator
-        self_cd_p += 16;
-    } else if (set_id === "308" && cnt === 2) { // sprightly vonwacq
-        self_err_p += 5;
-    } else if (set_id === "303" && cnt === 2) { // Pan-Galactic Commercial Enterprise
-        self_ehr_p += 10;
-        if (count_conditionals) {
-            self_atk_p += Math.min(self_ehr_p * 0.25, 25);
-        }
-    } else if (set_id === "307" && cnt === 2) { // kingdom of banditry
-        self_be_p += 16;
-        if (count_conditionals) {
-            calc_final_stats();
-            if (self_final_spd >= 145) {
-                self_be_p += 20;
-            }
-        }
-    } else if (set_id === "304" && cnt === 2) { // belobog of the architects
-        self_def_p += 15;
-        if (count_conditionals) {
-            calc_final_stats();
-            if (self_ehr_p >= 50) {
-                self_def_p += 15;
-            }
-        }
-    } else if (set_id === "302" && cnt === 2) { // fleet of ageless
-        self_hp_p += 12;
-        if (count_conditionals) {
-            calc_final_stats();
-            if (self_final_spd > 120) {
-                self_atk_p += 8;
-            }
-        }
-    } else if (set_id === "310" && cnt === 2) { // broken keel
-        self_res_p += 10;
-        if (count_conditionals) {
-            calc_final_stats();
-            if (self_final_res > 30) {
-                self_cd_p += 10;
-            }
-        }
-    }
-
+            // ornaments
+            if (set_id === "301" && cnt === 2) { // space sealing station
+                // if seele always give 24, otherwise do calc
+                self_atk_p += 12;
+                if (count_conditionals) {
+                    calc_final_stats();
+                    if (self_final_spd > 120) {
+                        self_atk_p += 12;
+                    }
+                }
+            } else if (set_id === "306" && cnt === 2) { // inert salsotto in set_name 
+                self_cr_p += 8;
+                calc_final_stats();
+                if (self_final_cr >= 50) {
+                    self_ultdmg_p += 15;
+                    self_flwupdmg_p += 15;
+                }
+            } else if (set_id === "309" && cnt === 2) { // rutilant
+                self_cr_p += 8;
+                calc_final_stats();
+                if (self_final_cr >= 70) {
+                    self_skilldmg_p += 20;
+                    self_basicdmg_p += 20;
+                    }
+                } else if (set_id === "305" && cnt === 2) { // celestial differentiator
+                    self_cd_p += 16;
+                } else if (set_id === "308" && cnt === 2) { // sprightly vonwacq
+                    self_err_p += 5;
+                } else if (set_id === "303" && cnt === 2) { // Pan-Galactic Commercial Enterprise
+                    self_ehr_p += 10;
+                    if (count_conditionals) {
+                        self_atk_p += Math.min(self_ehr_p * 0.25, 25);
+                    }
+                } else if (set_id === "307" && cnt === 2) { // kingdom of banditry
+                    self_be_p += 16;
+                    if (count_conditionals) {
+                        calc_final_stats();
+                        if (self_final_spd >= 145) {
+                            self_be_p += 20;
+                        }
+                    }
+                } else if (set_id === "304" && cnt === 2) { // belobog of the architects
+                    self_def_p += 15;
+                    if (count_conditionals) {
+                        calc_final_stats();
+                        if (self_ehr_p >= 50) {
+                            self_def_p += 15;
+                        }
+                    }
+                } else if (set_id === "302" && cnt === 2) { // fleet of ageless
+                    self_hp_p += 12;
+                    if (count_conditionals) {
+                        calc_final_stats();
+                        if (self_final_spd > 120) {
+                            self_atk_p += 8;
+                        }
+                    }
+                } else if (set_id === "310" && cnt === 2) { // broken keel
+                    self_res_p += 10;
+                    if (count_conditionals) {
+                        calc_final_stats();
+                        if (self_final_res > 30) {
+                            self_cd_p += 10;
+                        }
+                    }
+                }
             }
         }
 

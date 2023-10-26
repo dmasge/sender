@@ -35,7 +35,7 @@ export const scoringRulesDict = {
 }
 
 export const scoringRulesShort = {
-    '1102' : "4SKILL+ULT".toLowerCase(), // Seele
+    '1102' : "4 buffed SKILL + ULT".toLowerCase(), // Seele
     '1005' : "15dot+3(skill+flwup)+ult".toLowerCase(), // Kafka
     '1006' : "weaken*(entang+2ult+3skill)".toLowerCase(), // SW
     '1205' : "4BASIC+ULT+FLWUP".toLowerCase(),  // Blade
