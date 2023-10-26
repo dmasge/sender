@@ -10,40 +10,14 @@
     import HrefAvatarLc from "$lib/components/profile/HrefAvatarLc.svelte";
     import { isBuildNewFormat } from "$lib/components/profile/temp.js";
     import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
-    
-    let isCalcsDone = false;
-    async function performCalculations() {
-        if (isBuildNewFormat(build)) {
-            try {
-                build = score_build(build);
-                isCalcsDone = true;
-            } catch (error) {
-                console.log(error);
-            }
-        } else {
-            isCalcsDone = true;
-        }
-    }
-    onMount(async () => {
-        await performCalculations();
-    });
-    export let expanded = false;
-
-    let relicSets = build["rs"];
-    let lbStats = [];
-    let keys = build["lb"] ? Object.keys(build["lb"]) : [];
-    let firstKey = keys.length > 0 ? keys[0] : false;
-    if (firstKey) {
-        let isFirstKeyInStats = build["lbstats"][firstKey] ? true : false;
-        lbStats = isFirstKeyInStats
-            ? build["lbstats"][firstKey]
-            : build["lbstats"];
-    }
     import RvSummary from "$lib/components/RVSummary.svelte";
     import LbCalcDesc from "./LbCalcDesc.svelte";
     import CalcDetails from "./CalcDetails.svelte";
     export let selectedCategory;
-
+    export let expanded = false;
+    let isCalcsDone = false;
+    let relicSets = [];
+    let lbStats = [];
     function getTextUntilUnderscore(inputString) {
         let index = inputString.indexOf("_");
         if (index !== -1) {
@@ -51,6 +25,37 @@
         } else {
             return inputString;
         }
+    }
+    try {
+        async function performCalculations() {
+            if (isBuildNewFormat(build)) {
+                try {
+                    build = score_build(build);
+                    isCalcsDone = true;
+                } catch (error) {
+                    console.log(error);
+                }
+            } else {
+                isCalcsDone = true;
+            }
+            relicSets = build["rs"];
+            lbStats = [];
+            let keys = build["lb"] ? Object.keys(build["lb"]) : [];
+            let firstKey = keys.length > 0 ? keys[0] : false;
+            if (firstKey) {
+                let isFirstKeyInStats = build["lbstats"][firstKey]
+                    ? true
+                    : false;
+                lbStats = isFirstKeyInStats
+                    ? build["lbstats"][firstKey]
+                    : build["lbstats"];
+            }
+        }
+        onMount(async () => {
+            await performCalculations();
+        });
+    } catch (error) {
+        console.log(error);
     }
     $: isNewFormat = "effSpd" in build;
 </script>

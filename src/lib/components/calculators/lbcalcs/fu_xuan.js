@@ -48,9 +48,6 @@ export function score_fuxuan(build) {
         build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
     }
 
-
-
-
     return build;
 }
 
