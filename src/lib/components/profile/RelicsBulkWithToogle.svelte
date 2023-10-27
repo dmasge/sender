@@ -3,6 +3,7 @@
     export let build;
     let relics = build["r"];
     import RelicsBulk from "$lib/components/RelicsBulk.svelte";
+    import { browser } from "$app/environment";
     import LbStats from "$lib/components/LbStats.svelte";
     import RelicSetDisplay from "$lib/components/RelicSetDisplay.svelte";
     import Rankings from "$lib/components/profile/Rankings.svelte";
@@ -13,6 +14,7 @@
     import RvSummary from "$lib/components/RVSummary.svelte";
     import LbCalcDesc from "./LbCalcDesc.svelte";
     import CalcDetails from "./CalcDetails.svelte";
+    import ChaseSubs from "./ChaseSubs.svelte";
     export let selectedCategory;
     export let expanded = false;
     let isCalcsDone = false;
@@ -26,36 +28,38 @@
             return inputString;
         }
     }
-    try {
-        async function performCalculations() {
-            if (isBuildNewFormat(build)) {
-                try {
-                    build = score_build(build);
+    if (browser) {
+        try {
+            async function performCalculations() {
+                if (isBuildNewFormat(build)) {
+                    try {
+                        build = score_build(build);
+                        isCalcsDone = true;
+                    } catch (error) {
+                        console.log(error);
+                    }
+                } else {
                     isCalcsDone = true;
-                } catch (error) {
-                    console.log(error);
                 }
-            } else {
-                isCalcsDone = true;
+                relicSets = build["rs"];
+                lbStats = [];
+                let keys = build["lb"] ? Object.keys(build["lb"]) : [];
+                let firstKey = keys.length > 0 ? keys[0] : false;
+                if (firstKey) {
+                    let isFirstKeyInStats = build["lbstats"][firstKey]
+                        ? true
+                        : false;
+                    lbStats = isFirstKeyInStats
+                        ? build["lbstats"][firstKey]
+                        : build["lbstats"];
+                }
             }
-            relicSets = build["rs"];
-            lbStats = [];
-            let keys = build["lb"] ? Object.keys(build["lb"]) : [];
-            let firstKey = keys.length > 0 ? keys[0] : false;
-            if (firstKey) {
-                let isFirstKeyInStats = build["lbstats"][firstKey]
-                    ? true
-                    : false;
-                lbStats = isFirstKeyInStats
-                    ? build["lbstats"][firstKey]
-                    : build["lbstats"];
-            }
+            onMount(async () => {
+                await performCalculations();
+            });
+        } catch (error) {
+            console.log(error);
         }
-        onMount(async () => {
-            await performCalculations();
-        });
-    } catch (error) {
-        console.log(error);
     }
     $: isNewFormat = "effSpd" in build;
 </script>
@@ -111,6 +115,10 @@
         {/if}
         <RelicsBulk {relics} charId={build["k"]} />
         <RvSummary {relics} charId={build["k"]} />
+
+        {#if isNewFormat && selectedCategory}
+            <ChaseSubs {build} {selectedCategory} />
+        {/if}
     </div>
 {/if}
 

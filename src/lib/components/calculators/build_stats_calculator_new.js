@@ -411,11 +411,18 @@ function get_breakpoint(spd, breakpoints) {
 }
 
 export function assign_lb_to_build(build, ctgrname, score, display_stats, spd, breakpoints, calcDetails) {
+    if (!('lb' in build)) build['lb'] = {};
+    if (!('lbstats' in build)) build['lbstats'] = [];
+    if (!('calcDetails' in build)) build['calcDetails'] = [];
+    if (!('effSpd' in build)) build['effSpd'] = {};
+    if (!('frontScore' in build)) build['frontScore'] = {};
+
     let spd_ctgr = get_breakpoint(spd, breakpoints);
     ctgrname += spd_ctgr;
     build['calcDetails'][ctgrname] = calcDetails;
     build['lbstats'][ctgrname] = display_stats;
     build['effSpd'][ctgrname] = trim_after_decimal(spd);
+    build['frontScore'][ctgrname] = score;
     return build;
 }
 
