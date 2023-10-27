@@ -154,6 +154,8 @@ export function BuildStatsCalculatorNew(params){
                     self_imag += main_val;}
                 else if (main_name.includes('err')){
                     self_err_p += main_val;}
+                else if (main_name.includes('res')){
+                    self_res_p += main_val;}
                 }
             else{
                 if (main_name.includes('hp')){
