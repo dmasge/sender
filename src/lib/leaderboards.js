@@ -50,39 +50,98 @@ export const leaderboards = [
         charId: "",
     },
     generateLeaderboard('1102', 'Seele', [
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23001.png',
-             url: "/{charId}/E2S1_23001/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24001.png',
-             url: "/{charId}/E0S5_24001/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
-             url: "/{charId}/E0S1_23012/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21010.png',
-             url: "/{charId}/E0S5_21010/1", desc: " " },
-       
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23001.png',
+            url: "/{charId}/E2S1_23001/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24001.png',
+            url: "/{charId}/E0S5_24001/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
+            url: "/{charId}/E0S1_23012/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21010.png',
+            url: "/{charId}/E0S5_21010/1", desc: " "
+        },
+
     ]),
     generateLeaderboard('1208', 'Fu Xuan', [
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23011.png',
-             url: "/{charId}/E0S1_23011_134/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24002.png',
-             url: "/{charId}/E0S5_24002_134/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21009.png',
-             url: "/{charId}/E0S5_21009_134/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23005.png',
-             url: "/{charId}/E0S1_23005_134/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21002.png',
-             url: "/{charId}/E0S5_21002_134/1", desc: " " }
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23011.png',
+            url: "/{charId}/E0S1_ERR23011_121/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24002.png',
+            url: "/{charId}/E0S5_ERR24002_121/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21009.png',
+            url: "/{charId}/E0S5_ERR21009_121/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23005.png',
+            url: "/{charId}/E0S1_ERR23005_121/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21002.png',
+            url: "/{charId}/E0S5_ERR21002_121/1", desc: " "
+        }
+    ]),
+    generateLeaderboard('1003', 'Himeko', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23000.png',
+            url: "/{charId}/E0S1_23000/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23010.png',
+            url: "/{charId}/E0S1_23010/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21027.png',
+            url: "/{charId}/E0S5_21027/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21013.png',
+            url: "/{charId}/E0S5_21013/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21020.png',
+            url: "/{charId}/E0S5_21020/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21006.png',
+            url: "/{charId}/E0S5_21006/1", desc: " "
+        },
+        
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21034.png',
+            url: "/{charId}/E0S5_21034/1", desc: " "
+        },
     ]),
     generateLeaderboard('1209', 'Yanqing', [
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
-             url: "/{charId}/E0S1_23012/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
-             url: "/{charId}/E0S5_23012/1", desc: "S5" },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21024.png',
-             url: "/{charId}/E0S5_21024_134/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24001.png',
-             url: "/{charId}/E0S5_24001/1", desc: " " },
-        { pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21010.png',
-             url: "/{charId}/E0S5_21010/1", desc: " " }
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
+            url: "/{charId}/E0S1_23012/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
+            url: "/{charId}/E0S5_23012/1", desc: "S5"
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21024.png',
+            url: "/{charId}/E0S5_21024_134/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24001.png',
+            url: "/{charId}/E0S5_24001/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21010.png',
+            url: "/{charId}/E0S5_21010/1", desc: " "
+        }
     ]),
     generateLeaderboard('1213', 'Dan Heng Imbibitor Lunae', [
         { pic: brighter, url: "/{charId}/E0S1_23015/1", desc: " " },
@@ -112,9 +171,9 @@ export const leaderboards = [
         { pic: secret, url: "/{charId}/secret/1", desc: " " },
         { pic: fall, url: "/{charId}/fall/1", desc: " " },
         { pic: mutual, url: "/{charId}/mutual/1", desc: " " },
-        { pic: irreplaceable, url: "/{charId}/irreplaceable/1", desc: " "},
+        { pic: irreplaceable, url: "/{charId}/irreplaceable/1", desc: " " },
     ]),
-   
+
     generateLeaderboard('1201', 'Qingque', [
         { pic: today, url: "/{charId}/E6S5_today/1", desc: " " },
         { pic: dawn, url: "/{charId}/E6S1_dawn/1", desc: " " },
@@ -131,7 +190,7 @@ export const leaderboards = [
         { pic: under, url: "/{charId}/E2S5_under/1", desc: " " },
         { pic: collapsing, url: "/{charId}/E2S5_collapsing/1", desc: " " },
     ]),
-   
+
     generateLeaderboard('1204', 'Jing Yuan', [
         { pic: dawn, url: "/{charId}/E0S1_dawn/1", desc: " " },
         { pic: breakfast, url: "/{charId}/E0S5_breakfast/1", desc: " " },
@@ -143,17 +202,17 @@ export const leaderboards = [
 ];
 
 export function getPicForCtgr(str) {
-    if (checkIfStartsWIthEdilonSuperimpose(str)){
+    if (checkIfStartsWIthEdilonSuperimpose(str)) {
         str = extractAfterUnderscore(str);
     }
     str = removeUnderscoreAndNumbers(str);
     switch (str) {
-        case 'birth' : return birth;
-        case 'clamor' : return clamor;
-        case 'moles' : return moles;
-        case 'woof' : return woof;
-        case 'under' : return under;
-        case 'collapsing' : return collapsing;
+        case 'birth': return birth;
+        case 'clamor': return clamor;
+        case 'moles': return moles;
+        case 'woof': return woof;
+        case 'under': return under;
+        case 'collapsing': return collapsing;
         case 'today': return today;
         case 'dawn': return dawn;
         case 'breakfast': return breakfast;
@@ -177,7 +236,7 @@ export function getPicForCtgr(str) {
         case 'eyes': return eyes;
         case 'fermata': return fermata;
         case 'name': return name;
-        case 'brighter' : return brighter;
+        case 'brighter': return brighter;
         // default : return 1102Derp;
     }
 }

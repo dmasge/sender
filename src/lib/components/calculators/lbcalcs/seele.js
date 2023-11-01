@@ -98,7 +98,7 @@ function E2S5_23001_IntheNight(build, fuxuan = false) {
     });
 
     
-    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.final_damage_bonus;
+    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
     let stacks = get_itn_stack_count(stats.final_spd)
     let itn_ult_cd_per_stack = 20 
     let itn_skill_dmg_per_stack = 10
@@ -209,7 +209,7 @@ function E2S1_23001_IntheNight(build, fuxuan = false) {
     });
 
     
-    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.final_damage_bonus;
+    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
     let stacks = get_itn_stack_count(stats.final_spd)
     let itn_ult_cd_per_stack = 12 
     let itn_skill_dmg_per_stack = 6
@@ -321,7 +321,7 @@ function E1S1_23001_IntheNight(build, fuxuan = false) {
     });
 
     
-    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.final_damage_bonus;
+    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
     let stacks = get_itn_stack_count(stats.final_spd)
     let itn_ult_cd_per_stack = 12 
     let itn_skill_dmg_per_stack = 6
@@ -432,7 +432,7 @@ function E0S1_23001_IntheNight(build, fuxuan = false) {
     });
 
     
-    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.final_damage_bonus;
+    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
     let stacks = get_itn_stack_count(stats.final_spd)
     let itn_ult_cd_per_stack = 12 
     let itn_skill_dmg_per_stack = 6
@@ -528,7 +528,7 @@ function E0S5_21010_Swordplay(build, fuxuan = false) {
     });
 
     
-    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.final_damage_bonus;
+    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
     let skill_dmg_p = elemental_dmg + stats.skilldmg_p
     let ult_dmg_p = elemental_dmg + stats.ultdmg_p;
 
@@ -611,7 +611,7 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
     });
 
     
-    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.final_damage_bonus;
+    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
     let skill_dmg_p = elemental_dmg + stats.skilldmg_p
     let ult_dmg_p = elemental_dmg + stats.ultdmg_p;
 
@@ -727,7 +727,7 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false) {
             trace_cr_p : sltd_cr + fuxuan_cr,
         });
 
-        let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.final_damage_bonus;
+        let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
         let skill_dmg_p = elemental_dmg + stats.skilldmg_p
         let ult_dmg_p = elemental_dmg + stats.ultdmg_p;
         let cr_avg = stats.final_cr;

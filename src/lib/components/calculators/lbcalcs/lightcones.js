@@ -48,4 +48,46 @@ export const lc_dict_by_id = {
         'atk' : 582.12,
         'def' : 463.05
     },
+    '21027' : {
+        // breakfast
+        'hp'  : 846.72,
+        'atk' : 476.28,
+        'def' : 396.9
+    },
+    '23000' : {
+        // Night on the Milky Way
+        'hp'  : 1164.24,
+        'atk' : 582.12,
+        'def' : 396.9
+    },
+    '21013' : {
+        // Make the World Clamor
+        'hp'  : 846.72,
+        'atk' : 476.28,
+        'def' : 396.9
+    },
+    '21020' : {
+        // Geniuses' Repose
+        'hp'  : 846.72,
+        'atk' : 476.28,
+        'def' : 396.9
+    },
+    '21006' : {
+        // The Birth of the Self
+        'hp'  : 952.56,
+        'atk' : 476.28,
+        'def' : 330.75
+    },
+    '23010' : {
+        // Before Dawn
+        'hp'  : 1058.4,
+        'atk' : 582.12,
+        'def' : 463.05
+    },
+    '21034' : {
+        // Today Is Another Peaceful Day
+        'hp'  : 846.72,
+        'atk' : 529.2,
+        'def' : 330.75
+    },
 }

@@ -15,9 +15,12 @@ export function BuildStatsCalculatorNew(params){
             trace_res_p: 0,
             trace_phys: 0,
             trace_qua: 0,
+            trace_fire: 0,
             trace_imag: 0,
             trace_ice: 0,
             trace_err: 0,
+            trace_fire: 0,
+            trace_damage_bonus: 0,
             count_conditionals: true,
         };
         var params = {...defaultValues, ...params};
@@ -47,7 +50,7 @@ export function BuildStatsCalculatorNew(params){
         var self_ohb_p = 0; // outgoing healing bonus
         var self_ehr_p = params.trace_ehr_p;
         var self_phys = params.trace_phys;
-        var self_fire = 0;
+        var self_fire = params.trace_fire;
         var self_ice = params.trace_ice;
         var self_lightn = 0;
         var self_wind = 0;
@@ -62,7 +65,7 @@ export function BuildStatsCalculatorNew(params){
         var self_skilldmg_p = 0;
         var self_basicdmg_p = 0;
         var self_shield_absorb_p = 0;
-        var self_final_damage_bonus = 0;
+        var self_damage_bonus = params.trace_damage_bonus;
         var self_dmg_red_1 = 0; // wuther
         var self_final_atk = 0;
         var self_final_hp = 0;
@@ -97,11 +100,13 @@ export function BuildStatsCalculatorNew(params){
             final_err : self_final_err,
             defignore_p : self_defignore_p,
             final_qua : self_final_qua,
+            fire : self_fire,
             skilldmg_p : self_skilldmg_p,
             final_cr : self_final_cr,
             final_cd : self_final_cd,
             ultdmg_p : self_ultdmg_p,
-            final_damage_bonus : self_final_damage_bonus,
+            damage_bonus : self_damage_bonus,
+            flwupdmg_p : self_flwupdmg_p,
         }
     }
 
@@ -211,6 +216,16 @@ export function BuildStatsCalculatorNew(params){
                         self_defignore_p += 10;
                     }
                 }
+            } 
+            else if (set_id === "107") { // firesmith of lava-forging
+                if (cnt === 2) {
+                    self_fire += 10;
+                } else if (cnt === 4) {
+                    self_skilldmg_p += 12;
+                    if (self_build['k'].includes("1003") && count_conditionals) {
+                        self_fire += 1.2;
+                    } 
+                }
             } else if (set_id === "101") { // passerby
                 if (cnt === 2) {
                     self_ohb_p += 10;
@@ -256,15 +271,32 @@ export function BuildStatsCalculatorNew(params){
                 } else if (cnt === 4) {
                     self_spd_p += 12;
                 }
+            } else if (set_id === "115") { // The Ashblazing Grand Duke
+                let stack_atk_p = 6 * 0.8; // pareto stack
+                if (cnt === 2) {
+                    self_flwupdmg_p += 20;
+                } else if (cnt === 4) {
+                    if (self_build['k'].includes("1005")) { // kafker
+                        self_atk_p += 6 * stack_atk_p;
+                    } else if (self_build['k'].includes("1204")){ // jing yuan
+                        self_atk_p += 8 * stack_atk_p;
+                    } else if (self_build['k'].includes("1003")){ // himeko
+                        self_atk_p += 8 * stack_atk_p;
+                    } else if (self_build['k'].includes("1107")){ // clara
+                        self_atk_p += 3 * stack_atk_p;
+                    } 
+                }
+            } else if (set_id === "116") { // Prisoner in Deep Confinement
+                if (cnt === 2) {
+                    self_atk_p += 12;
+                } else if (cnt === 4) {
+                    if (self_build['k'].includes("1005")) {
+                        self_defignore_p += 18;
+                    } 
+                }
             } else if (set_id === "110") { // eagle of twilight lane
                 if (cnt === 2) {
                     self_wind += 10;
-                }
-            } else if (set_id === "113") { // longevous disciple
-                if (cnt === 2) {
-                    self_hp_p += 12;
-                } else if (cnt === 4 && count_conditionals) {       
-                    self_cr_p += 16;
                 }
             } else if (set_id === "105") { // Champion of Streetwise Boxing
                 if (cnt === 2) {
@@ -338,6 +370,18 @@ export function BuildStatsCalculatorNew(params){
                             self_cd_p += 10;
                         }
                     }
+                } else if (set_id === "311" && cnt === 2) { // Firmament Frontline Glamoth
+                    self_atk_p += 12;
+                    if (count_conditionals) {
+                        calc_final_stats();
+                        if (self_final_spd >= 160) {
+                            self_damage_bonus += 18;
+                        } else if (self_final_spd >= 135) {
+                            self_damage_bonus += 12;
+                        }
+                    }
+                } else if (set_id === "312" && cnt === 2) { // penacony
+                    self_damage_bonus += 10;
                 }
             }
         }
