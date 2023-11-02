@@ -7,7 +7,7 @@ let itemName = "subWeightsInventory";
 export function loadSubWeightsInventory() {
     if (browser) {
         let localStorageItem = localStorage.getItem(itemName);
-        let parsedlocalStorageItem = localStorageItem ? JSON.parse(localStorageItem) : new Array(12).fill(1);
+        let parsedlocalStorageItem = localStorageItem ? JSON.parse(localStorageItem) : new Array(12).fill(0);
         return parsedlocalStorageItem;
     }
 }

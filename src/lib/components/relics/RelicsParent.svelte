@@ -42,7 +42,7 @@
 </script>
 
 <div style="background-color: #000000A0; padding: 10px; text-align: center;">
-    <p style="font-weight: 700; font-size: 18px; margin:0;">Relics</p>
+    <p style="font-weight: 700;  font-size: 20px; margin:0;">Use sliders to set weights</p>
 </div>
 
 {#if browser}

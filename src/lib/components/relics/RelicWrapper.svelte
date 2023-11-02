@@ -21,6 +21,8 @@
         width: min-content;
     }
     .rvP {
-        color: rgb(130, 130, 255);
+        /* color: rgb(130, 130, 255); */
+        color: rgb(169, 169, 255);
+        font-size: 13px;
     }
 </style>

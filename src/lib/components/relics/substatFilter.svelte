@@ -10,7 +10,7 @@
 
 <div>
     <div style="padding-top: 5px;"></div>
-    <p style="text-align: center; margin:2px;">Weight and sort by Roll Value</p>
+    <!-- <p style="text-align: center; font-size: 17px; margin:2px;">Use sliders to set weights</p> -->
     <div style="display: flex; text-align: center; justify-content: center;  margin:auto; ">
         <div
             class="container"
@@ -40,7 +40,9 @@
 
 <style>
     :root {
-        --slider-color: rgb(130, 130, 255);
+        /* --slider-color: rgb(130, 130, 255); */
+        --slider-color: rgb(169, 169, 255);
+        /* --slider-color: rgb(255, 0, 144); */
     }
     .container {
         display: flex;
@@ -57,7 +59,6 @@
         accent-color: var(--slider-color);
         border: none;
     }
-
     input[type="range"] {
         appearance: none;
         -webkit-appearance: none;
