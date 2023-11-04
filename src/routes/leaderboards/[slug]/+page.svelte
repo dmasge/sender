@@ -46,7 +46,6 @@
     }
     async function refreshPlayer(event) {
         event.preventDefault();
-
         jsonData = false;
         var form = document.getElementById("myForm");
         var formData = new FormData(form);

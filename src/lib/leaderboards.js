@@ -90,6 +90,28 @@ export const leaderboards = [
             url: "/{charId}/E0S5_ERR21002_121/1", desc: " "
         }
     ]),
+    generateLeaderboard('1212', 'Jingliu', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23014.png',
+            url: "/{charId}/E0S1_23014PL_134/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24000.png',
+            url: "/{charId}/E0S5_24000PL_134/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21012.png',
+            url: "/{charId}/E0S5_21012PL_134/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21019.png',
+            url: "/{charId}/E0S5_21019PL_134/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23002.png',
+            url: "/{charId}/E0S1_23002PL_134/1", desc: " "
+        }
+    ]),
     generateLeaderboard('1003', 'Himeko', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23000.png',

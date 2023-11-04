@@ -6,7 +6,7 @@ export function isBuildNewFormat(build){
 
 export function isCharIdNewFormat(k){
     let result = false;
-    let newFormats = ["1208", "1102", "1003"];
+    let newFormats = ["1208", "1102", "1003", "1212"];
     
     if(newFormats.includes(k)){
         result = true;

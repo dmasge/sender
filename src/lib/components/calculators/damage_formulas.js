@@ -37,6 +37,7 @@ export function outgoing_dmg_2({
     final_dmg *= 1 - (defense / (defense + 200 + 10 * 80));
     
     final_dmg *= (100 + res_shred) / 100;
+    
     final_dmg *= (100 + vulnerability) / 100;
     if (!broken) {
         final_dmg *= 0.9;

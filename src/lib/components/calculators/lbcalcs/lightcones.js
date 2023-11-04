@@ -90,4 +90,35 @@ export const lc_dict_by_id = {
         'atk' : 529.2,
         'def' : 330.75
     },
+    '23014' : {
+        // I Shall Be My Own Sword
+        'hp'  : 1164.24,
+        'atk' : 582.12,
+        'def' : 396.9
+    },
+    '24000' : {
+        // On the Fall of an Aeon
+        'hp'  : 1058.4,
+        'atk' : 529.2,
+        'def' : 396.9
+    },
+    '21012' : {
+        // A Secret Vow
+        'hp'  : 1058.4,
+        'atk' : 476.28,
+        'def' : 264.6
+    },
+    '21019' : {
+        // Under the Blue Sky
+        'hp'  : 952.56,
+        'atk' : 476.28,
+        'def' : 330.75
+    },
+    '23002' : {
+        // Something Irreplaceable
+        'hp'  : 1164.24,
+        'atk' : 582.12,
+        'def' : 396.9
+    },
+
 }

@@ -5,7 +5,10 @@ export function BuildStatsCalculatorNew(params){
             base_atk: 0,
             base_def: 0,
             base_spd: 0,
+            trace_spd_f: 0,
             trace_atk_p: 0,
+            trace_defshred : 0,
+            trace_atk_f: 0,
             trace_cr_p: 0,
             trace_cd_p: 0,
             trace_spd_p: 0,
@@ -27,7 +30,8 @@ export function BuildStatsCalculatorNew(params){
         var build = params.build;
         try{
         var count_conditionals = params.count_conditionals;
-
+        var self_ult_used = params.ult_used;
+            
         var self_build = build;
         // base stats
         var self_base_cr = 5;
@@ -38,9 +42,11 @@ export function BuildStatsCalculatorNew(params){
         var self_base_spd = params.base_spd;
         // stat modifiers
         var self_hp_f = 0;
-        var self_atk_f = 0;
+        var self_atk_f = params.trace_atk_f;
         var self_def_f = 0;
-        var self_spd_f = 0;
+        var self_res_ignore = 0;
+        var self_defignore_p = params.trace_defshred;
+        var self_spd_f = params.trace_spd_f;
         var self_spd_p = params.trace_spd_p;
         var self_hp_p = params.trace_hp_p;
         var self_atk_p = params.trace_atk_p;
@@ -59,7 +65,6 @@ export function BuildStatsCalculatorNew(params){
         var self_be_p = 0;
         var self_err_p = 100 + params.trace_err;
         var self_res_p = params.trace_res_p;
-        var self_defignore_p = 0;
         var self_ultdmg_p = 0;
         var self_flwupdmg_p = 0;
         var self_skilldmg_p = 0;
@@ -101,12 +106,14 @@ export function BuildStatsCalculatorNew(params){
             defignore_p : self_defignore_p,
             final_qua : self_final_qua,
             fire : self_fire,
+            ice : self_ice,
             skilldmg_p : self_skilldmg_p,
             final_cr : self_final_cr,
             final_cd : self_final_cd,
             ultdmg_p : self_ultdmg_p,
             damage_bonus : self_damage_bonus,
             flwupdmg_p : self_flwupdmg_p,
+            res_ignore :self_res_ignore,
         }
     }
 
@@ -251,9 +258,11 @@ export function BuildStatsCalculatorNew(params){
                     self_ice += 10;
                 } 
                 else if (cnt === 4 && count_conditionals) {
-                    // not in front atm
-                }
-            } else if (set_id === "109") { // band of sizzling thunder
+                    if (self_ult_used && self_build['k'].includes("1212")){
+                        self_cd_p += 25;
+                    }
+                } 
+            }else if (set_id === "109") { // band of sizzling thunder
                 if (cnt === 2) {
                     self_lightn += 10;
                 } else if (cnt === 4 && count_conditionals) {

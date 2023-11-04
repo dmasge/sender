@@ -46,5 +46,6 @@ export const scoringRulesShort = {
     '1213': "Fulgurant Leap", // DHIL
     '1209': "4skill+ult+3talent*freeze+8A2", // Yanqing
     '1208': "0.8EHP + 0.2EHP×(chance to resist dot) + Allies Healed", // Fu Xuan
-    '1003': "2×FUA + ULT + 3×SKILL" // Fu Xuan
+    '1003': "2×FUA + ULT + 3×SKILL", // Fu Xuan
+    '1212': "3×ESkill + ULT" // Fu Xuan
 }
