@@ -1,8 +1,7 @@
 <script>
     export let build;
-
+    import { selectedCategoryWriteable } from "$lib/components/buildSuggestions/BuildSuggestions.js";
     import ScoringDetails from "$lib/components/profile/ScoringDetails.svelte";
-    
 
     let isRanked = build["lb"] ? Object.keys(build["lb"]).length > 0 : false;
 
@@ -22,9 +21,16 @@
 
     $: selectedCategory =
         entries && entries[index] ? entries[index][0] : undefined;
+    $: updateWriteable(selectedCategory);
 
-    import LbRankDisplay from "$lib/components/profile/LbRankDisplay.svelte";
+    function updateWriteable(selectedCategory) {
+        if (selectedCategory != undefined && selectedCategory != "undefined") {
+            selectedCategoryWriteable.update(() => build['k'] + "%" + selectedCategory);
+        }
+    }
     
+    import LbRankDisplay from "$lib/components/profile/LbRankDisplay.svelte";
+
     import { isBuildNewFormat } from "$lib/components/profile/temp.js";
 </script>
 
@@ -67,7 +73,6 @@
     {:else}
         <div style="margin:auto;">
             {#if isBuildNewFormat(build)}
-                
                 <LbRankDisplay {build} key={selectedCategory} />
             {/if}
             <p style="margin-top:0; margin-bottom:0; text-align: center;">

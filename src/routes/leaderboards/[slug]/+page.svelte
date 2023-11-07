@@ -13,6 +13,7 @@
     import Bronbike from "$lib/components/Bronbike.svelte";
     import RefreshButton from "./RefreshButton.svelte";
     import ProfileToLbButton from "../../../lib/components/profile/ProfileToLbButton.svelte";
+    import BuildSuggestions from "../../../lib/components/buildSuggestions/BuildSuggestions.svelte";
 
     $: uid = $page.url.pathname.split("/").pop();
     export let data;
@@ -86,12 +87,15 @@
             <Roster {builds} bind:selectedBuildK />
             <div class="buildsStuff">
                 <ProfileToLbButton />
+                
+            <!-- <BuildSuggestions uid={pl["id"]} build={builds.find(((i) => i["k"] == selectedBuildK))}></BuildSuggestions> -->
                 {#each builds as build}
                     {#if selectedBuildK == build["k"]}
                         <RelicsBulkWithToogle {build} isOnProfilePage={true} />
                     {/if}
                 {/each}
             </div>
+            
             <RelicsParent uid={pl["id"]} />
         {/if}
     {/if}

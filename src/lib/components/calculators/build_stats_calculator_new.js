@@ -247,12 +247,6 @@ export function BuildStatsCalculatorNew(params){
                 } else if (cnt === 4) {
                     self_shield_absorb_p += 20;
                 }
-            } else if (set_id === "112") { // wastelander
-                if (cnt === 2) {
-                    self_imag += 10;
-                } else if (cnt === 4 && count_conditionals) {
-                    self_cr_p += 10;
-                }
             } else if (set_id === "104") { // hunter of glacial forest
                 if (cnt === 2) {
                     self_ice += 10;
@@ -262,7 +256,13 @@ export function BuildStatsCalculatorNew(params){
                         self_cd_p += 25;
                     }
                 } 
-            }else if (set_id === "109") { // band of sizzling thunder
+            } else if (set_id === "105") { // Champion of Streetwise Boxing
+                if (cnt === 2) {
+                    self_phys += 10;
+                } else if (cnt === 4 && count_conditionals) {       
+                    self_atk_p += 25;
+                }
+            } else if (set_id === "109") { // band of sizzling thunder
                 if (cnt === 2) {
                     self_lightn += 10;
                 } else if (cnt === 4 && count_conditionals) {
@@ -273,6 +273,18 @@ export function BuildStatsCalculatorNew(params){
                     self_be_p += 16;
                 } else if (cnt === 4) {
                     self_be_p += 16;
+                }
+            } else if (set_id === "112") { // wastelander
+                if (cnt === 2) {
+                    self_imag += 10;
+                } else if (cnt === 4 && count_conditionals) {
+                    self_cr_p += 10;
+                }
+            } else if (set_id === "113") { // longevous disciple
+                if (cnt === 2) {
+                    self_hp_p += 12;
+                } else if (cnt === 4 && count_conditionals) {
+                    self_cr_p += 16;
                 }
             } else if (set_id === "114") { // Messenger Traversing Hackerspace
                 if (cnt === 2) {
@@ -307,13 +319,7 @@ export function BuildStatsCalculatorNew(params){
                 if (cnt === 2) {
                     self_wind += 10;
                 }
-            } else if (set_id === "105") { // Champion of Streetwise Boxing
-                if (cnt === 2) {
-                    self_phys += 10;
-                } else if (cnt === 4 && count_conditionals) {       
-                    self_atk_p += 25;
-                }
-            }
+            } 
             // ornaments
             if (set_id === "301" && cnt === 2) { // space sealing station
                 // if seele always give 24, otherwise do calc
