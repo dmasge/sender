@@ -25,7 +25,7 @@
 
     function updateWriteable(selectedCategory) {
         if (selectedCategory != undefined && selectedCategory != "undefined") {
-            selectedCategoryWriteable.update(() => build['k'] + "%" + selectedCategory);
+            selectedCategoryWriteable.update(() => selectedCategory);
         }
     }
     

@@ -1,116 +1,148 @@
 <script>
-    import { loadRelicsDb } from "$lib/cache/relicsDb.js";
-    import GenSAWorker from "$lib/components/buildSuggestions/GeneticSAWorker.js?worker";
-    import GeneticWorker from "$lib/components/buildSuggestions/GeneticWorker.js?worker";
     import ExhaustiveWorker from "$lib/components/buildSuggestions/ExhaustiveWorker.js?worker";
-    import SwarmWorker from "$lib/components/buildSuggestions/SwarmWorker.js?worker";
-    import { selectedCategoryWriteable, getRelicSets } from "$lib/components/buildSuggestions/BuildSuggestions.js";
-    import { onDestroy } from "svelte";
+    import {
+        selectedCategoryWriteable,
+        DeepCopyBuild,
+        getRelicSets,
+    } from "$lib/components/buildSuggestions/BuildSuggestions.js";
+    import { loadUnlockedRelics } from "$lib/cache/relicsDbLock.js";
+    import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
+
+    import { isBuildNewFormat } from "$lib/components/profile/temp.js";
+    import RelicsBulk from "$lib/components/RelicsBulk.svelte";
     export let uid;
     export let build;
-
-    let gsaWorker;
-    let swarmWorker;
-    let exhaustiveWorker;
-    let geneticWorker;
-    let selectedCategoryWithPercentageSign;
+    let selectedCategory;
+    let totalWorkers = 12;
+    let results = [];
     selectedCategoryWriteable.subscribe((value) => {
         if (value != 0 && value != undefined) {
-            selectedCategoryWithPercentageSign = value;
+            selectedCategory = value;
         }
     });
 
-    function TopLogic() {
-        let relics = loadRelicsDb(uid);
-        if (gsaWorker) gsaWorker.terminate();
-        gsaWorker = new GenSAWorker();
-        gsaWorker.postMessage({
+    function RunWorker(relics, fifth, totalWorkers) {
+        let exhaustiveWorker;
+        if (exhaustiveWorker) exhaustiveWorker.terminate();
+        exhaustiveWorker = new ExhaustiveWorker();
+        exhaustiveWorker.postMessage({
             uid: uid,
             build: build,
             relics: relics,
-            selectedCategory: getSubstringAfterPercentSign(
-                selectedCategoryWithPercentageSign
-            ),
+            fifth: fifth,
+            totalWorkers: totalWorkers,
+            selectedCategory: selectedCategory,
         });
-        gsaWorker.onmessage = function (event) {
+        exhaustiveWorker.onmessage = function (event) {
             const { bestScore, bestSolution } = event.data;
-            console.log("GSA");
-            console.log("Best Score: ", bestScore);
-            console.log("Best Solution: ", bestSolution);
+            exhaustiveWorker.terminate();
+            results.push([bestScore, bestSolution]);
+            displayBuild();
             // You can also update your UI here
-            gsaWorker.terminate();
         };
-
-        if (swarmWorker) swarmWorker.terminate();
-        swarmWorker = new SwarmWorker();
-        swarmWorker.postMessage({
-            uid: uid,
-            build: build,
-            relics: relics,
-            selectedCategory: getSubstringAfterPercentSign(
-                selectedCategoryWithPercentageSign
-            ),
-        });
-        swarmWorker.onmessage = function (event) {
-            const { bestScore, bestSolution } = event.data;
-            console.log("PSO");
-            console.log("Best Score: ", bestScore);
-            console.log("Best Solution: ", bestSolution);
-            // You can also update your UI here
-            swarmWorker.terminate();
-        };
-
-        if (geneticWorker) geneticWorker.terminate();
-        geneticWorker = new GeneticWorker();
-        geneticWorker.postMessage({
-            uid: uid,
-            build: build,
-            relics: relics,
-            selectedCategory: getSubstringAfterPercentSign(
-                selectedCategoryWithPercentageSign
-            ),
-        });
-        geneticWorker.onmessage = function (event) {
-            const { bestScore, bestSolution } = event.data;
-            console.log("Genetic");
-            console.log("Best Score: ", bestScore);
-            console.log("Best Solution: ", bestSolution);
-            console.log(getRelicSets(bestSolution));
-            // You can also update your UI here
-            geneticWorker.terminate();
-        };
-        // if (exhaustiveWorker) exhaustiveWorker.terminate();
-        // exhaustiveWorker = new ExhaustiveWorker();
-        // exhaustiveWorker.postMessage({
-        //     uid: uid,
-        //     build: build,
-        //     relics: relics,
-        //     selectedCategory: getSubstringAfterPercentSign(
-        //         selectedCategoryWithPercentageSign
-        //     ),
-        // });
-        // exhaustiveWorker.onmessage = function (event) {
-        //     const { bestScore, bestSolution } = event.data;
-        //     console.log("Exhaustive");
-        //     console.log("Best Score: ", bestScore);
-        //     console.log("Best Solution: ", bestSolution);
-        //     // You can also update your UI here
-        //     exhaustiveWorker.terminate();
-        // };
     }
 
-    function getSubstringAfterPercentSign(inputString) {
-        let percentIndex = inputString.indexOf("%");
-        if (percentIndex !== -1) {
-            return inputString.substring(percentIndex + 1);
-        } else {
-            return "No '%' sign found in the input string.";
+    function TopLogic() {
+        showInstructions = true;
+        isCalculating = true;
+        calcDone = false;
+        bestBuild = undefined;
+        results = [];
+        let relics = loadUnlockedRelics(uid);
+        for (let i = 0; i < totalWorkers; i++) {
+            RunWorker(relics, i, totalWorkers);
+        }
+    }
+
+    let calcDone = false;
+    let isCalculating = false;
+    let bestBuild = undefined;
+    let bestScore = 0;
+    let bestCombination;
+    let showInstructions = false;
+    function displayBuild() {
+        if (results.length == totalWorkers) {
+            [bestScore, bestCombination] = results.reduce((max, curr) =>
+                curr[0] > max[0] ? curr : max
+            );
+            bestBuild = DeepCopyBuild(build);
+            bestBuild["r"] = bestCombination;
+            bestBuild["rs"] = getRelicSets(bestCombination);
+            bestBuild = score_build(bestBuild);
+            calcDone = true;
+            isCalculating = false;
         }
     }
 </script>
 
-<div style="display: flex; margin:auto; justify-content: center;">
-<button on:click={() => 
-    TopLogic()}> btttb </button>
+{#if isBuildNewFormat(build)}
+    <div
+        style="display: flex; margin:auto; justify-content: center; width: 360px;"
+    >
+        <div
+            style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+        >
+            <!-- {#if !isCalculating} -->
+            <button disabled={isCalculating} on:click={() => TopLogic()}>
+                <p>Optimize Build</p>
+            </button>
+            <!-- {/if} -->
+            {#if showInstructions}
+                <br />
+                <p style="font-size: 13px;">
+                    This tries out all your relic combinations to find the best
+                    for your current leaderboard bracket.
+                </p>
+                <p style="font-size: 13px;">
+                    If you have 20 relics per slot that means 20<sup>6</sup> combinations,
+                    equivalent of 64 000 000
+                </p>
+                <p style="font-size: 13px;">
+                    This can get extremely computationally intensive and may
+                    take an eternity to return any result.
+                </p>
+                <p style="font-size: 13px;">
+                    To avoid this issue lock 🔏 your relics from the inventory
+                    below.
+                </p>
+                <p style="font-size: 13px;" />
+                <p style="font-size: 13px;">
+                    Locked relics are skipped and this reduces total possile
+                    combinations, consequently results are returned faster.
+                </p>
+                <p style="font-size: 13px;">
+                    For example you could lock EHR body when optimizing for
+                    Seele.
+                </p>
+                <p style="font-size: 13px;">
+                    If your character is ranked in more than one bracket first set the bracket you're
+                    interested in and only then click on optimize.
+                </p>
+            {/if}
+            {#if calcDone}
+                <br />
+                {@const percDiff = (
+                    (bestBuild["frontScore"][selectedCategory] /
+                        build["lb"][selectedCategory]["sc"] -
+                        1) *
+                    100
+                ).toFixed(2)}
+                <p class="statsP" style="font-size: 16px;">
+                    <span>
+                        {"Potential New Score: " + bestBuild["frontScore"][selectedCategory]}
+                    </span>
+                    <span style="">
+                        {"(" + (percDiff > 0 ? "+" : "") + percDiff + "%)"}
+                    </span>
+                </p>
+                <RelicsBulk relics={bestBuild["r"]} charId={bestBuild["k"]} />
+            {/if}
+        </div>
+    </div>
+{/if}
 
-</div>
+<style>
+    p {
+        margin: 0;
+    }
+</style>

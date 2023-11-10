@@ -87,15 +87,18 @@
             <Roster {builds} bind:selectedBuildK />
             <div class="buildsStuff">
                 <ProfileToLbButton />
-                
-            <!-- <BuildSuggestions uid={pl["id"]} build={builds.find(((i) => i["k"] == selectedBuildK))}></BuildSuggestions> -->
+
                 {#each builds as build}
                     {#if selectedBuildK == build["k"]}
+                        <BuildSuggestions
+                            uid={pl["id"]}
+                            build={builds.find((i) => i["k"] == selectedBuildK)}
+                        />
                         <RelicsBulkWithToogle {build} isOnProfilePage={true} />
                     {/if}
                 {/each}
             </div>
-            
+
             <RelicsParent uid={pl["id"]} />
         {/if}
     {/if}

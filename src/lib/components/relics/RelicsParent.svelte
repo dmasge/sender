@@ -1,7 +1,7 @@
 <script>
     import { browser } from "$app/environment";
     import { loadRelicsDb, relicsDbWriteable } from "$lib/cache/relicsDb.js";
-
+    import { unlockAllRelics } from "$lib/cache/relicsDbLock.js";
     import RelicWrapper from "$lib/components/relics/RelicWrapper.svelte";
     import {
         getRelicswRV,
@@ -9,9 +9,7 @@
         filterRelicsBySlot,
     } from "$lib/components/relics/relicConstants.js";
     import SubstatFilter from "./substatFilter.svelte";
-
     import { subWeightsInventoryWriteable } from "$lib/cache/subWeightsInventory.js";
-
     import { relicSlotTypeFilterWriteable } from "$lib/cache/relicSlotTypeFilter.js";
     import SlotFilter from "./slotFilter.svelte";
 
@@ -48,10 +46,11 @@
 {#if browser}
     <SubstatFilter />
     <SlotFilter />
+    <button style="display: flex; margin:auto;" on:click={() => unlockAllRelics(uid)}> Unlock All Relics🔓</button>
     {#key relics}
         <div class="relicsLoopDiv">
             {#each sortedRelicsByRV as [key, relic]}
-                <RelicWrapper {relic} />
+                <RelicWrapper {relic} {key} {uid}/>
             {/each}
         </div>
     {/key}
