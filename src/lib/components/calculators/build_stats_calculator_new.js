@@ -1,3 +1,5 @@
+import { getRelicSets } from "$lib/components/buildSuggestions/BuildSuggestions.js";
+
 export function BuildStatsCalculatorNew(params){
         let defaultValues = {
             build: undefined,
@@ -28,6 +30,7 @@ export function BuildStatsCalculatorNew(params){
         };
         var params = {...defaultValues, ...params};
         var build = params.build;
+        build['rs'] = getRelicSets(build['r']);
         try{
         var count_conditionals = params.count_conditionals;
         var self_ult_used = params.ult_used;
@@ -205,41 +208,16 @@ export function BuildStatsCalculatorNew(params){
             let set_id = relic_set['id'];
             let cnt = relic_set['cnt'];
         
-
-            if (set_id === "102") { // musketeer
+            if (set_id === "101") { // passerby
+                if (cnt === 2) {
+                    self_ohb_p += 10;
+                }
+            } else if (set_id === "102") { // musketeer
                 if (cnt === 2) {
                     self_atk_p += 12;
                 } else if (cnt === 4) {
                     self_basicdmg_p += 10;
                     self_spd_p += 6;
-                }
-            } else if (set_id === "108") { // genius
-                if (cnt === 2) {
-                    self_qua += 10;
-                } else if (cnt === 4) {
-                    if (self_build['k'].includes("1102") || self_build['k'].includes("1006") || self_build['k'].includes("1201")) {
-                        self_defignore_p += 20;
-                    } else {
-                        self_defignore_p += 10;
-                    }
-                }
-            } 
-            else if (set_id === "107") { // firesmith of lava-forging
-                if (cnt === 2) {
-                    self_fire += 10;
-                } else if (cnt === 4) {
-                    self_skilldmg_p += 12;
-                    if (self_build['k'].includes("1003") && count_conditionals) {
-                        self_fire += 1.2;
-                    } 
-                }
-            } else if (set_id === "101") { // passerby
-                if (cnt === 2) {
-                    self_ohb_p += 10;
-                }
-            } else if (set_id === "106") { // guard of wuthering snow
-                if (cnt === 2) {
-                    self_dmg_red_1 += 8;
                 }
             } else if (set_id === "103") { // purity palace
                 if (cnt === 2) {
@@ -261,6 +239,30 @@ export function BuildStatsCalculatorNew(params){
                     self_phys += 10;
                 } else if (cnt === 4 && count_conditionals) {       
                     self_atk_p += 25;
+                }
+            } else if (set_id === "106") { // guard of wuthering snow
+                if (cnt === 2) {
+                    self_dmg_red_1 += 8;
+                }
+            } 
+            else if (set_id === "107") { // firesmith of lava-forging
+                if (cnt === 2) {
+                    self_fire += 10;
+                } else if (cnt === 4) {
+                    self_skilldmg_p += 12;
+                    if (self_build['k'].includes("1003") && count_conditionals) {
+                        self_fire += 1.2;
+                    } 
+                }
+            } else if (set_id === "108") { // genius
+                if (cnt === 2) {
+                    self_qua += 10;
+                } else if (cnt === 4) {
+                    if (self_build['k'].includes("1102") || self_build['k'].includes("1006") || self_build['k'].includes("1201")) {
+                        self_defignore_p += 20;
+                    } else {
+                        self_defignore_p += 10;
+                    }
                 }
             } else if (set_id === "109") { // band of sizzling thunder
                 if (cnt === 2) {

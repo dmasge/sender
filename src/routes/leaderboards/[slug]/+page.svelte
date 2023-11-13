@@ -6,7 +6,7 @@
     import { addRelicsToDbFromBuilds } from "$lib/cache/relicsDb.js";
     import { recentlyVisitedUID } from "$lib/cache.js";
     import RelicsParent from "$lib/components/relics/RelicsParent.svelte";
-    import Roster from "$lib/components/profile/Roster.svelte";
+    import Roster from "$lib/components/roster/Roster.svelte";
     import Profile from "./Profile.svelte";
     import RelicsBulkWithToogle from "$lib/components/profile/RelicsBulkWithToogle.svelte";
 

@@ -107,7 +107,7 @@
                 </p>
                 <p style="font-size: 13px;" />
                 <p style="font-size: 13px;">
-                    Locked relics are skipped and this reduces total possile
+                    Locked relics are skipped and this reduces total possible
                     combinations, consequently results are returned faster.
                 </p>
                 <p style="font-size: 13px;">

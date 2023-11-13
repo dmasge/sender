@@ -11,6 +11,7 @@
     import HrefAvatarLc from "$lib/components/profile/HrefAvatarLc.svelte";
     import { isBuildNewFormat } from "$lib/components/profile/temp.js";
     import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
+    import { getRelicSets } from "$lib/components/buildSuggestions/BuildSuggestions.js";
     import RvSummary from "$lib/components/RVSummary.svelte";
     import LbCalcDesc from "./LbCalcDesc.svelte";
     import CalcDetails from "./CalcDetails.svelte";
@@ -31,6 +32,7 @@
     if (browser) {
         try {
             async function performCalculations() {
+                build["rs"] = getRelicSets(build['r']);
                 if (isBuildNewFormat(build)) {
                     try {
                         build = score_build(build);

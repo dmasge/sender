@@ -2,7 +2,6 @@
 import * as damag from '$lib/components/calculators/damage_formulas.js';
 import { BuildStatsCalculatorNew, assign_lb_to_build } from '$lib/components/calculators/build_stats_calculator_new.js';
 import { lc_dict_by_id } from "$lib/components/calculators/lbcalcs/lightcones.js"
-
 let breakpoints = ["", "160.1", "171.5", "200.1"];
 
 // seele base stats
