@@ -196,6 +196,7 @@
 <style>
     button {
         border: none;
+        border-radius: 0;
     }
     p {
         margin: 0;

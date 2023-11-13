@@ -398,7 +398,7 @@ export function BuildStatsCalculatorNew(params){
                         }
                     }
                 } else if (set_id === "312" && cnt === 2) { // penacony
-                    self_damage_bonus += 10;
+                    self_err_p += 5;
                 }
             }
         }
