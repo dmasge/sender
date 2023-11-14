@@ -62,6 +62,15 @@
                         rank={pageN + i - 9}
                     />
                 </div>
+                {#if i == 4}
+                    <div style="display:flex; margin: auto; justify-content: center;">
+                        <script type="text/javascript">
+                            aclib.runBanner({
+                                zoneId: "7726882",
+                            });
+                        </script>
+                    </div>
+                {/if}
             {/each}
         {/if}
     {:else}

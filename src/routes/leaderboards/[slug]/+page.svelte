@@ -22,6 +22,10 @@
     let prevUnixTimestamp;
     let jsonData;
     let pl;
+
+    let screenWidth;
+
+    onMount(() => {});
     if (browser) {
         jsonData = data.jsonData;
         builds = jsonData.filter((i) => i["k"] != "p");
@@ -42,6 +46,8 @@
                 localStorage.setItem("visits", JSON.stringify(visitedProfiles));
                 recentlyVisitedUID.update((n) => visitedProfiles);
                 addRelicsToDbFromBuilds(pl["id"], builds);
+
+                screenWidth = window.innerWidth;
             }
         });
     }
@@ -85,20 +91,56 @@
         </div>
         {#if builds.length > 0}
             <Roster {builds} bind:selectedBuildK />
-            <div class="buildsStuff">
-                <ProfileToLbButton />
+            <div
+                style="display: flex; margin:auto; justify-content: space-between;"
+            >
+                {#if screenWidth >= 650}
+                    <div>
+                        <script type="text/javascript">
+                            aclib.runBanner({
+                                zoneId: "7726974",
+                            });
+                        </script>
+                    </div>
+                {/if}
+                <div class="buildsStuff">
+                    <ProfileToLbButton />
 
-                {#each builds as build}
-                    {#if selectedBuildK == build["k"]}
-                        <BuildSuggestions
-                            uid={pl["id"]}
-                            build={builds.find((i) => i["k"] == selectedBuildK)}
-                        />
-                        <RelicsBulkWithToogle {build} isOnProfilePage={true} />
-                    {/if}
-                {/each}
+                    {#each builds as build}
+                        {#if selectedBuildK == build["k"]}
+                            <BuildSuggestions
+                                uid={pl["id"]}
+                                build={builds.find(
+                                    (i) => i["k"] == selectedBuildK
+                                )}
+                            />
+                            <RelicsBulkWithToogle
+                                {build}
+                                isOnProfilePage={true}
+                            />
+                        {/if}
+                    {/each}
+                </div>
+
+                {#if screenWidth >= 650}
+                    <div>
+                        <script type="text/javascript">
+                            aclib.runBanner({
+                                zoneId: "7726974",
+                            });
+                        </script>
+                    </div>
+                {/if}
             </div>
-
+            {#if screenWidth <= 650}
+                    <div style="display:flex; margin: auto; justify-content: center;">
+                        <script type="text/javascript">
+                            aclib.runBanner({
+                                zoneId: "7726882",
+                            });
+                        </script>
+                    </div>
+                {/if}
             <RelicsParent uid={pl["id"]} />
         {/if}
     {/if}
@@ -106,6 +148,7 @@
 
 <style>
     .buildsStuff {
-        margin: 0;
+        margin: auto;
+        
     }
 </style>

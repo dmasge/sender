@@ -9,6 +9,7 @@
 			}
 			gtag("js", new Date());
 			gtag("config", "G-RDYGGB43F6");
+			
 		}
 	} catch (error) {
 		console.error("Failed to initialize Analytics");
@@ -40,7 +41,7 @@
 		background-color: #171021;
 	}
 	.mainchild-layout {
-		background-color: rgba(255, 255, 255, 0.00);
+		background-color: rgba(255, 255, 255, 0);
 	}
 	/* #centerDiv {
 		background-color: rgba(150, 0, 214, 0.9);
