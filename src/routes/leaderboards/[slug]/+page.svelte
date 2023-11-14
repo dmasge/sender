@@ -95,13 +95,7 @@
                 style="display: flex; margin:auto; justify-content: space-between;"
             >
                 {#if screenWidth >= 650}
-                    <div>
-                        <script type="text/javascript">
-                            aclib.runBanner({
-                                zoneId: "7726974",
-                            });
-                        </script>
-                    </div>
+                    <!-- possible ad -->
                 {/if}
                 <div class="buildsStuff">
                     <ProfileToLbButton />
@@ -123,24 +117,12 @@
                 </div>
 
                 {#if screenWidth >= 650}
-                    <div>
-                        <script type="text/javascript">
-                            aclib.runBanner({
-                                zoneId: "7726974",
-                            });
-                        </script>
-                    </div>
+                    <!-- possible ad -->
                 {/if}
             </div>
             {#if screenWidth <= 650}
-                    <div style="display:flex; margin: auto; justify-content: center;">
-                        <script type="text/javascript">
-                            aclib.runBanner({
-                                zoneId: "7726882",
-                            });
-                        </script>
-                    </div>
-                {/if}
+                <!-- possible ad -->
+            {/if}
             <RelicsParent uid={pl["id"]} />
         {/if}
     {/if}
@@ -149,6 +131,5 @@
 <style>
     .buildsStuff {
         margin: auto;
-        
     }
 </style>
