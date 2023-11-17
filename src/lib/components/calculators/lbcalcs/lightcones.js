@@ -120,5 +120,11 @@ export const lc_dict_by_id = {
         'atk' : 582.12,
         'def' : 396.9
     },
+    '23009' : {
+        // The Unreachable Side
+        'hp'  : 1270.08,
+        'atk' : 582.12,
+        'def' : 330.75
+    },
 
 }

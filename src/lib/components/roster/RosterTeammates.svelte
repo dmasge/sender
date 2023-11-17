@@ -12,6 +12,9 @@
     if (key.includes("PL")) {
         teamMateIds.push("1106");
     }
+    if (key.includes("BN")) {
+        teamMateIds.push("1101");
+    }
 </script>
 
 {#each teamMateIds as teamMateId}

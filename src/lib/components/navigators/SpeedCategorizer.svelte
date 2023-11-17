@@ -33,6 +33,8 @@
         switch (str) {
             case "1005":
                 return ["Base", "134", "151", "161"];
+            case "1205":
+                return ["Base", "121", "134", "143"];
             case "1102":
                 if (ctgr.includes("E0") || ctgr.includes("E1") ){
                     return ["Base", "161", "172", "201"]

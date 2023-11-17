@@ -15,9 +15,7 @@ export const scoringRulesDict = {
         Scores are calculated as:  ult_dmg + e_basic_atk + 0.24 * autarky. 3 targets
         `,
 
-    '1205': `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
-        Scores are calculated as: ULT(90% HP loss) + 4x Ebasic + 1x Talent. 3 targets
-        <br><br>Enemies have no Qua weakness`,
+    
 
 
     '1006': `Char, traces, cones are assummed max lvl. (only relics matter)<br><br>
@@ -32,14 +30,14 @@ export const scoringRulesDict = {
 
     '1102': "",
     '1208': "",
-
+    '1205': "",
 }
 
 export const scoringRulesShort = {
     '1102': "4 buffed SKILL + ULT".toLowerCase(), // Seele
     '1005': "15dot+3(skill+flwup)+ult".toLowerCase(), // Kafka
     '1006': "weaken*(entang+2ult+3skill)".toLowerCase(), // SW
-    '1205': "4BASIC+ULT+FLWUP".toLowerCase(),  // Blade
+    '1205': "3×EBASIC + ULT + FUA",  // Blade
     '1201': "ULT+BASIC+0.24AUTARKY".toLowerCase(), // qq
     '1107': "4COUNTER+2SKILL".toLowerCase(), // CLARA
     '1204': "17LL+4SKILL+ULT".toLowerCase(), // JING

@@ -115,8 +115,14 @@
                     Seele.
                 </p>
                 <p style="font-size: 13px;">
-                    If your character is ranked in more than one bracket first set the bracket you're
-                    interested in and only then click on optimize.
+                    If your character is ranked in more than one bracket first
+                    set the bracket you're interested in and only then click on
+                    optimize.
+                </p>
+                <p style="font-size: 13px;">
+                    To add new relics refresh with them equipped. Your browser
+                    will remember them and they can be used in optimization. You
+                    can also save characters you don't use with relics equipped as "wardrobes".
                 </p>
             {/if}
             {#if calcDone}
@@ -129,7 +135,8 @@
                 ).toFixed(2)}
                 <p class="statsP" style="font-size: 16px;">
                     <span>
-                        {"Potential New Score: " + bestBuild["frontScore"][selectedCategory]}
+                        {"Potential New Score: " +
+                            bestBuild["frontScore"][selectedCategory]}
                     </span>
                     <span style="">
                         {"(" + (percDiff > 0 ? "+" : "") + percDiff + "%)"}

@@ -4,6 +4,7 @@ import { score_fuxuan } from "$lib/components/calculators/lbcalcs/fu_xuan.js"
 import { score_seele } from "$lib/components/calculators/lbcalcs/seele.js"
 import { score_himeko } from "$lib/components/calculators/lbcalcs/himeko.js"
 import { score_jingliu } from "$lib/components/calculators/lbcalcs/jingliu.js"
+import { score_blade } from "$lib/components/calculators/lbcalcs/blade.js"
 
 export function score_build(build) {
     try {
@@ -15,6 +16,8 @@ export function score_build(build) {
             return score_himeko(build);
         } else if (build['k'] === "1212") {
             return score_jingliu(build);
+        } else if (build['k'] === "1205") {
+            return score_blade(build);
         } 
     } catch (error) {
         console.log(error);

@@ -117,6 +117,8 @@ export function BuildStatsCalculatorNew(params){
             damage_bonus : self_damage_bonus,
             flwupdmg_p : self_flwupdmg_p,
             res_ignore :self_res_ignore,
+            final_wind : self_final_wind,
+            basicdmg_p : self_basicdmg_p,
         }
     }
 

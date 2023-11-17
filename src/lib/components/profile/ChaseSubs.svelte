@@ -123,41 +123,51 @@
     test();
 </script>
 
-<div style="background-color: rgba(0,0,0,0.3); padding:10px; border-radius: 5px; padding-top:5px;">
-<p style="text-align: center; margin:3px;">Substat Priority</p>
+<div
+    style="background-color: rgba(0,0,0,0.3); padding:10px; border-radius: 5px; padding-top:5px;"
+>
+    <p style="text-align: center; margin:3px;">Substat Priority</p>
 
-<div style="display: flex; justify-content: space-between; width: 280px; margin:auto;">
+    <div
+        style="display: flex; justify-content: space-between; width: 280px; margin:auto;"
+    >
         <p class="statsP" style="width:120px; padding-left:0px;">
             Potential New Substat
         </p>
 
-        <p class="statsP" style="width:120px;">
-            Potential New Score
-        </p>
-</div>
-{#each chaseSubs[selectedCategory] as substatItem}
-    <div style="display: flex; justify-content: space-between; width: 250px; margin:auto;">
-        <p class="statsP" style="">
-            <span>
-                {substatItem[0][0] + " "}
-            </span>
-            <span>
-                {"+" + substatItem[0][1] + " "}
-            </span>
-        </p>
-
-        <p class="statsP" style="width:100px;">
-            <span>
-                {substatItem[1] + " "}
-            </span>
-            <span style="">
-                {"(+" +
-                    ((substatItem[1] / substatItem[2] - 1) * 100).toFixed(2) +
-                    "%)"}
-            </span>
-        </p>
+        <p class="statsP" style="width:120px;">Potential New Score</p>
     </div>
-{/each}
+
+    {#if chaseSubs[selectedCategory]}
+        {#each chaseSubs[selectedCategory] as substatItem}
+            <div
+                style="display: flex; justify-content: space-between; width: 250px; margin:auto;"
+            >
+                <p class="statsP" style="">
+                    <span>
+                        {substatItem[0][0] + " "}
+                    </span>
+                    <span>
+                        {"+" + substatItem[0][1] + " "}
+                    </span>
+                </p>
+
+                <p class="statsP" style="width:100px;">
+                    <span>
+                        {substatItem[1] + " "}
+                    </span>
+                    <span style="">
+                        {"(+" +
+                            (
+                                (substatItem[1] / substatItem[2] - 1) *
+                                100
+                            ).toFixed(2) +
+                            "%)"}
+                    </span>
+                </p>
+            </div>
+        {/each}
+    {/if}
 </div>
 
 <style>

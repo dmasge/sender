@@ -112,6 +112,25 @@ export const leaderboards = [
             url: "/{charId}/E0S1_23002PL_134/1", desc: " "
         }
     ]),
+    generateLeaderboard('1205', 'Blade', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23009.png',
+            url: "/{charId}/E0S1_23009BN/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21012.png',
+            url: "/{charId}/E0S5_21012BN/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24000.png',
+            url: "/{charId}/E0S5_24000BN/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23002.png',
+            url: "/{charId}/E0S1_23002BN/1", desc: " "
+        }
+        
+    ]),
     generateLeaderboard('1003', 'Himeko', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23000.png',
@@ -143,6 +162,7 @@ export const leaderboards = [
             url: "/{charId}/E0S5_21034/1", desc: " "
         },
     ]),
+    
     generateLeaderboard('1209', 'Yanqing', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
@@ -186,16 +206,6 @@ export const leaderboards = [
         { pic: gn, url: "/{charId}/gn_134/1", desc: " " },
         { pic: resolution, url: "/{charId}/resolution_134/1", desc: " " }
     ]),
-    generateLeaderboard('1205', 'Blade', [
-        { pic: unreachable, url: "/{charId}/unreachable/1", desc: " " },
-        { pic: unreachable, url: "/{charId}/E2S1_unreachable/1", desc: "E2" },
-        { pic: unreachable, url: "/{charId}/E2S5_unreachable/1", desc: "E2S5" },
-        { pic: secret, url: "/{charId}/secret/1", desc: " " },
-        { pic: fall, url: "/{charId}/fall/1", desc: " " },
-        { pic: mutual, url: "/{charId}/mutual/1", desc: " " },
-        { pic: irreplaceable, url: "/{charId}/irreplaceable/1", desc: " " },
-    ]),
-
     generateLeaderboard('1201', 'Qingque', [
         { pic: today, url: "/{charId}/E6S5_today/1", desc: " " },
         { pic: dawn, url: "/{charId}/E6S1_dawn/1", desc: " " },
