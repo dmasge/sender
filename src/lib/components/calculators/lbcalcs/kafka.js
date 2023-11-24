@@ -37,6 +37,7 @@ export function score_kafka(build) {
         let ctgrname = 'E0S1_' + build['lc']['id'];
         build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
         [score, spd, lbstats, calcDetails] = E0S1_23006_PatienceIsAllYouNeed(build, true, true);
+        breakpoints = ["", "133.34", "142.9", "160.1", "171.5", "200.1"];
         ctgrname = 'E0S1_' + build['lc']['id'] + "HUOGNF";
         build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
     } else if ("21001" == build['lc']['id']) {

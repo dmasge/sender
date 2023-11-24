@@ -36,7 +36,7 @@
                     return ["Base", "134", "143", "161", "172", "201"]
                 } else if (ctgr.includes("E1S5") && ctgr.includes("GNF") ){
                     return ["Base", "143", "161", "172", "201"];
-                } else if (ctgr.includes("E1S5")){
+                } else if (ctgr.includes("E1S5") || ctgr.includes("E0S1_23006HUOGNF")){
                     return ["Base", "134", "143", "161", "172", "201"];
                 }
                 return ["Base", "121", "134", "143", "161", "172", "201"];
