@@ -26,6 +26,8 @@ export function BuildStatsCalculatorNew(params){
             trace_err: 0,
             trace_fire: 0,
             trace_damage_bonus: 0,
+            trace_break_effect:0,
+            trace_dot_bonus : 0,
             count_conditionals: true,
         };
         var params = {...defaultValues, ...params};
@@ -65,7 +67,7 @@ export function BuildStatsCalculatorNew(params){
         var self_wind = 0;
         var self_qua = params.trace_qua;
         var self_imag = params.trace_imag;
-        var self_be_p = 0;
+        var self_be_p = params.trace_break_effect;
         var self_err_p = 100 + params.trace_err;
         var self_res_p = params.trace_res_p;
         var self_ultdmg_p = 0;
@@ -74,6 +76,7 @@ export function BuildStatsCalculatorNew(params){
         var self_basicdmg_p = 0;
         var self_shield_absorb_p = 0;
         var self_damage_bonus = params.trace_damage_bonus;
+        var self_dot_bonus = params.trace_dot_bonus;
         var self_dmg_red_1 = 0; // wuther
         var self_final_atk = 0;
         var self_final_hp = 0;
@@ -86,6 +89,7 @@ export function BuildStatsCalculatorNew(params){
         var self_final_res = 0;
         var self_final_qua = 0;
         var self_final_wind = 0;
+        var self_final_lightn = 0;
         var self_final_phys = 0;
         var self_final_err = 0;
         //
@@ -118,7 +122,12 @@ export function BuildStatsCalculatorNew(params){
             flwupdmg_p : self_flwupdmg_p,
             res_ignore :self_res_ignore,
             final_wind : self_final_wind,
+            final_lightn : self_final_lightn,
+            lightn : self_final_lightn,
             basicdmg_p : self_basicdmg_p,
+            final_ehr : self_final_ehr,
+            final_break : self_final_break,
+            dot_bonus:self_dot_bonus,
         }
     }
 
@@ -300,7 +309,7 @@ export function BuildStatsCalculatorNew(params){
                 let stack_atk_p = 6 * 0.8; // pareto stack
                 if (cnt === 2) {
                     self_flwupdmg_p += 20;
-                } else if (cnt === 4) {
+                } else if (cnt === 4 && count_conditionals) {
                     if (self_build['k'].includes("1005")) { // kafker
                         self_atk_p += 6 * stack_atk_p;
                     } else if (self_build['k'].includes("1204")){ // jing yuan
@@ -461,6 +470,7 @@ export function BuildStatsCalculatorNew(params){
             self_final_qua = self_qua;
             self_final_wind = self_wind;
             self_final_phys = self_phys;
+            self_final_lightn = self_lightn;
         }
     }
 

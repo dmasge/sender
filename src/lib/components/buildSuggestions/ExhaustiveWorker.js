@@ -1,5 +1,5 @@
 import {
-    GroupRelicsByType, DeepCopyBuild, getRelicSets
+    GroupRelicsByType, DeepCopyBuild
 } from "$lib/components/buildSuggestions/BuildSuggestions.js";
 import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
 import { isBuildNewFormat } from "$lib/components/profile/temp.js";
@@ -48,10 +48,8 @@ let localBuild;
 let selectedCategory;
 function evalBuild(item1, item2, item3, item4, item5, item6) {
     let r = [item1, item2, item3, item4, item5, item6];
-    let sets = getRelicSets(r);
     localBuild["frontScore"][selectedCategory] = 0;
     localBuild["r"] = r;
-    localBuild['rs'] = sets;
     localBuild = score_build(localBuild);
     let score = localBuild["frontScore"][selectedCategory];
     return score;

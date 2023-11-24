@@ -11,14 +11,16 @@
     }
 
     function getRemovedSpdPattern(str) {
-    let removed = str.match(/(_+\d{3})+$/);
-    if (!removed) {
-        removed = str.match(/_+$/);
+        let removed = str.match(/(_+\d{3})+$/);
+        if (!removed) {
+            removed = str.match(/_+$/);
+        }
+        return removed ? removed[0] : "";
     }
-    return removed ? removed[0] : '';
-}
     function teamCategoriesCase(str) {
         switch (str) {
+            case "1005":
+                return ["Solo", "HUOGNF"];
             case "1213":
                 return ["Solo", "YK"];
             case "1102":
@@ -38,9 +40,17 @@
         let newList = [];
         for (let i = 0; i < teamCategories.length; i++) {
             if (teamCategories[i] === "Solo") {
-                newList.push("../" + ctgrRaw + getRemovedSpdPattern(fullctgrRaw) + "/");
+                newList.push(
+                    "../" + ctgrRaw + getRemovedSpdPattern(fullctgrRaw) + "/",
+                );
             } else {
-                newList.push("../" + ctgrRaw + teamCategories[i] + getRemovedSpdPattern(fullctgrRaw) + "/");
+                newList.push(
+                    "../" +
+                        ctgrRaw +
+                        teamCategories[i] +
+                        getRemovedSpdPattern(fullctgrRaw) +
+                        "/",
+                );
             }
         }
         return newList;

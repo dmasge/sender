@@ -126,5 +126,40 @@ export const lc_dict_by_id = {
         'atk' : 582.12,
         'def' : 330.75
     },
-
+    '21001' : {
+        // Good Night and Sleep Well
+        'hp'  : 952.56,
+        'atk' : 476.28,
+        'def' : 330.75
+    },
+    '21022' : {
+        // Fermata
+        'hp'  : 952.56,
+        'atk' : 476.28,
+        'def' : 330.75,
+    },
+    '21008' : {
+        // Eyes of the Prey
+        'hp' : 952.56,
+        'atk': 476.28,
+        'def': 330.75,
+    },
+    '24003' : {
+        // Solitary Healing
+        'hp' : 1058.4,
+        'atk': 529.2,
+        'def': 396.9,
+    },
+    '23004' : {
+        // In the Name of the World
+        'hp' : 1058.4,
+        'atk': 582.12,
+        'def': 463.05,
+    },  
+    '23006' : {
+        // Patience Is All You Need
+        'hp' : 1058.4,
+        'atk' : 582.12,
+        'def' : 463.05,
+    }, 
 }

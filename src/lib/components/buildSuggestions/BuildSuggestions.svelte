@@ -38,7 +38,6 @@
             exhaustiveWorker.terminate();
             results.push([bestScore, bestSolution]);
             displayBuild();
-            // You can also update your UI here
         };
     }
 

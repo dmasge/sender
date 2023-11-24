@@ -32,7 +32,14 @@
     function speedCategoriesCase(str) {
         switch (str) {
             case "1005":
-                return ["Base", "134", "151", "161"];
+                if (ctgr.includes("E1S1") && ctgr.includes("GNF") ){
+                    return ["Base", "134", "143", "161", "172", "201"]
+                } else if (ctgr.includes("E1S5") && ctgr.includes("GNF") ){
+                    return ["Base", "143", "161", "172", "201"];
+                } else if (ctgr.includes("E1S5")){
+                    return ["Base", "134", "143", "161", "172", "201"];
+                }
+                return ["Base", "121", "134", "143", "161", "172", "201"];
             case "1205":
                 return ["Base", "121", "134", "143"];
             case "1102":

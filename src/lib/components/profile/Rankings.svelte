@@ -44,7 +44,7 @@
                             on:click={() =>
                                 (index =
                                     (index - 1 + entries.length) %
-                                    entries.length)}>{"⇦"}</button
+                                    entries.length)}><div class="buttonDiv">{"<"}</div></button
                         >
                     {/if}
 
@@ -58,7 +58,7 @@
                         <button
                             on:click={() =>
                                 (index = (index + 1) % entries.length)}
-                            >{"⇨"}</button
+                            ><div class="buttonDiv">{">"}</div></button
                         >
                     {/if}
                 </div>
@@ -94,8 +94,12 @@
     }
     button {
         border-color: transparent;
-        font-size: 20px;
-        padding: 1px;
+        font-size: 18px;
+        padding: 0px;
+        margin: 0;
+    }
+    .buttonDiv{
+        width: 20px;
     }
 
     @media (max-width: 850px) {

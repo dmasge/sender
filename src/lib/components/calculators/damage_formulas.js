@@ -46,6 +46,9 @@ export function outgoing_dmg_2({
 
     return final_dmg;
 }
+export function outgoing_dmg_js(params) {
+    return outgoing_dmg_2(params);
+}
 
 
 export function hit_prob(base_chance, ehr, enemy_res = 40) {

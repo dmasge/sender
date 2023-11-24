@@ -8,6 +8,12 @@
 
     function GetEidSuperCategoriesCase(str) {
         switch (str) {
+            case "1005":
+                if (ctgr.includes("23006")) {
+                    return ["E0S1", "E1S1", "E1S5"];
+                } else {
+                    return [];
+                }
             case "1102":
                 if (ctgr.includes("23001")) {
                     return ["E0S1", "E1S1", "E2S1", "E2S5"];

@@ -112,6 +112,32 @@ export const leaderboards = [
             url: "/{charId}/E0S1_23002PL_134/1", desc: " "
         }
     ]),
+    generateLeaderboard('1005', 'Kafka', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23006.png',
+            url: "/{charId}/E1S1_23006_134/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21001.png',
+            url: "/{charId}/E0S5_21001_134/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21022.png',
+            url: "/{charId}/E0S5_21022_134/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23004.png',
+            url: "/{charId}/E0S1_23004_134/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24003.png',
+            url: "/{charId}/E0S5_24003_134/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21008.png',
+            url: "/{charId}/E0S5_21008_134/1", desc: ""
+        },
+    ]),
     generateLeaderboard('1205', 'Blade', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23009.png',
@@ -129,7 +155,7 @@ export const leaderboards = [
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23002.png',
             url: "/{charId}/E0S1_23002BN/1", desc: " "
         }
-        
+
     ]),
     generateLeaderboard('1003', 'Himeko', [
         {
@@ -156,13 +182,13 @@ export const leaderboards = [
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21006.png',
             url: "/{charId}/E0S5_21006/1", desc: " "
         },
-        
+
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21034.png',
             url: "/{charId}/E0S5_21034/1", desc: " "
         },
     ]),
-    
+
     generateLeaderboard('1209', 'Yanqing', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
@@ -192,13 +218,7 @@ export const leaderboards = [
         { pic: under, url: "/{charId}/E0S5_21019/1", desc: " " },
         { pic: irreplaceable, url: "/{charId}/E0S1_23002/1", desc: " " }
     ]),
-    generateLeaderboard('1005', 'Kafka', [
-        { pic: patience, url: "/{charId}/E0S1_patience_134/1", desc: "" },
-        { pic: gn, url: "/{charId}/E0S5_gn_134/1", desc: "" },
-        { pic: fermata, url: "/{charId}/E0S5_fermata_134/1", desc: "" },
-        { pic: name, url: "/{charId}/E0S1_name_134/1", desc: "" },
-        { pic: eyes, url: "/{charId}/E0S5_eyes_134/1", desc: "" }
-    ]),
+
     generateLeaderboard('1006', 'Silver Wolf', [
         { pic: tutorial, url: "/{charId}/tutorial_134/1", desc: " " },
         { pic: rain, url: "/{charId}/rain_134/1", desc: " " },
