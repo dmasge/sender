@@ -68,28 +68,6 @@ export const leaderboards = [
         },
 
     ]),
-    generateLeaderboard('1208', 'Fu Xuan', [
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23011.png',
-            url: "/{charId}/E0S1_ERR23011_121/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24002.png',
-            url: "/{charId}/E0S5_ERR24002_121/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21009.png',
-            url: "/{charId}/E0S5_ERR21009_121/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23005.png',
-            url: "/{charId}/E0S1_ERR23005_121/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21002.png',
-            url: "/{charId}/E0S5_ERR21002_121/1", desc: " "
-        }
-    ]),
     generateLeaderboard('1212', 'Jingliu', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23014.png',
@@ -110,6 +88,50 @@ export const leaderboards = [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23002.png',
             url: "/{charId}/E0S1_23002PL_134/1", desc: " "
+        }
+    ]),
+    generateLeaderboard('1112', 'Topaz', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23016.png',
+            url: "/{charId}/E0S1_23016/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24001.png',
+            url: "/{charId}/E0S5_24001/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21010.png',
+            url: "/{charId}/E0S5_21010/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
+            url: "/{charId}/E0S1_23012/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21003.png',
+            url: "/{charId}/E0S5_21003/1", desc: " "
+        }
+    ]),
+    generateLeaderboard('1208', 'Fu Xuan', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23011.png',
+            url: "/{charId}/E0S1_ERR23011_121/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24002.png',
+            url: "/{charId}/E0S5_ERR24002_121/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21009.png',
+            url: "/{charId}/E0S5_ERR21009_121/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23005.png',
+            url: "/{charId}/E0S1_ERR23005_121/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21002.png',
+            url: "/{charId}/E0S5_ERR21002_121/1", desc: " "
         }
     ]),
     generateLeaderboard('1005', 'Kafka', [

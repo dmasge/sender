@@ -21,6 +21,8 @@
         switch (str) {
             case "1005":
                 return ["Solo", "HUOGNF"];
+            case "1112":
+                return ["Solo", "FXASTA"];
             case "1213":
                 return ["Solo", "YK"];
             case "1102":
@@ -41,15 +43,16 @@
         for (let i = 0; i < teamCategories.length; i++) {
             if (teamCategories[i] === "Solo") {
                 newList.push(
-                    "../" + ctgrRaw + getRemovedSpdPattern(fullctgrRaw) + "/",
+                    "../" + ctgrRaw  // + getRemovedSpdPattern(fullctgrRaw)
+                     + "/",
                 );
             } else {
                 newList.push(
                     "../" +
                         ctgrRaw +
-                        teamCategories[i] +
-                        getRemovedSpdPattern(fullctgrRaw) +
-                        "/",
+                        teamCategories[i] 
+                        // + getRemovedSpdPattern(fullctgrRaw) 
+                        + "/",
                 );
             }
         }

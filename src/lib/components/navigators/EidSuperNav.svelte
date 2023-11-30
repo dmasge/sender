@@ -14,6 +14,12 @@
                 } else {
                     return [];
                 }
+            case "1112":
+                if (ctgr.includes("23016")) {
+                    return ["E0S1", "E0S5"];
+                } else {
+                    return [];
+                }
             case "1102":
                 if (ctgr.includes("23001")) {
                     return ["E0S1", "E1S1", "E2S1", "E2S5"];

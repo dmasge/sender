@@ -21,13 +21,16 @@
     if (key.includes("HUO")) {
         teamMateIds.push("1217");
     }
+    if (key.includes("ASTA")) {
+        teamMateIds.push("1009");
+    }
 </script>
 
 <div style="display: flex; flex-direction: row;">
     {#each teamMateIds as teamMateId}
         <div style="height: 25px; overflow: hidden; margin:2px; width:{75 / teamMateIds.length + 'px'}">
             <img
-                style="scale:2.7; margin-top:{(teamMateIds.length == 2 ? 12.5 : 0) + 'px'};"
+                style="scale:{(teamMateIds.length == 2 ? 1.8 : 2.5)}; margin-top:{(teamMateIds.length == 2 ? 7 : 0) + 'px'};"
                 src={starRailRes + "icon/character/" + teamMateId + extension}
                 alt={"..."}
             />

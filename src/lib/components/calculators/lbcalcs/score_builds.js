@@ -6,6 +6,7 @@ import { score_himeko } from "$lib/components/calculators/lbcalcs/himeko.js"
 import { score_jingliu } from "$lib/components/calculators/lbcalcs/jingliu.js"
 import { score_blade } from "$lib/components/calculators/lbcalcs/blade.js"
 import { score_kafka } from "$lib/components/calculators/lbcalcs/kafka.js"
+import { score_topaz } from "$lib/components/calculators/lbcalcs/topaz.js"
 
 export function score_build(build) {
     try {
@@ -21,6 +22,8 @@ export function score_build(build) {
             return score_blade(build);
         } else if (build['k'] === "1005") {
             return score_kafka(build);
+        } else if (build['k'] === "1112") {
+            return score_topaz(build);
         } 
     } catch (error) {
         console.log(error);

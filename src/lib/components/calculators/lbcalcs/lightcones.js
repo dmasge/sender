@@ -162,4 +162,16 @@ export const lc_dict_by_id = {
         'atk' : 582.12,
         'def' : 463.05,
     }, 
+    '23016' : {
+        // Worrisome, Blissful
+        'hp' : 1058.4,
+        'atk' : 582.12,
+        'def' : 463.05,
+    }, 
+    '21003' : {
+        // OnlySilenceRemains
+        'hp' : 952.56,
+        'atk' : 476.28,
+        'def' : 330.75,
+    }, 
 }

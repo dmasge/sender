@@ -28,6 +28,7 @@ export function BuildStatsCalculatorNew(params){
             trace_damage_bonus: 0,
             trace_break_effect:0,
             trace_dot_bonus : 0,
+            The_Ashblazing_Grand_Duke_ATK_p : 0,
             count_conditionals: true,
         };
         var params = {...defaultValues, ...params};
@@ -92,6 +93,7 @@ export function BuildStatsCalculatorNew(params){
         var self_final_lightn = 0;
         var self_final_phys = 0;
         var self_final_err = 0;
+        var self_The_Ashblazing_Grand_Duke_ATK_p = params.The_Ashblazing_Grand_Duke_ATK_p;
         //
         get_stat_modifiers_from_build()
         var result = finalized_stats();
@@ -318,6 +320,8 @@ export function BuildStatsCalculatorNew(params){
                         self_atk_p += 8 * stack_atk_p;
                     } else if (self_build['k'].includes("1107")){ // clara
                         self_atk_p += 3 * stack_atk_p;
+                    } else if (self_build['k'].includes("1112")){ // topaz
+                        self_atk_p += self_The_Ashblazing_Grand_Duke_ATK_p;
                     } 
                 }
             } else if (set_id === "116") { // Prisoner in Deep Confinement

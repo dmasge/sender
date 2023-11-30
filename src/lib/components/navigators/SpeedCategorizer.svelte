@@ -50,6 +50,11 @@
                 }
             case "1107":
                 return ["Base", "121", "134"];
+            case "1112":
+                if (ctgr.includes("ASTA") ){
+                    return ["Base", "172", "201"]
+                } 
+                return ["Base", "121", "134", "143", "161", "172", "201"];
             case "1213":
                 return ["Base", "121", "134"];
             case "1003":
