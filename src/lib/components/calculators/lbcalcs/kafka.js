@@ -7,75 +7,87 @@ let char_base_hp = 1086.624;
 let char_base_atk = 679.14;
 let char_base_spd = 100;
 
-export function score_kafka(build) {
+export function score_kafka(build, optimizationTarget) {
     let score = 0;
     let spd = 0;
     let lbstats = [];
     let calcDetails = [];
     let breakpoints = ["", "120.1", "133.34", "142.9", "160.1", "171.5", "200.1"];
 
+    if (optimizationTarget == "" || (optimizationTarget != "" && !optimizationTarget.includes("HUOGNF")))
+        if ("23006" == build['lc']['id'] && build['e'] >= 1 && build['lc']['s'] >= 3) {
+            breakpoints = ["", "133.34", "142.9", "160.1", "171.5", "200.1"];
+            [score, spd, lbstats, calcDetails] = E1S5_23006_PatienceIsAllYouNeed(build);
+            let ctgrname = 'E1S5_' + build['lc']['id'];
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("23006" == build['lc']['id'] && build['e'] >= 1) {
+            [score, spd, lbstats, calcDetails] = E1S1_23006_PatienceIsAllYouNeed(build);
+            let ctgrname = 'E1S1_' + build['lc']['id'];
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("23006" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S1_23006_PatienceIsAllYouNeed(build);
+            let ctgrname = 'E0S1_' + build['lc']['id'];
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+            [score, spd, lbstats, calcDetails] = E0S1_23006_PatienceIsAllYouNeed(build, true, true);
+        } else if ("21001" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S5_21001_GoodNightandSleepWell(build);
+            let ctgrname = 'E0S5_' + build['lc']['id'];
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("21022" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S5_21022_Fermata(build);
+            let ctgrname = 'E0S5_' + build['lc']['id'];
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("21008" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S5_21008_EyesofthePrey(build);
+            let ctgrname = 'E0S5_' + build['lc']['id'];
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("24003" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S5_24003_SolitaryHealing(build);
+            let ctgrname = 'E0S5_' + build['lc']['id'];
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("23004" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S1_23004_IntheNameoftheWorld(build);
+            let ctgrname = 'E0S1_' + build['lc']['id'];
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        }
 
-    if ("23006" == build['lc']['id'] && build['e'] >= 1 && build['lc']['s'] >= 3) {
-        breakpoints = ["", "133.34", "142.9", "160.1", "171.5", "200.1"];
-        [score, spd, lbstats, calcDetails] = E1S5_23006_PatienceIsAllYouNeed(build);
-        let ctgrname = 'E1S5_' + build['lc']['id'];
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        breakpoints = ["",  "142.9", "160.1", "171.5", "200.1"];
-        [score, spd, lbstats, calcDetails] = E1S5_23006_PatienceIsAllYouNeed(build, true, true);
-        ctgrname = 'E1S5_' + build['lc']['id'] + "HUOGNF";
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("23006" == build['lc']['id'] && build['e'] >= 1) {
-        [score, spd, lbstats, calcDetails] = E1S1_23006_PatienceIsAllYouNeed(build);
-        let ctgrname = 'E1S1_' + build['lc']['id'];
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        breakpoints = ["", "133.34", "142.9", "160.1", "171.5", "200.1"];
-        [score, spd, lbstats, calcDetails] = E1S1_23006_PatienceIsAllYouNeed(build, true, true);
-        ctgrname = 'E1S1_' + build['lc']['id'] + "HUOGNF";
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("23006" == build['lc']['id']) {
-        [score, spd, lbstats, calcDetails] = E0S1_23006_PatienceIsAllYouNeed(build);
-        let ctgrname = 'E0S1_' + build['lc']['id'];
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        [score, spd, lbstats, calcDetails] = E0S1_23006_PatienceIsAllYouNeed(build, true, true);
-        breakpoints = ["", "133.34", "142.9", "160.1", "171.5", "200.1"];
-        ctgrname = 'E0S1_' + build['lc']['id'] + "HUOGNF";
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("21001" == build['lc']['id']) {
-        [score, spd, lbstats, calcDetails] = E0S5_21001_GoodNightandSleepWell(build);
-        let ctgrname = 'E0S5_' + build['lc']['id'];
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        [score, spd, lbstats, calcDetails] = E0S5_21001_GoodNightandSleepWell(build, true, true);
-        ctgrname = 'E0S5_' + build['lc']['id'] + "HUOGNF";
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("21022" == build['lc']['id']) {
-        [score, spd, lbstats, calcDetails] = E0S5_21022_Fermata(build);
-        let ctgrname = 'E0S5_' + build['lc']['id'];
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        [score, spd, lbstats, calcDetails] = E0S5_21022_Fermata(build, true, true);
-        ctgrname = 'E0S5_' + build['lc']['id'] + "HUOGNF";
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("21008" == build['lc']['id']) {
-        [score, spd, lbstats, calcDetails] = E0S5_21008_EyesofthePrey(build);
-        let ctgrname = 'E0S5_' + build['lc']['id'];
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        [score, spd, lbstats, calcDetails] = E0S5_21008_EyesofthePrey(build, true, true);
-        ctgrname = 'E0S5_' + build['lc']['id'] + "HUOGNF";
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("24003" == build['lc']['id']) {
-        [score, spd, lbstats, calcDetails] = E0S5_24003_SolitaryHealing(build);
-        let ctgrname = 'E0S5_' + build['lc']['id'];
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        [score, spd, lbstats, calcDetails] = E0S5_24003_SolitaryHealing(build, true, true);
-        ctgrname = 'E0S5_' + build['lc']['id'] + "HUOGNF";
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("23004" == build['lc']['id']) {
-        [score, spd, lbstats, calcDetails] = E0S1_23004_IntheNameoftheWorld(build);
-        let ctgrname = 'E0S1_' + build['lc']['id'];
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        [score, spd, lbstats, calcDetails] = E0S1_23004_IntheNameoftheWorld(build, true, true);
-        ctgrname = 'E0S1_' + build['lc']['id'] + "HUOGNF";
-        build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    }
+    if (optimizationTarget == "" || (optimizationTarget != "" && optimizationTarget.includes("HUOGNF")))
+        if ("23006" == build['lc']['id'] && build['e'] >= 1 && build['lc']['s'] >= 3) {
+            breakpoints = ["", "142.9", "160.1", "171.5", "200.1"];
+            [score, spd, lbstats, calcDetails] = E1S5_23006_PatienceIsAllYouNeed(build, true, true);
+            let ctgrname = 'E1S5_' + build['lc']['id'] + "HUOGNF";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("23006" == build['lc']['id'] && build['e'] >= 1) {
+            breakpoints = ["", "133.34", "142.9", "160.1", "171.5", "200.1"];
+            [score, spd, lbstats, calcDetails] = E1S1_23006_PatienceIsAllYouNeed(build, true, true);
+            let ctgrname = 'E1S1_' + build['lc']['id'] + "HUOGNF";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("23006" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S1_23006_PatienceIsAllYouNeed(build, true, true);
+            breakpoints = ["", "133.34", "142.9", "160.1", "171.5", "200.1"];
+            let ctgrname = 'E0S1_' + build['lc']['id'] + "HUOGNF";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("21001" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S5_21001_GoodNightandSleepWell(build, true, true);
+            let ctgrname = 'E0S5_' + build['lc']['id'] + "HUOGNF";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("21022" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S5_21022_Fermata(build, true, true);
+            let ctgrname = 'E0S5_' + build['lc']['id'] + "HUOGNF";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("21008" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S5_21008_EyesofthePrey(build, true, true);
+            let ctgrname = 'E0S5_' + build['lc']['id'] + "HUOGNF";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("24003" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S5_24003_SolitaryHealing(build, true, true);
+            let ctgrname = 'E0S5_' + build['lc']['id'] + "HUOGNF";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("23004" == build['lc']['id']) {
+            [score, spd, lbstats, calcDetails] = E0S1_23004_IntheNameoftheWorld(build, true, true);
+            let ctgrname = 'E0S1_' + build['lc']['id'] + "HUOGNF";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        }
     return build;
 }
 

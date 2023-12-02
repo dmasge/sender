@@ -14,7 +14,7 @@ function calcIt(build, relics, fifth, totalWorkers, selectedCategory) {
         return;
     }
     try {
-        let types = GroupRelicsByType(relics);
+        let types = relics; // GroupRelicsByType(relics);
 
         // Find the index of the type with the most items
         let indexOfMaxItems = types.reduce((iMax, x, i, arr) => x.length > arr[iMax].length ? i : iMax, 0);
@@ -50,7 +50,7 @@ function evalBuild(item1, item2, item3, item4, item5, item6) {
     let r = [item1, item2, item3, item4, item5, item6];
     localBuild["frontScore"][selectedCategory] = 0;
     localBuild["r"] = r;
-    localBuild = score_build(localBuild);
+    localBuild = score_build(localBuild, selectedCategory);
     let score = localBuild["frontScore"][selectedCategory];
     return score;
 }
@@ -60,8 +60,6 @@ export function findByExhaustiveCombination(type1, type2, type3, type4, type5, t
     selectedCategory = selectedCategory_;
     let maxScore = -Infinity;
     let bestCombination = null;
-    // let totalCombinations = type1.length * type2.length * type3.length * type4.length * type5.length * type6.length;
-    // console.log("Total combinations: " + totalCombinations);
 
     for (let item1 of type1) {
         for (let item2 of type2) {
@@ -79,6 +77,7 @@ export function findByExhaustiveCombination(type1, type2, type3, type4, type5, t
                 }
             }
         }
+        self.postMessage({ bestScore : -5, bestSolution : type2.length * type3.length * type4.length * type5.length * type6.length }); // -5 means this is just reporting number of combinations in bestSolution
     }
 
     return [maxScore, bestCombination];

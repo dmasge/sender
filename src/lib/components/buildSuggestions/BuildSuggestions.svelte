@@ -4,6 +4,7 @@
         selectedCategoryWriteable,
         DeepCopyBuild,
         getRelicSets,
+        GroupRelicsByType,
     } from "$lib/components/buildSuggestions/BuildSuggestions.js";
     import { loadUnlockedRelics } from "$lib/cache/relicsDbLock.js";
     import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
@@ -35,34 +36,55 @@
         });
         exhaustiveWorker.onmessage = function (event) {
             const { bestScore, bestSolution } = event.data;
-            exhaustiveWorker.terminate();
-            results.push([bestScore, bestSolution]);
-            displayBuild();
+            if (bestScore == -5) {
+                // -5 means hasn't finished and just reporting number of combinations
+                combinationsTried += bestSolution;
+                endTime = new Date();
+            } else {
+                exhaustiveWorker.terminate();
+                results.push([bestScore, bestSolution]);
+                //endTime = new Date();
+                displayBuild();
+            }
         };
     }
 
     function TopLogic() {
+        startTime = new Date();
+        endTime = startTime;
         showInstructions = true;
         isCalculating = true;
         calcDone = false;
         bestBuild = undefined;
+        combinationsTried = 0;
+        combinationsTotal = 0;
         results = [];
+
         let relics = loadUnlockedRelics(uid);
+        let relicsByType = GroupRelicsByType(relics);
+        combinationsTotal = relicsByType.reduce(
+            (total, type) => total * type.length,
+            1,
+        );
+
         for (let i = 0; i < totalWorkers; i++) {
-            RunWorker(relics, i, totalWorkers);
+            RunWorker(relicsByType, i, totalWorkers);
         }
     }
 
+    let startTime, endTime;
     let calcDone = false;
     let isCalculating = false;
     let bestBuild = undefined;
     let bestScore = 0;
     let bestCombination;
     let showInstructions = false;
+    let combinationsTried = 0;
+    let combinationsTotal = 0;
     function displayBuild() {
         if (results.length == totalWorkers) {
             [bestScore, bestCombination] = results.reduce((max, curr) =>
-                curr[0] > max[0] ? curr : max
+                curr[0] > max[0] ? curr : max,
             );
             bestBuild = DeepCopyBuild(build);
             bestBuild["r"] = bestCombination;
@@ -81,37 +103,18 @@
         <div
             style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
         >
-            <!-- {#if !isCalculating} -->
             <button disabled={isCalculating} on:click={() => TopLogic()}>
                 <p>Optimize Build</p>
             </button>
-            <!-- {/if} -->
+            {#if isCalculating || calcDone}
+                <p>{combinationsTried + " / " + combinationsTotal}</p>
+                <p>{"Time taken: " + ((endTime - startTime) / 1000).toFixed(2) + " seconds"}</p>
+            {/if}
             {#if showInstructions}
                 <br />
                 <p style="font-size: 13px;">
-                    This tries out all your relic combinations to find the best
-                    for your current leaderboard bracket.
-                </p>
-                <p style="font-size: 13px;">
-                    If you have 20 relics per slot that means 20<sup>6</sup> combinations,
-                    equivalent of 64 000 000
-                </p>
-                <p style="font-size: 13px;">
-                    This can get extremely computationally intensive and may
-                    take an eternity to return any result.
-                </p>
-                <p style="font-size: 13px;">
-                    To avoid this issue lock 🔏 your relics from the inventory
-                    below.
-                </p>
-                <p style="font-size: 13px;" />
-                <p style="font-size: 13px;">
-                    Locked relics are skipped and this reduces total possible
-                    combinations, consequently results are returned faster.
-                </p>
-                <p style="font-size: 13px;">
-                    For example you could lock EHR body when optimizing for
-                    Seele.
+                    To get results faster lock 🔏 your relics from the inventory
+                    below. Locked relics are skipped.
                 </p>
                 <p style="font-size: 13px;">
                     If your character is ranked in more than one bracket first
@@ -120,8 +123,7 @@
                 </p>
                 <p style="font-size: 13px;">
                     To add new relics refresh with them equipped. Your browser
-                    will remember them and they can be used in optimization. You
-                    can also save characters you don't use with relics equipped as "wardrobes".
+                    will save them. You can also save characters you don't use with relics equipped.
                 </p>
             {/if}
             {#if calcDone}

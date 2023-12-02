@@ -40,7 +40,7 @@
 </script>
 
 <div style="background-color: #000000A0; padding: 10px; text-align: center;">
-    <p style="font-weight: 700;  font-size: 20px; margin:0;">Use sliders to set weights</p>
+    <p style="font-weight: 700;  font-size: 20px; margin:0;"> Relics Inventory</p>
 </div>
 
 {#if browser}
