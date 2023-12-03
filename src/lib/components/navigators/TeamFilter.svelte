@@ -1,5 +1,6 @@
 <script>
     import { page } from "$app/stores";
+    import { teamCategoriesCase } from "$lib/components/navigators/TeamFilter.js";
     let str = $page.url.pathname;
 
     let splitStr = str.split("/");
@@ -17,20 +18,7 @@
         }
         return removed ? removed[0] : "";
     }
-    function teamCategoriesCase(str) {
-        switch (str) {
-            case "1005":
-                return ["Solo", "HUOGNF"];
-            case "1112":
-                return ["Solo", "FXASTA"];
-            case "1213":
-                return ["Solo", "YK"];
-            case "1102":
-                return ["Solo", "FX"];
-            default:
-                return [];
-        }
-    }
+   
     let teamCategories = teamCategoriesCase(charId);
     let fullctgrRaw = teamCategories.reduce((ctgr, str) => {
         return ctgr.replace(new RegExp(str, "g"), "");

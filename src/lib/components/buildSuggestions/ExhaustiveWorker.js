@@ -75,8 +75,8 @@ export function findByExhaustiveCombination(type1, type2, type3, type4, type5, t
                         }
                     }
                 }
+                self.postMessage({ bestScore: -5, bestSolution: type4.length * type5.length * type6.length }); // -5 means this is just reporting number of combinations in bestSolution
             }
-            self.postMessage({ bestScore : -5, bestSolution : type3.length * type4.length * type5.length * type6.length }); // -5 means this is just reporting number of combinations in bestSolution
         }
     }
 

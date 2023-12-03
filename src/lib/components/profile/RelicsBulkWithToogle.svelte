@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+
     export let build;
     let relics = build["r"];
     import RelicsBulk from "$lib/components/RelicsBulk.svelte";
@@ -16,6 +17,7 @@
     import LbCalcDesc from "./LbCalcDesc.svelte";
     import CalcDetails from "./CalcDetails.svelte";
     import ChaseSubs from "./ChaseSubs.svelte";
+    import BracketSelector from "./BracketSelector.svelte";
     export let selectedCategory;
     export let expanded = false;
     let isCalcsDone = false;
@@ -32,7 +34,7 @@
     if (browser) {
         try {
             async function performCalculations() {
-                build["rs"] = getRelicSets(build['r']);
+                build["rs"] = getRelicSets(build["r"]);
                 if (isBuildNewFormat(build)) {
                     try {
                         build = score_build(build);
@@ -67,6 +69,8 @@
 </script>
 
 {#if isCalcsDone}
+    <BracketSelector {build} bind:selectedCategory></BracketSelector>
+    <div style="margin: -1px;"></div>
     <div in:fly={{ x: -200, duration: 300 }} class="tooglableParentDiv">
         <Rankings {build} redirect={expanded} bind:selectedCategory />
         {#if isNewFormat}

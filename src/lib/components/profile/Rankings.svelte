@@ -1,15 +1,12 @@
 <script>
     export let build;
-    import { selectedCategoryWriteable } from "$lib/components/buildSuggestions/BuildSuggestions.js";
     import ScoringDetails from "$lib/components/profile/ScoringDetails.svelte";
 
     let isRanked = build["lb"] ? Object.keys(build["lb"]).length > 0 : false;
 
     export let selectedCategory;
-    let index; // start from the first item
     let entries;
     if (isRanked) {
-        index = 0; // start from the first item
         build["lb"] = Object.entries(build["lb"])
             .sort((a, b) => a[1].percraw - b[1].percraw)
             .reduce((obj, [key, val]) => {
@@ -19,16 +16,8 @@
         entries = Object.entries(build["lb"]);
     }
 
-    $: selectedCategory =
-        entries && entries[index] ? entries[index][0] : undefined;
-    $: updateWriteable(selectedCategory);
+   
 
-    function updateWriteable(selectedCategory) {
-        if (selectedCategory != undefined && selectedCategory != "undefined") {
-            selectedCategoryWriteable.update(() => selectedCategory);
-        }
-    }
-    
     import LbRankDisplay from "$lib/components/profile/LbRankDisplay.svelte";
 
     import { isBuildNewFormat } from "$lib/components/profile/temp.js";
@@ -38,28 +27,11 @@
     {#if isRanked}
         <div>
             {#if entries && entries.length > 0}
-                <div style="display: flex;">
-                    {#if entries.length > 1}
-                        <button
-                            on:click={() =>
-                                (index =
-                                    (index - 1 + entries.length) %
-                                    entries.length)}><div class="buttonDiv">{"<"}</div></button
-                        >
-                    {/if}
-
+                <div>
                     {#if isBuildNewFormat(build)}
                         <LbRankDisplay {build} key={selectedCategory} />
                     {:else}
-                        <ScoringDetails {build} key={entries[index][0]} />
-                    {/if}
-
-                    {#if entries.length > 1}
-                        <button
-                            on:click={() =>
-                                (index = (index + 1) % entries.length)}
-                            ><div class="buttonDiv">{">"}</div></button
-                        >
+                        <ScoringDetails {build} key={selectedCategory} />
                     {/if}
                 </div>
             {/if}
@@ -91,15 +63,6 @@
     }
     p {
         margin: 3px;
-    }
-    button {
-        border-color: transparent;
-        font-size: 18px;
-        padding: 0px;
-        margin: 0;
-    }
-    .buttonDiv{
-        width: 20px;
     }
 
     @media (max-width: 850px) {

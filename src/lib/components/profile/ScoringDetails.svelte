@@ -93,13 +93,13 @@
     };
 
     function findTeam(teams, key, str) {
-        if (teams.hasOwnProperty(key)) {
-            for (let subKey in teams[key]) {
-                if (str.includes(subKey)) {
-                    return teams[key][subKey];
-                }
-            }
-        }
+        // if (teams.hasOwnProperty(key)) {
+        //     for (let subKey in teams[key]) {
+        //         if (str.includes(subKey)) {
+        //             return teams[key][subKey];
+        //         }
+        //     }
+        // }
         return null;
     }
     $: team = findTeam(teams, build["k"], key);

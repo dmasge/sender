@@ -117,9 +117,8 @@
                     below. Locked relics are skipped.
                 </p>
                 <p style="font-size: 13px;">
-                    If your character is ranked in more than one bracket first
-                    set the bracket you're interested in and only then click on
-                    optimize.
+                    If character is ranked in more than one bracket
+                    select the bracket of interest and then optimize.
                 </p>
                 <p style="font-size: 13px;">
                     To add new relics refresh with them equipped. Your browser

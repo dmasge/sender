@@ -4,9 +4,10 @@
         capitalizeAndRemoveUnderscores,
         getPicForCtgr,
     } from "$lib/leaderboards.js";
-    
+
+    import { browser } from "$app/environment";
     export let data;
-    
+
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
@@ -23,10 +24,6 @@
     let jsonData = data.lbData;
 </script>
 
-<BuildsLeaderboard
-        {ctgr}
-        {charId}
-        {header}
-        {ctgrImg}
-        {jsonData}
-/>
+{#if browser}
+    <BuildsLeaderboard {ctgr} {charId} {header} {ctgrImg} {jsonData} />
+{/if}
