@@ -73,14 +73,17 @@
     }
 
     let startTime, endTime;
+    let combinationsTried = 0;
+    let combinationsTotal = 0;
+    $: timeTaken = ((endTime - startTime) / 1000).toFixed(2);
+    $: timeLeft = ((endTime - startTime) / 1000 / combinationsTried * (combinationsTotal - combinationsTried)).toFixed(2);
+
     let calcDone = false;
     let isCalculating = false;
     let bestBuild = undefined;
     let bestScore = 0;
     let bestCombination;
     let showInstructions = false;
-    let combinationsTried = 0;
-    let combinationsTotal = 0;
     function displayBuild() {
         if (results.length == totalWorkers) {
             [bestScore, bestCombination] = results.reduce((max, curr) =>
@@ -108,7 +111,8 @@
             </button>
             {#if isCalculating || calcDone}
                 <p>{combinationsTried + " / " + combinationsTotal}</p>
-                <p>{"Time taken: " + ((endTime - startTime) / 1000).toFixed(2) + " seconds"}</p>
+                    <p>{"Time taken: " + timeTaken + "s"}</p>
+                    <p>{"Time left: " + timeLeft + "s"}</p>
             {/if}
             {#if showInstructions}
                 <br />

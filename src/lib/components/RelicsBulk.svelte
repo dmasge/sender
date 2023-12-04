@@ -2,7 +2,10 @@
     export let relics;
     export let charId;
     import Relic from "$lib/components/Relic.svelte";
-    
+    if (relics.every(relic => 't' in relic)) {
+        // If all objects have the 't' field, sort relics in ascending order based on 't' field
+        relics = relics.sort((a, b) => a.t - b.t);
+    }
 </script>
 
 <div class="relicsDiv">
@@ -12,6 +15,7 @@
             <hr style="border:none;" />
         {/if}
     {/each}
+    
 </div>
 
 <style>
