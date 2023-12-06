@@ -50,6 +50,19 @@ export function filterRelicsBySlot(relics) {
     return relicsFiltered;
 }
 
+export function filterRelicsBySet(relics, uniqueSetsToogle) {
+    let relicsFiltered = {};
+    for (let key in relics) {
+        let relic = relics[key];
+        let setId = relic['set'];
+        if (uniqueSetsToogle[setId] === undefined || uniqueSetsToogle[setId]){
+            relicsFiltered[key] = { ...relic};
+        }
+    }
+    return relicsFiltered;
+}
+
+
 import {
     loadSubWeightsInventory,
 } from "$lib/cache/subWeightsInventory.js";

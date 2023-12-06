@@ -54,10 +54,45 @@ export function unlockAllRelics(uid){
     if (browser) {
         let localStorageItem = localStorage.getItem(itemName);
         let parsedlocalStorageItem = localStorageItem ? JSON.parse(localStorageItem) : {};
-        console.log(
-            parsedlocalStorageItem[uid]);
         parsedlocalStorageItem[uid] = {};
-        console.log(parsedlocalStorageItem[uid]);
+        localStorage.setItem(itemName, JSON.stringify(parsedlocalStorageItem));
+        relicsDbLockWriteable.update((n) => parsedlocalStorageItem);
+    }
+}
+
+export function LockAllDisplayedRelics(uid, relics){
+    if (browser) {
+        // relics here is a list of lists
+        // first element (0 index) is key
+        // second elemnt (1 index) is value 
+        let localStorageItem = localStorage.getItem(itemName);
+        let parsedlocalStorageItem = localStorageItem ? JSON.parse(localStorageItem) : {};
+        if (!parsedlocalStorageItem.hasOwnProperty(uid)) {
+            parsedlocalStorageItem[uid] = {};
+        }
+        for (let relic of relics) {
+            let key = relic[0];
+            parsedlocalStorageItem[uid][key] = true;
+        }
+        localStorage.setItem(itemName, JSON.stringify(parsedlocalStorageItem));
+        relicsDbLockWriteable.update((n) => parsedlocalStorageItem);
+    }
+}
+
+export function UnlockAllDisplayedRelics(uid, relics){
+    if (browser) {
+        // relics here is a list of lists
+        // first element (0 index) is key
+        // second elemnt (1 index) is value 
+        let localStorageItem = localStorage.getItem(itemName);
+        let parsedlocalStorageItem = localStorageItem ? JSON.parse(localStorageItem) : {};
+        if (!parsedlocalStorageItem.hasOwnProperty(uid)) {
+            parsedlocalStorageItem[uid] = {};
+        }
+        for (let relic of relics) {
+            let key = relic[0];
+            parsedlocalStorageItem[uid][key] = false;
+        }
         localStorage.setItem(itemName, JSON.stringify(parsedlocalStorageItem));
         relicsDbLockWriteable.update((n) => parsedlocalStorageItem);
     }

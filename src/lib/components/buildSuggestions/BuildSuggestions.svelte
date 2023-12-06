@@ -50,6 +50,15 @@
     }
 
     function TopLogic() {
+        let relics = loadUnlockedRelics(uid);
+        let relicsByType = GroupRelicsByType(relics);
+        let allNonEmpty = relicsByType.every(function (list) {
+            return list.length > 0;
+        });
+        if (!allNonEmpty){
+            alert("Please unlock at least 1 relic per slot");
+            return;
+        }
         startTime = new Date();
         endTime = startTime;
         showInstructions = true;
@@ -59,9 +68,6 @@
         combinationsTried = 0;
         combinationsTotal = 0;
         results = [];
-
-        let relics = loadUnlockedRelics(uid);
-        let relicsByType = GroupRelicsByType(relics);
         combinationsTotal = relicsByType.reduce(
             (total, type) => total * type.length,
             1,
@@ -76,7 +82,10 @@
     let combinationsTried = 0;
     let combinationsTotal = 0;
     $: timeTaken = ((endTime - startTime) / 1000).toFixed(2);
-    $: timeLeft = ((endTime - startTime) / 1000 / combinationsTried * (combinationsTotal - combinationsTried)).toFixed(2);
+    $: timeLeft = (
+        ((endTime - startTime) / 1000 / combinationsTried) *
+        (combinationsTotal - combinationsTried)
+    ).toFixed(2);
 
     let calcDone = false;
     let isCalculating = false;
@@ -101,7 +110,7 @@
 
 {#if isBuildNewFormat(build)}
     <div
-        style="display: flex; margin:auto; justify-content: center; width: 360px;"
+        style="display: flex; justify-content: center; width: 340px; margin:auto;"
     >
         <div
             style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
@@ -111,8 +120,8 @@
             </button>
             {#if isCalculating || calcDone}
                 <p>{combinationsTried + " / " + combinationsTotal}</p>
-                    <p>{"Time taken: " + timeTaken + "s"}</p>
-                    <p>{"Time left: " + timeLeft + "s"}</p>
+                <p>{"Time taken: " + timeTaken + "s"}</p>
+                <p>{"Time left: " + timeLeft + "s"}</p>
             {/if}
             {#if showInstructions}
                 <br />
@@ -121,12 +130,13 @@
                     below. Locked relics are skipped.
                 </p>
                 <p style="font-size: 13px;">
-                    If character is ranked in more than one bracket
-                    select the bracket of interest and then optimize.
+                    If character is ranked in more than one bracket select the
+                    bracket of interest and then optimize.
                 </p>
                 <p style="font-size: 13px;">
                     To add new relics refresh with them equipped. Your browser
-                    will save them. You can also save characters you don't use with relics equipped.
+                    will save them. You can also save characters you don't use
+                    with relics equipped.
                 </p>
             {/if}
             {#if calcDone}

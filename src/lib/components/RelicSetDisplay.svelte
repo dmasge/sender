@@ -48,7 +48,6 @@
         <div style="display: flex; justify-content: center; margin: 1px;">
             
             <img
-                
                 src={getRelicUrl(relicSet["id"])}
                 alt={"..."}
                 class="RelicImg"

@@ -41,6 +41,23 @@ export function addRelicsToDbFromBuilds(uid, builds){
     }
 }
 
+export function removeRelicFromDb(uid, relicKey){
+    if (browser) {
+        let localStorageItem = localStorage.getItem(itemName);
+        let parsedlocalStorageItem = localStorageItem ? JSON.parse(localStorageItem) : {};
+
+        // if no uid on this player, add it
+        if (!parsedlocalStorageItem.hasOwnProperty(uid)) {
+            parsedlocalStorageItem[uid] = {};
+        }
+
+        delete parsedlocalStorageItem[uid][relicKey];
+
+        localStorage.setItem(itemName, JSON.stringify(parsedlocalStorageItem));
+        relicsDbWriteable.update((n) => parsedlocalStorageItem);
+    }
+}
+
 //#region  hash
 function sortedStringify(obj) {
     if (typeof obj !== 'object' || obj === null) {
