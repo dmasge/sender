@@ -6,15 +6,17 @@
     export let builds = [];
     import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
     import RosterTeammates from "./RosterTeammates.svelte";
+    import { isBuildHidden } from "$lib/cache/buildHideToogle.js";
+    export let showAllBuildschecked = false;
     let sortedBuilds = [];
 
     function sortBuilds(builds) {
         // Separate items with 'lb' and without 'lb'
         let withLb = builds.filter(
-            (item) => item.lb && Object.keys(item.lb).length > 0
+            (item) => item.lb && Object.keys(item.lb).length > 0,
         );
         let withoutLb = builds.filter(
-            (item) => !item.lb || Object.keys(item.lb).length === 0
+            (item) => !item.lb || Object.keys(item.lb).length === 0,
         );
 
         // Sort items with 'lb' by 'percraw' in ascending order
@@ -74,120 +76,121 @@
 <div class="parentDiv">
     <div class="loopDiv">
         {#each sortedBuilds as build}
-            <button
-                style="background-color: {build['k'] == selectedBuildK
-                    ? '#382b5470'
-                    : 'transparent'};"
-                on:click={() => (selectedBuildK = build["k"])}
-            >
-                <div class="loopItemDiv">
-                    {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
-                        {@const key = Object.keys(build["lb"])[0]}
-                        {@const lbItem = build["lb"][key]}
-                        {@const breakpoint = getSPD(key)}
-
-                        <p style="padding-top: 4px;">
-                            {lbItem["percrank"].charAt(0).toUpperCase() +
-                                lbItem["percrank"].slice(1)}
-                        </p>
-
-                        <p style="padding: 1px;">
-                            {toKNotationFraction(lbItem["rank"])}
-                        </p>
-                    {:else}
-                        <p>
-                            {@html " "}
-                        </p>
-                        <p>
-                            {@html "-"}
-                        </p>
-                    {/if}
-
-                    <div
-                        style="display: flex; justify-content: center; padding-top:5px;padding-bottom:5px;"
-                    >
-                        <img
-                            src={starRailRes +
-                                "icon/character/" +
-                                build["k"] +
-                                extension}
-                            alt={"..."}
-                            class="RelicImg avatar"
-                        />
-                        <img
-                            src={starRailRes +
-                                "icon/light_cone/" +
-                                build["lc"]["id"] +
-                                extension}
-                            alt={"..."}
-                            class="RelicImg"
-                            style=""
-                        />
-                    </div>
-
-                    <div
-                        style="display: flex; justify-content: space-between; margin-left:-5px; width:90px;"
-                    >
-                        <p>
-                            {"E" + build["e"] + "S" + build["lc"]["s"]}
-                        </p>
-                        <div style="display: flex;">
-                            {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
-                                {@const key = Object.keys(build["lb"])[0]}
-                                {@const breakpoint = getSPD(key)}
-                                {#if is_using_err_rope(build)}
-                                    <img
-                                        style="width: 14px; height:14px; margin-right:-4.5px; "
-                                        src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconEnergyLimit.png"
-                                        alt="spd"
-                                    />
-                                {/if}
-                                {#if "effSpd" in build}
-                                    <div style="display: flex;">
-                                        <div
-                                            style="display: flex; background-color: rgba(0,0,0,0);"
-                                        >
-                                            <img
-                                                style="width: 14px; height:14px; margin-right:-3.5px; "
-                                                src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
-                                                alt="spd"
-                                            />
-
-                                            <p style=" margin-right:-4px;">
-                                                {build["effSpd"][key]}
-                                            </p>
-                                        </div>
-                                    </div>
-                                {:else if breakpoint != ""}
-                                    <div style="display: flex;">
-                                        <div
-                                            style="display: flex; background-color: rgba(0,0,0,0);"
-                                        >
-                                            <img
-                                                style="width: 14px; height:14px; margin-right:-3.5px; "
-                                                src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
-                                                alt="spd"
-                                            />
-
-                                            <p style=" margin-right:-4px;">
-                                                {breakpoint}
-                                            </p>
-                                        </div>
-                                    </div>
-                                {/if}
-                            {/if}
-                        </div>
-                    </div>
-                    <!-- <div style="height: 30px;"> -->
-                    <div style="height: 20px;">
+            {#if !isBuildHidden(build) || showAllBuildschecked}
+                <button
+                    style="background-color: {build['k'] == selectedBuildK
+                        ? '#382b5470'
+                        : 'transparent'};"
+                    on:click={() => (selectedBuildK = build["k"])}
+                >
+                    <div class="loopItemDiv">
                         {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
                             {@const key = Object.keys(build["lb"])[0]}
-                            <RosterTeammates {key} />
+                            {@const lbItem = build["lb"][key]}
+                            {@const breakpoint = getSPD(key)}
+
+                            <p style="padding-top: 4px;">
+                                {lbItem["percrank"].charAt(0).toUpperCase() +
+                                    lbItem["percrank"].slice(1)}
+                            </p>
+                            <p style="padding: 1px;">
+                                {toKNotationFraction(lbItem["rank"])}
+                            </p>
+                        {:else}
+                            <p>
+                                {@html " "}
+                            </p>
+                            <p>
+                                {@html "-"}
+                            </p>
                         {/if}
+
+                        <div
+                            style="display: flex; justify-content: center; padding-top:5px;padding-bottom:5px;"
+                        >
+                            <img
+                                src={starRailRes +
+                                    "icon/character/" +
+                                    build["k"] +
+                                    extension}
+                                alt={"..."}
+                                class="RelicImg avatar"
+                            />
+                            <img
+                                src={starRailRes +
+                                    "icon/light_cone/" +
+                                    build["lc"]["id"] +
+                                    extension}
+                                alt={"..."}
+                                class="RelicImg"
+                                style=""
+                            />
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; margin-left:-5px; width:90px;"
+                        >
+                            <p>
+                                {"E" + build["e"] + "S" + build["lc"]["s"]}
+                            </p>
+                            <div style="display: flex;">
+                                {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
+                                    {@const key = Object.keys(build["lb"])[0]}
+                                    {@const breakpoint = getSPD(key)}
+                                    {#if is_using_err_rope(build)}
+                                        <img
+                                            style="width: 14px; height:14px; margin-right:-4.5px; "
+                                            src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconEnergyLimit.png"
+                                            alt="spd"
+                                        />
+                                    {/if}
+                                    {#if "effSpd" in build}
+                                        <div style="display: flex;">
+                                            <div
+                                                style="display: flex; background-color: rgba(0,0,0,0);"
+                                            >
+                                                <img
+                                                    style="width: 14px; height:14px; margin-right:-3.5px; "
+                                                    src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                                                    alt="spd"
+                                                />
+
+                                                <p style=" margin-right:-4px;">
+                                                    {build["effSpd"][key]}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    {:else if breakpoint != ""}
+                                        <div style="display: flex;">
+                                            <div
+                                                style="display: flex; background-color: rgba(0,0,0,0);"
+                                            >
+                                                <img
+                                                    style="width: 14px; height:14px; margin-right:-3.5px; "
+                                                    src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                                                    alt="spd"
+                                                />
+
+                                                <p style=" margin-right:-4px;">
+                                                    {breakpoint}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    {/if}
+                                {/if}
+                            </div>
+                        </div>
+                        <!-- <div style="height: 30px;"> -->
+                        <div style="height: 20px;">
+                            {#if build.hasOwnProperty("lb") && Object.keys(build["lb"]).length > 0}
+                                {@const key = Object.keys(build["lb"])[0]}
+                                <RosterTeammates {key} />
+                            {/if}
+                        </div>
+                        <!-- </div> -->
                     </div>
-                    <!-- </div> -->
-                </div>
-            </button>
+                </button>
+            {/if}
         {/each}
     </div>
 </div>

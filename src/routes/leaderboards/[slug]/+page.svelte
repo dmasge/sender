@@ -5,6 +5,11 @@
     import { deserialize } from "$app/forms";
     import { addRelicsToDbFromBuilds } from "$lib/cache/relicsDb.js";
     import { recentlyVisitedUID } from "$lib/cache.js";
+    import {
+        toogleBuildHidden,
+        buildHideToogleWriteable,
+        isBuildHidden,
+    } from "$lib/cache/buildHideToogle.js";
     import RelicsParent from "$lib/components/relics/RelicsParent.svelte";
     import Roster from "$lib/components/roster/Roster.svelte";
     import Profile from "./Profile.svelte";
@@ -22,7 +27,7 @@
     let prevUnixTimestamp;
     let jsonData;
     let pl;
-
+    let showAllBuildschecked = false;
     let screenWidth;
 
     onMount(() => {});
@@ -77,59 +82,93 @@
                 console.error("Error:", error);
             });
     }
+
+    let buildHighlightsChanged;
+    buildHideToogleWriteable.subscribe((value) => {
+        buildHighlightsChanged = value;
+    });
 </script>
 
 {#if browser}
-    {#if !jsonData}
-        <Bronbike />
-    {:else}
-        <div style="display: flex; justify-content: center;">
-            <Profile item={jsonData} />
-        </div>
-        <div>
-            <RefreshButton onClick={refreshPlayer} {uid} {prevUnixTimestamp} />
-        </div>
-        {#if builds.length > 0}
-            <Roster {builds} bind:selectedBuildK />
-            <div
-                style="display: flex; margin:auto; justify-content: space-between;"
-            >
-                {#if screenWidth >= 650}
-                    <!-- possible ad -->
-                {/if}
-                <div class="buildsStuff">
-                    <ProfileToLbButton />
-
-                    {#each builds as build}
-                        {#if selectedBuildK == build["k"]}
-                            <BuildSuggestions
-                                uid={pl["id"]}
-                                build={builds.find(
-                                    (i) => i["k"] == selectedBuildK
-                                )}
-                            />
-                            <RelicsBulkWithToogle
-                                {build}
-                                isOnProfilePage={true}
-                            />
-                        {/if}
-                    {/each}
-                </div>
-
-                {#if screenWidth >= 650}
-                    <!-- possible ad -->
-                {/if}
+    {#key buildHighlightsChanged}
+        {#if !jsonData}
+            <Bronbike />
+        {:else}
+            <div style="display: flex; justify-content: center;">
+                <Profile item={jsonData} />
             </div>
-            {#if screenWidth <= 650}
-                <!-- possible ad -->
+            <div>
+                <RefreshButton
+                    onClick={refreshPlayer}
+                    {uid}
+                    {prevUnixTimestamp}
+                />
+            </div>
+            {#if builds.length > 0}
+                <Roster {showAllBuildschecked} {builds} bind:selectedBuildK />
+                <div
+                    style="display: flex; margin:auto; justify-content: space-between;"
+                >
+                    {#if screenWidth >= 650}
+                        <!-- possible ad -->
+                    {/if}
+                    <div class="buildsStuff">
+                        <ProfileToLbButton />
+
+                        {#each builds as build}
+                            {#if selectedBuildK == build["k"]}
+                                <BuildSuggestions
+                                    uid={pl["id"]}
+                                    build={builds.find(
+                                        (i) => i["k"] == selectedBuildK,
+                                    )}
+                                />
+                                <RelicsBulkWithToogle
+                                    {build}
+                                    isOnProfilePage={true}
+                                />
+                                <div style="display: flex; flex-direction: column; align-items: center;">
+                                    <button
+                                        on:click={() =>
+                                            toogleBuildHidden(build)}
+                                    >
+                                        {isBuildHidden(build)
+                                            ? "Unhide build"
+                                            : "Hide build"}
+                                    </button>
+                                    <div class="checkbox-container">
+                                        <p style="font-size: 14px;">Show hidden builds:</p>
+                                        <input
+                                            type="checkbox"
+                                            style="scale: 1.5;"
+                                            bind:checked={showAllBuildschecked}
+                                        />
+                                    </div>
+                                </div>
+                                
+                            {/if}
+                        {/each}
+                    </div>
+
+                    {#if screenWidth >= 650}
+                        <!-- possible ad -->
+                    {/if}
+                </div>
+                {#if screenWidth <= 650}
+                    <!-- possible ad -->
+                {/if}
+                <RelicsParent uid={pl["id"]} />
             {/if}
-            <RelicsParent uid={pl["id"]} />
         {/if}
-    {/if}
+    {/key}
 {/if}
 
 <style>
     .buildsStuff {
         margin: auto;
+    }
+    .checkbox-container {
+        display: flex;
+        align-items: center;
     }
 </style>
