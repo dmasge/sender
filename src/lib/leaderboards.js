@@ -137,7 +137,7 @@ export const leaderboards = [
     generateLeaderboard('1005', 'Kafka', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23006.png',
-            url: "/{charId}/E1S1_23006_134/1", desc: ""
+            url: "/{charId}/E1S1_23006_143/1", desc: ""
         },
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21001.png',
@@ -208,6 +208,24 @@ export const leaderboards = [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21034.png',
             url: "/{charId}/E0S5_21034/1", desc: " "
+        },
+    ]),
+    generateLeaderboard('1008', 'Arlan', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23009.png',
+            url: "/{charId}/E6S1_23009/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21012.png',
+            url: "/{charId}/E6S5_21012/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24000.png',
+            url: "/{charId}/E6S5_24000/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21019.png',
+            url: "/{charId}/E6S5_21019/1", desc: ""
         },
     ]),
 
