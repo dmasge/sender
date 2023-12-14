@@ -311,7 +311,7 @@ function E6S5_24000_OntheFallofanAeon(build) {
     ];
 
     let calcDetails = [
-        ["Enemy killed recently", ""],
+        ["4 stacks, Weakness broken recently", ""],
         ["Assumed Talent DMG bonus ", "63%"],
         ["Skill", String(Math.floor(skill_primary))],
         ["ULT", String(Math.floor(ult_primary))],
