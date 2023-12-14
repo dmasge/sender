@@ -532,7 +532,8 @@ function E0S5_21010_Swordplay(build, fuxuan = false) {
     let fuxuan_cd = fuxuan ? 30 : 0;
     let fuxuan_dmg_bonus = fuxuan ? (9 + 10) : 0;
 
-    let lc_atk_p = 80;
+    let lc_atk_p = 0;
+    let lc_damage_bonus = 80;
     let lc_cr_p = 0;
     let stats = BuildStatsCalculatorNew({
         build: build,
@@ -542,6 +543,7 @@ function E0S5_21010_Swordplay(build, fuxuan = false) {
         trace_cd_p: 24 + fuxuan_cd,
         trace_spd_p: 25,
         trace_cr_p: lc_cr_p + fuxuan_cr,
+        trace_damage_bonus: lc_damage_bonus,
     });
 
 
@@ -588,7 +590,7 @@ function E0S5_21010_Swordplay(build, fuxuan = false) {
         ["SPD", damag.trim_after_decimal(stats_display.final_spd)]
     ];
     let calcDetails = [
-        ["ATK at 5 stack", String(Math.floor(stats.final_atk))],
+        ["Assumes 5 LC stacks", ""],
         ["Skill average", String(Math.floor(skill_buffed_dmg))],
         ["ULT average", String(Math.floor(ult_buffed_dmg))],
         ["SPD After Skill", damag.trim_after_decimal(stats.final_spd)]

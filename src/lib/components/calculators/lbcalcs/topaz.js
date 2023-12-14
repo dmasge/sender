@@ -610,11 +610,11 @@ function E0S5_21010_Swordplay(build, fuxuan = false, asta = false) {
     let total_base_atk = char_base_atk + lc_base_atk;
     let total_base_hp = char_base_hp + lc_base_hp;
 
-    let lc_atk_p = 80;
+    let lc_atk_p = 0;
     let lc_cd = 0;
     let lc_cr = 0;
     let lc_hp_p = 0;
-    let lc_damage_bonus = 0;
+    let lc_damage_bonus = 80;
     let lc_dot_bonus = 0;
     let lc_ehr = 0;
     let lc_ult_damage_bonus = 0;
