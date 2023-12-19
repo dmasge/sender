@@ -40,7 +40,7 @@ export const scoringRulesShort = {
     '1205': "3×EBASIC + ULT + FUA",  // Blade
     '1201': "ULT+BASIC+0.24AUTARKY".toLowerCase(), // qq
     '1107': "4COUNTER+2SKILL".toLowerCase(), // CLARA
-    '1204': "17LL+4SKILL+ULT".toLowerCase(), // JING
+    '1204': "2×Skill + ULT + 10×LL + Benediction (2 targets)", // JING
     '1213': "Fulgurant Leap", // DHIL
     '1209': "4skill+ult+3talent*freeze+8A2", // Yanqing
     '1208': "0.8EHP + 0.2EHP×(chance to resist dot) + Allies Healed", // Fu Xuan

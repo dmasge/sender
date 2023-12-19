@@ -1101,7 +1101,7 @@ function E0S1_23016_WorrisomeBlissful(build, fuxuan = false, asta = false) {
         base_spd: char_base_spd, trace_spd_f: trace_spd_f, trace_spd_p: 0,
         trace_defshred: lc_def_ignore,
         trace_cr_p: lc_cr + trace_cr,
-        trace_cd_p: lc_cd + trace_cd,
+        trace_cd_p: trace_cd,
         trace_damage_bonus: lc_damage_bonus,
         trace_fire: trace_fire,
         count_conditionals: false,

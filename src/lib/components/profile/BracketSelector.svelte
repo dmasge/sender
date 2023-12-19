@@ -24,12 +24,14 @@
     }
     let brackets = teamCategoriesCase(build["k"]);
     function getBracketName(ctgrRaw) {
+        brackets.sort((a, b) => b.length - a.length);
+
         for (let bracket of brackets) {
             if (ctgrRaw.includes(bracket)) {
                 return bracket;
             }
         }
-        return brackets[0];
+        return "Solo";
     }
 </script>
 

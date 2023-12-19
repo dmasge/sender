@@ -131,7 +131,8 @@
                 </p>
                 <p style="font-size: 13px;">
                     If character is ranked in more than one bracket select the
-                    bracket of interest and then optimize.
+                    bracket of interest and then optimize. To optimize for different
+                    speed bracket, first have to refresh to be ranked in that bracket.
                 </p>
                 <p style="font-size: 13px;">
                     To add new relics refresh with them equipped. Your browser

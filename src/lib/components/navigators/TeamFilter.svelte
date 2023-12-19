@@ -1,9 +1,13 @@
 <script>
     import { page } from "$app/stores";
     import { teamCategoriesCase } from "$lib/components/navigators/TeamFilter.js";
-    let str = $page.url.pathname;
-
-    let splitStr = str.split("/");
+    let url = $page.url.pathname;
+    let currentTeamBracket = getStringBeforeLastSlash(url);
+    function getStringBeforeLastSlash(url) {
+        var parts = url.split("/");
+        return parts[parts.length - 2];
+    }
+    let splitStr = url.split("/");
     let charId = splitStr[3];
     let ctgr = splitStr[4];
 
@@ -18,12 +22,15 @@
         }
         return removed ? removed[0] : "";
     }
-   
+
     let teamCategories = teamCategoriesCase(charId);
     let fullctgrRaw = teamCategories.reduce((ctgr, str) => {
         return ctgr.replace(new RegExp(str, "g"), "");
     }, ctgr);
-    let ctgrRaw = removeSpdPattern(fullctgrRaw);
+    let ctgrRaw = removeNonDigitsAtEnd(removeSpdPattern(fullctgrRaw));
+    function removeNonDigitsAtEnd(str) {
+        return str.replace(/\D+$/, "");
+    }
 
     function GetUrlBases(teamCategories) {
         if (teamCategories == []) return [];
@@ -31,16 +38,17 @@
         for (let i = 0; i < teamCategories.length; i++) {
             if (teamCategories[i] === "Solo") {
                 newList.push(
-                    "../" + ctgrRaw  // + getRemovedSpdPattern(fullctgrRaw)
-                     + "/",
+                    "../" +
+                        ctgrRaw + // + getRemovedSpdPattern(fullctgrRaw)
+                        "/",
                 );
             } else {
                 newList.push(
                     "../" +
                         ctgrRaw +
-                        teamCategories[i] 
-                        // + getRemovedSpdPattern(fullctgrRaw) 
-                        + "/",
+                        teamCategories[i] +
+                        // + getRemovedSpdPattern(fullctgrRaw)
+                        "/",
                 );
             }
         }
@@ -48,13 +56,14 @@
     }
 
     let urls = GetUrlBases(teamCategories);
+
+   
 </script>
 
 {#if teamCategories != []}
     <div class="parentDiv">
         {#each urls as url, i}
             {@const href = url}
-
             <div
                 style="padding-left:10px; padding-right:10px; padding-bottom: 0;"
             >
@@ -62,7 +71,7 @@
                     <p>{teamCategories[i]}</p>
                 </a>
 
-                {#if $page.url.pathname.includes(teamCategoriesCase(charId)[i]) || ($page.url.pathname.includes(fullctgrRaw + "/") && i == 0)}
+                {#if removeSpdPattern(currentTeamBracket) == href.slice(3, -1)}
                     <div
                         style="margin:auto; background-color: blueviolet; width: 25px; height: 5px; margin-top:-7px;"
                     />

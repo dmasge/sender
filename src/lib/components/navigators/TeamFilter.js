@@ -8,6 +8,8 @@ export function teamCategoriesCase(str) {
             return ["Solo", "YK"];
         case "1102":
             return ["Solo", "FX"];
+        case "1204":
+            return ["TY", "FXTY"];
         default:
             return [];
     }

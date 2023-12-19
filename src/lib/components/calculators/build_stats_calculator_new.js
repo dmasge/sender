@@ -312,16 +312,14 @@ export function BuildStatsCalculatorNew(params){
                 if (cnt === 2) {
                     self_flwupdmg_p += 20;
                 } else if (cnt === 4 && count_conditionals) {
-                    if (self_build['k'].includes("1005")) { // kafker
+                    if (self_The_Ashblazing_Grand_Duke_ATK_p > 0){
+                        self_atk_p += self_The_Ashblazing_Grand_Duke_ATK_p;
+                    } else if (self_build['k'].includes("1005")) { // kafker
                         self_atk_p += 6 * stack_atk_p;
-                    } else if (self_build['k'].includes("1204")){ // jing yuan
-                        self_atk_p += 8 * stack_atk_p;
                     } else if (self_build['k'].includes("1003")){ // himeko
                         self_atk_p += 8 * stack_atk_p;
                     } else if (self_build['k'].includes("1107")){ // clara
                         self_atk_p += 3 * stack_atk_p;
-                    } else if (self_build['k'].includes("1112")){ // topaz
-                        self_atk_p += self_The_Ashblazing_Grand_Duke_ATK_p;
                     } 
                 }
             } else if (set_id === "116") { // Prisoner in Deep Confinement

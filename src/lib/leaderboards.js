@@ -179,6 +179,32 @@ export const leaderboards = [
         }
 
     ]),
+    generateLeaderboard('1204', 'Jing Yuan', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23010.png',
+            url: "/{charId}/E0S1_23010TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21027.png',
+            url: "/{charId}/E0S5_21027TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21006.png',
+            url: "/{charId}/E0S5_21006TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21034.png',
+            url: "/{charId}/E0S5_21034TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21020.png',
+            url: "/{charId}/E0S5_21020TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23000.png',
+            url: "/{charId}/E0S1_23000TY/1", desc: " "
+        },
+    ]),
     generateLeaderboard('1003', 'Himeko', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23000.png',
@@ -283,14 +309,7 @@ export const leaderboards = [
         { pic: collapsing, url: "/{charId}/E2S5_collapsing/1", desc: " " },
     ]),
 
-    generateLeaderboard('1204', 'Jing Yuan', [
-        { pic: dawn, url: "/{charId}/E0S1_dawn/1", desc: " " },
-        { pic: breakfast, url: "/{charId}/E0S5_breakfast/1", desc: " " },
-        { pic: birth, url: "/{charId}/E0S5_birth/1", desc: " " },
-        { pic: geniuses, url: "/{charId}/E0S5_geniuses/1", desc: " " },
-        { pic: today, url: "/{charId}/E0S5_today/1", desc: " " },
-        { pic: milky, url: "/{charId}/E0S1_milky/1", desc: " " }
-    ])
+   
 ];
 
 export function getPicForCtgr(str) {

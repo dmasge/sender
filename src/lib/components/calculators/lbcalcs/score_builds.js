@@ -8,6 +8,7 @@ import { score_blade } from "$lib/components/calculators/lbcalcs/blade.js"
 import { score_kafka } from "$lib/components/calculators/lbcalcs/kafka.js"
 import { score_topaz } from "$lib/components/calculators/lbcalcs/topaz.js"
 import { score_arlan } from "$lib/components/calculators/lbcalcs/arlan.js"
+import { score_jing_yuan } from "$lib/components/calculators/lbcalcs/jing_yuan.js"
 
 export function score_build(build, optimizationTarget = "") {
     try {
@@ -27,6 +28,8 @@ export function score_build(build, optimizationTarget = "") {
             return score_topaz(build, optimizationTarget);
         } else if (build['k'] === "1008") {
             return score_arlan(build, optimizationTarget);
+        } else if (build['k'] === "1204") {
+            return score_jing_yuan(build, optimizationTarget);
         } 
     } catch (error) {
         console.log(error);
