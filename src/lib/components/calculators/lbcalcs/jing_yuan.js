@@ -176,16 +176,7 @@ function E0S1_23000_NightontheMilkyWay(build, ting = false, fuxuan = false) {
 
     let vuln = 0;
     let cr_bonus_a6 = 10;
-    let skill_primary = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : skill_atk_mult_primary,
-                      'dmg_bonus_p' : skill_dmg_p, 
-                         'enemylvl' : 95});
+    
     let skill_primary_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -218,7 +209,7 @@ function E0S1_23000_NightontheMilkyWay(build, ting = false, fuxuan = false) {
                       'dmg_bonus_p' : fua_dmg_p + 56,  
                          'enemylvl' : 95});
 
-    let benediction_mult_total_ting_ult = 192;
+    let benediction_mult_total_ting_ult = 256;
     let benediction_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -229,20 +220,10 @@ function E0S1_23000_NightontheMilkyWay(build, ting = false, fuxuan = false) {
                  'skill_multiplier' : benediction_mult_total_ting_ult,
                       'dmg_bonus_p' : elemental_dmg + 56, 
                          'enemylvl' : 95});
-    let benediction_mult = 64;
-    let benediction = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : benediction_mult,
-                      'dmg_bonus_p' : elemental_dmg, 
-                         'enemylvl' : 95});
     
     
-    let score = 2 * skill_primary + 2 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult + benediction;
+    
+    let score = 4 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult;
     let stats_display = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
@@ -267,18 +248,16 @@ function E0S1_23000_NightontheMilkyWay(build, ting = false, fuxuan = false) {
         ["CR", trim_after_decimal(stats_display.final_cr) + "%"],
         ["CD", trim_after_decimal(stats_display.final_cd) + "%"],
         ["Lightn", trim_after_decimal(stats_display.lightn)],
-        ["SPD", trim_after_decimal(stats_display.final_spd)]
+        ["SPD", trim_after_decimal(stats_display.final_spd)]    
     ];
 
     let calcDetails = [
         ['E6S5 Cogs Penacony TY', ""],
-        ['Benediction uptime', "100%"],
-        ["Skill (before TY ult)", String(Math.floor(skill_primary))],
-        ["Skill (after TY ult)", String(Math.floor(skill_primary_ting_ult))],
-        ["ULT (after TY ult)", String(Math.floor(ult_primary_ting_ult))],
-        ["10×LL (after TY ult)", String(Math.floor(fua_primary_ting_ult))],
-        ["Benediction (before TY ult)", String(Math.floor(benediction))],
-        ["Benediction (after TY ult)", String(Math.floor(benediction_ting_ult))]
+        ['Benediction & ULT uptime', "100%"],
+        ["Skill ", String(Math.floor(skill_primary_ting_ult))],
+        ["ULT ", String(Math.floor(ult_primary_ting_ult))],
+        ["10×LL ", String(Math.floor(fua_primary_ting_ult))],
+        ["Benediction ", String(Math.floor(benediction_ting_ult))]
     ];
     if (fuxuan) {
         calcDetails.unshift(["E1S1 Sig Keel FX", ""]);
@@ -393,16 +372,7 @@ function E0S5_21020_GeniusesRepose(build, ting = false, fuxuan = false) {
 
     let vuln = 0;
     let cr_bonus_a6 = 10;
-    let skill_primary = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : skill_atk_mult_primary,
-                      'dmg_bonus_p' : skill_dmg_p, 
-                         'enemylvl' : 95});
+    
     let skill_primary_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -435,7 +405,7 @@ function E0S5_21020_GeniusesRepose(build, ting = false, fuxuan = false) {
                       'dmg_bonus_p' : fua_dmg_p + 56,  
                          'enemylvl' : 95});
 
-    let benediction_mult_total_ting_ult = 192;
+    let benediction_mult_total_ting_ult = 256;
     let benediction_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -446,20 +416,10 @@ function E0S5_21020_GeniusesRepose(build, ting = false, fuxuan = false) {
                  'skill_multiplier' : benediction_mult_total_ting_ult,
                       'dmg_bonus_p' : elemental_dmg + 56, 
                          'enemylvl' : 95});
-    let benediction_mult = 64;
-    let benediction = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : benediction_mult,
-                      'dmg_bonus_p' : elemental_dmg, 
-                         'enemylvl' : 95});
     
     
-    let score = 2 * skill_primary + 2 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult + benediction;
+    
+    let score = 4 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult;
     let stats_display = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
@@ -489,13 +449,11 @@ function E0S5_21020_GeniusesRepose(build, ting = false, fuxuan = false) {
 
     let calcDetails = [
         ['E6S5 Cogs Penacony TY', ""],
-        ['Benediction uptime', "100%"],
-        ["Skill (before TY ult)", String(Math.floor(skill_primary))],
-        ["Skill (after TY ult)", String(Math.floor(skill_primary_ting_ult))],
-        ["ULT (after TY ult)", String(Math.floor(ult_primary_ting_ult))],
-        ["10×LL (after TY ult)", String(Math.floor(fua_primary_ting_ult))],
-        ["Benediction (before TY ult)", String(Math.floor(benediction))],
-        ["Benediction (after TY ult)", String(Math.floor(benediction_ting_ult))]
+        ['Benediction & ULT uptime', "100%"],
+        ["Skill ", String(Math.floor(skill_primary_ting_ult))],
+        ["ULT ", String(Math.floor(ult_primary_ting_ult))],
+        ["10×LL ", String(Math.floor(fua_primary_ting_ult))],
+        ["Benediction ", String(Math.floor(benediction_ting_ult))]
     ];
     if (fuxuan) {
         calcDetails.unshift(["E1S1 Sig Keel FX", ""]);
@@ -609,16 +567,7 @@ function E0S5_21034_TodayIsAnotherPeacefulDay(build, ting = false, fuxuan = fals
 
     let vuln = 0;
     let cr_bonus_a6 = 10;
-    let skill_primary = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : skill_atk_mult_primary,
-                      'dmg_bonus_p' : skill_dmg_p, 
-                         'enemylvl' : 95});
+    
     let skill_primary_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -651,7 +600,7 @@ function E0S5_21034_TodayIsAnotherPeacefulDay(build, ting = false, fuxuan = fals
                       'dmg_bonus_p' : fua_dmg_p + 56,  
                          'enemylvl' : 95});
 
-    let benediction_mult_total_ting_ult = 192;
+    let benediction_mult_total_ting_ult = 256;
     let benediction_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -662,20 +611,10 @@ function E0S5_21034_TodayIsAnotherPeacefulDay(build, ting = false, fuxuan = fals
                  'skill_multiplier' : benediction_mult_total_ting_ult,
                       'dmg_bonus_p' : elemental_dmg + 56, 
                          'enemylvl' : 95});
-    let benediction_mult = 64;
-    let benediction = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : benediction_mult,
-                      'dmg_bonus_p' : elemental_dmg, 
-                         'enemylvl' : 95});
     
     
-    let score = 2 * skill_primary + 2 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult + benediction;
+    
+    let score = 4 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult;
     let stats_display = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
@@ -705,13 +644,11 @@ function E0S5_21034_TodayIsAnotherPeacefulDay(build, ting = false, fuxuan = fals
 
     let calcDetails = [
         ['E6S5 Cogs Penacony TY', ""],
-        ['Benediction uptime', "100%"],
-        ["Skill (before TY ult)", String(Math.floor(skill_primary))],
-        ["Skill (after TY ult)", String(Math.floor(skill_primary_ting_ult))],
-        ["ULT (after TY ult)", String(Math.floor(ult_primary_ting_ult))],
-        ["10×LL (after TY ult)", String(Math.floor(fua_primary_ting_ult))],
-        ["Benediction (before TY ult)", String(Math.floor(benediction))],
-        ["Benediction (after TY ult)", String(Math.floor(benediction_ting_ult))]
+        ['Benediction & ULT uptime', "100%"],
+        ["Skill ", String(Math.floor(skill_primary_ting_ult))],
+        ["ULT ", String(Math.floor(ult_primary_ting_ult))],
+        ["10×LL ", String(Math.floor(fua_primary_ting_ult))],
+        ["Benediction ", String(Math.floor(benediction_ting_ult))]
     ];
     if (fuxuan) {
         calcDetails.unshift(["E1S1 Sig Keel FX", ""]);
@@ -825,16 +762,7 @@ function E0S5_21006_TheBirthoftheSelf(build, ting = false, fuxuan = false) {
 
     let vuln = 0;
     let cr_bonus_a6 = 10;
-    let skill_primary = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : skill_atk_mult_primary,
-                      'dmg_bonus_p' : skill_dmg_p, 
-                         'enemylvl' : 95});
+    
     let skill_primary_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -867,7 +795,7 @@ function E0S5_21006_TheBirthoftheSelf(build, ting = false, fuxuan = false) {
                       'dmg_bonus_p' : fua_dmg_p + 56,  
                          'enemylvl' : 95});
 
-    let benediction_mult_total_ting_ult = 192;
+    let benediction_mult_total_ting_ult = 256;
     let benediction_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -878,20 +806,10 @@ function E0S5_21006_TheBirthoftheSelf(build, ting = false, fuxuan = false) {
                  'skill_multiplier' : benediction_mult_total_ting_ult,
                       'dmg_bonus_p' : elemental_dmg + 56, 
                          'enemylvl' : 95});
-    let benediction_mult = 64;
-    let benediction = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : benediction_mult,
-                      'dmg_bonus_p' : elemental_dmg, 
-                         'enemylvl' : 95});
     
     
-    let score = 2 * skill_primary + 2 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult + benediction;
+    
+    let score = 4 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult;
     let stats_display = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
@@ -921,13 +839,11 @@ function E0S5_21006_TheBirthoftheSelf(build, ting = false, fuxuan = false) {
 
     let calcDetails = [
         ['E6S5 Cogs Penacony TY', ""],
-        ['Benediction uptime', "100%"],
-        ["Skill (before TY ult)", String(Math.floor(skill_primary))],
-        ["Skill (after TY ult)", String(Math.floor(skill_primary_ting_ult))],
-        ["ULT (after TY ult)", String(Math.floor(ult_primary_ting_ult))],
-        ["10×LL (after TY ult)", String(Math.floor(fua_primary_ting_ult))],
-        ["Benediction (before TY ult)", String(Math.floor(benediction))],
-        ["Benediction (after TY ult)", String(Math.floor(benediction_ting_ult))]
+        ['Benediction & ULT uptime', "100%"],
+        ["Skill ", String(Math.floor(skill_primary_ting_ult))],
+        ["ULT ", String(Math.floor(ult_primary_ting_ult))],
+        ["10×LL ", String(Math.floor(fua_primary_ting_ult))],
+        ["Benediction ", String(Math.floor(benediction_ting_ult))]
     ];
     if (fuxuan) {
         calcDetails.unshift(["E1S1 Sig Keel FX", ""]);
@@ -1040,16 +956,7 @@ function E0S5_21027_TheSeriousnessofBreakfast(build, ting = false, fuxuan = fals
 
     let vuln = 0;
     let cr_bonus_a6 = 10;
-    let skill_primary = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : skill_atk_mult_primary,
-                      'dmg_bonus_p' : skill_dmg_p, 
-                         'enemylvl' : 95});
+    
     let skill_primary_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -1082,7 +989,7 @@ function E0S5_21027_TheSeriousnessofBreakfast(build, ting = false, fuxuan = fals
                       'dmg_bonus_p' : fua_dmg_p + 56,  
                          'enemylvl' : 95});
 
-    let benediction_mult_total_ting_ult = 192;
+    let benediction_mult_total_ting_ult = 256;
     let benediction_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -1093,20 +1000,10 @@ function E0S5_21027_TheSeriousnessofBreakfast(build, ting = false, fuxuan = fals
                  'skill_multiplier' : benediction_mult_total_ting_ult,
                       'dmg_bonus_p' : elemental_dmg + 56, 
                          'enemylvl' : 95});
-    let benediction_mult = 64;
-    let benediction = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : benediction_mult,
-                      'dmg_bonus_p' : elemental_dmg, 
-                         'enemylvl' : 95});
     
     
-    let score = 2 * skill_primary + 2 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult + benediction;
+    
+    let score = 4 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult;
     let stats_display = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
@@ -1136,13 +1033,11 @@ function E0S5_21027_TheSeriousnessofBreakfast(build, ting = false, fuxuan = fals
 
     let calcDetails = [
         ['E6S5 Cogs Penacony TY', ""],
-        ['Benediction uptime', "100%"],
-        ["Skill (before TY ult)", String(Math.floor(skill_primary))],
-        ["Skill (after TY ult)", String(Math.floor(skill_primary_ting_ult))],
-        ["ULT (after TY ult)", String(Math.floor(ult_primary_ting_ult))],
-        ["10×LL (after TY ult)", String(Math.floor(fua_primary_ting_ult))],
-        ["Benediction (before TY ult)", String(Math.floor(benediction))],
-        ["Benediction (after TY ult)", String(Math.floor(benediction_ting_ult))]
+        ['Benediction & ULT uptime', "100%"],
+        ["Skill ", String(Math.floor(skill_primary_ting_ult))],
+        ["ULT ", String(Math.floor(ult_primary_ting_ult))],
+        ["10×LL ", String(Math.floor(fua_primary_ting_ult))],
+        ["Benediction ", String(Math.floor(benediction_ting_ult))]
     ];
     if (fuxuan) {
         calcDetails.unshift(["E1S1 Sig Keel FX", ""]);
@@ -1255,16 +1150,7 @@ function E0S1_23010_BeforeDawn(build, ting = false, fuxuan = false) {
 
     let vuln = 0;
     let cr_bonus_a6 = 10;
-    let skill_primary = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : skill_atk_mult_primary,
-                      'dmg_bonus_p' : skill_dmg_p, 
-                         'enemylvl' : 95});
+    
     let skill_primary_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -1297,7 +1183,7 @@ function E0S1_23010_BeforeDawn(build, ting = false, fuxuan = false) {
                       'dmg_bonus_p' : fua_dmg_p + 56,  
                          'enemylvl' : 95});
 
-    let benediction_mult_total_ting_ult = 192;
+    let benediction_mult_total_ting_ult = 256;
     let benediction_ting_ult = outgoing_dmg_js({
                 'scaling_attribute' : stats.final_atk, 
                                'cr' : stats.final_cr + cr_bonus_a6, 
@@ -1308,20 +1194,10 @@ function E0S1_23010_BeforeDawn(build, ting = false, fuxuan = false) {
                  'skill_multiplier' : benediction_mult_total_ting_ult,
                       'dmg_bonus_p' : elemental_dmg + 56, 
                          'enemylvl' : 95});
-    let benediction_mult = 64;
-    let benediction = outgoing_dmg_js({
-                'scaling_attribute' : stats.final_atk, 
-                               'cr' : stats.final_cr + cr_bonus_a6, 
-                               'cd' : stats.final_cd, 
-                     'def_ignore_p' : stats.defignore_p + def_ignore,
-                        'res_shred' : stats.res_ignore + res_shred,
-                    'vulnerability' : vuln, 
-                 'skill_multiplier' : benediction_mult,
-                      'dmg_bonus_p' : elemental_dmg, 
-                         'enemylvl' : 95});
     
     
-    let score = 2 * skill_primary + 2 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult + benediction;
+    
+    let score = 4 * skill_primary_ting_ult + 2 * ult_primary_ting_ult + fua_primary_ting_ult + benediction_ting_ult;
     let stats_display = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
@@ -1351,13 +1227,11 @@ function E0S1_23010_BeforeDawn(build, ting = false, fuxuan = false) {
 
     let calcDetails = [
         ['E6S5 Cogs Penacony TY', ""],
-        ['Benediction uptime', "100%"],
-        ["Skill (before TY ult)", String(Math.floor(skill_primary))],
-        ["Skill (after TY ult)", String(Math.floor(skill_primary_ting_ult))],
-        ["ULT (after TY ult)", String(Math.floor(ult_primary_ting_ult))],
-        ["10×LL (after TY ult)", String(Math.floor(fua_primary_ting_ult))],
-        ["Benediction (before TY ult)", String(Math.floor(benediction))],
-        ["Benediction (after TY ult)", String(Math.floor(benediction_ting_ult))]
+        ['Benediction & ULT uptime', "100%"],
+        ["Skill ", String(Math.floor(skill_primary_ting_ult))],
+        ["ULT ", String(Math.floor(ult_primary_ting_ult))],
+        ["10×LL ", String(Math.floor(fua_primary_ting_ult))],
+        ["Benediction ", String(Math.floor(benediction_ting_ult))]
     ];
     if (fuxuan) {
         calcDetails.unshift(["E1S1 Sig Keel FX", ""]);
