@@ -62,21 +62,8 @@ function E0S1_23002_SomethingIrreplaceable(build, pela = false) {
     let talent_atk_f = total_base_atk * 1.8;
 
     
+    
     let stats = BuildStatsCalculatorNew({
-        build: build, 
-        base_atk :total_base_atk,
-        trace_atk_f: talent_atk_f,
-        base_spd: char_base_spd,
-        trace_defshred : lc_def_ignore,
-        trace_spd_f : trace_spd_f,
-        trace_cr_p: talent_cr + lc_cr,
-        trace_cd_p: lc_cd + trace_cd,
-        trace_atk_p:lc_atk_p + trace_atk_p,
-        trace_damage_bonus:lc_damage_bonus,
-        trace_fire : trace_fire,
-        trace_spd_p:0,
-    });
-    let stats_after_ult_used = BuildStatsCalculatorNew({
         build: build, 
         base_atk :total_base_atk,
         trace_atk_f: talent_atk_f,
@@ -112,19 +99,19 @@ function E0S1_23002_SomethingIrreplaceable(build, pela = false) {
 
     
     let ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
+        scaling_attribute: stats.final_atk,
+        cr: stats.final_cr,
+        cd: stats.final_cd,
         skill_multiplier: ult_atk_mult,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred: stats_after_ult_used.res_ignore + res_shred,
+        def_ignore_p: stats.defignore_p + def_ignore,
+        res_shred: stats.res_ignore + res_shred,
         dmg_bonus_p : ult_dmg_p,
         enemylvl:90,
         vulnerability : vuln_due_technique
     }) 
     
 
-    let skill_primary = damag.outgoing_dmg_2({
+    let skill_primary_after_ult = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
         cr: stats.final_cr,
         cd: stats.final_cd,
@@ -136,20 +123,8 @@ function E0S1_23002_SomethingIrreplaceable(build, pela = false) {
         vulnerability : vuln_due_technique
     })
 
-    let skill_primary_after_ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
-        skill_multiplier: skill_atk_mult_primary,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred : stats_after_ult_used.res_ignore + res_shred,
-        dmg_bonus_p : skill_dmg_p,
-        enemylvl:90,
-        vulnerability : vuln_due_technique
-    })
-
     
-    let score = 2 * skill_primary + skill_primary_after_ult + ult;
+    let score = 3* skill_primary_after_ult + ult;
 
     let stats_display = BuildStatsCalculatorNew({
         build: build, 
@@ -177,9 +152,8 @@ function E0S1_23002_SomethingIrreplaceable(build, pela = false) {
         ["E6S5 Penacony Pearls Pela in team", ""],
         ["Targets", "1"],
         ["Enemy weakness", "Ice"],
-        ["Enhanced Skill", String(Math.floor(skill_primary))],
-        ["ULT", String(Math.floor(ult))],
-        ["Enhanced Skill (After ult)", String(Math.floor(skill_primary_after_ult))],
+        ["Enhanced Skill", String(Math.floor(skill_primary_after_ult))],
+        ["ULT", String(Math.floor(ult))]
         // ["SPD After 2 Skill", damag.trim_after_decimal(0)],
     ];
     return [Math.floor(score), stats.final_spd, lbstats, calcDetails];
@@ -207,21 +181,8 @@ function E0S5_21019_UndertheBlueSky(build, pela = false) {
     let talent_atk_f = total_base_atk * 1.8;
 
     
+   
     let stats = BuildStatsCalculatorNew({
-        build: build, 
-        base_atk :total_base_atk,
-        trace_atk_f: talent_atk_f,
-        base_spd: char_base_spd,
-        trace_defshred : lc_def_ignore,
-        trace_spd_f : trace_spd_f,
-        trace_cr_p: talent_cr + lc_cr,
-        trace_cd_p: lc_cd + trace_cd,
-        trace_atk_p:lc_atk_p + trace_atk_p,
-        trace_damage_bonus:lc_damage_bonus,
-        trace_fire : trace_fire,
-        trace_spd_p:0,
-    });
-    let stats_after_ult_used = BuildStatsCalculatorNew({
         build: build, 
         base_atk :total_base_atk,
         trace_atk_f: talent_atk_f,
@@ -257,19 +218,21 @@ function E0S5_21019_UndertheBlueSky(build, pela = false) {
 
     
     let ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
+        scaling_attribute: stats.final_atk,
+        cr: stats.final_cr,
+        cd: stats.final_cd,
         skill_multiplier: ult_atk_mult,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred: stats_after_ult_used.res_ignore + res_shred,
+        def_ignore_p: stats.defignore_p + def_ignore,
+        res_shred: stats.res_ignore + res_shred,
         dmg_bonus_p : ult_dmg_p,
         enemylvl:90,
         vulnerability : vuln_due_technique
     }) 
     
 
-    let skill_primary = damag.outgoing_dmg_2({
+    
+
+    let skill_primary_after_ult = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
         cr: stats.final_cr,
         cd: stats.final_cd,
@@ -281,20 +244,8 @@ function E0S5_21019_UndertheBlueSky(build, pela = false) {
         vulnerability : vuln_due_technique
     })
 
-    let skill_primary_after_ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
-        skill_multiplier: skill_atk_mult_primary,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred : stats_after_ult_used.res_ignore + res_shred,
-        dmg_bonus_p : skill_dmg_p,
-        enemylvl:90,
-        vulnerability : vuln_due_technique
-    })
-
     
-    let score = 2 * skill_primary + skill_primary_after_ult + ult;
+    let score = 3*skill_primary_after_ult + ult;
 
     let stats_display = BuildStatsCalculatorNew({
         build: build, 
@@ -322,9 +273,8 @@ function E0S5_21019_UndertheBlueSky(build, pela = false) {
         ["E6S5 Penacony Pearls Pela in team", ""],
         ["Targets", "1"],
         ["Enemy weakness", "Ice"],
-        ["Enhanced Skill", String(Math.floor(skill_primary))],
-        ["ULT", String(Math.floor(ult))],
-        ["Enhanced Skill (After ult)", String(Math.floor(skill_primary_after_ult))],
+        ["Enhanced Skill", String(Math.floor(skill_primary_after_ult))],
+        ["ULT", String(Math.floor(ult))]
         // ["SPD After 2 Skill", damag.trim_after_decimal(0)],
     ];
     return [Math.floor(score), stats.final_spd, lbstats, calcDetails];
@@ -352,21 +302,8 @@ function E0S5_21012_ASecretVow(build, pela = false) {
     let talent_atk_f = total_base_atk * 1.8;
 
     
+
     let stats = BuildStatsCalculatorNew({
-        build: build, 
-        base_atk :total_base_atk,
-        trace_atk_f: talent_atk_f,
-        base_spd: char_base_spd,
-        trace_defshred : lc_def_ignore,
-        trace_spd_f : trace_spd_f,
-        trace_cr_p: talent_cr,
-        trace_cd_p: lc_cd + trace_cd,
-        trace_atk_p:lc_atk_p + trace_atk_p,
-        trace_damage_bonus:lc_damage_bonus,
-        trace_fire : trace_fire,
-        trace_spd_p:0,
-    });
-    let stats_after_ult_used = BuildStatsCalculatorNew({
         build: build, 
         base_atk :total_base_atk,
         trace_atk_f: talent_atk_f,
@@ -402,19 +339,20 @@ function E0S5_21012_ASecretVow(build, pela = false) {
 
     
     let ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
+        scaling_attribute: stats.final_atk,
+        cr: stats.final_cr,
+        cd: stats.final_cd,
         skill_multiplier: ult_atk_mult,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred: stats_after_ult_used.res_ignore + res_shred,
+        def_ignore_p: stats.defignore_p + def_ignore,
+        res_shred: stats.res_ignore + res_shred,
         dmg_bonus_p : ult_dmg_p,
         enemylvl:90,
         vulnerability : vuln_due_technique
     }) 
     
 
-    let skill_primary = damag.outgoing_dmg_2({
+   
+    let skill_primary_after_ult = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
         cr: stats.final_cr,
         cd: stats.final_cd,
@@ -426,20 +364,8 @@ function E0S5_21012_ASecretVow(build, pela = false) {
         vulnerability : vuln_due_technique
     })
 
-    let skill_primary_after_ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
-        skill_multiplier: skill_atk_mult_primary,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred : stats_after_ult_used.res_ignore + res_shred,
-        dmg_bonus_p : skill_dmg_p,
-        enemylvl:90,
-        vulnerability : vuln_due_technique
-    })
-
     
-    let score = 2 * skill_primary + skill_primary_after_ult + ult;
+    let score = 3* skill_primary_after_ult + ult;
 
     let stats_display = BuildStatsCalculatorNew({
         build: build, 
@@ -467,9 +393,8 @@ function E0S5_21012_ASecretVow(build, pela = false) {
         ["E6S5 Penacony Pearls Pela in team", ""],
         ["Targets", "1"],
         ["Enemy weakness", "Ice"],
-        ["Enhanced Skill", String(Math.floor(skill_primary))],
-        ["ULT", String(Math.floor(ult))],
-        ["Enhanced Skill (After ult)", String(Math.floor(skill_primary_after_ult))],
+        ["Enhanced Skill", String(Math.floor(skill_primary_after_ult))],
+        ["ULT", String(Math.floor(ult))]
         // ["SPD After 2 Skill", damag.trim_after_decimal(0)],
     ];
     return [Math.floor(score), stats.final_spd, lbstats, calcDetails];
@@ -497,21 +422,8 @@ function E0S5_24000_OntheFallofanAeon(build, pela = false) {
     let talent_atk_f = total_base_atk * 1.8;
 
     
+
     let stats = BuildStatsCalculatorNew({
-        build: build, 
-        base_atk :total_base_atk,
-        trace_atk_f: talent_atk_f,
-        base_spd: char_base_spd,
-        trace_defshred : lc_def_ignore,
-        trace_spd_f : trace_spd_f,
-        trace_cr_p: talent_cr,
-        trace_cd_p: lc_cd + trace_cd,
-        trace_atk_p:lc_atk_p + trace_atk_p,
-        trace_damage_bonus:lc_damage_bonus,
-        trace_fire : trace_fire,
-        trace_spd_p:0,
-    });
-    let stats_after_ult_used = BuildStatsCalculatorNew({
         build: build, 
         base_atk :total_base_atk,
         trace_atk_f: talent_atk_f,
@@ -547,19 +459,19 @@ function E0S5_24000_OntheFallofanAeon(build, pela = false) {
 
     
     let ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
+        scaling_attribute: stats.final_atk,
+        cr: stats.final_cr,
+        cd: stats.final_cd,
         skill_multiplier: ult_atk_mult,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred: stats_after_ult_used.res_ignore + res_shred,
+        def_ignore_p: stats.defignore_p + def_ignore,
+        res_shred: stats.res_ignore + res_shred,
         dmg_bonus_p : ult_dmg_p,
         enemylvl:90,
         vulnerability : vuln_due_technique
     }) 
     
 
-    let skill_primary = damag.outgoing_dmg_2({
+    let skill_primary_after_ult = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
         cr: stats.final_cr,
         cd: stats.final_cd,
@@ -571,20 +483,8 @@ function E0S5_24000_OntheFallofanAeon(build, pela = false) {
         vulnerability : vuln_due_technique
     })
 
-    let skill_primary_after_ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
-        skill_multiplier: skill_atk_mult_primary,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred : stats_after_ult_used.res_ignore + res_shred,
-        dmg_bonus_p : skill_dmg_p,
-        enemylvl:90,
-        vulnerability : vuln_due_technique
-    })
-
     
-    let score = 2 * skill_primary + skill_primary_after_ult + ult;
+    let score = 3* skill_primary_after_ult + ult;
 
     let stats_display = BuildStatsCalculatorNew({
         build: build, 
@@ -612,9 +512,8 @@ function E0S5_24000_OntheFallofanAeon(build, pela = false) {
         ["E6S5 Penacony Pearls Pela in team", ""],
         ["Targets", "1"],
         ["Enemy weakness", "Ice"],
-        ["Enhanced Skill", String(Math.floor(skill_primary))],
-        ["ULT", String(Math.floor(ult))],
-        ["Enhanced Skill (After ult)", String(Math.floor(skill_primary_after_ult))],
+        ["Enhanced Skill", String(Math.floor(skill_primary_after_ult))],
+        ["ULT", String(Math.floor(ult))]
         // ["SPD After 2 Skill", damag.trim_after_decimal(0)],
     ];
     return [Math.floor(score), stats.final_spd, lbstats, calcDetails];
@@ -640,22 +539,8 @@ function E0S1_23014_IShallBeMyOwnSword(build, pela = false) {
     let talent_cr = 50;
     let talent_atk_f = total_base_atk * 1.8;
 
-    
+
     let stats = BuildStatsCalculatorNew({
-        build: build, 
-        base_atk :total_base_atk,
-        trace_atk_f: talent_atk_f,
-        base_spd: char_base_spd,
-        trace_defshred : lc_def_ignore,
-        trace_spd_f : trace_spd_f,
-        trace_cr_p: talent_cr,
-        trace_cd_p: lc_cd + trace_cd,
-        trace_atk_p:lc_atk_p + trace_atk_p,
-        trace_damage_bonus:lc_damage_bonus,
-        trace_fire : trace_fire,
-        trace_spd_p:0,
-    });
-    let stats_after_ult_used = BuildStatsCalculatorNew({
         build: build, 
         base_atk :total_base_atk,
         trace_atk_f: talent_atk_f,
@@ -691,19 +576,21 @@ function E0S1_23014_IShallBeMyOwnSword(build, pela = false) {
 
     
     let ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
+        scaling_attribute: stats.final_atk,
+        cr: stats.final_cr,
+        cd: stats.final_cd,
         skill_multiplier: ult_atk_mult,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred: stats_after_ult_used.res_ignore + res_shred,
+        def_ignore_p: stats.defignore_p + def_ignore,
+        res_shred: stats.res_ignore + res_shred,
         dmg_bonus_p : ult_dmg_p,
         enemylvl:90,
         vulnerability : vuln_due_technique
     }) 
     
 
-    let skill_primary = damag.outgoing_dmg_2({
+    
+
+    let skill_primary_after_ult = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
         cr: stats.final_cr,
         cd: stats.final_cd,
@@ -715,20 +602,8 @@ function E0S1_23014_IShallBeMyOwnSword(build, pela = false) {
         vulnerability : vuln_due_technique
     })
 
-    let skill_primary_after_ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats_after_ult_used.final_atk,
-        cr: stats_after_ult_used.final_cr,
-        cd: stats_after_ult_used.final_cd,
-        skill_multiplier: skill_atk_mult_primary,
-        def_ignore_p: stats_after_ult_used.defignore_p + def_ignore,
-        res_shred : stats_after_ult_used.res_ignore + res_shred,
-        dmg_bonus_p : skill_dmg_p,
-        enemylvl:90,
-        vulnerability : vuln_due_technique
-    })
-
     
-    let score = 2 * skill_primary + skill_primary_after_ult + ult;
+    let score = 3* skill_primary_after_ult + ult;
 
     let stats_display = BuildStatsCalculatorNew({
         build: build, 
@@ -756,9 +631,8 @@ function E0S1_23014_IShallBeMyOwnSword(build, pela = false) {
         ["E6S5 Penacony Pearls Pela in team", ""],
         ["Targets", "1"],
         ["Enemy weakness", "Ice"],
-        ["Enhanced Skill", String(Math.floor(skill_primary))],
-        ["ULT", String(Math.floor(ult))],
-        ["Enhanced Skill (After ult)", String(Math.floor(skill_primary_after_ult))],
+        ["Enhanced Skill", String(Math.floor(skill_primary_after_ult))],
+        ["ULT", String(Math.floor(ult))]
         // ["SPD After 2 Skill", damag.trim_after_decimal(0)],
     ];
     return [Math.floor(score), stats.final_spd, lbstats, calcDetails];
