@@ -1,9 +1,9 @@
 <script>
     import { getAvatarUrl } from "$lib/iconUrls/avatarIconsUrl.js";
     export let item;
+    import { goto } from '$app/navigation';
     $: player = item.find((i) => i["k"] == "p");
     //let avatarUrl = ;
-    
 </script>
 
 <div class="card">
@@ -11,15 +11,20 @@
         <p>{player["nm"]}</p>
 
         <img
-            
             src={getAvatarUrl(player["icn"])}
             alt={player["nm"]}
             class="avatar"
         />
         <p style="word-break: break-all; ">{player["sig"]}</p>
-        <p>
-            {"Achievments: " + player["ach"] + " (" + player["achrank"] + ")"}
-        </p>
+        <button on:click={() => goto('lb/achievments/1')}>
+            <p>
+                {"Achievments: " +
+                    player["ach"] +
+                    " (" +
+                    player["achrank"] +
+                    ")"}
+            </p>
+        </button>
     </div>
 </div>
 
