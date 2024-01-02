@@ -174,4 +174,10 @@ export const lc_dict_by_id = {
         'atk' : 476.28,
         'def' : 330.75,
     }, 
+    '23018' : {
+        // An Instant Before A Gaze
+        'hp' : 1058.4,
+        'atk' : 582.12,
+        'def' : 463.05,
+    }
 }

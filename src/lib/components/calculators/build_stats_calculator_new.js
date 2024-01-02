@@ -116,6 +116,7 @@ export function BuildStatsCalculatorNew(params){
             final_qua : self_final_qua,
             fire : self_fire,
             ice : self_ice,
+            phys : self_phys,
             skilldmg_p : self_skilldmg_p,
             final_cr : self_final_cr,
             final_cd : self_final_cd,

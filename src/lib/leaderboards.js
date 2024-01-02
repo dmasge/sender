@@ -112,6 +112,36 @@ export const leaderboards = [
             url: "/{charId}/E0S5_21003_134/1", desc: " "
         }
     ]),
+    generateLeaderboard('1302', 'Argenti', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23018.png',
+            url: "/{charId}/E0S1_23018TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21034.png',
+            url: "/{charId}/E0S5_21034TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21020.png',
+            url: "/{charId}/E0S5_21020TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21027.png',
+            url: "/{charId}/E0S5_21027TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21013.png',
+            url: "/{charId}/E0S5_21013TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23000.png',
+            url: "/{charId}/E0S1_23000TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23010.png',
+            url: "/{charId}/E0S1_23010TY/1", desc: " "
+        }
+    ]),
     generateLeaderboard('1208', 'Fu Xuan', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23011.png',

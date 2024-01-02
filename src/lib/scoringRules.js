@@ -47,5 +47,6 @@ export const scoringRulesShort = {
     '1003': "2×FUA + ULT + 3×SKILL", // Fu Xuan
     '1212': "3×ESkill + ULT", // JL
     '1112': "6×FUA + 2×EFUA", // Topaz
-    '1008': "3×Skill + ULT (2 targets)" // Arlan
+    '1008': "3×Skill + ULT (2 targets)", // Arlan
+    '1302': "3×Skill + ULT (3 targets)" // Argenti
 }

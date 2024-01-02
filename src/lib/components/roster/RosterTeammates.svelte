@@ -27,6 +27,9 @@
     if (key.includes("TY")) {
         teamMateIds.push("1202");
     }
+    if (key.includes("HNYA")) {
+        teamMateIds.push("1215");
+    }
 </script>
 
 <div style="display: flex; flex-direction: row;">
