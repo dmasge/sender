@@ -145,9 +145,9 @@ function E0S1_23010_BeforeDawn(build, hanya = false) {
         trace_defshred: lc_def_ignore,
         trace_cr_p: lc_cr + trace_cr + talent_cr,
         trace_cd_p: lc_cd + trace_cd + 10, // 10 is from ting keel
-        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus,
+        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus  + hanya_penacony_phys,
         trace_fire: trace_fire,
-        trace_phys: trace_phys + hanya_penacony_phys,
+        trace_phys: trace_phys,
         The_Ashblazing_Grand_Duke_ATK_p: 0,
     });
 
@@ -358,9 +358,9 @@ function E0S1_23000_NightontheMilkyWay(build, hanya = false) {
         trace_defshred: lc_def_ignore,
         trace_cr_p: lc_cr + trace_cr + talent_cr,
         trace_cd_p: lc_cd + trace_cd + 10, // 10 is from ting keel
-        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus,
+        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus  + hanya_penacony_phys,
         trace_fire: trace_fire,
-        trace_phys: trace_phys + hanya_penacony_phys,
+        trace_phys: trace_phys,
         The_Ashblazing_Grand_Duke_ATK_p: 0,
     });
 
@@ -571,9 +571,9 @@ function E0S5_21013_MaketheWorldClamor(build, hanya = false) {
         trace_defshred: lc_def_ignore,
         trace_cr_p: lc_cr + trace_cr + talent_cr,
         trace_cd_p: lc_cd + trace_cd + 10, // 10 is from ting keel
-        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus,
+        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus + hanya_penacony_phys,
         trace_fire: trace_fire,
-        trace_phys: trace_phys + hanya_penacony_phys,
+        trace_phys: trace_phys ,
         The_Ashblazing_Grand_Duke_ATK_p: 0,
     });
 
@@ -784,9 +784,9 @@ function E0S5_21027_TheSeriousnessofBreakfast(build, hanya = false) {
         trace_defshred: lc_def_ignore,
         trace_cr_p: lc_cr + trace_cr + talent_cr,
         trace_cd_p: lc_cd + trace_cd + 10, // 10 is from ting keel
-        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus,
+        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus  + hanya_penacony_phys,
         trace_fire: trace_fire,
-        trace_phys: trace_phys + hanya_penacony_phys,
+        trace_phys: trace_phys,
         The_Ashblazing_Grand_Duke_ATK_p: 0,
     });
 
@@ -996,9 +996,9 @@ function E0S5_21020_GeniusesRepose(build, hanya = false) {
         trace_defshred: lc_def_ignore,
         trace_cr_p: lc_cr + trace_cr + talent_cr,
         trace_cd_p: lc_cd + trace_cd + 10, // 10 is from ting keel
-        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus,
+        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus + hanya_penacony_phys,
         trace_fire: trace_fire,
-        trace_phys: trace_phys + hanya_penacony_phys,
+        trace_phys: trace_phys ,
         The_Ashblazing_Grand_Duke_ATK_p: 0,
     });
 
@@ -1209,9 +1209,9 @@ function E0S5_21034_TodayIsAnotherPeacefulDay(build, hanya = false) {
         trace_defshred: lc_def_ignore,
         trace_cr_p: lc_cr + trace_cr + talent_cr,
         trace_cd_p: lc_cd + trace_cd + 10, // 10 is from ting keel
-        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus,
+        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus + hanya_penacony_phys,
         trace_fire: trace_fire,
-        trace_phys: trace_phys + hanya_penacony_phys,
+        trace_phys: trace_phys ,
         The_Ashblazing_Grand_Duke_ATK_p: 0,
     });
 
@@ -1421,9 +1421,9 @@ function E0S1_23018_AnInstantBeforeAGaze(build, hanya = false) {
         trace_defshred: lc_def_ignore,
         trace_cr_p: lc_cr + trace_cr + talent_cr,
         trace_cd_p: lc_cd + trace_cd + 10, // 10 is from ting keel
-        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus,
+        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus + hanya_penacony_phys,
         trace_fire: trace_fire,
-        trace_phys: trace_phys + hanya_penacony_phys,
+        trace_phys: trace_phys,
         The_Ashblazing_Grand_Duke_ATK_p: 0,
     });
 
@@ -1634,9 +1634,9 @@ function E6S5_23018_AnInstantBeforeAGaze(build, hanya = false) {
         trace_defshred: lc_def_ignore,
         trace_cr_p: lc_cr + trace_cr + talent_cr,
         trace_cd_p: lc_cd + trace_cd + 10 + 48, // 10 is from ting keel 48 is E1 E4
-        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus,
+        trace_damage_bonus: lc_damage_bonus + a6_dmg_bonus_half_uptime + hanya_damage_bonus+ hanya_penacony_phys,
         trace_fire: trace_fire,
-        trace_phys: trace_phys + hanya_penacony_phys,
+        trace_phys: trace_phys ,
         The_Ashblazing_Grand_Duke_ATK_p: 0,
     });
 
