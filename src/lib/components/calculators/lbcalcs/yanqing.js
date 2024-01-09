@@ -9,7 +9,7 @@ export function score_yanqing(build, optimizationTarget) {
     let spd = 0;
     let lbstats = [];
     let calcDetails = [];
-    let breakpoints = ["", "124.2", "133.34", "142.9", "160.1", "171.5"];
+    let breakpoints = ["", "123.5", "133.34", "142.9", "160.1", "171.5"];
 
 
     if ("21010" == build['lc']['id']) {
