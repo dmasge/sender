@@ -286,24 +286,24 @@ export const leaderboards = [
     ]),
     generateLeaderboard('1209', 'Yanqing', [
         {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21024.png',
-            url: "/{charId}/E0S5_21024TYPL/1", desc: " "
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
+            url: "/{charId}/E0S1_23012TYPL_125/1", desc: " "
         },
         {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
-            url: "/{charId}/E0S1_23012TYPL/1", desc: " "
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21024.png',
+            url: "/{charId}/E0S5_21024TYPL_143/1", desc: " "
         },
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24001.png',
-            url: "/{charId}/E0S5_24001TYPL/1", desc: " "
+            url: "/{charId}/E0S5_24001TYPL_125/1", desc: " "
         },
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21010.png',
-            url: "/{charId}/E0S5_21010TYPL/1", desc: " "
+            url: "/{charId}/E0S5_21010TYPL_125/1", desc: " "
         },
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23001.png',
-            url: "/{charId}/E0S1_23001TYPL/1", desc: " "
+            url: "/{charId}/E0S1_23001TYPL_143/1", desc: " "
         }
     ]),
 

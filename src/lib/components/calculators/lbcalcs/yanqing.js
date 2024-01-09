@@ -3,7 +3,7 @@ import { BuildStatsCalculatorNew, assign_lb_to_build } from '$lib/components/cal
 import { lc_dict_by_id, get_itn_stack_count, sltd_eff_cr } from "$lib/components/calculators/lbcalcs/lightcones.js"
 
 
-// 1302
+// 1209
 export function score_yanqing(build, optimizationTarget) {
     let score = 0;
     let spd = 0;

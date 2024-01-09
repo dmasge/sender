@@ -2,7 +2,7 @@
     import LeaderboardsList from "$lib/components/lb/LeaderboardsList.svelte";
     import { onMount } from "svelte";
 
-    let title = "Honkai Star Rail Leaderboard Rankings";
+    let title = "SeeleLand";
     let description =
         "Rank your Honkai Star Rail builds on character relic leaderboard. Join our Honkai Star Rail Discord server for updates.";
     let keywords =
