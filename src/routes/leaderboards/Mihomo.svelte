@@ -1,41 +1,25 @@
 <script>
-    let elyDark = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/mihomo/ElyDark_cropped_99_Quality.webp";
-    let mihomoBlack = "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/mihomo/ElysiaRealm_black.webp";
-      
+    let elyDark =
+        "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/mihomo/ElyDark_cropped_99_Quality.webp";
+    let mihomoBlack =
+        "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/mihomo/ElysiaRealm_black.webp";
+
     let mihomoFontSize = 1.5;
 </script>
 
 <!-- <hr id="mihomoHr" /> -->
-<div style="width: 205px; margin:auto; scale:0.7;">
+<div style="width: 205px; margin:auto;">
     <a
         id="mihomoA"
         href={"https://discord.gg/uDKkDUCdbX"}
-        style="font-size: {mihomoFontSize}vw; display: flex; justify-content: center;"
+        style=" display: flex; justify-content: center;"
     >
         <div>
             <div id="mihomoDiv">
                 <div class="Header">{"and MiHoMo"}</div>
 
-                <!-- <img
-                    
-                    class="mihomoLogo"
-                    src={mihomoBlack}
-                    alt="Home"
-                    style="background: transparent; "
-                /> -->
                 <div class="Header">{" "}</div>
             </div>
-            <!-- <div
-                class="ElyDiv"
-                style="height: 99px; width: 244px; box-shadow: 0 0 20px #000000;"
-            >
-                <img
-                    
-                    src={elyDark}
-                    alt="Elysia"
-                    style="scale: 0.3125; margin-left:-270px; margin-right:-270px; margin-top:-110px; width: 250; height: 100"
-                />
-            </div> -->
         </div>
     </a>
 </div>
@@ -52,24 +36,20 @@
         color: black;
     }
 
-    /* #mihomoHr {
-        border-color: #000000;
-        box-shadow: none;
-        margin: 0;
-    } */
 
     #mihomoDiv {
         padding: 10px;
         display: flex;
         color: rgb(200, 200, 200);
 
-        font-size: 19px;
         align-items: center;
         justify-content: center;
+
+        padding: 10px;
     }
 
     .Header {
-        font-size: 17px;
+        font-size: 13px;
         text-shadow: none;
     }
 

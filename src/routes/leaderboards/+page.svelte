@@ -1,8 +1,31 @@
 <script>
     import LeaderboardsList from "$lib/components/lb/LeaderboardsList.svelte";
+    import { onMount } from "svelte";
+
+    let title = "Honkai Star Rail Leaderboard Rankings";
+    let description =
+        "Rank your Honkai Star Rail builds on character relic leaderboard. Join our Honkai Star Rail Discord server for updates.";
+    let keywords =
+        "Honkai Star Rail, HSR, build leaderboard, character leaderboard, relic leaderboard, HSR relic leaderboard, HSR build rank, HSR build rating, Honkai Star Rail ranking relic, Honkai Star Rail ranking build, Honkai Star Rail account ranking, Honkai Star Rail discord server";
+
+    onMount(() => {
+        document.title = title;
+        document
+            .querySelector('meta[name="description"]')
+            .setAttribute("content", description);
+        document
+            .querySelector('meta[name="keywords"]')
+            .setAttribute("content", keywords);
+    });
 
     let searchTerm;
 </script>
+
+<svelte:head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+</svelte:head>
 
 <div
     style="display:flex; justify-content: center;

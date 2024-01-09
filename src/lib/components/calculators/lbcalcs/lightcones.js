@@ -179,5 +179,32 @@ export const lc_dict_by_id = {
         'hp' : 1058.4,
         'atk' : 582.12,
         'def' : 463.05,
+    },
+    '21024' : {
+        // River Flows in Spring
+        'hp' : 846.72,
+        'atk' : 476.28,
+        'def' : 396.9,
     }
+}
+
+export function get_itn_stack_count(spd) {
+    if (spd >= 160) return 6;
+    var remainder_100s = spd % 100;
+    var stacks = Math.min(Math.max(Math.floor(remainder_100s / 10), 0), 6);
+    return stacks;
+}
+
+export function sltd_eff_cr(cr) {
+    cr = Math.min(Math.max(cr, 5), 100);
+    let x = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100];
+    let y = [27, 26.5, 26, 25.5, 25, 24, 23, 22, 21, 19, 18, 16, 14, 11, 8, 5, 3, 1, 0.5, 0];
+    for (let i = 0; i < x.length - 1; i++) {
+        if (x[i] <= cr && cr <= x[i + 1]) {
+            let slope = (y[i + 1] - y[i]) / (x[i + 1] - x[i]);
+            let cr_b4_resurg = (y[i] + slope * (cr - x[i]));
+            return cr_b4_resurg;
+        }
+    }
+    return 0;
 }

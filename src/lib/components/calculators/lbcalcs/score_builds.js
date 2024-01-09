@@ -10,6 +10,7 @@ import { score_topaz } from "$lib/components/calculators/lbcalcs/topaz.js"
 import { score_arlan } from "$lib/components/calculators/lbcalcs/arlan.js"
 import { score_jing_yuan } from "$lib/components/calculators/lbcalcs/jing_yuan.js"
 import { score_argenti } from "$lib/components/calculators/lbcalcs/argenti.js"
+import { score_yanqing } from "$lib/components/calculators/lbcalcs/yanqing.js"
 
 export function score_build(build, optimizationTarget = "") {
     try {
@@ -33,6 +34,8 @@ export function score_build(build, optimizationTarget = "") {
             return score_jing_yuan(build, optimizationTarget);
         } else if (build['k'] === "1302") {
             return score_argenti(build, optimizationTarget);
+        } else if (build['k'] === "1209") {
+            return score_yanqing(build, optimizationTarget);
         } 
     } catch (error) {
         console.log(error);

@@ -244,9 +244,7 @@ export function BuildStatsCalculatorNew(params){
                     self_ice += 10;
                 } 
                 else if (cnt === 4 && count_conditionals) {
-                    if (self_ult_used && self_build['k'].includes("1212")){
-                        self_cd_p += 25;
-                    }
+                    self_cd_p += 25;
                 } 
             } else if (set_id === "105") { // Champion of Streetwise Boxing
                 if (cnt === 2) {

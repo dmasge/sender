@@ -37,7 +37,7 @@
     onMount(async () => {
         try {
             message = await fetch(
-                "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/message.txt"
+                "https://raw.githubusercontent.com/Sinkira/sinkiresource/main/message.txt",
             ).then((res) => res.text());
         } catch (error) {
             message = "OPEN BETA";
@@ -103,10 +103,14 @@
 
     <Mihomo />
 
-    <div style="text-align: center; padding-bottom:20px; ">
-        <a style="color: rgb(200, 200, 200);" href="/privacy">Privacy Policy</a>
+    <div style="text-align: center;    ">
+        <a style="color: rgb(200, 200, 200);" href="/privacy">
+            <div style="font-size: 13px; text-shadow: none; vertical-align: middle; text-align: center;  padding: 10px;">
+                {"Privacy Policy"}
+            </div></a
+        >
     </div>
-    <Breakpoints/>
+    <Breakpoints />
 </div>
 
 <style>
@@ -147,7 +151,6 @@
         font-family: Arial, sans-serif;
         text-shadow: none;
         color: black;
-        margin: auto;
     }
 
     #outermost {

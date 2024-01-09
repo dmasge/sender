@@ -90,6 +90,77 @@ export const leaderboards = [
             url: "/{charId}/E0S1_23002PL_134/1", desc: " "
         }
     ]),
+    generateLeaderboard('1204', 'Jing Yuan', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23010.png',
+            url: "/{charId}/E0S1_23010TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21027.png',
+            url: "/{charId}/E0S5_21027TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21006.png',
+            url: "/{charId}/E0S5_21006TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21034.png',
+            url: "/{charId}/E0S5_21034TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21020.png',
+            url: "/{charId}/E0S5_21020TY/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23000.png',
+            url: "/{charId}/E0S1_23000TY/1", desc: " "
+        },
+    ]),
+    generateLeaderboard('1205', 'Blade', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23009.png',
+            url: "/{charId}/E0S1_23009BN/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21012.png',
+            url: "/{charId}/E0S5_21012BN/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24000.png',
+            url: "/{charId}/E0S5_24000BN/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23002.png',
+            url: "/{charId}/E0S1_23002BN/1", desc: " "
+        }
+
+    ]),
+    generateLeaderboard('1005', 'Kafka', [
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23006.png',
+            url: "/{charId}/E1S1_23006_143/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21001.png',
+            url: "/{charId}/E0S5_21001_134/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21022.png',
+            url: "/{charId}/E0S5_21022_134/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23004.png',
+            url: "/{charId}/E0S1_23004_134/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24003.png',
+            url: "/{charId}/E0S5_24003_134/1", desc: ""
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21008.png',
+            url: "/{charId}/E0S5_21008_134/1", desc: ""
+        },
+    ]),
     generateLeaderboard('1112', 'Topaz', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23016.png',
@@ -164,77 +235,6 @@ export const leaderboards = [
             url: "/{charId}/E0S5_ERR21002_121/1", desc: " "
         }
     ]),
-    generateLeaderboard('1005', 'Kafka', [
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23006.png',
-            url: "/{charId}/E1S1_23006_143/1", desc: ""
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21001.png',
-            url: "/{charId}/E0S5_21001_134/1", desc: ""
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21022.png',
-            url: "/{charId}/E0S5_21022_134/1", desc: ""
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23004.png',
-            url: "/{charId}/E0S1_23004_134/1", desc: ""
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24003.png',
-            url: "/{charId}/E0S5_24003_134/1", desc: ""
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21008.png',
-            url: "/{charId}/E0S5_21008_134/1", desc: ""
-        },
-    ]),
-    generateLeaderboard('1205', 'Blade', [
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23009.png',
-            url: "/{charId}/E0S1_23009BN/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21012.png',
-            url: "/{charId}/E0S5_21012BN/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24000.png',
-            url: "/{charId}/E0S5_24000BN/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23002.png',
-            url: "/{charId}/E0S1_23002BN/1", desc: " "
-        }
-
-    ]),
-    generateLeaderboard('1204', 'Jing Yuan', [
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23010.png',
-            url: "/{charId}/E0S1_23010TY/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21027.png',
-            url: "/{charId}/E0S5_21027TY/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21006.png',
-            url: "/{charId}/E0S5_21006TY/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21034.png',
-            url: "/{charId}/E0S5_21034TY/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21020.png',
-            url: "/{charId}/E0S5_21020TY/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23000.png',
-            url: "/{charId}/E0S1_23000TY/1", desc: " "
-        },
-    ]),
     generateLeaderboard('1003', 'Himeko', [
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23000.png',
@@ -284,29 +284,31 @@ export const leaderboards = [
             url: "/{charId}/E6S5_21019/1", desc: ""
         },
     ]),
-
     generateLeaderboard('1209', 'Yanqing', [
         {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
-            url: "/{charId}/E0S1_23012/1", desc: " "
-        },
-        {
-            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
-            url: "/{charId}/E0S5_23012/1", desc: "S5"
-        },
-        {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21024.png',
-            url: "/{charId}/E0S5_21024_134/1", desc: " "
+            url: "/{charId}/E0S5_21024TYPL/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23012.png',
+            url: "/{charId}/E0S1_23012TYPL/1", desc: " "
         },
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/24001.png',
-            url: "/{charId}/E0S5_24001/1", desc: " "
+            url: "/{charId}/E0S5_24001TYPL/1", desc: " "
         },
         {
             pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/21010.png',
-            url: "/{charId}/E0S5_21010/1", desc: " "
+            url: "/{charId}/E0S5_21010TYPL/1", desc: " "
+        },
+        {
+            pic: 'https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/23001.png',
+            url: "/{charId}/E0S1_23001TYPL/1", desc: " "
         }
     ]),
+
+
+
     generateLeaderboard('1213', 'Dan Heng Imbibitor Lunae', [
         { pic: brighter, url: "/{charId}/E0S1_23015/1", desc: " " },
         { pic: brighter, url: "/{charId}/E0S5_23015/1", desc: "S5" },
