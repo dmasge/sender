@@ -1,5 +1,4 @@
 <script>
-    import { starRailRes, extension } from "$lib/constants.js";
     export let key; // category
     let teamMateIds = [];
 
@@ -30,14 +29,22 @@
     if (key.includes("HNYA")) {
         teamMateIds.push("1215");
     }
+    if (key.includes("MONOQ")) {
+        teamMateIds.push("1306");
+        teamMateIds.push("1006");
+        teamMateIds.push("1208");
+    }
+
+    let picUrlBase = "https://api.hakush.in/hsr/UI/avatarshopicon/";
+    let extension = ".webp";
 </script>
 
-<div style="display: flex; flex-direction: row;">
+<div style="display: flex; flex-direction: row; width:100px;">
     {#each teamMateIds as teamMateId}
-        <div style="height: 25px; overflow: hidden; margin:2px; width:{75 / teamMateIds.length + 'px'}">
+        <div style="height: 25px; overflow: hidden; margin:2px; width:{100 / teamMateIds.length + 'px'}">
             <img
-                style="scale:{(teamMateIds.length == 2 ? 1.8 : 2.5)}; margin-top:{(teamMateIds.length == 2 ? 7 : 0) + 'px'};"
-                src={starRailRes + "icon/character/" + teamMateId + extension}
+                style="scale:{(teamMateIds.length == 2 ? 4 : 4)}; margin-top:{20 + 'px'};"
+                src={picUrlBase + teamMateId + extension}
                 alt={"..."}
             />
         </div>
@@ -46,7 +53,7 @@
 
 <style>
     img {
-        height: 23px;
+        height: 25px;
         width: auto;
         margin: 0px;
         padding: 0px;

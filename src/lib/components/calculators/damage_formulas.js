@@ -33,7 +33,7 @@ export function outgoing_dmg_2({
     
     final_dmg *= 1 + dmg_bonus_p / 100;
     
-    let defense = (200 + 10 * enemylvl) * (1 - def_ignore_p / 100);
+    let defense = (200 + 10 * enemylvl) * (1 - Math.min(def_ignore_p, 100) / 100);
     final_dmg *= 1 - (defense / (defense + 200 + 10 * 80));
     
     final_dmg *= (100 + res_shred) / 100;

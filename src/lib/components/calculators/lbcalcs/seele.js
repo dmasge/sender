@@ -89,10 +89,50 @@ export function score_seele(build, optimizationTarget) {
             let ctgrname = 'E0S5_' + build['lc']['id'] + "FX";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
         }
+
+
+    if (optimizationTarget == "" || (optimizationTarget != "" && optimizationTarget.includes("MONOQ")))
+        if (build['e'] >= 2 && "23001" == build['lc']['id'] && build['lc']['s'] >= 3) {
+            breakpoints = ["", "200.1"];
+            [score, spd, lbstats, calcDetails] = E2S5_23001_IntheNight(build, true, true, true);
+            let ctgrname = 'E2S5_' + build['lc']['id'] + "MONOQ";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if (build['e'] >= 2 && "23001" === build['lc']['id']) {
+            breakpoints = ["", "200.1"];
+            [score, spd, lbstats, calcDetails] = E2S1_23001_IntheNight(build, true, true, true);
+            let ctgrname = 'E2S1_' + build['lc']['id'] + "MONOQ";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if (build['e'] == 1 && "23001" === build['lc']['id']) {
+            breakpoints = ["", "160.1", "171.5", "200.1"];
+            [score, spd, lbstats, calcDetails] = E1S1_23001_IntheNight(build, true, true, true);
+            let ctgrname = 'E1S1_' + build['lc']['id'] + "MONOQ";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("23001" === build['lc']['id']) {
+            breakpoints = ["", "160.1", "171.5", "200.1"];
+            [score, spd, lbstats, calcDetails] = E0S1_23001_IntheNight(build, true, true, true);
+            let ctgrname = 'E0S1_' + build['lc']['id'] + "MONOQ";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("24001" === build['lc']['id']) {
+            breakpoints = ["", "160.1", "171.5", "200.1"];
+            [score, spd, lbstats, calcDetails] = E0S5_24001_CruisingintheStellarSea(build, true, true, true);
+            let ctgrname = 'E0S5_' + build['lc']['id'] + "MONOQ";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("23012" === build['lc']['id']) {
+            breakpoints = ["", "160.1", "171.5", "200.1"];
+            [score, spd, lbstats, calcDetails] = E0S1_23012_SleepLikeTheDead(build, true, true, true);
+            let ctgrname = 'E0S1_' + build['lc']['id'] + "MONOQ";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        } else if ("21010" === build['lc']['id']) {
+            breakpoints = ["", "160.1", "171.5", "200.1"];
+            [score, spd, lbstats, calcDetails] = E0S5_21010_Swordplay(build, true, true, true);
+            let ctgrname = 'E0S5_' + build['lc']['id'] + "MONOQ";
+            build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
+        }
+    
     return build;
 }
 
-function E2S5_23001_IntheNight(build, fuxuan = false) {
+function E2S5_23001_IntheNight(build, fuxuan = false, sw = false, hanabi = false) {
     let lc_base_atk = lc_dict_by_id['23001']['atk'];
 
     let total_base_atk = char_base_atk + lc_base_atk;
@@ -104,15 +144,32 @@ function E2S5_23001_IntheNight(build, fuxuan = false) {
     let fuxuan_dmg_bonus = fuxuan ? (9 + 10) : 0;
 
     let lc_cr_p = 30;
+    let hanabi_skill_cd = hanabi ? 87.68 : 0; // 260CD, rounded transfers 110CD, 80% uptime makes it around 90
+    let hanabi_s5_cd = hanabi ? 48 : 0;
+    let hanabi_s5_cr = hanabi ? 14 : 0;
+    let hanabi_penacony_dmg_bonus = hanabi ? 10 : 0;
+    let hanabi_talent_dmg_bonus = hanabi ? 48 : 0; // 16*3 talen with ULT
+    let hanabi_trace_atk_p = hanabi ? 45 : 0;
+    let hanabi_E1_atk_p = hanabi ? 25 : 0;
+    let hanabi_E2_def_ignore = hanabi ? 24 : 0;
+    
+    let sw_penacony_dmg_bonus = sw ? 10 : 0;
+    let sw_def_ignore = sw ? 61 : 0; // SW ULT 45 + pearls 16
+    let sup_res_shred = sw ? 10 : 0; // SW SKILL
     let stats = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
-        trace_atk_p: 28,
-        trace_cd_p: 24 + fuxuan_cd,
+        trace_atk_p: 28 + hanabi_trace_atk_p + hanabi_E1_atk_p,
+        trace_cd_p: 24 + fuxuan_cd + hanabi_skill_cd + hanabi_s5_cd,
         trace_spd_p: 50,
-        trace_cr_p: lc_cr_p + fuxuan_cr,
+        trace_cr_p: lc_cr_p + fuxuan_cr + hanabi_s5_cr,
+        trace_defshred: hanabi_E2_def_ignore + sw_def_ignore,
+        trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus,
     });
+    // support stuff
+    let sup_damage_bonus = 0;
+    let sup_vuln = 0;
 
 
     let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
@@ -130,8 +187,8 @@ function E2S5_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95, 'vulnerability': sup_vuln,
     });
     let ult_buffed_dmg_abv80 = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -140,8 +197,8 @@ function E2S5_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95, 'vulnerability': sup_vuln,
     });
 
     let skill_buffed_dmg_blv80 = damag.outgoing_dmg_2({
@@ -151,8 +208,8 @@ function E2S5_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95, 'vulnerability': sup_vuln,
     });
     let ult_buffed_dmg_blv80 = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -161,8 +218,8 @@ function E2S5_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95, 'vulnerability': sup_vuln,
     });
 
     let skill = skill_buffed_dmg_abv80 * 0.2 + skill_buffed_dmg_blv80 * 0.8
@@ -193,7 +250,13 @@ function E2S5_23001_IntheNight(build, fuxuan = false) {
         ["SPD After 2 Skill", damag.trim_after_decimal(stats.final_spd)],
     ];
     if (fuxuan) {
-        calcDetails.unshift(["E1S1 Penacony Fu Xuan in team", ""]);
+        calcDetails.unshift(["E1S1 Sig Penacony Fu Xuan", ""]);
+    }
+    if (sw) {
+        calcDetails.unshift(["E0S5 Pearls Penacony SW (bugs ignored)", ""]);
+    }
+    if (hanabi) {
+        calcDetails.unshift(["E2S5 260CD Sig Penacony Hanabi (80% skill uptime)", ""]);
     }
 
 
@@ -203,7 +266,7 @@ function E2S5_23001_IntheNight(build, fuxuan = false) {
 
 
 
-function E2S1_23001_IntheNight(build, fuxuan = false) {
+function E2S1_23001_IntheNight(build, fuxuan = false, sw = false, hanabi = false) {
     let lc_base_atk = lc_dict_by_id['23001']['atk'];
 
     let total_base_atk = char_base_atk + lc_base_atk;
@@ -215,14 +278,28 @@ function E2S1_23001_IntheNight(build, fuxuan = false) {
     let fuxuan_dmg_bonus = fuxuan ? (9 + 10) : 0;
 
     let lc_cr_p = 18;
+    let hanabi_skill_cd = hanabi ? 81.92 : 0; // 240CD,
+    let hanabi_s5_cd = hanabi ? 24 : 0;
+    let hanabi_s5_cr = hanabi ? 10 : 0;
+    let hanabi_penacony_dmg_bonus = hanabi ? 10 : 0;
+    let hanabi_talent_dmg_bonus = hanabi ? 48 : 0; // 16*3 talen with ULT
+    let hanabi_trace_atk_p = hanabi ? 45 : 0;
+    let hanabi_E1_atk_p = hanabi ? 25 : 0;
+    let hanabi_E2_def_ignore = hanabi ? 24 : 0;
+    
+    let sw_penacony_dmg_bonus = sw ? 10 : 0;
+    let sw_def_ignore = sw ? 61 : 0; // SW ULT 45 + pearls 16
+    let sup_res_shred = sw ? 10 : 0; // SW SKILL
     let stats = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
-        trace_atk_p: 28,
-        trace_cd_p: 24 + fuxuan_cd,
+        trace_atk_p: 28 + hanabi_trace_atk_p + hanabi_E1_atk_p,
+        trace_cd_p: 24 + fuxuan_cd + hanabi_skill_cd + hanabi_s5_cd,
         trace_spd_p: 50,
-        trace_cr_p: lc_cr_p + fuxuan_cr,
+        trace_cr_p: lc_cr_p + fuxuan_cr + hanabi_s5_cr,
+        trace_defshred: hanabi_E2_def_ignore + sw_def_ignore,
+        trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus,
     });
 
 
@@ -241,8 +318,8 @@ function E2S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     });
     let ult_buffed_dmg_abv80 = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -251,8 +328,8 @@ function E2S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     });
 
     let skill_buffed_dmg_blv80 = damag.outgoing_dmg_2({
@@ -262,8 +339,8 @@ function E2S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     });
     let ult_buffed_dmg_blv80 = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -272,8 +349,8 @@ function E2S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     });
 
     let skill = skill_buffed_dmg_abv80 * 0.2 + skill_buffed_dmg_blv80 * 0.8
@@ -305,7 +382,13 @@ function E2S1_23001_IntheNight(build, fuxuan = false) {
         ["SPD After 2 Skill", damag.trim_after_decimal(stats.final_spd)],
     ];
     if (fuxuan) {
-        calcDetails.unshift(["E1S1 Penacony Fu Xuan in team", ""]);
+        calcDetails.unshift(["E1S1 Sig Penacony Fu Xuan", ""]);
+    }
+    if (sw) {
+        calcDetails.unshift(["E0S5 Pearls Penacony SW (bugs ignored)", ""]);
+    }
+    if (hanabi) {
+        calcDetails.unshift(["E2S1 240CD Sig Penacony Hanabi (80% skill uptime)", ""]);
     }
 
 
@@ -315,7 +398,7 @@ function E2S1_23001_IntheNight(build, fuxuan = false) {
 
 
 
-function E1S1_23001_IntheNight(build, fuxuan = false) {
+function E1S1_23001_IntheNight(build, fuxuan = false, sw = false, hanabi = false) {
     let lc_base_atk = lc_dict_by_id['23001']['atk'];
 
     let total_base_atk = char_base_atk + lc_base_atk;
@@ -327,14 +410,28 @@ function E1S1_23001_IntheNight(build, fuxuan = false) {
     let fuxuan_dmg_bonus = fuxuan ? (9 + 10) : 0;
 
     let lc_cr_p = 18;
+    let hanabi_skill_cd = hanabi ? 81.92 : 0; // 240CD,
+    let hanabi_s5_cd = hanabi ? 24 : 0;
+    let hanabi_s5_cr = hanabi ? 10 : 0;
+    let hanabi_penacony_dmg_bonus = hanabi ? 10 : 0;
+    let hanabi_talent_dmg_bonus = hanabi ? 48 : 0; // 16*3 talen with ULT
+    let hanabi_trace_atk_p = hanabi ? 45 : 0;
+    let hanabi_E1_atk_p = hanabi ? 25 : 0;
+    let hanabi_E2_def_ignore = hanabi ? 24 : 0;
+    
+    let sw_penacony_dmg_bonus = sw ? 10 : 0;
+    let sw_def_ignore = sw ? 61 : 0; // SW ULT 45 + pearls 16
+    let sup_res_shred = sw ? 10 : 0; // SW SKILL
     let stats = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
-        trace_atk_p: 28,
-        trace_cd_p: 24 + fuxuan_cd,
+        trace_atk_p: 28 + hanabi_trace_atk_p + hanabi_E1_atk_p,
+        trace_cd_p: 24 + fuxuan_cd + hanabi_skill_cd + hanabi_s5_cd,
         trace_spd_p: 25,
-        trace_cr_p: lc_cr_p + fuxuan_cr,
+        trace_cr_p: lc_cr_p + fuxuan_cr + hanabi_s5_cr,
+        trace_defshred: hanabi_E2_def_ignore + sw_def_ignore,
+        trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus,
     });
 
 
@@ -353,8 +450,8 @@ function E1S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     });
     let ult_buffed_dmg_abv80 = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -363,8 +460,8 @@ function E1S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     });
 
     let skill_buffed_dmg_blv80 = damag.outgoing_dmg_2({
@@ -374,8 +471,8 @@ function E1S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     });
     let ult_buffed_dmg_blv80 = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -384,8 +481,8 @@ function E1S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     });
 
     let skill = skill_buffed_dmg_abv80 * 0.2 + skill_buffed_dmg_blv80 * 0.8
@@ -417,7 +514,13 @@ function E1S1_23001_IntheNight(build, fuxuan = false) {
         ["SPD After Skill", damag.trim_after_decimal(stats.final_spd)]
     ];
     if (fuxuan) {
-        calcDetails.unshift(["E1S1 Penacony Fu Xuan in team", ""]);
+        calcDetails.unshift(["E1S1 Sig Penacony Fu Xuan", ""]);
+    }
+    if (sw) {
+        calcDetails.unshift(["E0S5 Pearls Penacony SW (bugs ignored)", ""]);
+    }
+    if (hanabi) {
+        calcDetails.unshift(["E2S1 240CD Sig Penacony Hanabi (80% skill uptime)", ""]);
     }
 
 
@@ -426,7 +529,7 @@ function E1S1_23001_IntheNight(build, fuxuan = false) {
 }
 
 
-function E0S1_23001_IntheNight(build, fuxuan = false) {
+function E0S1_23001_IntheNight(build, fuxuan = false, sw = false, hanabi = false) {
     let lc_base_atk = lc_dict_by_id['23001']['atk'];
 
     let total_base_atk = char_base_atk + lc_base_atk;
@@ -438,14 +541,28 @@ function E0S1_23001_IntheNight(build, fuxuan = false) {
     let fuxuan_dmg_bonus = fuxuan ? (9 + 10) : 0;
 
     let lc_cr_p = 18;
+    let hanabi_skill_cd = hanabi ? 81.92 : 0; // 240CD,
+    let hanabi_s5_cd = hanabi ? 24 : 0;
+    let hanabi_s5_cr = hanabi ? 10 : 0;
+    let hanabi_penacony_dmg_bonus = hanabi ? 10 : 0;
+    let hanabi_talent_dmg_bonus = hanabi ? 48 : 0; // 16*3 talen with ULT
+    let hanabi_trace_atk_p = hanabi ? 45 : 0;
+    let hanabi_E1_atk_p = hanabi ? 25 : 0;
+    let hanabi_E2_def_ignore = hanabi ? 24 : 0;
+    
+    let sw_penacony_dmg_bonus = sw ? 10 : 0;
+    let sw_def_ignore = sw ? 61 : 0; // SW ULT 45 + pearls 16
+    let sup_res_shred = sw ? 10 : 0; // SW SKILL
     let stats = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
-        trace_atk_p: 28,
-        trace_cd_p: 24 + fuxuan_cd,
+        trace_atk_p: 28 + hanabi_trace_atk_p + hanabi_E1_atk_p,
+        trace_cd_p: 24 + fuxuan_cd + hanabi_skill_cd + hanabi_s5_cd,
         trace_spd_p: 25,
-        trace_cr_p: lc_cr_p + fuxuan_cr,
+        trace_cr_p: lc_cr_p + fuxuan_cr + hanabi_s5_cr,
+        trace_defshred: hanabi_E2_def_ignore + sw_def_ignore,
+        trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus,
     });
 
 
@@ -464,8 +581,8 @@ function E0S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20+sup_res_shred,
+        enemylvl: 95
     });
     let ult_buffed_dmg = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -474,8 +591,8 @@ function E0S1_23001_IntheNight(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20+sup_res_shred,
+        enemylvl: 95
     })
 
     let score = 4 * skill_buffed_dmg + ult_buffed_dmg
@@ -504,7 +621,13 @@ function E0S1_23001_IntheNight(build, fuxuan = false) {
         ["SPD After Skill", damag.trim_after_decimal(stats.final_spd)]
     ];
     if (fuxuan) {
-        calcDetails.unshift(["E1S1 Penacony Fu Xuan in team", ""]);
+        calcDetails.unshift(["E1S1 Sig Penacony Fu Xuan", ""]);
+    }
+    if (sw) {
+        calcDetails.unshift(["E0S5 Pearls Penacony SW (bugs ignored)", ""]);
+    }
+    if (hanabi) {
+        calcDetails.unshift(["E2S1 240CD Sig Penacony Hanabi (80% skill uptime)", ""]);
     }
 
 
@@ -521,7 +644,7 @@ function get_itn_stack_count(spd) {
 }
 
 
-function E0S5_21010_Swordplay(build, fuxuan = false) {
+function E0S5_21010_Swordplay(build, fuxuan = false, sw = false, hanabi = false) {
     let lc_base_atk = lc_dict_by_id['21010']['atk'];
 
     let total_base_atk = char_base_atk + lc_base_atk;
@@ -535,15 +658,28 @@ function E0S5_21010_Swordplay(build, fuxuan = false) {
     let lc_atk_p = 0;
     let lc_damage_bonus = 80;
     let lc_cr_p = 0;
+    let hanabi_skill_cd = hanabi ? 81.92 : 0; // 240CD,
+    let hanabi_s5_cd = hanabi ? 24 : 0;
+    let hanabi_s5_cr = hanabi ? 10 : 0;
+    let hanabi_penacony_dmg_bonus = hanabi ? 10 : 0;
+    let hanabi_talent_dmg_bonus = hanabi ? 48 : 0; // 16*3 talen with ULT
+    let hanabi_trace_atk_p = hanabi ? 45 : 0;
+    let hanabi_E1_atk_p = hanabi ? 25 : 0;
+    let hanabi_E2_def_ignore = hanabi ? 24 : 0;
+    
+    let sw_penacony_dmg_bonus = sw ? 10 : 0;
+    let sw_def_ignore = sw ? 61 : 0; // SW ULT 45 + pearls 16
+    let sup_res_shred = sw ? 10 : 0; // SW SKILL
     let stats = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
-        trace_atk_p: 28 + lc_atk_p,
-        trace_cd_p: 24 + fuxuan_cd,
+        trace_atk_p: 28 + hanabi_trace_atk_p + hanabi_E1_atk_p,
+        trace_cd_p: 24 + fuxuan_cd + hanabi_skill_cd + hanabi_s5_cd,
         trace_spd_p: 25,
-        trace_cr_p: lc_cr_p + fuxuan_cr,
-        trace_damage_bonus: lc_damage_bonus,
+        trace_cr_p: lc_cr_p + fuxuan_cr + hanabi_s5_cr,
+        trace_defshred: hanabi_E2_def_ignore + sw_def_ignore,
+        trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus + lc_damage_bonus,
     });
 
 
@@ -558,8 +694,8 @@ function E0S5_21010_Swordplay(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20+sup_res_shred,
+        enemylvl: 95
     });
     let ult_buffed_dmg = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -568,8 +704,8 @@ function E0S5_21010_Swordplay(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20+sup_res_shred,
+        enemylvl: 95
     })
 
     let score = 4 * skill_buffed_dmg + ult_buffed_dmg
@@ -596,7 +732,13 @@ function E0S5_21010_Swordplay(build, fuxuan = false) {
         ["SPD After Skill", damag.trim_after_decimal(stats.final_spd)]
     ];
     if (fuxuan) {
-        calcDetails.unshift(["E1S1 Penacony Fu Xuan in team", ""]);
+        calcDetails.unshift(["E1S1 Sig Penacony Fu Xuan", ""]);
+    }
+    if (sw) {
+        calcDetails.unshift(["E0S5 Pearls Penacony SW (bugs ignored)", ""]);
+    }
+    if (hanabi) {
+        calcDetails.unshift(["E2S1 240CD Sig Penacony Hanabi (80% skill uptime)", ""]);
     }
 
 
@@ -606,7 +748,7 @@ function E0S5_21010_Swordplay(build, fuxuan = false) {
 
 
 
-function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
+function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false, sw = false, hanabi = false) {
     let lc_base_atk = lc_dict_by_id['24001']['atk'];
 
     let total_base_atk = char_base_atk + lc_base_atk;
@@ -619,14 +761,28 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
 
     let lc_atk_p = 40;
     let lc_cr_p = 16;
+    let hanabi_skill_cd = hanabi ? 81.92 : 0; // 240CD,
+    let hanabi_s5_cd = hanabi ? 24 : 0;
+    let hanabi_s5_cr = hanabi ? 10 : 0;
+    let hanabi_penacony_dmg_bonus = hanabi ? 10 : 0;
+    let hanabi_talent_dmg_bonus = hanabi ? 48 : 0; // 16*3 talen with ULT
+    let hanabi_trace_atk_p = hanabi ? 45 : 0;
+    let hanabi_E1_atk_p = hanabi ? 25 : 0;
+    let hanabi_E2_def_ignore = hanabi ? 24 : 0;
+    
+    let sw_penacony_dmg_bonus = sw ? 10 : 0;
+    let sw_def_ignore = sw ? 61 : 0; // SW ULT 45 + pearls 16
+    let sup_res_shred = sw ? 10 : 0; // SW SKILL
     let stats = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
-        trace_atk_p: 28 + lc_atk_p,
-        trace_cd_p: 24 + fuxuan_cd,
+        trace_atk_p: 28 + hanabi_trace_atk_p + hanabi_E1_atk_p + lc_atk_p,
+        trace_cd_p: 24 + fuxuan_cd + hanabi_skill_cd + hanabi_s5_cd,
         trace_spd_p: 25,
-        trace_cr_p: lc_cr_p + fuxuan_cr,
+        trace_cr_p: lc_cr_p + fuxuan_cr + hanabi_s5_cr,
+        trace_defshred: hanabi_E2_def_ignore + sw_def_ignore,
+        trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus,
     });
 
 
@@ -641,8 +797,8 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20+sup_res_shred,
+        enemylvl: 95
     });
     let ult_buffed_dmg_abv50 = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -651,8 +807,8 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20+sup_res_shred,
+        enemylvl: 95
     })
 
     let skill_buffed_dmg_blv50 = damag.outgoing_dmg_2({
@@ -662,8 +818,8 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20+sup_res_shred,
+        enemylvl: 95
     });
     let ult_buffed_dmg_blv50 = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -672,8 +828,8 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20+sup_res_shred,
+        enemylvl: 95
     })
 
     let skill_avg = (skill_buffed_dmg_abv50 + skill_buffed_dmg_blv50) / 2
@@ -697,7 +853,7 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
         ["SPD", damag.trim_after_decimal(stats_display.final_spd)]
     ];
     let calcDetails = [
-        ["ATK at 100% uptime", String(Math.floor(stats.final_atk))],
+        ["ATK uptime", "100%"],
         ["Skill average", String(Math.floor(skill_avg))],
         ["Over 50% / under", String(Math.floor(skill_buffed_dmg_abv50)) + ' / ' + String(Math.floor(skill_buffed_dmg_blv50))],
         ["ULT average", String(Math.floor(ult_avg))],
@@ -706,7 +862,13 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
         ["SPD After Skill", damag.trim_after_decimal(stats.final_spd)]
     ];
     if (fuxuan) {
-        calcDetails.unshift(["E1S1 Penacony Fu Xuan in team", ""]);
+        calcDetails.unshift(["E1S1 Sig Penacony Fu Xuan", ""]);
+    }
+    if (sw) {
+        calcDetails.unshift(["E0S5 Pearls Penacony SW (bugs ignored)", ""]);
+    }
+    if (hanabi) {
+        calcDetails.unshift(["E2S1 240CD Sig Penacony Hanabi (80% skill uptime)", ""]);
     }
 
 
@@ -715,7 +877,7 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false) {
 }
 
 
-function E0S1_23012_SleepLikeTheDead(build, fuxuan = false) {
+function E0S1_23012_SleepLikeTheDead(build, fuxuan = false, sw = false, hanabi = false) {
     let lc_base_atk = lc_dict_by_id['23012']['atk'];
 
     let total_base_atk = char_base_atk + lc_base_atk;
@@ -726,24 +888,40 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false) {
     let fuxuan_cd = fuxuan ? 30 : 0;
     let fuxuan_dmg_bonus = fuxuan ? (9 + 10) : 0;
 
+    let hanabi_skill_cd = hanabi ? 81.92 : 0; // 240CD,
+    let hanabi_s5_cd = hanabi ? 24 : 0;
+    let hanabi_s5_cr = hanabi ? 10 : 0;
+    let hanabi_penacony_dmg_bonus = hanabi ? 10 : 0;
+    let hanabi_talent_dmg_bonus = hanabi ? 48 : 0; // 16*3 talen with ULT
+    let hanabi_trace_atk_p = hanabi ? 45 : 0;
+    let hanabi_E1_atk_p = hanabi ? 25 : 0;
+    let hanabi_E2_def_ignore = hanabi ? 24 : 0;
+    
+    let sw_penacony_dmg_bonus = sw ? 10 : 0;
+    let sw_def_ignore = sw ? 61 : 0; // SW ULT 45 + pearls 16
+    let sup_res_shred = sw ? 10 : 0; // SW SKILL
     let stats = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
-        trace_atk_p: 28,
-        trace_cd_p: 24 + 30 + fuxuan_cd,
+        trace_atk_p: 28 + hanabi_trace_atk_p + hanabi_E1_atk_p,
+        trace_cd_p: 24 + fuxuan_cd + hanabi_skill_cd + hanabi_s5_cd,
         trace_spd_p: 25,
-        trace_cr_p: fuxuan_cr,
+        trace_cr_p: fuxuan_cr + hanabi_s5_cr,
+        trace_defshred: hanabi_E2_def_ignore + sw_def_ignore,
+        trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus,
     });
     let sltd_cr = sltd_eff_uptime_w_resurgence(stats.final_cr)
     stats = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
-        trace_atk_p: 28,
-        trace_cd_p: 24 + 30 + fuxuan_cd,
+        trace_atk_p: 28 + hanabi_trace_atk_p + hanabi_E1_atk_p,
+        trace_cd_p: 24 + fuxuan_cd + hanabi_skill_cd + hanabi_s5_cd,
         trace_spd_p: 25,
-        trace_cr_p: sltd_cr + fuxuan_cr,
+        trace_cr_p: fuxuan_cr + hanabi_s5_cr + sltd_cr,
+        trace_defshred: hanabi_E2_def_ignore + sw_def_ignore,
+        trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus,
     });
 
     let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
@@ -758,8 +936,8 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false) {
         skill_multiplier: skill_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     });
     let ult = damag.outgoing_dmg_2({
         scaling_attribute: stats.final_atk,
@@ -768,8 +946,8 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false) {
         skill_multiplier: ult_dmg_mult,
         def_ignore_p: stats.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
-        res_shred: 20,
-        enemylvl: 90
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
     })
     let score = 4 * skill + ult;
 
@@ -797,7 +975,13 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false) {
         ["SPD After Skill", damag.trim_after_decimal(stats.final_spd)]
     ];
     if (fuxuan) {
-        calcDetails.unshift(["E1S1 Penacony Fu Xuan in team", ""]);
+        calcDetails.unshift(["E1S1 Sig Penacony Fu Xuan", ""]);
+    }
+    if (sw) {
+        calcDetails.unshift(["E0S5 Pearls Penacony SW (bugs ignored)", ""]);
+    }
+    if (hanabi) {
+        calcDetails.unshift(["E2S1 240CD Sig Penacony Hanabi (80% skill uptime)", ""]);
     }
 
 

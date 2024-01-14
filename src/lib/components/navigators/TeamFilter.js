@@ -7,7 +7,7 @@ export function teamCategoriesCase(str) {
         case "1213":
             return ["Solo", "YK"];
         case "1102":
-            return ["Solo", "FX"];
+            return ["Solo", "FX", "MONOQ"];
         case "1204":
             return ["TY", "FXTY"];
         case "1302":

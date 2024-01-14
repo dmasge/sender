@@ -24,7 +24,7 @@
                                 <img
                                     style=""
                                     class="image_preview_container"
-                                    src={"https://raw.githubusercontent.com/Sinkira/sinkiresource/main/oyes/character_portrait/" +
+                                    src={"https://api.hakush.in/hsr/UI/avatardrawcard/" +
                                         leaderboard["charId"] +
                                         ".webp"}
                                     alt="Home"
