@@ -126,7 +126,7 @@
 <div
     style="background-color: rgba(0,0,0,0.3); padding:10px; border-radius: 5px; padding-top:5px;"
 >
-    <p style="text-align: center; margin:3px;">Substat Priority</p>
+    <p style="text-align: center; margin:3px;">Substat Priority For Current Bracket</p>
 
     <div
         style="display: flex; justify-content: space-between; width: 280px; margin:auto;"

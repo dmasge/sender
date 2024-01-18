@@ -18,6 +18,7 @@
     import CalcDetails from "./CalcDetails.svelte";
     import ChaseSubs from "./ChaseSubs.svelte";
     import BracketSelector from "./BracketSelector.svelte";
+    import PotentialBracketScores from "./PotentialBracketScores/PotentialBracketScores.svelte";
     export let selectedCategory;
     export let expanded = false;
     let isCalcsDone = false;
@@ -124,6 +125,7 @@
 
         {#if isNewFormat && selectedCategory}
             <ChaseSubs {build} {selectedCategory} />
+            <PotentialBracketScores {build} {selectedCategory}></PotentialBracketScores>
         {/if}
     </div>
 {/if}

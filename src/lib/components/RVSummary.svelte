@@ -131,6 +131,8 @@
         /* -ms-overflow-style: none; 
         scrollbar-width: none;  */
         overflow-x: auto; margin:auto; height:fit-content;
+        
+        width: 335px;
     }
     .fraction {
         text-align: center;
@@ -141,8 +143,5 @@
         font-size: 11.5px;
     }
 
-    .statsSummaryDiv {
-        width: 335px;
-    }
     
 </style>
