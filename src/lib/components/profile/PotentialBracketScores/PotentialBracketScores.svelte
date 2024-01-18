@@ -52,7 +52,7 @@
 
 {#if calcResults.length > 0}
     <p style="text-align: center; margin:3px;">
-        {"Potential Score With Same Relics For Other Brackets (WIP)"}
+        {"Potential Scores With Same Relics For Other Brackets (WIP)"}
     </p>
 
     <div class="horizontal-scroll">
@@ -70,6 +70,9 @@
                 ).toFixed(2)}
                 {#if calcBuild.frontScore[bracketName] != build.frontScore[bracketName]}
                     <div style="padding:3px; width: 60px;">
+                        <p style="text-align: center;">
+                            {(scoreChange > 0 ? "+" : "") + scoreChange + "%"}
+                        </p>
                         <img
                             src={starRailRes +
                                 "icon/light_cone/" +
@@ -106,7 +109,7 @@
         height: fit-content;
 
         width: 335px;
-        height: 75px;
+        height: 90px;
     }
     .horizontal-scroll::-webkit-scrollbar {
         height: 11px;
