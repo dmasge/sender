@@ -191,7 +191,7 @@ function E6S5_24000_OntheFallofanAeon(build) {
     let lc_cd = 0;
     let lc_cr = 0;
     let lc_hp_p = 0;
-    let lc_damage_bonus = 24; 
+    let lc_damage_bonus = 12; 
     let lc_dot_bonus = 0;
     let lc_ehr = 0;
     let lc_ult_damage_bonus = 0;
@@ -311,7 +311,7 @@ function E6S5_24000_OntheFallofanAeon(build) {
     ];
 
     let calcDetails = [
-        ["4 stacks, Weakness broken recently", ""],
+        ["4 stacks, Weakness broken 50% uptime", ""],
         ["Assumed Talent DMG bonus ", "63%"],
         ["Skill", String(Math.floor(skill_primary))],
         ["ULT", String(Math.floor(ult_primary))],

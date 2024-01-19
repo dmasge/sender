@@ -5,6 +5,7 @@
     import {
         GetBracketsInfo,
         FindMostSimilarBracket,
+        getEidolonSuperimposeFromBracketName,
     } from "$lib/components/profile/PotentialBracketScores/PotentialBracketScores.js";
 
     export let build;
@@ -14,9 +15,10 @@
     function getPotentialScores(build) {
         let charId = build.k;
         let brackets = GetBracketsInfo(charId);
-        for (let [coneId, value] of Object.entries(brackets)) {
+        for (let value of brackets) {
             let e = value.e;
             let s = value.s;
+            let coneId = value.id;
             let localbuild = CleanBuild(DeepCopyBuild(build));
             localbuild.e = e;
             localbuild.lc.s = s;
@@ -51,12 +53,14 @@
 </script>
 
 {#if calcResults.length > 0}
-    <p style="text-align: center; margin:3px;">
-        {"Potential Scores With Same Relics For Other Brackets (WIP)"}
+    <p style="text-align: center; margin:3px; margin-top:7px;">
+        {"Potential Scores With Same Relics For Other Brackets"}
     </p>
 
     <div class="horizontal-scroll">
-        <div style="display: flex; width:max-content; height: 35px;">
+        <div
+            style="display: flex; width:max-content; height: 35px; margin:auto;"
+        >
             {#each calcResults as calcBuild}
                 {@const bracketName = FindMostSimilarBracket(
                     selectedCategory,
@@ -68,10 +72,11 @@
                         1) *
                     100
                 ).toFixed(2)}
+                {@const textColor = scoreChange < 0 ? "red" : "yellow"}
                 {#if calcBuild.frontScore[bracketName] != build.frontScore[bracketName]}
-                    <div style="padding:3px; width: 60px;">
-                        <p style="text-align: center;">
-                            {(scoreChange > 0 ? "+" : "") + scoreChange + "%"}
+                    <div style="padding:3px; width: 60px; ">
+                        <p style="color:{textColor};">
+                            {(scoreChange >= 0 ? "+" : "") + scoreChange + "%"}
                         </p>
                         <img
                             src={starRailRes +
@@ -81,7 +86,12 @@
                             alt={"..."}
                             class="RelicImg avatar"
                         />
-                        <p style="text-align: center;">
+                        <p
+                            style="position:relative; color:{textColor}; margin-top:-9px; background-color:#1C063C;"
+                        >
+                            {getEidolonSuperimposeFromBracketName(bracketName)}
+                        </p>
+                        <p style="color:{textColor};">
                             {calcBuild.frontScore[bracketName]}
                         </p>
                     </div>
@@ -100,7 +110,8 @@
     p {
         margin: 0;
         color: rgb(255, 255, 72);
-        font-size: 12px;
+        font-size: 12.5px;
+        text-align: center;
     }
 
     .horizontal-scroll {
@@ -109,7 +120,7 @@
         height: fit-content;
 
         width: 335px;
-        height: 90px;
+        height: 105px;
     }
     .horizontal-scroll::-webkit-scrollbar {
         height: 11px;

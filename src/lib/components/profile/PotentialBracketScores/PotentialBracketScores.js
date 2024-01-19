@@ -1,16 +1,85 @@
 export function GetBracketsInfo(charId) {
-    if (charId == "1204") {
-        return { 23010 : { e: 0, s: 1 },
-                21027 : {e: 0, s: 1 },
-                21006 : {e: 0, s: 1},
-                21034 : {e: 0, s: 1},
-                21020 : {e: 0, s: 1},
-                23000 : {e: 0, s: 1}};
-    }
-    else {
-        return {};
+    if (charId == "1204") { // JING YUAN
+        return [
+            { id: 23010, e: 0, s: 1 },
+            { id: 21027, e: 0, s: 1 },
+            { id: 21006, e: 0, s: 1 },
+            { id: 21034, e: 0, s: 1 },
+            { id: 21020, e: 0, s: 1 },
+            { id: 23000, e: 0, s: 1 }
+        ];
+    } else if (charId == "1212") { // JINGLIU
+        return [
+            { id: 23014, e: 0, s: 1 },
+            { id: 24000, e: 0, s: 1 },
+            { id: 21012, e: 0, s: 1 },
+            { id: 21019, e: 0, s: 1 },
+            { id: 23002, e: 0, s: 1 }
+        ];
+    } else if (charId == "1003") { // HIMEKO
+        return [
+            { id: 23000, e: 0, s: 1 },
+            { id: 23010, e: 0, s: 1 },
+            { id: 21027, e: 0, s: 1 },
+            { id: 21013, e: 0, s: 1 },
+            { id: 21020, e: 0, s: 1 },
+            { id: 21006, e: 0, s: 1 },
+            { id: 21034, e: 0, s: 1 }
+        ];
+    } else if (charId == "1302") { // ARGENTI
+        return [
+            { id: 23000, e: 0, s: 1 },
+            { id: 23010, e: 0, s: 1 },
+            { id: 21027, e: 0, s: 1 },
+            { id: 21013, e: 0, s: 1 },
+            { id: 21020, e: 0, s: 1 },
+            { id: 21034, e: 0, s: 1 },
+            { id: 23018, e: 0, s: 1 },
+            { id: 23018, e: 6, s: 5 }
+        ];
+    } else if (charId == "1205") { // BLADE
+        return [
+            { id: 23009, e: 0, s: 1 },
+            { id: 23009, e: 2, s: 1 },
+            { id: 23009, e: 2, s: 5 },
+            { id: 21012, e: 0, s: 5 },
+            { id: 24000, e: 0, s: 5 },
+            { id: 23002, e: 0, s: 5 },
+            
+        ];
+    } else if (charId == "1008") { // ARLAN
+        return [
+            { id: 23009, e: 0, s: 1 },
+            { id: 23009, e: 0, s: 5 },
+            { id: 21012, e: 0, s: 5 },
+            { id: 24000, e: 0, s: 5 },
+            { id: 21019, e: 0, s: 5 },
+            
+        ];
+    } else if (charId == "1102") { // Seele
+        return [
+            { id: 23001, e: 0, s: 1 },
+            { id: 23001, e: 1, s: 1 },
+            { id: 23001, e: 2, s: 1 },
+            { id: 23001, e: 2, s: 5 },
+            { id: 24001, e: 1, s: 1 },
+            { id: 23012, e: 1, s: 1 },
+            { id: 21010, e: 1, s: 1 },
+        ];
+    } else if (charId == "1112") { // Topaz
+        return [
+            { id: 23016, e: 0, s: 1 },
+            { id: 23016, e: 0, s: 5 },
+            { id: 24001, e: 1, s: 1 },
+            { id: 21010, e: 2, s: 1 },
+            { id: 23012, e: 2, s: 5 },
+            { id: 21003, e: 1, s: 1 },
+        ];
+    } else {
+        return [];
     }
 }
+
 
 
 
@@ -108,4 +177,14 @@ export function FindMostSimilarBracket(mainBracket, potentialBrackets){
     let mostSimilarIndex = FindMostSimilarWordIndex(mainBracketFiltered, potentialBracketsFiltered);
 
     return potentialBrackets[mostSimilarIndex];
+}
+
+
+export function getEidolonSuperimposeFromBracketName(inputString) {
+    let index = inputString.indexOf("_");
+    if (index !== -1) {
+        return inputString.substring(0, index);
+    } else {
+        return inputString;
+    }
 }

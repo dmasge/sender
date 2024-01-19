@@ -499,6 +499,7 @@ function E0S1_23000_NightontheMilkyWay(build, hanya = false) {
     let calcDetails = [
         ['E6S5 Cogs Keel Tingyun', ""],
         ["Apotheosis stacks", "10×"],
+        ["Uptime on break", "50%"],
         ["Skill (st)", String(Math.floor(skill_primary))],
         ["Benediction", String(Math.floor(benediction_dmg_dealt))],
         ["Skill (st, TY ULT)", String(Math.floor(skill_primary_tingult))],

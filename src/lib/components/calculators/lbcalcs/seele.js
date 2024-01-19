@@ -13,39 +13,41 @@ export function score_seele(build, optimizationTarget) {
     let spd = 0;
     let lbstats = [];
     let calcDetails = [];
-
     if (optimizationTarget == "" || (optimizationTarget != "" && !optimizationTarget.includes("FX")))
+
         if (build['e'] >= 2 && "23001" == build['lc']['id'] && build['lc']['s'] >= 3) {
             breakpoints = ["", "200.1"];
             [score, spd, lbstats, calcDetails] = E2S5_23001_IntheNight(build);
             let ctgrname = 'E2S5_' + build['lc']['id'];
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if (build['e'] >= 2 && "23001" === build['lc']['id']) {
+        } else if (build['e'] >= 2 && "23001" == build['lc']['id']) {
             breakpoints = ["", "200.1"];
             [score, spd, lbstats, calcDetails] = E2S1_23001_IntheNight(build);
             let ctgrname = 'E2S1_' + build['lc']['id'];
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if (build['e'] == 1 && "23001" === build['lc']['id']) {
+        } else if (build['e'] == 1 && "23001" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E1S1_23001_IntheNight(build);
             let ctgrname = 'E1S1_' + build['lc']['id'];
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("23001" === build['lc']['id']) {
+        } else if ("23001" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S1_23001_IntheNight(build);
             let ctgrname = 'E0S1_' + build['lc']['id'];
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("24001" === build['lc']['id']) {
+        } else if ("24001" == build['lc']['id']) {
+            console.log("E " + build['e']);
+            console.log("ID " + build['lc']['id']);
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S5_24001_CruisingintheStellarSea(build);
             let ctgrname = 'E0S5_' + build['lc']['id'];
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("23012" === build['lc']['id']) {
+        } else if ("23012" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S1_23012_SleepLikeTheDead(build);
             let ctgrname = 'E0S1_' + build['lc']['id'];
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("21010" === build['lc']['id']) {
+        } else if ("21010" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S5_21010_Swordplay(build);
             let ctgrname = 'E0S5_' + build['lc']['id'];
@@ -58,32 +60,32 @@ export function score_seele(build, optimizationTarget) {
             [score, spd, lbstats, calcDetails] = E2S5_23001_IntheNight(build, true);
             let ctgrname = 'E2S5_' + build['lc']['id'] + "FX";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if (build['e'] >= 2 && "23001" === build['lc']['id']) {
+        } else if (build['e'] >= 2 && "23001" == build['lc']['id']) {
             breakpoints = ["", "200.1"];
             [score, spd, lbstats, calcDetails] = E2S1_23001_IntheNight(build, true);
             let ctgrname = 'E2S1_' + build['lc']['id'] + "FX";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if (build['e'] == 1 && "23001" === build['lc']['id']) {
+        } else if (build['e'] == 1 && "23001" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E1S1_23001_IntheNight(build, true);
             let ctgrname = 'E1S1_' + build['lc']['id'] + "FX";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("23001" === build['lc']['id']) {
+        } else if ("23001" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S1_23001_IntheNight(build, true);
             let ctgrname = 'E0S1_' + build['lc']['id'] + "FX";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("24001" === build['lc']['id']) {
+        } else if ("24001" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S5_24001_CruisingintheStellarSea(build, true);
             let ctgrname = 'E0S5_' + build['lc']['id'] + "FX";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("23012" === build['lc']['id']) {
+        } else if ("23012" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S1_23012_SleepLikeTheDead(build, true);
             let ctgrname = 'E0S1_' + build['lc']['id'] + "FX";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("21010" === build['lc']['id']) {
+        } else if ("21010" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S5_21010_Swordplay(build, true);
             let ctgrname = 'E0S5_' + build['lc']['id'] + "FX";
@@ -97,32 +99,32 @@ export function score_seele(build, optimizationTarget) {
             [score, spd, lbstats, calcDetails] = E2S5_23001_IntheNight(build, true, true, true);
             let ctgrname = 'E2S5_' + build['lc']['id'] + "MONOQ";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if (build['e'] >= 2 && "23001" === build['lc']['id']) {
+        } else if (build['e'] >= 2 && "23001" == build['lc']['id']) {
             breakpoints = ["", "200.1"];
             [score, spd, lbstats, calcDetails] = E2S1_23001_IntheNight(build, true, true, true);
             let ctgrname = 'E2S1_' + build['lc']['id'] + "MONOQ";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if (build['e'] == 1 && "23001" === build['lc']['id']) {
+        } else if (build['e'] == 1 && "23001" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E1S1_23001_IntheNight(build, true, true, true);
             let ctgrname = 'E1S1_' + build['lc']['id'] + "MONOQ";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("23001" === build['lc']['id']) {
+        } else if ("23001" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S1_23001_IntheNight(build, true, true, true);
             let ctgrname = 'E0S1_' + build['lc']['id'] + "MONOQ";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("24001" === build['lc']['id']) {
+        } else if ("24001" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S5_24001_CruisingintheStellarSea(build, true, true, true);
             let ctgrname = 'E0S5_' + build['lc']['id'] + "MONOQ";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("23012" === build['lc']['id']) {
+        } else if ("23012" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S1_23012_SleepLikeTheDead(build, true, true, true);
             let ctgrname = 'E0S1_' + build['lc']['id'] + "MONOQ";
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-        } else if ("21010" === build['lc']['id']) {
+        } else if ("21010" == build['lc']['id']) {
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S5_21010_Swordplay(build, true, true, true);
             let ctgrname = 'E0S5_' + build['lc']['id'] + "MONOQ";
