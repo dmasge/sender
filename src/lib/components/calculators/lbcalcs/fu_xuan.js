@@ -16,27 +16,27 @@ export function score_fuxuan(build) {
     let spd = 0;
     let lbstats = [];
     let calcDetails = [];
-    if ("23011" === build['lc']['id']) {
+    if ("23011" == build['lc']['id']) {
         [score, spd, lbstats, calcDetails] = E0S1_23011_sheAlreadyShutHerEyes(build);
         let err_rope = damag.is_using_err_rope(build);
         let ctgrname = 'E0S1_' + (err_rope ? "ERR" : "") + build['lc']['id'];
         build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("24002" === build['lc']['id']) {
+    } else if ("24002" == build['lc']['id']) {
         [score, spd, lbstats, calcDetails] = E0S5_24002_textureOfMemories(build);
         let err_rope = damag.is_using_err_rope(build);
         let ctgrname = 'E0S5_' + (err_rope ? "ERR" : "") + build['lc']['id'];
         build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("21009" === build['lc']['id']) {
+    } else if ("21009" == build['lc']['id']) {
         [score, spd, lbstats, calcDetails] = E0S5_21009_landausChoice(build);
         let err_rope = damag.is_using_err_rope(build);
         let ctgrname = 'E0S5_' + (err_rope ? "ERR" : "") + build['lc']['id'];
         build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("23005" === build['lc']['id']) {
+    } else if ("23005" == build['lc']['id']) {
         [score, spd, lbstats, calcDetails] = E0S1_23005_MomentOfVictory(build);
         let err_rope = damag.is_using_err_rope(build);
         let ctgrname = 'E0S1_' + (err_rope ? "ERR" : "") + build['lc']['id'];
         build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
-    } else if ("21002" === build['lc']['id']) {
+    } else if ("21002" == build['lc']['id']) {
         [score, spd, lbstats, calcDetails] = E0S5_21002_DayOneOfMyNewLife(build);
         let err_rope = damag.is_using_err_rope(build);
         let ctgrname = 'E0S5_' + (err_rope ? "ERR" : "") + build['lc']['id'];

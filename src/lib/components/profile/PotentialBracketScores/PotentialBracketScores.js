@@ -75,7 +75,35 @@ export function GetBracketsInfo(charId) {
             { id: 23012, e: 2, s: 5 },
             { id: 21003, e: 1, s: 1 },
         ];
-    } else {
+    } else if (charId == "1209") { // Yanqing
+        return [
+            { id: 23012, e: 0, s: 1 },
+            { id: 21024, e: 0, s: 1 },
+            { id: 24001, e: 0, s: 1 },
+            { id: 21010, e: 0, s: 1 },
+            { id: 23001, e: 0, s: 1 },
+        ];
+    } else if (charId == "1005") { // Kafka
+        return [
+            { id: 23006, e: 0, s: 1 },
+            { id: 23006, e: 1, s: 1 },
+            { id: 23006, e: 1, s: 5 },
+            { id: 21001, e: 0, s: 1 },
+            { id: 21022, e: 0, s: 1 },
+            { id: 23004, e: 0, s: 1 },
+            { id: 24003, e: 0, s: 1 },
+            { id: 21008, e: 0, s: 1 },
+        ];
+    } else if (charId == "1208") { // FuXuan
+        return [
+            { id: 23011, e: 0, s: 1 },
+            { id: 24002, e: 1, s: 1 },
+            { id: 21009, e: 1, s: 5 },
+            { id: 23005, e: 0, s: 1 },
+            { id: 21002, e: 0, s: 1 },
+        ];
+    } 
+    else {
         return [];
     }
 }

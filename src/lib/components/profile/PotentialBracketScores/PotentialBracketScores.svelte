@@ -72,13 +72,21 @@
                         1) *
                     100
                 ).toFixed(2)}
+                {@const spdChange = (
+                    (calcBuild.effSpd[bracketName] /
+                        build.effSpd[selectedCategory] -
+                        1) *
+                    100
+                ).toFixed(2)}
                 {@const textColor = scoreChange < 0 ? "red" : "yellow"}
+                {@const spdTextColor = spdChange < 0 ? "red" : "yellow"}
                 {#if calcBuild.frontScore[bracketName] != build.frontScore[bracketName]}
                     <div style="padding:3px; width: 60px; ">
                         <p style="color:{textColor};">
                             {(scoreChange >= 0 ? "+" : "") + scoreChange + "%"}
                         </p>
                         <img
+                            style="margin-bottom: -5px;"
                             src={starRailRes +
                                 "icon/light_cone/" +
                                 calcBuild.lc.id +
@@ -91,9 +99,17 @@
                         >
                             {getEidolonSuperimposeFromBracketName(bracketName)}
                         </p>
-                        <p style="color:{textColor};">
-                            {calcBuild.frontScore[bracketName]}
-                        </p>
+                        {#if calcBuild.effSpd[bracketName] !== build.effSpd[selectedCategory]}
+                            <div style="display: flex; margin:auto; padding-left: 8px;">
+                                <p style="color:{spdTextColor};">{calcBuild.effSpd[bracketName]}</p>
+                                <img
+                                    style="width: 14px; height:14px; padding:0;"
+                                    src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                                    alt="spd"
+                                />
+                            </div>
+                        {/if}
+                        
                     </div>
                 {/if}
             {/each}
@@ -105,7 +121,6 @@
     img {
         width: var(--CardAvatarLcSize);
         height: auto;
-        margin-bottom: -5px;
     }
     p {
         margin: 0;
