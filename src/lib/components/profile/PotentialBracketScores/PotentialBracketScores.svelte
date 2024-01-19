@@ -85,6 +85,11 @@
                         <p style="color:{textColor};">
                             {(scoreChange >= 0 ? "+" : "") + scoreChange + "%"}
                         </p>
+                        <p
+                            style="position:relative; color:{textColor};background-color:#1C063C;"
+                        >
+                            {calcBuild.frontScore[bracketName]}
+                        </p>
                         <img
                             style="margin-bottom: -5px;"
                             src={starRailRes +
@@ -99,9 +104,14 @@
                         >
                             {getEidolonSuperimposeFromBracketName(bracketName)}
                         </p>
+                        
                         {#if calcBuild.effSpd[bracketName] !== build.effSpd[selectedCategory]}
-                            <div style="display: flex; margin:auto; padding-left: 8px;">
-                                <p style="color:{spdTextColor};">{calcBuild.effSpd[bracketName]}</p>
+                            <div
+                                style="display: flex; margin:auto; padding-left: 8px;"
+                            >
+                                <p style="color:{spdTextColor};">
+                                    {calcBuild.effSpd[bracketName]}
+                                </p>
                                 <img
                                     style="width: 14px; height:14px; padding:0;"
                                     src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
@@ -109,7 +119,6 @@
                                 />
                             </div>
                         {/if}
-                        
                     </div>
                 {/if}
             {/each}
@@ -135,7 +144,7 @@
         height: fit-content;
 
         width: 335px;
-        height: 105px;
+        height: 120px;
     }
     .horizontal-scroll::-webkit-scrollbar {
         height: 11px;
