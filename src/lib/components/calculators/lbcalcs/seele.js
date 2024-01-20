@@ -761,7 +761,7 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false, sw = false, h
     let fuxuan_cd = fuxuan ? 30 : 0;
     let fuxuan_dmg_bonus = fuxuan ? (9 + 10) : 0;
 
-    let lc_atk_p = 40;
+    let lc_atk_p = 30;
     let lc_cr_p = 16;
     let hanabi_skill_cd = hanabi ? 73.872 : 0; // 240CD,
     let hanabi_s5_cd = hanabi ? 28 : 0;
@@ -834,8 +834,8 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false, sw = false, h
         enemylvl: 95
     })
 
-    let skill_avg = (skill_buffed_dmg_abv50 + skill_buffed_dmg_blv50) / 2
-    let ult_avg = (ult_buffed_dmg_abv50 + ult_buffed_dmg_blv50) / 2
+    let skill_avg = (0.6 * skill_buffed_dmg_abv50 + 0.4 *skill_buffed_dmg_blv50) 
+    let ult_avg = (0.6 * ult_buffed_dmg_abv50 + 0.4 * ult_buffed_dmg_blv50) 
     let score = 4 * skill_avg + ult_avg
 
     let stats_display = BuildStatsCalculatorNew({
@@ -855,11 +855,11 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false, sw = false, h
         ["SPD", damag.trim_after_decimal(stats_display.final_spd)]
     ];
     let calcDetails = [
-        ["ATK uptime", "100%"],
-        ["Skill average", String(Math.floor(skill_avg))],
-        ["Over 50% / under", String(Math.floor(skill_buffed_dmg_abv50)) + ' / ' + String(Math.floor(skill_buffed_dmg_blv50))],
-        ["ULT average", String(Math.floor(ult_avg))],
-        ["Over 50% / under", String(Math.floor(ult_buffed_dmg_abv50)) + ' / ' + String(Math.floor(ult_buffed_dmg_blv50))],
+        ["LC's ATK uptime", "75%"],
+        ["Skill weighted average", String(Math.floor(skill_avg))],
+        ["0.6×Over 50% HP + 0.4×Under", "0.6×" + String(Math.floor(skill_buffed_dmg_abv50)) + ' + ' + "0.4×" + String(Math.floor(skill_buffed_dmg_blv50))],
+        ["ULT weighted average", String(Math.floor(ult_avg))],
+        ["0.6×Over 50% + 0.4×under", "0.6×" + String(Math.floor(ult_buffed_dmg_abv50)) + ' + ' + "0.4×" + String(Math.floor(ult_buffed_dmg_blv50))],
 
         ["SPD After Skill", damag.trim_after_decimal(stats.final_spd)]
     ];
