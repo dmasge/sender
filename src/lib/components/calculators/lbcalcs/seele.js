@@ -36,8 +36,6 @@ export function score_seele(build, optimizationTarget) {
             let ctgrname = 'E0S1_' + build['lc']['id'];
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
         } else if ("24001" == build['lc']['id']) {
-            console.log("E " + build['e']);
-            console.log("ID " + build['lc']['id']);
             breakpoints = ["", "160.1", "171.5", "200.1"];
             [score, spd, lbstats, calcDetails] = E0S5_24001_CruisingintheStellarSea(build);
             let ctgrname = 'E0S5_' + build['lc']['id'];

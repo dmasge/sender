@@ -8,7 +8,7 @@ export async function handle({ event, resolve }) {
     const ip = event.getClientAddress();
 
     // Define the maximum number of requests and time window
-    const maxRequests = 10;
+    const maxRequests = 12;
     const windowMs = 10000;
 
     // Get the current count for the IP

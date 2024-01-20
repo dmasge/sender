@@ -7,6 +7,7 @@
         FindMostSimilarBracket,
         getEidolonSuperimposeFromBracketName,
     } from "$lib/components/profile/PotentialBracketScores/PotentialBracketScores.js";
+    import PotentialBracketEnergyDiff from "./PotentialBracketEnergyDiff.svelte";
 
     export let build;
     export let selectedCategory;
@@ -104,7 +105,7 @@
                         >
                             {getEidolonSuperimposeFromBracketName(bracketName)}
                         </p>
-                        
+
                         {#if calcBuild.effSpd[bracketName] !== build.effSpd[selectedCategory]}
                             <div
                                 style="display: flex; margin:auto; padding-left: 8px;"
@@ -119,6 +120,8 @@
                                 />
                             </div>
                         {/if}
+                        <PotentialBracketEnergyDiff {build} {calcBuild} {bracketName} {selectedCategory}
+                        ></PotentialBracketEnergyDiff>
                     </div>
                 {/if}
             {/each}
