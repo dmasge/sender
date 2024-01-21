@@ -21,7 +21,7 @@ export function score_build(build, optimizationTarget = "") {
         } else if (build['k'] === "1003") {
             return score_himeko(build);
         } else if (build['k'] === "1212") {
-            return score_jingliu(build);
+            return score_jingliu(build, optimizationTarget);
         } else if (build['k'] === "1205") {
             return score_blade(build);
         } else if (build['k'] === "1005") {

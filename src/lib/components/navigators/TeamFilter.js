@@ -12,12 +12,14 @@ export function teamCategoriesCase(str) {
             return ["TY", "FXTY"];
         case "1302":
             return ["TY", "TYHNYA"];
+        case "1212": // Jingliu
+            return ["PL", "PLFX"];
         default:
             return [];
     }
 }
 
-let bracketToHuman = { HUOGNF : "Huohuo & Guinaifen"}
-export function BracketToHumanLanguage(str){
-    
+let bracketToHuman = { HUOGNF: "Huohuo & Guinaifen" }
+export function BracketToHumanLanguage(str) {
+
 }
