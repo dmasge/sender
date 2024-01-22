@@ -125,7 +125,7 @@
 
         {#if isNewFormat && selectedCategory}
             <ChaseSubs {build} {selectedCategory} />
-            <PotentialBracketScores {build} {selectedCategory}></PotentialBracketScores>
+            <PotentialBracketScores {build} {selectedCategory} redirect={expanded}></PotentialBracketScores>
         {/if}
     </div>
 {/if}

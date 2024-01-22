@@ -11,6 +11,7 @@
 
     export let build;
     export let selectedCategory;
+    export let redirect;
     let calcResults = [];
 
     function getPotentialScores(build) {
@@ -82,47 +83,62 @@
                 {@const textColor = scoreChange < 0 ? "red" : "yellow"}
                 {@const spdTextColor = spdChange < 0 ? "red" : "yellow"}
                 {#if calcBuild.frontScore[bracketName] != build.frontScore[bracketName]}
-                    <div style="padding:3px; width: 60px; ">
-                        <p style="color:{textColor};">
-                            {(scoreChange >= 0 ? "+" : "") + scoreChange + "%"}
-                        </p>
-                        <p
-                            style="position:relative; color:{textColor};background-color:#1C063C;"
-                        >
-                            {calcBuild.frontScore[bracketName]}
-                        </p>
-                        <img
-                            style="margin-bottom: -5px;"
-                            src={starRailRes +
-                                "icon/light_cone/" +
-                                calcBuild.lc.id +
-                                extension}
-                            alt={"..."}
-                            class="RelicImg avatar"
-                        />
-                        <p
-                            style="position:relative; color:{textColor}; margin-top:-9px; background-color:#1C063C;"
-                        >
-                            {getEidolonSuperimposeFromBracketName(bracketName)}
-                        </p>
-
-                        {#if calcBuild.effSpd[bracketName] !== build.effSpd[selectedCategory]}
-                            <div
-                                style="display: flex; margin:auto; padding-left: 8px;"
+                    <a
+                        href={redirect
+                            ? "../../../lb/" + build["k"] + "/" + bracketName + "/1"
+                            : "./lb/" + build["k"] + "/" + bracketName + "/1"}
+                        style="pointer-events: 'none'; text-decoration: none;"
+                    >
+                        <div style="padding:3px; width: 60px; ">
+                            <p style="color:{textColor};">
+                                {(scoreChange >= 0 ? "+" : "") +
+                                    scoreChange +
+                                    "%"}
+                            </p>
+                            <p
+                                style="position:relative; color:{textColor};background-color:#1C063C;"
                             >
-                                <p style="color:{spdTextColor};">
-                                    {calcBuild.effSpd[bracketName]}
-                                </p>
-                                <img
-                                    style="width: 14px; height:14px; padding:0;"
-                                    src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
-                                    alt="spd"
-                                />
-                            </div>
-                        {/if}
-                        <PotentialBracketEnergyDiff {build} {calcBuild} {bracketName} {selectedCategory}
-                        ></PotentialBracketEnergyDiff>
-                    </div>
+                                {calcBuild.frontScore[bracketName]}
+                            </p>
+                            <img
+                                style="margin-bottom: -5px;"
+                                src={starRailRes +
+                                    "icon/light_cone/" +
+                                    calcBuild.lc.id +
+                                    extension}
+                                alt={"..."}
+                                class="RelicImg avatar"
+                            />
+                            <p
+                                style="position:relative; color:{textColor}; margin-top:-9px; background-color:#1C063C;"
+                            >
+                                {getEidolonSuperimposeFromBracketName(
+                                    bracketName,
+                                )}
+                            </p>
+
+                            {#if calcBuild.effSpd[bracketName] !== build.effSpd[selectedCategory]}
+                                <div
+                                    style="display: flex; margin:auto; padding-left: 8px;"
+                                >
+                                    <p style="color:{spdTextColor};">
+                                        {calcBuild.effSpd[bracketName]}
+                                    </p>
+                                    <img
+                                        style="width: 14px; height:14px; padding:0;"
+                                        src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/property/IconSpeed.png"
+                                        alt="spd"
+                                    />
+                                </div>
+                            {/if}
+                            <PotentialBracketEnergyDiff
+                                {build}
+                                {calcBuild}
+                                {bracketName}
+                                {selectedCategory}
+                            ></PotentialBracketEnergyDiff>
+                        </div></a
+                    >
                 {/if}
             {/each}
         </div>
