@@ -163,7 +163,7 @@
         height: fit-content;
 
         width: 335px;
-        height: 120px;
+        height: 125px;
     }
     .horizontal-scroll::-webkit-scrollbar {
         height: 11px;
