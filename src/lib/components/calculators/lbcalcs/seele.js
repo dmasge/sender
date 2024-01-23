@@ -129,7 +129,7 @@ export function score_seele(build, optimizationTarget) {
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
         }
 
-    if (optimizationTarget == "" || (optimizationTarget != "" && optimizationTarget.includes("F2P")))
+    if (optimizationTarget == "" || (optimizationTarget != "" && optimizationTarget.includes("FTPMONOQ")))
         if (build['e'] >= 2 && "23001" == build['lc']['id'] && build['lc']['s'] >= 3) {
             breakpoints = ["", "200.1"];
             [score, spd, lbstats, calcDetails] = E2S5_23001_IntheNight(build, true, true, true, true);
