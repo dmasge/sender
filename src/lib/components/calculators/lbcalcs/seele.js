@@ -303,7 +303,7 @@ function E2S5_23001_IntheNight(build, fuxuan = false, sw = false, hanabi = false
         if (f2p) {
             calcDetails.unshift(["E0S5 208CD Randevouz Penacony Hanabi (72% skill uptime, 2/3 ULT uptime)", ""]);
         } else {
-            calcDetails.unshift(["E2S1 240CD Sig Penacony Hanabi (72% skill uptime)", ""]);
+            calcDetails.unshift(["E2S5 260CD Sig Penacony Hanabi (72% skill uptime)", ""]);
         }
     }
 
