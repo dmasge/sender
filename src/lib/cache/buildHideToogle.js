@@ -20,21 +20,31 @@ export function isBuildHidden(build) {
     }
 }
 
+export function countHiddenBuilds(builds) {
+    let hiddenBuildsCount = 0;
+    for (let i = 0; i < builds.length; i++) {
+        if (isBuildHidden(builds[i])) {
+            hiddenBuildsCount++;
+        }
+    }
+    return hiddenBuildsCount;
+}
+
 export function toogleBuildHidden(build) {
     if (browser) {
         let key = build['k'];
         let uid = build['id'];
         let currVal = isBuildHidden(build);
         if (!currVal) {
-            let isUserSure = confirm("Are you sure you want to hide this build? \nyou may fail to find it later (unless toogle checkbox).");
+            let isUserSure = confirm("Are you sure you want to hide this build? \nTo see this build again, you'll have to toogle the checkbox at the top of the profile page and unhide.");
             if (isUserSure) {
-                isUserSure = confirm("Are you ABSOLUTELY sure about hiding the build? \nyou may have TROUBLE finding it later (unless toogle checkbox).");
-                if (isUserSure) {
-                } else {
-                    return currVal;
-                }
+                // isUserSure = confirm("Are you ABSOLUTELY sure about hiding the build? \nyou may have TROUBLE finding it later (unless toogle checkbox).");
+                // if (isUserSure) {
+                // } else {
+                // return currVal;
+                // }
             } else {
-                
+
                 return currVal;
             }
         }

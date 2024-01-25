@@ -6,9 +6,14 @@
     export let builds = [];
     import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
     import RosterTeammates from "./RosterTeammates.svelte";
-    import { isBuildHidden } from "$lib/cache/buildHideToogle.js";
+    import { isBuildHidden, countHiddenBuilds } from "$lib/cache/buildHideToogle.js";
     export let showAllBuildschecked = false;
     let sortedBuilds = [];
+    // $: hiddenBuildCount = countHiddenBuilds(sortedBuilds);
+    // $: buildsTotal = sortedBuilds.length;
+    // $: buildsShown = buildsTotal - hiddenBuildCount;
+    
+
 
     function sortBuilds(builds) {
         // Separate items with 'lb' and without 'lb'

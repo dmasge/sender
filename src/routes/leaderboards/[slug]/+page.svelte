@@ -9,6 +9,7 @@
         toogleBuildHidden,
         buildHideToogleWriteable,
         isBuildHidden,
+        countHiddenBuilds,
     } from "$lib/cache/buildHideToogle.js";
     import RelicsParent from "$lib/components/relics/RelicsParent.svelte";
     import Roster from "$lib/components/roster/Roster.svelte";
@@ -104,6 +105,14 @@
                     {prevUnixTimestamp}
                 />
             </div>
+            <div class="checkbox-container">
+                <p style="font-size: 14px;">{"Show hidden builds (" + countHiddenBuilds(builds) + ") "}</p>
+                <input
+                    type="checkbox"
+                    style="scale: 1.5;"
+                    bind:checked={showAllBuildschecked}
+                />
+            </div>
             {#if builds.length > 0}
                 <Roster {showAllBuildschecked} {builds} bind:selectedBuildK />
                 <div
@@ -136,14 +145,6 @@
                                             ? "Unhide build"
                                             : "Hide build"}
                                     </button>
-                                    <div class="checkbox-container">
-                                        <p style="font-size: 14px;">Show hidden builds:</p>
-                                        <input
-                                            type="checkbox"
-                                            style="scale: 1.5;"
-                                            bind:checked={showAllBuildschecked}
-                                        />
-                                    </div>
                                 </div>
                                 
                             {/if}
@@ -169,6 +170,9 @@
     }
     .checkbox-container {
         display: flex;
+        flex-direction: row;
         align-items: center;
+        justify-content: center;
+        margin-top: -10px;
     }
 </style>
