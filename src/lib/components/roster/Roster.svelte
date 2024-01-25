@@ -6,14 +6,15 @@
     export let builds = [];
     import { score_build } from "$lib/components/calculators/lbcalcs/score_builds.js";
     import RosterTeammates from "./RosterTeammates.svelte";
-    import { isBuildHidden, countHiddenBuilds } from "$lib/cache/buildHideToogle.js";
+    import {
+        isBuildHidden,
+        countHiddenBuilds,
+    } from "$lib/cache/buildHideToogle.js";
     export let showAllBuildschecked = false;
     let sortedBuilds = [];
     // $: hiddenBuildCount = countHiddenBuilds(sortedBuilds);
     // $: buildsTotal = sortedBuilds.length;
     // $: buildsShown = buildsTotal - hiddenBuildCount;
-    
-
 
     function sortBuilds(builds) {
         // Separate items with 'lb' and without 'lb'
@@ -93,13 +94,24 @@
                             {@const key = Object.keys(build["lb"])[0]}
                             {@const lbItem = build["lb"][key]}
                             {@const breakpoint = getSPD(key)}
-
-                            <p style="padding-top: 4px;">
-                                {lbItem["percrank"].charAt(0).toUpperCase() +
-                                    lbItem["percrank"].slice(1)}
-                            </p>
-                            <p style="padding: 1px;">
-                                {toKNotationFraction(lbItem["rank"])}
+                            {#if isBuildHidden(build)}
+                                <p style="text-align: center; font-size:25px;">
+                                    💤
+                                </p>
+                            {:else}
+                                <p style="padding-top: 4px;">
+                                    {lbItem["percrank"]
+                                        .charAt(0)
+                                        .toUpperCase() +
+                                        lbItem["percrank"].slice(1)}
+                                </p>
+                                <p style="padding: 1px;">
+                                    {toKNotationFraction(lbItem["rank"])}
+                                </p>
+                            {/if}
+                        {:else if isBuildHidden(build)}
+                            <p style="text-align: center; font-size:25px;">
+                                💤
                             </p>
                         {:else}
                             <p>
