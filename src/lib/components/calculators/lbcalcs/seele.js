@@ -167,6 +167,11 @@ export function score_seele(build, optimizationTarget) {
             build = assign_lb_to_build(build, ctgrname, score, lbstats, spd, breakpoints, calcDetails);
         }
 
+    for (let key in build.lb) {
+        if (key.includes("MONO")) {
+            delete build.lb[key];
+        }
+    }
     return build;
 }
 
