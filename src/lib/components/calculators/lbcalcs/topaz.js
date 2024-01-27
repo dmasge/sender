@@ -248,7 +248,7 @@ function E0S5_21003_OnlySilenceRemains(build, fuxuan = false, asta = false) {
 
     let lc_atk_p = 32;
     let lc_cd = 0;
-    let lc_cr = 24;
+    let lc_cr = 0;
     let lc_hp_p = 0;
     let lc_damage_bonus = 0;
     let lc_dot_bonus = 0;
@@ -394,7 +394,7 @@ function E0S5_21003_OnlySilenceRemains(build, fuxuan = false, asta = false) {
     ];
 
     let calcDetails = [
-        ["Assumes 2 or less enemies on field", ""],
+        ["Assumes 2+ enemies on the field", ""],
         ["FUA", String(Math.floor(fua_primary))],
         ["Enhanced FUA", String(Math.floor(efua_primary))],
     ];
@@ -776,7 +776,7 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false, asta = false)
     let total_base_atk = char_base_atk + lc_base_atk;
     let total_base_hp = char_base_hp + lc_base_hp;
 
-    let lc_atk_p = 40;
+    let lc_atk_p = 20;
     let lc_cd = 0;
     let lc_cr = 16;
     let lc_hp_p = 0;
@@ -946,7 +946,7 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false, asta = false)
     ];
 
     let calcDetails = [
-        ["Boat passive uptime", "100%"],
+        ["Boat passive uptime", "50%"],
         ["FUA Average", String(Math.floor((fua_primary_above_50 + fua_primary_below_50) / 2))],
         ["Over 50% / Under", String(Math.floor(fua_primary_above_50)) + " / " + String(Math.floor(fua_primary_below_50))],
         ["EFUA Average", String(Math.floor((efua_primary_above_50 + efua_primary_below_50) / 2))],
