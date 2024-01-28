@@ -9,16 +9,23 @@ async function getPlayer(uid){
 
     let url = `https://slprivate.azurewebsites.net/api/get_player_data?uid=${uid}`;
     let response = await fetch(url);
-    let jsonData = await response.json();
 
-    // Store the data in the cache
-    cache.set(uid, jsonData);
+    // Check if the fetch was successful
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+        let jsonData = await response.json();
 
-    // Set a timeout to delete the data from the cache after 10 seconds
-    setTimeout(() => { cache.delete(uid); }, 5 * 60 * 1000);
+        // Store the data in the cache
+        cache.set(uid, jsonData);
 
-    return jsonData;
+        // Set a timeout to delete the data from the cache after 5 min
+        setTimeout(() => { cache.delete(uid); }, 5 * 60 * 1000);
+
+        return jsonData;
+    }
 }
+
 
 async function refreshPlayer(uid) {
     await fetch(`https://slprivate.azurewebsites.net/api/upsert_player_data?uid=${uid}`);
@@ -44,9 +51,16 @@ export async function load({ params }) {
 
 export const actions = {
 	default: async ({ params }) => {
-        const uid = params.slug;
-        await refreshPlayer(uid);
-        const player = await getPlayer(uid);
-        return player;
+        try {
+            const uid = params.slug;
+            await refreshPlayer(uid);
+            const player = await getPlayer(uid);
+            return player;
+        } catch (error) {
+            console.log(error);
+            // Handle the error appropriately here
+            // Maybe return a default player object or throw an error
+        }
 	}
 };
+

@@ -14,7 +14,7 @@ border-bottom-right-radius: 25px; overflow: hidden;">
         </p>
         <p>HI3 NA SeeleLand <br />ID: 29400</p>
         <p>HI3 SEA SeeleLand <br /> ID: 1000007</p>
-        <p>EU Branch <br /> Name: Void_Stars <br /> ID: 31777</p>
+        <p>EU Branches <br /> Name: SEALY_MOLES <br /> ID: 52575 <br /> Name: Void_Stars <br /> ID: 31777</p>
         <p>
             BA NA Club <br /> Club Name: SeeleLand <br /> Leader: Seele <br /> ID:
             3007 <br/> Server: NA

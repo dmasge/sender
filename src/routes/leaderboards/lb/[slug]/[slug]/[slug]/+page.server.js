@@ -33,23 +33,27 @@ export async function load({ url }) {
 
         let fetch_url = `https://slprivate.azurewebsites.net/api/get_lb_data?k=${k}&ctgr=${ctgr}&page=${page}`;
         let response = await fetch(fetch_url);
-        let lbData = await response.json();
-        
-        let data = {
-            'k': k,
-            'charName' : charName,
-            'ctgr': ctgr,
-            'page': page,
-            'lbData': lbData
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        } else {
+            let lbData = await response.json();
+            
+            let data = {
+                'k': k,
+                'charName' : charName,
+                'ctgr': ctgr,
+                'page': page,
+                'lbData': lbData
+            }
+
+            // Store the data in the cache
+            cache.set(key, data);
+
+            // Set a timeout to delete the data from the cache after 6 sec
+            setTimeout(() => { cache.delete(key); }, 6 * 1000);
+
+            return data;
         }
-
-        // Store the data in the cache
-        cache.set(key, data);
-
-        // Set a timeout to delete the data from the cache after 5 minutes
-        setTimeout(() => { cache.delete(key); }, 10 * 1000);
-
-        return data;
     } catch (error) {
         console.log(error);
         throw redirect(307, '../../../err');
