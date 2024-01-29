@@ -49,8 +49,8 @@ export async function load({ url }) {
             // Store the data in the cache
             cache.set(key, data);
 
-            // Set a timeout to delete the data from the cache after 6 sec
-            setTimeout(() => { cache.delete(key); }, 6 * 1000);
+            // Set a timeout to delete the data from the cache after 15 sec
+            setTimeout(() => { cache.delete(key); }, 8 * 1000);
 
             return data;
         }
