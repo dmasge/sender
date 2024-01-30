@@ -846,7 +846,7 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false, sw = false, h
     let skill_dmg_mult = 220;
     let ult_dmg_mult = 425;
 
-    let lc_atk_p = 30;
+    let lc_atk_p = 24;
     let lc_cr_p = 16;
     let hanabi_skill_cd = hanabi ? (f2p ? 68.3424 : 73.872) : 0; // 240CD,
     let hanabi_s5_cd = hanabi && !f2p ? 28 : 0;
@@ -945,7 +945,7 @@ function E0S5_24001_CruisingintheStellarSea(build, fuxuan = false, sw = false, h
         ["SPD", damag.trim_after_decimal(stats_display.final_spd)]
     ];
     let calcDetails = [
-        ["LC's ATK uptime", "75%"],
+        ["LC's ATK uptime", "60%"],
         ["Skill weighted average", String(Math.floor(skill_avg))],
         ["0.55×Over 50% HP + 0.45×Under", "0.55×" + String(Math.floor(skill_buffed_dmg_abv50)) + ' + ' + "0.45×" + String(Math.floor(skill_buffed_dmg_blv50))],
         ["ULT weighted average", String(Math.floor(ult_avg))],
@@ -1001,7 +1001,7 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false, sw = false, hanabi =
     let sw_penacony_dmg_bonus = sw ? 10 : 0;
     let sw_def_ignore = sw ? 61 : 0; // SW ULT 45 + pearls 16
     let sup_res_shred = sw ? 10 : 0; // SW SKILL
-    let stats = BuildStatsCalculatorNew({
+    let stats_sltd_off = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
@@ -1012,8 +1012,8 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false, sw = false, hanabi =
         trace_defshred: hanabi_E2_def_ignore + sw_def_ignore,
         trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus,
     });
-    let sltd_cr = sltd_eff_uptime_w_resurgence(stats.final_cr)
-    stats = BuildStatsCalculatorNew({
+    let sltd_cr = 36;
+    let stats_sltd_on = BuildStatsCalculatorNew({
         build: build,
         base_atk: total_base_atk,
         base_spd: char_base_spd,
@@ -1025,32 +1025,55 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false, sw = false, hanabi =
         trace_damage_bonus: sw_penacony_dmg_bonus + hanabi_penacony_dmg_bonus + hanabi_talent_dmg_bonus,
     });
 
-    let elemental_dmg = stats.final_qua + fuxuan_dmg_bonus + stats.damage_bonus;
-    let skill_dmg_p = elemental_dmg + stats.skilldmg_p
-    let ult_dmg_p = elemental_dmg + stats.ultdmg_p;
-    let cr_avg = stats.final_cr;
+    let elemental_dmg = stats_sltd_on.final_qua + fuxuan_dmg_bonus + stats_sltd_on.damage_bonus;
+    let skill_dmg_p = elemental_dmg + stats_sltd_on.skilldmg_p
+    let ult_dmg_p = elemental_dmg + stats_sltd_on.ultdmg_p;
 
-    let skill = damag.outgoing_dmg_2({
-        scaling_attribute: stats.final_atk,
-        cr: cr_avg,
-        cd: stats.final_cd,
+    let skill_sltd_off = damag.outgoing_dmg_2({
+        scaling_attribute: stats_sltd_off.final_atk,
+        cr: stats_sltd_off.final_cr,
+        cd: stats_sltd_off.final_cd,
         skill_multiplier: skill_dmg_mult,
-        def_ignore_p: stats.defignore_p,
+        def_ignore_p: stats_sltd_off.defignore_p,
         dmg_bonus_p: skill_dmg_p + 80,
         res_shred: 20 + sup_res_shred,
         enemylvl: 95
     });
-    let ult = damag.outgoing_dmg_2({
-        scaling_attribute: stats.final_atk,
-        cr: cr_avg,
-        cd: stats.final_cd,
+    let skill_sltd_on = damag.outgoing_dmg_2({
+        scaling_attribute: stats_sltd_on.final_atk,
+        cr: stats_sltd_on.final_cr,
+        cd: stats_sltd_on.final_cd,
+        skill_multiplier: skill_dmg_mult,
+        def_ignore_p: stats_sltd_on.defignore_p,
+        dmg_bonus_p: skill_dmg_p + 80,
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
+    });
+    let skill_mid_attack = 0.3 * skill_sltd_off + 0.7 * skill_sltd_on;
+    let skill_avg = (skill_sltd_off + skill_sltd_on + skill_mid_attack) / 3;
+
+    let ult_sltd_on = damag.outgoing_dmg_2({
+        scaling_attribute: stats_sltd_on.final_atk,
+        cr: stats_sltd_on.final_cr,
+        cd: stats_sltd_on.final_cd,
         skill_multiplier: ult_dmg_mult,
-        def_ignore_p: stats.defignore_p,
+        def_ignore_p: stats_sltd_on.defignore_p,
         dmg_bonus_p: ult_dmg_p + 80,
         res_shred: 20 + sup_res_shred,
         enemylvl: 95
-    })
-    let score = 4 * skill + ult;
+    });
+    let ult_sltd_off = damag.outgoing_dmg_2({
+        scaling_attribute: stats_sltd_off.final_atk,
+        cr: stats_sltd_off.final_cr,
+        cd: stats_sltd_off.final_cd,
+        skill_multiplier: ult_dmg_mult,
+        def_ignore_p: stats_sltd_off.defignore_p,
+        dmg_bonus_p: ult_dmg_p + 80,
+        res_shred: 20 + sup_res_shred,
+        enemylvl: 95
+    });
+    let ult = 1/3 * ult_sltd_off + 2/3 * ult_sltd_on;
+    let score = 4 * skill_avg + ult;
 
 
     let stats_display = BuildStatsCalculatorNew({
@@ -1070,10 +1093,12 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false, sw = false, hanabi =
     ];
 
     let calcDetails = [
-        ["Avg CR w Resurgence", damag.trim_after_decimal(cr_avg) + "%"],
-        ["Skill avg", String(Math.floor(skill))],
-        ["ULT avg", String(Math.floor(ult))],
-        ["SPD After Skill", damag.trim_after_decimal(stats.final_spd)]
+        ["Skill (sltd ON after 2 hits)", String(Math.floor(skill_mid_attack))],
+        ["Skill (sltd ON)", String(Math.floor(skill_sltd_on))],
+        ["Skill (sltd OFF)", String(Math.floor(skill_sltd_off))],
+        ["Skill avg", String(Math.floor(skill_avg))],
+        ["ULT avg (2/3 sltd uptime)", String(Math.floor(ult))],
+        ["SPD After Skill", damag.trim_after_decimal(stats_sltd_on.final_spd)]
     ];
     if (fuxuan) {
         if (f2p) {
@@ -1094,26 +1119,8 @@ function E0S1_23012_SleepLikeTheDead(build, fuxuan = false, sw = false, hanabi =
     }
 
 
-    return [Math.floor(score), stats.final_spd, lbstats, calcDetails];
+    return [Math.floor(score), stats_sltd_on.final_spd, lbstats, calcDetails];
 
 }
 
-
-
-function sltd_eff_uptime_w_resurgence(cr) {
-    cr = Math.min(Math.max(cr, 5), 100);
-    let x = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100];
-    let y = [27, 26.5, 26, 25.5, 25, 24, 23, 22, 21, 19, 18, 16, 14, 11, 8, 5, 3, 1, 0.5, 0];
-    for (let i = 0; i < x.length - 1; i++) {
-        if (x[i] <= cr && cr <= x[i + 1]) {
-            let slope = (y[i + 1] - y[i]) / (x[i + 1] - x[i]);
-            let cr_b4_resurg = (y[i] + slope * (cr - x[i]));
-            let sltd_uptime = 2 / 3;
-            let prob_resurgence_during_uptime = 2 / 3;
-            let cr_w_resurg = cr_b4_resurg * 3 / 4 + (cr_b4_resurg + cr_b4_resurg * sltd_uptime * prob_resurgence_during_uptime) * 1 / 4;
-            return cr_w_resurg;
-        }
-    }
-    return 0;
-}
 

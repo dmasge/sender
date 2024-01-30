@@ -20,7 +20,7 @@ async function getPlayer(uid){
         cache.set(uid, jsonData);
 
         // Set a timeout to delete the data from the cache after 5 min
-        setTimeout(() => { cache.delete(uid); }, 5 * 60 * 1000);
+        setTimeout(() => { cache.delete(uid); }, 0.5 * 60 * 1000);
 
         return jsonData;
     }

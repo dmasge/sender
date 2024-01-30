@@ -21,10 +21,7 @@
 		async
 		src="https://www.googletagmanager.com/gtag/js?id=G-RDYGGB43F6"
 	></script>
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1701767758741248"
-     crossorigin="anonymous"></script>
 </svelte:head>
-
 
 <div class="main-layout">
 	<div class="mainchild-layout">
