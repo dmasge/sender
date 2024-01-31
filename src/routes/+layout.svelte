@@ -17,8 +17,7 @@
 </script>
 
 <svelte:head>
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1701767758741248"
-     crossorigin="anonymous"></script>
+	<script src="https://alwingulla.com/88/tag.min.js" data-zone="39881" async data-cfasync="false"></script>
 	<script
 		async
 		src="https://www.googletagmanager.com/gtag/js?id=G-RDYGGB43F6"
